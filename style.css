@@ -1,0 +1,2210 @@
+/* =================================== LocalEase - Main CSS ==================================================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* =========================================== HEADER ========================================================================= */
+
+header {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color:white;
+    padding: 25px 8%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+}
+
+header > p {
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+/* ============================================= NAVIGATION =======================================================*/
+
+nav {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+
+    padding: 8px 12px;
+
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: white;
+    color: #0f766e;
+    border-radius: 6px;
+}
+
+/* ============================================ MAIN ===================================================== */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin:auto;
+}
+
+/* =========================================== HERO SECTION ==============================================*/
+
+main > section:first-child {
+    background: linear-gradient(
+        135deg,
+        #ccfbf1,
+        #ecfeff
+    );
+
+    margin-top: 35px;
+    padding: 70px 30px;
+
+    text-align: center;
+
+    border-radius: 20px;
+}
+
+main > section:first-child h2 {
+    font-size: 42px;
+    color: #115e59;
+    margin-bottom: 10px;
+}
+
+main > section:first-child p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* ============================================== SEARCH FORM ================================================== */
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+    max-width: 900px;
+    margin: auto;
+}
+
+/* ======================== OVERRIDE GLOBAL FORM STYLING FOR PROVIDER ============================================= */
+
+.provider-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: none;
+    margin: 0;
+    gap: 19px;
+}
+
+
+
+form input {
+    flex: 1;
+
+    padding: 15px 18px;
+
+    border:1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline:none;
+
+}
+
+form input:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px  rgba(20,184,166,0.15);
+}
+
+button {
+    border: none;
+    cursor: pointer;
+
+    background-color: #0f766e;
+    color: white;
+
+    padding: 14px 22px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #115e59;
+    transform: translateY(-2px);
+}
+
+/* =================================== ALL MAIN SECTION ===========================================================*/
+
+main > section {
+    margin-top: 70px;
+}
+main > section h2 {
+    text-align: center;
+
+    font-size: 30px;
+
+    color: #115e59;
+
+    margin-bottom: 30px;
+}
+
+/* ======================================== POPULAR SERVICES ==================================================== */
+
+main > section:nth-child(2) > div {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+}
+
+/* ========================================= SERVICE CARDS ========================================================= */
+
+article {
+    background-color: white;
+
+    padding: 30px 20px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+article:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.012);
+}
+
+article h3 {
+    font-size: 21px;
+
+    color: #0f766e;
+
+    margin-bottom: 10px;
+}
+
+article p {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+/* =============================== HOW LOCALEASE WORKS ============================================================*/
+
+main > section:nth-child(3) {
+    background-color: white;
+
+    padding: 50px 30px;
+
+    border-radius: 18px;
+}
+
+main > section:nth-child(3) ol {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 30px;
+
+    list-style: none;
+
+    counter-reset: steps;
+}
+
+main > section:nth-child(3) li {
+    text-align: center;
+
+    padding: 25px;
+
+    background-color: #f0fdfa;
+
+    border-radius: 12px;
+
+    counter-increment: steps;
+}
+
+main > section:nth-child(3)
+li::before {
+    content: counter(steps);
+
+    display:flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+
+    margin: 0 auto 15px;
+
+    background-color: #0f766e;
+
+    color:white;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+
+main > section:nth-child(3) li h3 {
+    color: #115e59;
+
+    margin-bottom: 8px;
+
+}
+
+main > section:nth-child(3) li p {
+    color: #666;
+}
+
+/* ========================================= SERVICE PROVIDER SECTION =====================================================*/
+
+main > section:nth-child(4) {
+    background: linear-gradient(135deg,#115e59,#0f766e
+    );
+
+    color: white;
+
+    padding: 60px 30px;
+
+    text-align: center;
+
+    border-radius: 18px;
+}
+
+main > section:nth-child(4) h2 {
+    color: white;
+
+    margin-bottom: 15px;
+}
+
+main > section:nth-child(4) p {
+    font-size: 17px;
+}
+
+main > section:nth-child(4)
+button:hover {
+    background-color: #f0fdfa;
+}
+
+/* =============================================== FOOTER =========================================================*/
+
+footer {
+    margin-top: 70px;
+
+    background-color: #102a2a;
+
+    color:white;
+
+    text-align: center;
+
+    padding: 40px 20px;
+}
+
+footer h3 {
+    font-size: 25px;
+
+    color: #5eead4;
+
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #cbd5e1;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+}
+
+/* =========================================== RESPONSIVE DESIGN =====================================================*/
+
+/* =================================TABLET ================================*/
+
+@media (max-width: 900px)  {
+
+    main > section:nth-child(2) > div
+    {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+    main > section:nth-child(3) ol {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        flex-direction: column;
+    }
+    form input,
+    form button {
+        width: 100%;
+    }
+}
+
+/* ================================================ MOBILE ========================================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    main {
+        width: 92%;
+    }
+    main > section:first-child {
+        padding: 45px 20px;
+    }
+    main > section:first-child h2 {
+        font-size: 30px;
+    }
+    main > section:first-child p {
+        font-size: 16px;
+    }
+    main > section:nth-child(2) > div
+    {
+        grid-template-columns: 1fr;
+    }
+    main > section h2 {
+        font-size: 26px;
+    }
+    footer {
+        margin-top: 50px;
+    }
+}
+
+/* =========================================== BOOKING PAGE ================================================= */
+/* =========================================== BOOKING INTRO ====================================================*/
+
+.booking-intro {
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+.booking-intro h2 {
+    margin-top: 15px;
+}
+
+.booking-intro > p:last-child {
+    color: #666;
+}
+
+/* ============================================ BREADCRUMB ========================================================= */
+
+.breadcrumb {
+    font-size: 14px;
+    color: #777;
+}
+
+.breadcrumb a {
+    color: #0f766e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* =============================================== SELECTED SERVICE =================================================== */
+
+.selected-service {
+    max-width: 900px;
+    margin: 30px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.provider-card {
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30 px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.provider-card h3 {
+    color: #0f766e;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.provider-card p {
+    margin-bottom: 8 px;
+    color: #555;
+}   
+
+/* ============================================== BOOKING FORM SECTION ============================================ */
+
+.booking-form-section {
+    max-width: 850px;
+    margin: 60px auto 0;
+    background-color: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.booking-form-section h2 {
+    margin-bottom: 30px;
+}
+
+/* =============================================== FORM =========================================================== */
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ============================================== FORM GROUP ===================================================== */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* =============================================== LABEL ========================================================== */
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* ================================================ INPUT / SELECT / TEXTAREA ======================================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* ================================================ FOCUS EFFECT =================================================== */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #0f766e;
+
+    box-shadow: 0 0 0 3px rgba(20,184,166,0.15);
+
+}
+
+/* ================================================ TEXTAREA ======================================================== */
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* =========================================== CONFIRM BUTTON ======================================================== */
+
+.confirm-booking-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* =============================================== WHAT HAPPENS NEXT ================================================= */
+
+.booking-info {
+    max-width: 900px;
+    margin: 60px auto 0;
+    background-color: white;
+    padding: 40px;
+    border-radius: 18px;
+
+}
+
+.booking-info ol {
+    list-style: none;
+    list-style-type: none;
+
+    counter-reset: booking-step;
+
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.booking-info li {
+    counter-increment: booking-step;
+    text-align: center;
+    padding: 25px 15px;
+    background-color: #f0fdfa;
+    border-radius: 12px;
+}
+
+/* =============================================== NUMBER CIRCLE ===================================================== */
+
+.booking-info li::before {
+    content: counter(booking-step);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 15px;
+    background-color: #0f766e;
+    color: white;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.booking-info li strong {
+    display: block;
+    color: #115e59;
+    margin-bottom: 8px;
+}
+
+.booking-info li p {
+    color: #666;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ================================================= BACK BUTTON =======================================================*/
+
+.back-section {
+    text-align: center;
+    margin: 40px auto 60px;
+}
+
+.back-section a {
+    color: #0f766e;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-section a:hover {
+    text-decoration: underline;
+}
+
+/* ================================================= BOOKING PAGE MOBILE ================================================ */
+
+@media (max-width: 900px) {
+
+    .booking-info ol {
+
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .booking-form-section,
+    .booking-info {
+
+        padding: 25px 20px;
+    }
+    .booking-info ol {
+
+        grid-template-columns: 1fr;
+    }
+
+    .provider-card {
+
+        padding: 25px 20px;
+    }
+}
+
+/* ============================================= LOGIN PAGE FIX ====================================================== */
+
+.login-section {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.login-card h2 {
+    text-align: center;
+    color: #0f766e;
+    margin-bottom: 8px;
+}
+
+.login-subtitle {
+    text-align: center;
+    color:#666;
+    margin-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+.login-form .form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+
+.login-form .form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.login-options label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+}
+
+
+.login-options a {
+    color: #0f766e;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0f766e;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.signup-text {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.signup-text a {
+    color: #0f766e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ==================================================== SIGN UP PAGE ========================================================= */
+
+
+/* ---------- SIGNUP SECTION ---------- */
+
+.signup-section {
+
+    max-width: 600px;
+
+    margin: 40px auto 70px;
+
+    padding: 40px;
+
+    background-color: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* ---------- SIGNUP HEADING ---------- */
+
+.signup-section h2 {
+
+    text-align: center;
+
+    color: #0f766e;
+
+    margin-top: 0;
+
+    margin-bottom: 8px;
+
+    font-size: 28px;
+}
+
+
+/* ---------- SUBTITLE ---------- */
+
+.signup-subtitle {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+    font-size: 15px;
+}
+
+
+/* ---------- SIGNUP FORM ---------- */
+
+.signup-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 19px;
+}
+
+
+/* ---------- FORM GROUP ---------- */
+
+.signup-form .form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* ---------- LABEL ---------- */
+
+.signup-form .form-group label {
+
+    font-weight: bold;
+
+    color: #333;
+
+    font-size: 15px;
+}
+
+
+/* ---------- INPUT & SELECT ---------- */
+
+.signup-form input,
+.signup-form select {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background-color: white;
+
+    transition: 0.3s;
+}
+
+
+/* ---------- FOCUS EFFECT ---------- */
+
+.signup-form input:focus,
+.signup-form select:focus {
+
+    border-color: #0f766e;
+
+    box-shadow:
+        0 0 0 3px rgba(20, 184, 166, 0.15);
+}
+
+
+/* ---------- TERMS ---------- */
+
+.terms-group {
+
+    margin-top: 2px;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+.terms-group label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+}
+
+.terms-group input {
+
+    width: auto;
+
+    accent-color: #0f766e;
+}
+
+
+/* ---------- CREATE ACCOUNT BUTTON ---------- */
+
+.signup-btn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 5px;
+
+    background-color: #0f766e;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.signup-btn:hover {
+
+    background-color: #115e59;
+
+    transform: translateY(-1px);
+}
+
+
+/* ---------- LOGIN LINK ---------- */
+
+.signup-login-link {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #666;
+
+    font-size: 15px;
+}
+
+
+.signup-login-link a {
+
+    color: #0f766e;
+
+    font-weight: bold;
+
+    text-decoration: none;
+}
+
+
+.signup-login-link a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================SIGNUP MOBILE ========================================================= */
+
+@media (max-width: 600px) {
+
+    .signup-section {
+
+        margin: 30px 15px 50px;
+
+        padding: 30px 20px;
+
+    }
+
+    .signup-section h2 {
+
+        font-size: 24px;
+
+    }
+
+}
+
+/* =========================================== PROVIDER PAGE ======================================================== */
+
+/* =========================================== PROVIDER INTRO ======================================================== */
+
+.provider-intro {
+    text-align: center;
+    padding: 40px 20px 25px;
+}
+
+.provider-intro h2 {
+    margin-top: 15px;
+    color: #0f766e;
+}
+
+.provider-intro > p:last-child {
+    color: #666;
+    max-width: 650px;
+    margin: 10px auto 0;
+    line-height: 1.6;
+}
+
+/* ================================ PROVIDER FORM SECTION ============================================================ */
+
+.provider-section {
+    max-width: 650px;
+    margin: 30px auto 70px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.provider-section h2 {
+    text-align: center;
+    color: #0f766e;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.provider-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* ====================================== PROVIDER FORM =============================================================== */
+
+.provider-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: none;
+    margin: 0;
+    gap: 19px;
+}
+
+
+/* ======================================== FORM GROUP ================================================================== */
+
+.provider-form  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* =========================================== LABEL =================================================================== */
+
+.provider-form  .form-group label {
+    font-weight: bold;
+    color: #333;
+    font-size: 15px;
+}
+
+/* =============================================== INPUT/SELECT/TEXTAREA ================================================= */
+
+.provider-form input,
+.provider-form select,
+.provider-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* ============================================== FOCUS EFFECT ============================================================ */
+
+.provider-form input:focus,
+.provider-form select:focus,
+.provider-form textarea:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
+}
+
+/* ================================================ TEXTAREA ============================================================== */
+
+.provider-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* ================================================ PROVIDER TERMS ======================================================== */
+
+.provider-terms {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.provider-terms label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin: 0;
+}
+
+
+.provider-terms input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    margin: 0;
+}
+
+/* ================================================= REGISTER BUTTON ===================================================== */
+
+.provider-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.provider-btn:hover {
+    background-color: #115e59;
+    transform: translate(-1px);
+}
+
+/* ==================================================== WHY JOIN LOCALEASE ================================================== */
+
+.provider-benefits {
+    max-width: 1000px;
+    margin: 0 auto 70px;
+    padding: 0 20px;
+}
+
+.provider-benefits > h2 {
+    text-align: center;
+    color: #0f766e;
+    margin-bottom: 30px;
+}
+
+
+/* ============================================= BENEFIT GRID ============================================================== */
+
+.benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+
+/* ============================================== BENEFIT CARD ============================================================== */
+
+.benefit-grid article {
+    background-color: white;
+    padding: 25px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    transition: 0.3s;
+}
+
+.benefit-grid article:hover {
+    transform: translate(-4px);
+}
+
+.benefit-grid h3 {
+    color: #115e59;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.benefit-grid p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ================================================== PROVIDER PAGE MOBILE ================================================ */
+
+@media (max-width: 800px) {
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .provider-section {
+        margin: 25px 15px 50px;
+        padding: 30px 20px;
+    }
+
+    .provider-intro {
+        padding: 30px 15px 20px;
+    }
+
+    .provider-intro h2 {
+        font-size: 24px;
+    }
+
+    .provider-benefits {
+        padding: 0 15px;
+    }
+}
+
+
+/* ================================== PROVIDER DASHBOARD HEADER ========================================================= */
+
+body > header {
+    width: 100%;
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    color: white;
+    padding: 25px 8%;
+    text-align: center;
+}
+
+body > header h1 {
+    font-size: 42px;
+    margin: 0 0 5px;
+    letter-spacing: 1px;
+}
+
+body > header > p {
+    font-size: 17px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+body > header nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+body > header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px;
+}
+
+
+/* ================================ PROVIDER DASHBOARD - MAIN CONTENT ================================================= */
+
+
+/* ========================= DASHBOARD INTRO ========================= */
+
+.dashboard-intro {
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+.dashboard-intro h2 {
+    margin-top: 15px;
+    color: #0f766e;
+    font-size: 30px;
+}
+
+.dashboard-intro > p:last-child {
+    color: #666;
+    margin-top: 8px;
+}
+
+
+/* ========================= DASHBOARD STATS ========================= */
+
+.dashboard-stats {
+    margin-top: 35px;
+}
+
+.dashboard-stats > h2,
+.booking-requests > h2,
+.upcoming-bookings > h2,
+.quick-actions > h2 {
+    text-align: center;
+    color: #115e59;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+
+/* ========================= STATS GRID ========================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ========================= STAT CARD ========================= */
+
+.stat-card {
+    background-color: white;
+
+    padding: 25px 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h3 {
+    color: #0f766e;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
+}
+
+.stat-number {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #115e59;
+
+    margin-bottom: 8px;
+}
+
+.stat-card p:last-child {
+    color: #666;
+
+    font-size: 14px;
+
+    margin: 0;
+}
+
+
+/* ========================= BOOKING REQUESTS ========================= */
+
+.booking-requests {
+    margin-top: 70px;
+}
+
+
+/* ========================= REQUEST GRID ========================= */
+
+.booking-request-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+
+/* ========================= REQUEST CARD ========================= */
+
+.request-card {
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.request-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.request-card h3 {
+    color: #0f766e;
+
+    font-size: 21px;
+
+    margin-bottom: 18px;
+}
+
+.request-card p {
+    color: #555;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.request-card strong {
+    color: #333;
+}
+
+
+/* ========================= REQUEST BUTTONS ========================= */
+
+.request-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.request-actions button {
+    flex: 0 1 180px;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+
+.request-actions button:first-child {
+    background-color: #f0fdfa;
+    color: #115e59;
+    border: 1px solid #99f6e4;
+}
+
+.request-actions button:first-child:hover {
+    background-color: #ccfbf1;
+    color: #115e59;
+}
+
+/* ========================= REJECT BUTTON ========================= */
+
+.request-actions .reject-btn {
+    background-color: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.request-actions .reject-btn:hover {
+    background-color: #fecaca;
+
+    color: #991b1b;
+}
+
+
+/* ========================= UPCOMING BOOKINGS ========================= */
+
+.upcoming-bookings {
+    margin-top: 70px;
+}
+
+
+/* ========================= UPCOMING CARD ========================= */
+
+.upcoming-card {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    background-color: white;
+
+    padding: 25px 30px;
+
+    margin-bottom: 18px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.upcoming-card h3 {
+    color: #0f766e;
+
+    margin-bottom: 8px;
+
+    font-size: 19px;
+}
+
+.upcoming-card p {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+
+
+/* ========================= BOOKING STATUS ========================= */
+
+.booking-status {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 6px 12px;
+
+    background-color: #ccfbf1;
+
+    color: #115e59;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* ========================= QUICK ACTIONS ========================= */
+
+.quick-actions {
+    margin-top: 70px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ========================= ACTION GRID ========================= */
+
+.action-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ========================= ACTION CARD ========================= */
+
+.action-grid article {
+    background-color: white;
+
+    padding: 30px 20px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
+}
+
+.action-grid article:hover {
+    transform: translateY(-5px);
+}
+
+.action-grid h3 {
+    color: #0f766e;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+.action-grid p {
+    color: #666;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+.action-grid button {
+    padding: 11px 18px;
+}
+
+
+/* ========================= BACK SECTION ========================= */
+
+.back-section {
+    text-align: center;
+
+    margin: 45px auto 60px;
+}
+
+.back-section a {
+    color: #0f766e;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.back-section a:hover {
+    text-decoration: underline;
+}
+
+
+/* ======================================== PROVIDER DASHBOARD RESPONSIVE ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .action-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .booking-request-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upcoming-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .action-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .dashboard-intro {
+        padding: 35px 15px 20px;
+    }
+
+    .dashboard-intro h2 {
+        font-size: 25px;
+    }
+
+    .dashboard-stats > h2,
+    .booking-requests > h2,
+    .upcoming-bookings > h2,
+    .quick-actions > h2 {
+        font-size: 24px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .request-card {
+        padding: 25px 20px;
+    }
+
+    .upcoming-card {
+        padding: 22px 20px;
+    }
+
+    .request-actions {
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================================
+   BOOKING STATUS PAGE
+   ========================================================= */
+
+
+/* ========================= PAGE INTRO ========================= */
+
+.booking-status-intro {
+    text-align: center;
+    padding: 45px 20px 25px;
+}
+
+.booking-status-intro h2 {
+    color: #0f766e;
+    font-size: 32px;
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.booking-status-intro > p:last-child {
+    color: #666;
+}
+
+
+/* ========================= MAIN STATUS CARD ========================= */
+
+.status-card {
+    max-width: 900px;
+    margin: 35px auto 0;
+
+    background-color: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* ========================= STATUS HEADER ========================= */
+
+.status-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.booking-id {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+}
+
+.booking-id strong {
+    color: #0f766e;
+}
+
+.status-header h2 {
+    color: #115e59;
+
+    font-size: 27px;
+
+    margin: 0;
+}
+
+
+/* ========================= STATUS BADGE ========================= */
+
+.status-badge {
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.status-badge.pending {
+    background-color: #fef3c7;
+
+    color: #92400e;
+}
+
+
+/* ========================= PROVIDER DETAILS ========================= */
+
+.status-provider {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background-color: #f8fafc;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.status-provider h3,
+.booking-details h3,
+.status-timeline h3 {
+    color: #115e59;
+
+    font-size: 20px;
+
+    margin-bottom: 18px;
+}
+
+.status-provider p {
+    color: #555;
+
+    font-size: 14px;
+
+    margin-bottom: 8px;
+}
+
+.status-provider strong {
+    color: #333;
+}
+
+
+/* ========================= BOOKING DETAILS ========================= */
+
+.booking-details {
+    margin-top: 35px;
+}
+
+.details-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.details-grid > div {
+    background-color: #f8fafc;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.details-grid span {
+    display: block;
+
+    color: #777;
+
+    font-size: 13px;
+
+    margin-bottom: 5px;
+}
+
+.details-grid strong {
+    color: #333;
+
+    font-size: 15px;
+}
+
+
+/* ========================= STATUS TIMELINE ========================= */
+
+.status-timeline {
+    margin-top: 40px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.timeline {
+    position: relative;
+
+    margin-top: 25px;
+}
+
+
+/* ========================= TIMELINE STEP ========================= */
+
+.timeline-step {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding-bottom: 28px;
+}
+
+
+/* ========================= TIMELINE CONNECTING LINE ========================= */
+
+.timeline-step:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    left: 18px;
+
+    top: 42px;
+
+    width: 2px;
+
+    height: calc(100% - 20px);
+
+    background-color: #d1d5db;
+}
+
+
+/* ========================= TIMELINE ICON ========================= */
+
+.timeline-icon {
+    position: relative;
+
+    z-index: 2;
+
+    flex-shrink: 0;
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background-color: #e5e7eb;
+
+    color: #6b7280;
+
+    border-radius: 50%;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* ========================= ACTIVE TIMELINE ========================= */
+
+.timeline-step.active .timeline-icon {
+    background-color: #0f766e;
+
+    color: white;
+}
+
+.timeline-step.active:not(:last-child)::after {
+    background-color: #14b8a6;
+}
+
+
+/* ========================= TIMELINE CONTENT ========================= */
+
+.timeline-content {
+    padding-top: 3px;
+}
+
+.timeline-content h4 {
+    color: #333;
+
+    font-size: 16px;
+
+    margin-bottom: 5px;
+}
+
+.timeline-content p {
+    color: #777;
+
+    font-size: 14px;
+
+    margin: 0;
+
+    line-height: 1.5;
+}
+
+.timeline-step.active .timeline-content h4 {
+    color: #115e59;
+}
+
+
+/* ========================= STATUS ACTIONS ========================= */
+
+.status-actions {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 15px;
+
+    padding-top: 30px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* ========================= PRIMARY BUTTON ========================= */
+
+.primary-btn {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    background-color: #0f766e;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background-color: #115e59;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================= SECONDARY BUTTON ========================= */
+
+.secondary-btn {
+    display: inline-block;
+
+    padding: 11px 21px;
+
+    background-color: white;
+
+    color: #0f766e;
+
+    text-decoration: none;
+
+    border: 1px solid #0f766e;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.secondary-btn:hover {
+    background-color: #f0fdfa;
+
+    transform: translateY(-2px);
+}
+
+
+/* ========================= STATUS NOTE ========================= */
+
+.status-note {
+    max-width: 900px;
+
+    margin: 30px auto 60px;
+
+    padding: 25px 30px;
+
+    background-color: #f0fdfa;
+
+    border-radius: 15px;
+
+    border: 1px solid #ccfbf1;
+
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+.status-note h3 {
+    color: #115e59;
+
+    margin-bottom: 8px;
+
+    font-size: 19px;
+}
+
+.status-note p {
+    color: #555;
+
+    font-size: 14px;
+
+    margin: 0;
+
+    line-height: 1.6;
+}
+
+
+/* ===================================== BOOKING STATUS RESPONSIVE ======================================================= */
+
+@media (max-width: 700px) {
+
+    .status-card {
+        margin: 25px 15px 0;
+
+        padding: 30px 20px;
+    }
+
+    .status-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-note {
+        margin-left: 15px;
+
+        margin-right: 15px;
+
+        padding: 22px 20px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .booking-status-intro {
+        padding: 35px 15px 20px;
+    }
+
+    .booking-status-intro h2 {
+        font-size: 27px;
+    }
+
+    .status-header h2 {
+        font-size: 23px;
+    }
+
+    .status-actions {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+
+        text-align: center;
+
+        box-sizing: border-box;
+    }
+
+    .timeline-step {
+        gap: 13px;
+    }
+}
+
+
+

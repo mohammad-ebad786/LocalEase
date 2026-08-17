@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Mobile Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Service - LocalEase</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =============================== HEADER =============================== -->
+
+    <header>
+
+        <h1>LocalEase</h1>
+
+        <p>Find Trusted Local Services Near You</p>
+
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="#">Become a Provider</a>
+            <a href="#">Login</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =============================== MAIN =============================== -->
+
+    <main>
+
+        <!-- =============================== PAGE INTRO =============================== -->
+
+        <section class="booking-intro">
+
+            <p class="breadcrumb">
+                <a href="index.html">Home</a>
+                /
+                <a href="services.html">Services</a>
+                /
+                Booking
+            </p>
+
+            <h2>Book Your Service</h2>
+
+            <p>
+                Fill in the details below to send a booking request
+                to the service provider.
+            </p>
+
+        </section>
+
+
+        <!-- =============================== SELECTED SERVICE =============================== -->
+
+        <section class="selected-service">
+
+            <h2>Selected Service</h2>
+
+            <article class="provider-card">
+
+                <h3>Electrician Service</h3>
+
+                <p>
+                    <strong>Provider:</strong> Pradeep Bhaiya
+                </p>
+
+                <p>
+                    📍 Prayagraj, Uttar Pradesh
+                </p>
+
+                <p>
+                    ⚒️ 5+ Years Experience
+                </p>
+
+                <p>
+                    💰 Starting From ₹300
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- =============================== BOOKING FORM =============================== -->
+
+        <section class="booking-form-section">
+
+            <h2>Booking Details</h2>
+
+            <form class="booking-form">
+
+                <!-- Customer Name -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter Your Full Name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Phone Number -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter Your Phone Number"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Email -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter Your Email Address"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Service Type -->
+
+                <div class="form-group">
+
+                    <label for="service">
+                        Service Required
+                    </label>
+
+                    <select id="service" name="service" required>
+
+                        <option value="">
+                            Select a Service
+                        </option>
+
+                        <option value="electrical-wiring">
+                            Electrical Wiring
+                        </option>
+
+                        <option value="switch-repair">
+                            Switch & Socket Repair
+                        </option>
+
+                        <option value="fan-installation">
+                            Fan Installation
+                        </option>
+
+                        <option value="light-installation">
+                            Light Installation
+                        </option>
+
+                        <option value="mcb-fuse-repair">
+                            MCB & Fuse Repair
+                        </option>
+
+                        <option value="maintenance">
+                            Electrical Maintenance
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Date -->
+
+                <div class="form-group">
+
+                    <label for="date">
+                        Preferred Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Time -->
+
+                <div class="form-group">
+
+                    <label for="time">
+                        Preferred Time
+                    </label>
+
+                    <select id="time" name="time" required>
+
+                        <option value="">
+                            Select Preferred Time
+                        </option>
+
+                        <option value="09:00">
+                            9:00 AM
+                        </option>
+
+                        <option value="11:00">
+                            11:00 AM
+                        </option>
+
+                        <option value="13:00">
+                            1:00 PM
+                        </option>
+
+                        <option value="15:00">
+                            3:00 PM
+                        </option>
+
+                        <option value="17:00">
+                            5:00 PM
+                        </option>
+
+                        <option value="19:00">
+                            7:00 PM
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Address -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Service Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="4"
+                        placeholder="Enter the Complete Address where Service is Required"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Additional Notes -->
+
+                <div class="form-group">
+
+                    <label for="notes">
+                        Additional Notes (Optional)
+                    </label>
+
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Any Additional Information for the Service Provider?"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="confirm-booking-btn"
+                >
+                    Confirm Booking
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =============================== BOOKING INFORMATION =============================== -->
+
+        <section class="booking-info">
+
+            <h2>What Happens Next?</h2>
+
+            <ol>
+
+                <li>
+                    <strong>Booking Request</strong>
+                    <p>
+                        Your booking request will be submitted.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Provider Review</strong>
+                    <p>
+                        The service provider will review your request.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Confirmation</strong>
+                    <p>
+                        The provider can accept or reject the request.
+                    </p>
+                </li>
+
+                <li>
+                    <strong>Track Booking</strong>
+                    <p>
+                        You will be able to track your booking status.
+                    </p>
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <!-- =============================== BACK BUTTON =============================== -->
+
+        <section class="back-section">
+
+            <a href="service-details.html">
+                ← Back to Service Details
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =============================== FOOTER =============================== -->
+
+    <footer>
+
+        <h3>LocalEase</h3>
+
+        <p>
+            Connecting Customers with Trusted Local Service Providers.
+        </p>
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

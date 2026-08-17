@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <title>Provider Dashboard - LocalEase</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ====================================== HEADER ================================================================-->
+
+    <header>
+
+    <h1>LocalEase</h1>
+
+    <p>Provider Dashboard</p>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="provider-dashboard.html">Dashboard</a>
+        <a href="#">Profile</a>
+        <a href="login.html">Logout</a>
+    </nav>
+
+</header>
+    
+    <!-- ====================================== MAIN CONTENT =============================================================-->
+
+    <section class="dashboard-intro">
+
+        <p class="breadcrumb">
+            <a href="index.html">Home</a>
+            /
+            Provider Dashboard
+        </p>
+
+        <h2>Welcome, Pradeep Bhaiya! 👋</h2>
+
+        <p>
+            Manage Your Services, Bookings and Customer from One Place.
+        </p>
+    </section>
+
+    <!-- =================================== DASHBOARD STATS ==============================================================-->
+
+    <section class="dashboard-stats">
+
+        <h2>Dashboard Overview</h2>
+
+        <div class="stats-grid">
+
+            <article class="stat-card">
+
+                <h3>New Requests</h3>
+
+                <p class="stat-number">4</p>
+
+                <p>Booking Requests Waiting for Your Response.</p>
+            </article>
+
+            <article class="stat-card">
+
+                <h3>Upcoming</h3>
+
+                <p class="stat-number">3</p>
+
+                <p>Confirmed Services Coming Up</p>
+
+            </article>
+
+            <article class="stat-card">
+
+                <h3>Completed</h3>
+
+                <p class="stats-number">28</p>
+
+                <p>Services Successfully Completed</p>
+
+            </article>
+
+            <article class="stat-card">
+
+                <h3>Rating</h3>
+
+                <p class="stat-number">4.8⭐</p>
+
+                <p>Average Rating From Your Customers.</p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- ================================================= BOOKING REQUESTS ===============================================-->
+
+    <section class="booking-requests">
+
+        <h2>New Booking Requests</h2>
+
+        <div class="booking-requests-grid">
+
+
+            <!-- ========================================== REQUESTS 1 ======================================================-->
+
+            <article class="request-card">
+
+                <h3>Electrical Wiring</h3>
+
+                <p>
+                    <strong>Customer:</strong>
+                        Rahul Sharma
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    Prayagraj,Uttar Pradesh
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    20 August 2026
+                </p>
+
+                <p>
+                    <strong>Time:</strong>
+                    11:00 AM
+                </p>
+
+                <p>
+                    <strong>Estimated Price</strong>
+                    ₹500
+                </p>
+
+                <div class="request-actions">
+
+                    <button type="button">
+                        Accept
+                    </button>
+
+                    <button type="button">
+                        Reject
+                    </button>
+
+                </div>
+
+            </article>
+
+            <!-- REQUEST 2 -->
+
+            <article class="request-card">
+
+                <h3>Fan Installation</h3>
+
+                <p>
+                    <strong>Customer:</strong>
+                    Ankit Verma
+                </p>
+
+                <p>
+                <strong>Location:</strong>
+                Civil Lines, Prayagraj
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    21 August 2026
+                </p>
+
+                <p>
+                    <strong>Time:</strong>
+                    3:00 PM
+                </p>
+
+                <p>
+                    <strong>Estimated Price:</strong>
+                    ₹300
+                </p>
+
+                <div class="request-actions">
+
+                    <button type="button">
+                        Accept
+                    </button>
+
+                    <button type="button"
+                    class="reject-btn">
+                        Reject
+                    </button>
+
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+    <!-- ============================================ UPCOMING BOOKINGS ==================================================-->
+
+
+    <section class="upcoming-bookings">
+
+        <h2>Upcoming Bookings</h2>
+
+        <article class="upcoming-card">
+
+            <div>
+
+                <h3>Switch & Socket Repair</h3>
+
+                <p>Customer: Arjun Singh</p>
+
+                <p>Prayagraj, Uttar Pradesh</p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    <strong>Date:</strong>
+                    22 August 2026
+                </p>
+
+                <p>
+
+                    <strong>Time:</strong>
+                    10:00 AM
+                </p>
+
+                <span class="booking-status">
+                    Confirmed
+                </span>
+
+            </div>
+
+        </article>
+
+        <article class="upcoming-card">
+
+            <div>
+
+                <h3>Light Installation</h3>
+
+                <p>Customer: Aman Gupta</p>
+
+                <p>Naini, Prayagraj</p>
+
+            </div>
+
+            <div>
+
+                <p>
+                    <strong>Date:</strong>
+                    24 August 2026
+                </p>
+
+                <p>
+                    <strong>Time</strong>
+                    5:00 PM
+                </p>
+
+                <span class="booking-status">
+                    Confirmed
+                </span>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- ========================================== QUICK ACTIONS ========================================================-->
+
+    <section class="quick-actions">
+
+        <h2>Quick Actions</h2>
+
+        <div class="actions-grid">
+
+            <article>
+
+                <h3>Manage Services</h3>
+
+                <p>
+                    Add, Edit or Remove the Service you Provide.
+                </p>
+
+                <button type="button">
+                    Manage Services
+                </button>
+
+            </article>
+
+            <article>
+
+                <h3>View Profile</h3>
+
+                <p>
+                    Update Your Profile and Professionals Information.
+                </p>
+
+                <button type="button">
+                    View Profile
+                </button>
+
+            </article>
+
+            <h3>Booking History</h3>
+
+            <p>
+                View Your Previous Completed Bookings.
+            </p>
+
+            <button type="button">
+                View History
+            </button>
+
+        </article>
+
+        </div>
+
+    </section>
+
+    <!-- ============================================ BACK TO HOME ============================================== -->
+
+    <section class="back-section">
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </section>
+
+</main>
+
+<!-- ============================================ FOOTER ==============================================-->
+
+    <footer>
+
+        <h3>LocalEase</h3>
+
+        <p>
+            Connecting Customers with Trusted Local Service Providers.
+        </p>
+
+        <p>
+             © 2026 LocalEase. All Rights Reserved.
+        </p>
+    </footer>
+    
+</body>
+</html>
