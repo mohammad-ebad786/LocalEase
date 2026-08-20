@@ -2,378 +2,585 @@
 <html lang="en">
 
 <head>
+
+    <!-- =========================================================
+         BASIC META
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
-    <!-- Mobile Responsive -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <title>Book Service - LocalEase</title>
+    <meta name="description"
+          content="Track your LocalEase service booking status, provider details and booking progress.">
 
-    <!-- CSS -->
+    <meta name="author"
+          content="LocalEase">
+
+    <title>Booking Status - LocalEase</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- =============================== HEADER =============================== -->
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
     <header>
 
-        <h1>LocalEase</h1>
+        <h1>
+            LocalEase
+        </h1>
 
-        <p>Find Trusted Local Services Near You</p>
+        <p>
+            Find Trusted Local Services Near You
+        </p>
+
 
         <!-- Navigation -->
+
         <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="#">Become a Provider</a>
-            <a href="#">Login</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
         </nav>
 
     </header>
 
 
-    <!-- =============================== MAIN =============================== -->
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
 
     <main>
 
-        <!-- =============================== PAGE INTRO =============================== -->
 
-        <section class="booking-intro">
+        <!-- =====================================================
+             PAGE INTRO
+        ====================================================== -->
+
+        <section class="booking-status-intro">
 
             <p class="breadcrumb">
-                <a href="index.html">Home</a>
+
+                <a href="index.html">
+                    Home
+                </a>
+
                 /
-                <a href="services.html">Services</a>
+
+                <a href="my-bookings.html">
+                    My Bookings
+                </a>
+
                 /
-                Booking
+
+                Booking Status
+
             </p>
 
-            <h2>Book Your Service</h2>
+
+            <h2>
+                Booking Status
+            </h2>
+
 
             <p>
-                Fill in the details below to send a booking request
-                to the service provider.
+                Track and manage your LocalEase service booking.
             </p>
 
         </section>
 
 
-        <!-- =============================== SELECTED SERVICE =============================== -->
 
-        <section class="selected-service">
+        <!-- =====================================================
+             BOOKING STATUS CARD
+        ====================================================== -->
 
-            <h2>Selected Service</h2>
+        <section class="status-card">
 
-            <article class="provider-card">
 
-                <h3>Electrician Service</h3>
+            <!-- =================================================
+                 STATUS HEADER
+            ================================================== -->
+
+            <div class="status-header">
+
+                <div>
+
+                    <span class="booking-label">
+                        Booking ID
+                    </span>
+
+                    <h2>
+                        #LE1001
+                    </h2>
+
+                    <p>
+                        Electrician Service
+                    </p>
+
+                </div>
+
+
+                <span class="booking-status pending">
+                    Pending
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 PROVIDER INFORMATION
+            ================================================== -->
+
+            <div class="status-provider">
+
+                <h3>
+                    Service Provider
+                </h3>
+
 
                 <p>
-                    <strong>Provider:</strong> Pradeep Bhaiya
+                    <strong>
+                        Provider:
+                    </strong>
+
+                    Pradeep Bhaiya
                 </p>
+
 
                 <p>
                     📍 Prayagraj, Uttar Pradesh
                 </p>
 
+
+                <p>
+                    ⭐ 4.8 / 5 Rating
+                </p>
+
+
                 <p>
                     ⚒️ 5+ Years Experience
                 </p>
+
 
                 <p>
                     💰 Starting From ₹300
                 </p>
 
-            </article>
-
-        </section>
+            </div>
 
 
-        <!-- =============================== BOOKING FORM =============================== -->
 
-        <section class="booking-form-section">
+            <!-- =================================================
+                 BOOKING DETAILS
+            ================================================== -->
 
-            <h2>Booking Details</h2>
+            <div class="booking-details">
 
-            <form class="booking-form">
-
-                <!-- Customer Name -->
-
-                <div class="form-group">
-
-                    <label for="name">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter Your Full Name"
-                        required
-                    >
-
-                </div>
+                <h3>
+                    Booking Details
+                </h3>
 
 
-                <!-- Phone Number -->
-
-                <div class="form-group">
-
-                    <label for="phone">
-                        Phone Number
-                    </label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="Enter Your Phone Number"
-                        required
-                    >
-
-                </div>
+                <div class="details-grid">
 
 
-                <!-- Email -->
+                    <div>
 
-                <div class="form-group">
+                        <span>
+                            Service Required
+                        </span>
 
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter Your Email Address"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- Service Type -->
-
-                <div class="form-group">
-
-                    <label for="service">
-                        Service Required
-                    </label>
-
-                    <select id="service" name="service" required>
-
-                        <option value="">
-                            Select a Service
-                        </option>
-
-                        <option value="electrical-wiring">
+                        <strong>
                             Electrical Wiring
-                        </option>
+                        </strong>
 
-                        <option value="switch-repair">
-                            Switch & Socket Repair
-                        </option>
-
-                        <option value="fan-installation">
-                            Fan Installation
-                        </option>
-
-                        <option value="light-installation">
-                            Light Installation
-                        </option>
-
-                        <option value="mcb-fuse-repair">
-                            MCB & Fuse Repair
-                        </option>
-
-                        <option value="maintenance">
-                            Electrical Maintenance
-                        </option>
-
-                    </select>
-
-                </div>
+                    </div>
 
 
-                <!-- Date -->
+                    <div>
 
-                <div class="form-group">
+                        <span>
+                            Preferred Date
+                        </span>
 
-                    <label for="date">
-                        Preferred Date
-                    </label>
+                        <strong>
+                            25 August 2026
+                        </strong>
 
-                    <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        required
-                    >
-
-                </div>
+                    </div>
 
 
-                <!-- Time -->
+                    <div>
 
-                <div class="form-group">
+                        <span>
+                            Preferred Time
+                        </span>
 
-                    <label for="time">
-                        Preferred Time
-                    </label>
-
-                    <select id="time" name="time" required>
-
-                        <option value="">
-                            Select Preferred Time
-                        </option>
-
-                        <option value="09:00">
-                            9:00 AM
-                        </option>
-
-                        <option value="11:00">
+                        <strong>
                             11:00 AM
-                        </option>
+                        </strong>
 
-                        <option value="13:00">
-                            1:00 PM
-                        </option>
+                    </div>
 
-                        <option value="15:00">
-                            3:00 PM
-                        </option>
 
-                        <option value="17:00">
-                            5:00 PM
-                        </option>
+                    <div>
 
-                        <option value="19:00">
-                            7:00 PM
-                        </option>
+                        <span>
+                            Service Address
+                        </span>
 
-                    </select>
+                        <strong>
+                            Prayagraj, Uttar Pradesh
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Booking Price
+                        </span>
+
+                        <strong>
+                            ₹300 onwards
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Booking Date
+                        </span>
+
+                        <strong>
+                            20 August 2026
+                        </strong>
+
+                    </div>
+
 
                 </div>
 
+            </div>
 
-                <!-- Address -->
 
-                <div class="form-group">
 
-                    <label for="address">
-                        Service Address
-                    </label>
+            <!-- =================================================
+                 BOOKING PROGRESS
+            ================================================== -->
 
-                    <textarea
-                        id="address"
-                        name="address"
-                        rows="4"
-                        placeholder="Enter the Complete Address where Service is Required"
-                        required
-                    ></textarea>
+            <div class="status-timeline">
+
+                <h3>
+                    Booking Progress
+                </h3>
+
+
+                <div class="timeline">
+
+
+                    <!-- STEP 1 -->
+
+                    <div class="timeline-step active">
+
+                        <div class="timeline-icon">
+                            ✓
+                        </div>
+
+
+                        <div class="timeline-content">
+
+                            <h4>
+                                Booking Request Sent
+                            </h4>
+
+                            <p>
+                                Your booking request has been successfully submitted.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- STEP 2 -->
+
+                    <div class="timeline-step active">
+
+                        <div class="timeline-icon">
+                            2
+                        </div>
+
+
+                        <div class="timeline-content">
+
+                            <h4>
+                                Waiting for Provider
+                            </h4>
+
+                            <p>
+                                The service provider is reviewing your booking request.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- STEP 3 -->
+
+                    <div class="timeline-step">
+
+                        <div class="timeline-icon">
+                            3
+                        </div>
+
+
+                        <div class="timeline-content">
+
+                            <h4>
+                                Booking Confirmation
+                            </h4>
+
+                            <p>
+                                Your booking will be confirmed once the provider accepts it.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- STEP 4 -->
+
+                    <div class="timeline-step">
+
+                        <div class="timeline-icon">
+                            4
+                        </div>
+
+
+                        <div class="timeline-content">
+
+                            <h4>
+                                Service Completed
+                            </h4>
+
+                            <p>
+                                The service will be completed at your selected date and time.
+                            </p>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
-
-                <!-- Additional Notes -->
-
-                <div class="form-group">
-
-                    <label for="notes">
-                        Additional Notes (Optional)
-                    </label>
-
-                    <textarea
-                        id="notes"
-                        name="notes"
-                        rows="3"
-                        placeholder="Any Additional Information for the Service Provider?"
-                    ></textarea>
-
-                </div>
+            </div>
 
 
-                <!-- Submit -->
 
-                <button
-                    type="submit"
-                    class="confirm-booking-btn"
+            <!-- =================================================
+                 BOOKING ACTIONS
+            ================================================== -->
+
+            <div class="status-actions">
+
+
+                <a
+                    href="my-bookings.html"
+                    class="secondary-btn"
                 >
-                    Confirm Booking
-                </button>
+                    ← My Bookings
+                </a>
 
-            </form>
+
+                <a
+                    href="service-details.html"
+                    class="secondary-btn"
+                >
+                    Service Details
+                </a>
+
+
+                <a
+                    href="services.html"
+                    class="primary-btn"
+                >
+                    Browse Services
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="primary-btn"
+                >
+                    Back to Home
+                </a>
+
+
+            </div>
+
 
         </section>
 
 
-        <!-- =============================== BOOKING INFORMATION =============================== -->
 
-        <section class="booking-info">
+        <!-- =====================================================
+             WHAT HAPPENS NEXT
+        ====================================================== -->
 
-            <h2>What Happens Next?</h2>
+        <section class="status-note">
 
-            <ol>
+            <h2>
+                What Happens Next?
+            </h2>
 
-                <li>
-                    <strong>Booking Request</strong>
-                    <p>
-                        Your booking request will be submitted.
-                    </p>
-                </li>
 
-                <li>
-                    <strong>Provider Review</strong>
-                    <p>
-                        The service provider will review your request.
-                    </p>
-                </li>
+            <div>
 
-                <li>
-                    <strong>Confirmation</strong>
-                    <p>
-                        The provider can accept or reject the request.
-                    </p>
-                </li>
+                <h3>
+                    1. Provider Reviews Your Request
+                </h3>
 
-                <li>
-                    <strong>Track Booking</strong>
-                    <p>
-                        You will be able to track your booking status.
-                    </p>
-                </li>
+                <p>
+                    The service provider will review your booking details.
+                </p>
 
-            </ol>
+            </div>
+
+
+            <div>
+
+                <h3>
+                    2. Booking Confirmation
+                </h3>
+
+                <p>
+                    The provider can accept or reject your booking request.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    3. Service Visit
+                </h3>
+
+                <p>
+                    If accepted, the provider will visit you at the selected date and time.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    4. Complete Your Booking
+                </h3>
+
+                <p>
+                    After the service is completed, you can leave a review for the provider.
+                </p>
+
+            </div>
 
         </section>
 
 
-        <!-- =============================== BACK BUTTON =============================== -->
+
+        <!-- =====================================================
+             EXPLORE LOCALEASE
+        ====================================================== -->
+
+        <div class="explore-localEase">
+
+            <h2>
+                Looking for More Services?
+            </h2>
+
+
+            <p>
+                Explore LocalEase and find trusted professionals
+                for your everyday needs.
+            </p>
+
+
+            <a href="services.html">
+                Browse Services
+            </a>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             BACK TO PROFILE
+        ====================================================== -->
 
         <section class="back-section">
 
-            <a href="service-details.html">
-                ← Back to Service Details
+            <a href="profile.html">
+                ← Back to Profile
             </a>
 
         </section>
 
+
     </main>
 
 
-    <!-- =============================== FOOTER =============================== -->
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
     <footer>
 
-        <h3>LocalEase</h3>
+        <h3>
+            LocalEase
+        </h3>
+
 
         <p>
             Connecting Customers with Trusted Local Service Providers.
         </p>
+
 
         <p>
             © 2026 LocalEase. All Rights Reserved.
@@ -383,4 +590,5 @@
 
 
 </body>
+
 </html>

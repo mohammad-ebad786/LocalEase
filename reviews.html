@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reviews - LocalEase</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header>
+
+        <h1>LocalEase</h1>
+
+        <p>
+            Find Trusted Local Services Near You
+        </p>
+
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
+    <main>
+
+
+        <!-- =====================================================
+             PAGE INTRO
+        ====================================================== -->
+
+        <section class="reviews-intro">
+
+            <p class="breadcrumb">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                /
+
+                Reviews
+
+            </p>
+
+            <h2>
+                Reviews & Ratings
+            </h2>
+
+            <p>
+                Share your experience and help others find
+                trusted local service providers.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             WRITE A REVIEW
+        ====================================================== -->
+
+        <section class="review-form-section">
+
+            <h2>
+                Write a Review
+            </h2>
+
+            <p class="review-subtitle">
+                Tell us about your recent LocalEase service experience.
+            </p>
+
+
+            <form class="review-form">
+
+
+                <!-- SERVICE -->
+
+                <div class="form-group">
+
+                    <label for="service">
+                        Select Service
+                    </label>
+
+                    <select
+                        id="service"
+                        name="service"
+                        required
+                    >
+
+                        <option value="">
+                            Select a completed service
+                        </option>
+
+                        <option value="electrician">
+                            Electrician Service
+                        </option>
+
+                        <option value="plumbing">
+                            Plumbing Service
+                        </option>
+
+                        <option value="cleaning">
+                            Home Cleaning Service
+                        </option>
+
+                        <option value="carpenter">
+                            Carpenter Service
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PROVIDER -->
+
+                <div class="form-group">
+
+                    <label for="provider">
+                        Service Provider
+                    </label>
+
+                    <input
+                        type="text"
+                        id="provider"
+                        name="provider"
+                        placeholder="Enter provider name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- RATING -->
+
+                <div class="form-group">
+
+                    <label>
+                        Your Rating
+                    </label>
+
+                    <div class="rating-stars">
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="1"
+                                required
+                            >
+                            ★
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="2"
+                            >
+                            ★
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="3"
+                            >
+                            ★
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="4"
+                            >
+                            ★
+                        </label>
+
+                        <label>
+                            <input
+                                type="radio"
+                                name="rating"
+                                value="5"
+                            >
+                            ★
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REVIEW -->
+
+                <div class="form-group">
+
+                    <label for="review">
+                        Your Review
+                    </label>
+
+                    <textarea
+                        id="review"
+                        name="review"
+                        rows="5"
+                        placeholder="Write your experience here..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="review-submit-btn"
+                >
+                    Submit Review
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <!-- =====================================================
+             PREVIOUS REVIEWS
+        ====================================================== -->
+
+        <section class="previous-reviews">
+
+            <h2>
+                Your Previous Reviews
+            </h2>
+
+
+            <!-- REVIEW CARD 1 -->
+
+            <article class="review-card">
+
+                <div class="review-card-header">
+
+                    <div>
+
+                        <h3>
+                            Plumbing Service
+                        </h3>
+
+                        <p>
+                            Arif Plumbing Services
+                        </p>
+
+                    </div>
+
+                    <span class="review-rating">
+                        ★★★★★
+                    </span>
+
+                </div>
+
+                <p class="review-text">
+
+                    Excellent service. The provider arrived
+                    on time and fixed the plumbing issue quickly.
+
+                </p>
+
+                <span class="review-date">
+                    Reviewed on 18 August 2026
+                </span>
+
+            </article>
+
+
+            <!-- REVIEW CARD 2 -->
+
+            <article class="review-card">
+
+                <div class="review-card-header">
+
+                    <div>
+
+                        <h3>
+                            Home Cleaning Service
+                        </h3>
+
+                        <p>
+                            Rahul Services
+                        </p>
+
+                    </div>
+
+                    <span class="review-rating">
+                        ★★★★☆
+                    </span>
+
+                </div>
+
+                <p class="review-text">
+
+                    Good cleaning service and professional
+                    behaviour. Overall a good experience.
+
+                </p>
+
+                <span class="review-date">
+                    Reviewed on 12 August 2026
+                </span>
+
+            </article>
+
+
+            <!-- REVIEW CARD 3 -->
+
+            <article class="review-card">
+
+                <div class="review-card-header">
+
+                    <div>
+
+                        <h3>
+                            Electrician Service
+                        </h3>
+
+                        <p>
+                            Pradeep Bhaiya
+                        </p>
+
+                    </div>
+
+                    <span class="review-rating">
+                        ★★★★★
+                    </span>
+
+                </div>
+
+                <p class="review-text">
+
+                    Very helpful and professional electrician.
+                    The problem was solved without any hassle.
+
+                </p>
+
+                <span class="review-date">
+                    Reviewed on 05 August 2026
+                </span>
+
+            </article>
+
+        </section>
+
+
+        <!-- =====================================================
+             EXPLORE MORE SERVICES
+        ====================================================== -->
+
+        <section class="reviews-explore">
+
+            <h2>
+                Need Another Service?
+            </h2>
+
+            <p>
+                Explore LocalEase and find trusted professionals
+                for your everyday needs.
+            </p>
+
+            <a
+                href="services.html"
+                class="reviews-browse-btn"
+            >
+                Browse Services
+            </a>
+
+        </section>
+
+
+        <!-- =====================================================
+             BACK TO PROFILE
+        ====================================================== -->
+
+        <section class="back-section">
+
+            <a href="profile.html">
+                ← Back to Profile
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <h3>
+            LocalEase
+        </h3>
+
+        <p>
+            Connecting Customers with Trusted Local Service Providers.
+        </p>
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,226 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <!-- =========================================================
+         BASIC META
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    
+    <meta name="description"
+          content="Become a LocalEase service provider and connect with customers looking for trusted local services.">
+
+    <meta name="author"
+          content="LocalEase">
+
     <title>Become a Provider - LocalEase</title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
 
-    <!-- ====================================== HEADER ================================================================-->
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
     <header>
 
-        <h1>LocalEase</h1>
+        <h1>
+            LocalEase
+        </h1>
 
-        <p>Find Trusted Local Services Near You</p>
+        <p>
+            Find Trusted Local Services Near You
+        </p>
+
+
+        <!-- =====================================================
+             NAVIGATION
+        ====================================================== -->
 
         <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="provider.html">Become a Provider</a>
-            <a href="login.html">Login</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
         </nav>
 
     </header>
 
-    <!-- ======================================= MAIN CONTENT ===========================================================-->
 
-   <section class="provider-intro">
 
-    <p class="breadcrumb">
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
 
-        <a href="index.html">Home</a>
-        /
-        Become a Provider
+    <main>
 
-    </p>
 
-    <h2>Become a LocalEase Service Provider</h2>
+        <!-- =====================================================
+             PROVIDER INTRO
+        ====================================================== -->
 
-    <p>
-        Join LocalEase and Connect with Customers Looking for Trusted Local Services in thier Area.
-    </p>
+        <section class="provider-intro">
 
-   </section>
-   
-   <!-- ========================================= PROVIDER FORM =========================================================-->
+            <p class="breadcrumb">
 
-   <section class="provider-section">
+                <a href="index.html">
+                    Home
+                </a>
 
-    <h2>Provider Registration</h2>
+                /
 
-    <p class="provider-subtitle">
-        Tell us About Yourself and the Services you Provide.
-    </p>
+                Become a Provider
 
-    <form class="provider-form">
+            </p>
 
-        <!-- Full Name -->
 
-        <div class="form-group">
+            <h2>
+                Become a LocalEase Service Provider
+            </h2>
 
-            <label
-            for="provider-name">
-            Full Name
-        </label>
 
-        <input
-        type="text"
-        id="provider-name"
-        name="provider-name"
-        placeholder="Enter Your Full Name"
-        required
-        >
+            <p>
+                Join LocalEase and Connect with Customers Looking
+                for Trusted Local Services in their Area.
+            </p>
 
-        </div>
+        </section>
 
-        <!-- Phone -->
 
-        <div class="form-group">
 
-            <label
-            for="provider-phone">
-            Phone Number
-        </label>
+        <!-- =====================================================
+             PROVIDER REGISTRATION FORM
+        ====================================================== -->
 
-        <input
-        type="tel"
-        id="provider-phone"
-        name="provider-phone"
-        placeholder="Enter Your Phone Number"
-        required
-        >
+        <section class="provider-section">
 
-        <!-- Email -->
+            <h2>
+                Provider Registration
+            </h2>
 
-            <div class="form-group">
 
-                <label
-                for="provider-email">
-                Email Address
-            </label>
+            <p class="provider-subtitle">
+                Tell us About Yourself and the Services you Provide.
+            </p>
 
-            <input
-            type="email"
-            id="provider-email"
-            name="provider-email"
-            placeholder="Enter Your Email Address"
-            required
-            >
 
-            <!-- Location -->
+            <form class="provider-form">
 
-            <div class="form-group">
 
-                <label
-                for="provider-location">
-                Service Location
-            </label>
+                <!-- =================================================
+                     FULL NAME
+                ================================================== -->
 
-            <input
-            type="text"
-            id="provider-location"
-            name="provider-location"
-            placeholder="Enter Your City or Area"
-            required
-            >
+                <div class="form-group">
 
-            </div>
+                    <label for="provider-name">
+                        Full Name
+                    </label>
 
-            <!-- Service -->
+                    <input
+                        type="text"
+                        id="provider-name"
+                        name="provider-name"
+                        placeholder="Enter Your Full Name"
+                        required
+                    >
 
-            <div class="form-group">
+                </div>
 
-                <label
-                for="provider-service">
-                Service Category
-            </label>
 
-            <select
-            id="provider-service"
-            name="provider-service"
-            required
-            >
-            <option value="">
-                Select Your Service
-            </option>
 
-            <option value="electrician">
-                Electrician
-            </option>
+                <!-- =================================================
+                     PHONE
+                ================================================== -->
 
-            <option value="plumber">
-                Plumber
-            </option>
+                <div class="form-group">
 
-            <option value="carpenter">
-                Carpenter
-            </option>
+                    <label for="provider-phone">
+                        Phone Number
+                    </label>
 
-            <option value="cleaning">
-                Home Cleaning
-            </option>
+                    <input
+                        type="tel"
+                        id="provider-phone"
+                        name="provider-phone"
+                        placeholder="Enter Your Phone Number"
+                        required
+                    >
 
-            <option value="painting">
-                Painter
-            </option>
+                </div>
 
-            <option value="appliance-repair">
-                Appliance Repair
-            </option>
 
-            <option value="other">
-                Other
-            </option>
 
-            </select>
+                <!-- =================================================
+                     EMAIL
+                ================================================== -->
 
-            </div>
+                <div class="form-group">
 
-            <!-- Experience -->
+                    <label for="provider-email">
+                        Email Address
+                    </label>
 
-            <div class="form-group">
+                    <input
+                        type="email"
+                        id="provider-email"
+                        name="provider-email"
+                        placeholder="Enter Your Email Address"
+                        required
+                    >
 
-                <label for="Experience">
-                    Years of Experience
-                </label>
+                </div>
 
-                <input
-                type="number"
-                id="experience"
-                name="experience"
-                min="0"
-                placeholder="e.g. 5"
-                required
-                >
-            </div>
 
-            <!-- Starting Price -->
 
-            <div class="form-group">
+                <!-- =================================================
+                     LOCATION
+                ================================================== -->
 
-                <label for="price">
-                    Starting Price
-                </label>
+                <div class="form-group">
 
-                <input 
-                type="number"
-                id="price"
-                name="price"
-                min="0"
-                placeholder="e.g. 300"
-                required
-                >
+                    <label for="provider-location">
+                        Service Location
+                    </label>
 
-                <!-- Description -->
+                    <input
+                        type="text"
+                        id="provider-location"
+                        name="provider-location"
+                        placeholder="Enter Your City or Area"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SERVICE CATEGORY
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="provider-service">
+                        Service Category
+                    </label>
+
+
+                    <select
+                        id="provider-service"
+                        name="provider-service"
+                        required
+                    >
+
+                        <option value="">
+                            Select Your Service
+                        </option>
+
+                        <option value="electrician">
+                            Electrician
+                        </option>
+
+                        <option value="plumber">
+                            Plumber
+                        </option>
+
+                        <option value="carpenter">
+                            Carpenter
+                        </option>
+
+                        <option value="cleaning">
+                            Home Cleaning
+                        </option>
+
+                        <option value="painting">
+                            Painter
+                        </option>
+
+                        <option value="appliance-repair">
+                            Appliance Repair
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     EXPERIENCE
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="experience">
+                        Years of Experience
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="experience"
+                        name="experience"
+                        min="0"
+                        placeholder="e.g. 5"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     STARTING PRICE
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="price">
+                        Starting Price
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="price"
+                        name="price"
+                        min="0"
+                        placeholder="e.g. 300"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- =================================================
+                     SERVICE DESCRIPTION
+                ================================================== -->
 
                 <div class="form-group">
 
@@ -228,102 +331,161 @@
                         About Your Service
                     </label>
 
+
                     <textarea
-                    id="description"
-                    name="description"
-                    rows="5"
-                    placeholder="Describe Your Services and Experience..."
-                    required
+                        id="description"
+                        name="description"
+                        rows="5"
+                        placeholder="Describe Your Services and Experience..."
+                        required
                     ></textarea>
 
                 </div>
 
-                <!-- Terms -->
+
+
+                <!-- =================================================
+                     TERMS & CONDITIONS
+                ================================================== -->
 
                 <div class="provider-terms">
 
                     <label>
 
                         <input
-                        type="checkbox"
-                        name="provider-terms"
-                        required
+                            type="checkbox"
+                            name="provider-terms"
+                            required
                         >
+
                         I Agree to the LocalEase Terms & Conditions.
 
                     </label>
 
                 </div>
 
-                <!-- Submit -->
+
+
+                <!-- =================================================
+                     SUBMIT BUTTON
+                ================================================== -->
 
                 <button
-                type="submit"
-                class="provider-btn"
+                    type="submit"
+                    class="provider-btn"
                 >
-                Register as a Provider
-            </button>
+                    Register as a Provider
+                </button>
+
 
             </form>
 
-            </section>
+        </section>
 
-            <!-- BENEFITS -->
 
-            <section class="provider-benefits">
 
-                <h2>Why Join LocalEase</h2>
+        <!-- =====================================================
+             PROVIDER BENEFITS
+        ====================================================== -->
 
-                <div class="benefits-grid">
+        <section class="provider-benefits">
 
-                    <article>
+            <h2>
+                Why Join LocalEase
+            </h2>
 
-                        <h3>Get More Customers</h3>
 
-                        <p>
-                            Reach Customers Searching for Local Services in your Area.
-                        </p>
+            <div class="benefits-grid">
 
-                    </article>
 
-                    <article>
+                <!-- =================================================
+                     BENEFIT 1
+                ================================================== -->
 
-                        <h3>Build Your Profile</h3>
+                <article>
 
-                        <p>Shoecase Your Experience, Services and Pricing to Potential Customers</p>
+                    <h3>
+                        Get More Customers
+                    </h3>
 
-                    </article>
+                    <p>
+                        Reach Customers Searching for Local Services
+                        in your Area.
+                    </p>
 
-                    <article>
+                </article>
 
-                        <h3>Grow Your Business</h3>
 
-                        <p>
-                            Get More Bookings and Grow Your Local Service Business with LocalEase.
-                        </p>
 
-                    </article>
+                <!-- =================================================
+                     BENEFIT 2
+                ================================================== -->
 
-                </div>
+                <article>
 
-            </section>
+                    <h3>
+                        Build Your Profile
+                    </h3>
 
-        </main>
+                    <p>
+                        Showcase Your Experience, Services and Pricing
+                        to Potential Customers.
+                    </p>
 
-        <!-- ============================================ FOOTER ==============================================-->
+                </article>
+
+
+
+                <!-- =================================================
+                     BENEFIT 3
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        Grow Your Business
+                    </h3>
+
+                    <p>
+                        Get More Bookings and Grow Your Local Service
+                        Business with LocalEase.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
     <footer>
 
-        <h3>LocalEase</h3>
+        <h3>
+            LocalEase
+        </h3>
+
 
         <p>
             Connecting Customers with Trusted Local Service Providers.
         </p>
 
+
         <p>
-             © 2026 LocalEase. All Rights Reserved.
+            © 2026 LocalEase. All Rights Reserved.
         </p>
+
     </footer>
-    
+
+
 </body>
+
 </html>

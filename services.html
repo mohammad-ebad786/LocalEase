@@ -1,293 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <!-- =========================================================
+         BASIC META
+    ========================================================== -->
+
     <meta charset="UTF-8">
 
-    <!--- Mobile Responsive --->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Explore LocalEase services and find trusted local professionals for your everyday needs.">
+
+    <meta name="author"
+          content="LocalEase">
+
     <title>Services - LocalEase</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
-    <!-- ================================= HEADER =================================================-->
 
-    <header> 
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-        <h1>LocalEase</h1>
+    <header>
 
-        <p>Find Trusted Local Services Near You</p>
+        <h1>
+            LocalEase
+        </h1>
+
+        <p>
+            Find Trusted Local Services Near You
+        </p>
+
 
         <!-- Navigation -->
-         <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Sevices</a>
 
-            <a href="#">Become a Provider</a>
-            <a href="#">Login</a>
-         </nav>
+        <nav>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </nav>
 
     </header>
 
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
     <main>
 
-        <!--Page Introduction -->
+
+        <!-- =====================================================
+             PAGE INTRODUCTION
+        ====================================================== -->
 
         <section>
 
-            <h2> Explore Local Services</h2>
+            <h2>
+                Explore Local Services
+            </h2>
 
             <p>
-                Find Trusted Professionals for your Everyday Needs.
+                Find Trusted Professionals for Your Everyday Needs.
             </p>
 
         </section>
 
-        <!-- ================================== SEARCH =====================================-->
+
+
+        <!-- =====================================================
+             SEARCH
+        ====================================================== -->
 
         <section>
 
-            <form>
+            <form action="services.html" method="get">
 
                 <input
-                type="text"
-                placeholder="What Service do you Need?"
+                    type="text"
+                    name="service"
+                    placeholder="What service do you need?"
+                    aria-label="Service"
                 >
 
                 <input
-                type="text"
-                placeholder="Enter Your Location"
+                    type="text"
+                    name="location"
+                    placeholder="Enter your location"
+                    aria-label="Location"
                 >
 
-                <button type="Submit">
+                <button type="submit">
                     Search
                 </button>
+
             </form>
+
         </section>
 
-        <!-- ======================================== SERVICES ========================================-->
 
-        <section> 
 
-            <h2>All Services</h2>
+        <!-- =====================================================
+             ALL SERVICES
+        ====================================================== -->
+
+        <section>
+
+            <h2>
+                All Services
+            </h2>
+
 
             <div>
 
-                <!--Electrician-->
+
+                <!-- =================================================
+                     ELECTRICIAN
+                ================================================== -->
 
                 <article>
 
-                    <h3>⚡Electrician</h3>
-
-                  <p>
-                    Find Skilled Electricians for Wiring, Repairs and Electrical Installation.
-                  </p>
-                  
-                  <button>
-                    View Providers
-                  </button>
-                </article>
-
-                <!--Plumber-->
-
-                <article>
-                    
-                    <h3>🔧Plumber</h3>
+                    <h3>
+                        ⚡ Electrician
+                    </h3>
 
                     <p>
-                        Get reliable plumbers for pipe repairs, leakage and plumbing works.
+                        Find skilled electricians for wiring,
+                        repairs and electrical installation.
                     </p>
 
-                    <button>
-                        View Providers
-                    </button>
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
 
                 </article>
 
-                <!-- Carpenter -->
+
+
+                <!-- =================================================
+                     PLUMBER
+                ================================================== -->
 
                 <article>
 
-                    <h3>🪚Carpenter</h3>
-
-                 <p>
-                    Hire skilled carpenters for furniture, doors and wooden works.
-                 </p>
-                 
-                 <button>
-                    View Providers
-                 </button>
-
-                </article>
-
-                <!-- Home Cleaning -->
-                 <article>
-
-                <h3>🧹Home Cleaning</h3>
-                
-                <p>
-                    Book trusted professionals for home and deep cleaning services.
-                </p>
-                
-                <button>
-                    View Providers
-                </button>
-
-                </article>
-
-                <!-- AC Repair -->
-
-                <article>
-
-                    <h3>❄️AC Repair</h3>
-
-                    <p> Find professionals for AC repair, servicing and installation.</p>
-
-                    <button>
-                        View Providers
-                    </button>
-
-                </article>
-
-                <!--Appliance Repair -->
-                <article>
-
-                    <h3>🔌Appliance Repair</h3>
-
-                <p>
-                    Get experts for repairing household electrical appliances.
-                </p>
-
-                <button>
-                    View Providers
-                </button>
-
-                </article>
-
-                <!--Painter -->
-
-                <article>
-
-                    <h3>🎨Painter</h3>
+                    <h3>
+                        🔧 Plumber
+                    </h3>
 
                     <p>
-                        Hire professional painters for homes, rooms and buildings.
+                        Get reliable plumbers for pipe repairs,
+                        leakage and plumbing works.
                     </p>
 
-                    <button>
-                        View Providers
-                    </button>
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
 
                 </article>
 
-                <!-- Pest Control -->
+
+
+                <!-- =================================================
+                     CARPENTER
+                ================================================== -->
 
                 <article>
 
-                    <h3>🐜Pest Control</h3>
+                    <h3>
+                        🪚 Carpenter
+                    </h3>
 
                     <p>
-                        Find Professionals for safe and effective pest control services.
+                        Hire skilled carpenters for furniture,
+                        doors and wooden works.
                     </p>
 
-                    <button>
-                        View Providers
-                    </button>
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
                 </article>
 
-                <!--Computer Repair -->
+
+
+                <!-- =================================================
+                     HOME CLEANING
+                ================================================== -->
 
                 <article>
 
-                    <h3>💻Computer Repair</h3>
+                    <h3>
+                        🧹 Home Cleaning
+                    </h3>
 
                     <p>
-                        Get local experts for computer and software problems.
+                        Book trusted professionals for home
+                        and deep cleaning services.
                     </p>
 
-                    <button>
-                        View Providers
-                    </button>
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
                 </article>
+
+
+
+                <!-- =================================================
+                     AC REPAIR
+                ================================================== -->
 
                 <article>
 
-                    <h3>💅🏻Beauty Services</h3>
+                    <h3>
+                        ❄️ AC Repair
+                    </h3>
 
                     <p>
-                        Find local professionals for salon and beauty services.
+                        Find professionals for AC repair,
+                        servicing and installation.
                     </p>
 
-                    <button>
-                        View Providers
-                    </button>
-                </article>
-
-                <!-- Moving Services -->
-
-                <article>
-
-                <h3>📦Moving Services</h3>
-
-                <p>
-                    Find reliable professionals for shifting and moving your belongings.
-                </p>
-
-                <button>
-                    View Providers
-                </button>
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
 
                 </article>
 
-                <!-- Gardening -->
+
+
+                <!-- =================================================
+                     APPLIANCE REPAIR
+                ================================================== -->
 
                 <article>
 
-                    <h3>🌱Gardening</h3>
+                    <h3>
+                        🔌 Appliance Repair
+                    </h3>
 
                     <p>
-                        Hire local gardeners for gardeners for garden maintenance and plant care.
+                        Get experts for repairing household
+                        electrical appliances.
                     </p>
 
-                    <button>
-                        View Providers
-                    </button>
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
                 </article>
+
+
+
+                <!-- =================================================
+                     PAINTER
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        🎨 Painter
+                    </h3>
+
+                    <p>
+                        Hire professional painters for homes,
+                        rooms and buildings.
+                    </p>
+
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     PEST CONTROL
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        🐜 Pest Control
+                    </h3>
+
+                    <p>
+                        Find professionals for safe and effective
+                        pest control services.
+                    </p>
+
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     COMPUTER REPAIR
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        💻 Computer Repair
+                    </h3>
+
+                    <p>
+                        Get local experts for computer and
+                        software problems.
+                    </p>
+
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     BEAUTY SERVICES
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        💅🏻 Beauty Services
+                    </h3>
+
+                    <p>
+                        Find local professionals for salon
+                        and beauty services.
+                    </p>
+
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     MOVING SERVICES
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        📦 Moving Services
+                    </h3>
+
+                    <p>
+                        Find reliable professionals for shifting
+                        and moving your belongings.
+                    </p>
+
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
+                </article>
+
+
+
+                <!-- =================================================
+                     GARDENING
+                ================================================== -->
+
+                <article>
+
+                    <h3>
+                        🌱 Gardening
+                    </h3>
+
+                    <p>
+                        Hire local gardeners for garden
+                        maintenance and plant care.
+                    </p>
+
+                    <a href="service-details.html">
+                        <button type="button">
+                            View Providers
+                        </button>
+                    </a>
+
+                </article>
+
+
             </div>
+
         </section>
 
-        <!-- ========================================= PROVIDER CTA ====================================================-->
+
+
+        <!-- =====================================================
+             SERVICE PROVIDER CTA
+        ====================================================== -->
 
         <section>
 
-            <h2>Are You a Service Provider?</h2>
+            <h2>
+                Are You a Service Provider?
+            </h2>
 
             <p>
-                Join LocalEase and Connect with Customers looking for your Services.
+                Join LocalEase and connect with customers
+                looking for your services.
             </p>
 
-            <button>
-                Become a Service Provider
-            </button>
+            <a href="provider.html">
+
+                <button type="button">
+                    Become a Service Provider
+                </button>
+
+            </a>
 
         </section>
 
 
     </main>
 
-    <!-- ============================================= FOOTER =============================================================-->
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
     <footer>
-        <h3>LocalEase</h3>
+
+        <h3>
+            LocalEase
+        </h3>
 
         <p>
-            Connecting Cutsomers with Trusted Local Service Providers.
+            Connecting Customers with Trusted Local Service Providers.
         </p>
+
         <p>
-             © 2026 LocalEase. All Rights Reserved.
+            © 2026 LocalEase. All Rights Reserved.
         </p>
+
     </footer>
-    
+
+
 </body>
+
 </html>
