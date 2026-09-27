@@ -1,0 +1,772 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Manage Reviews - LocalEase</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png"></head>
+
+
+<body class="admin-reviews-page">
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
+            </a>
+
+
+            <span class="admin-header-label">
+
+                <span class="admin-header-dot"></span>
+
+                Admin Review Management
+
+            </span>
+
+
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="admin-dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="admin-users.html"
+                    class="nav-link"
+                >
+                    Users
+                </a>
+
+                <a
+                    href="admin-bookings.html"
+                    class="nav-link"
+                >
+                    Bookings
+                </a>
+
+                <a
+                    href="admin-reviews.html"
+                    class="nav-link active"
+                >
+                    Reviews
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==================================================
+         MAIN
+    ================================================== -->
+
+    <main>
+
+
+        <!-- ==================================================
+             HERO
+        ================================================== -->
+
+        <section class="admin-reviews-hero">
+
+            <div class="admin-container">
+
+
+                <div class="admin-reviews-hero-content">
+
+                    <p class="admin-reviews-breadcrumb">
+
+                        <a href="admin-dashboard.html">
+                            Admin Dashboard
+                        </a>
+
+                        <span>/</span>
+
+                        Manage Reviews
+
+                    </p>
+
+
+                    <p class="admin-reviews-eyebrow">
+                        Feedback & Quality Control
+                    </p>
+
+
+                    <h1>
+                        Manage Customer
+                        <span>Reviews.</span>
+                    </h1>
+
+
+                    <p class="admin-reviews-hero-description">
+
+                        Monitor customer feedback, review service
+                        quality and maintain a trusted experience
+                        across the LocalEase platform.
+
+                    </p>
+
+
+                    <div class="admin-reviews-hero-status">
+
+                        <span class="admin-reviews-status-dot"></span>
+
+                        Review management center
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="admin-reviews-hero-visual">
+
+                    <div class="admin-reviews-hero-glow"></div>
+
+
+                    <div class="admin-reviews-overview-card">
+
+
+                        <div class="admin-reviews-overview-top">
+
+                            <div class="admin-reviews-overview-icon">
+                                ★
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Review Quality
+                                </strong>
+
+                                <small>
+                                    Customer feedback overview
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-reviews-overview-items">
+
+                            <div>
+
+                                <span class="admin-reviews-overview-item-icon"></span>
+
+                                Customer Feedback
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="admin-reviews-overview-item-icon"></span>
+
+                                Service Quality
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="admin-reviews-overview-item-icon"></span>
+
+                                Platform Trust
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             REVIEW STATISTICS
+        ================================================== -->
+
+        <section class="admin-reviews-stats-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-reviews-section-heading">
+
+                    <p class="admin-reviews-section-eyebrow">
+                        Platform Insights
+                    </p>
+
+                    <h2>
+                        Review Overview
+                    </h2>
+
+                    <p>
+                        Monitor review activity and customer
+                        satisfaction across LocalEase.
+                    </p>
+
+                </div>
+
+
+
+                <div class="admin-reviews-stats-grid">
+
+
+                    <!-- TOTAL REVIEWS -->
+
+                    <article class="admin-reviews-stat-card">
+
+                        <div class="admin-reviews-stat-top">
+
+                            <div class="admin-reviews-stat-icon">
+                                ★
+                            </div>
+
+                            <span>
+                                All Reviews
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-reviews-stat-number"
+                            id="admin-total-reviews"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Total reviews submitted by customers.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- POSITIVE REVIEWS -->
+
+                    <article class="admin-reviews-stat-card">
+
+                        <div class="admin-reviews-stat-top">
+
+                            <div class="admin-reviews-stat-icon">
+                                +
+                            </div>
+
+                            <span>
+                                Positive
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-reviews-stat-number"
+                            id="admin-positive-reviews"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Reviews containing positive customer feedback.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- PENDING REVIEWS -->
+
+                    <article class="admin-reviews-stat-card">
+
+                        <div class="admin-reviews-stat-top">
+
+                            <div class="admin-reviews-stat-icon">
+                                !
+                            </div>
+
+                            <span>
+                                Pending
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-reviews-stat-number"
+                            id="admin-pending-reviews"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Reviews requiring administrative attention.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- AVERAGE RATING -->
+
+                    <article class="admin-reviews-stat-card">
+
+                        <div class="admin-reviews-stat-top">
+
+                            <div class="admin-reviews-stat-icon">
+                                ★
+                            </div>
+
+                            <span>
+                                Average Rating
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-reviews-stat-number"
+                            id="admin-average-rating"
+                        >
+                            0⭐
+                        </p>
+
+
+                        <p>
+                            Average rating received by service providers.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             REVIEW MANAGEMENT
+        ================================================== -->
+
+        <section class="admin-reviews-management-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-reviews-management-card">
+
+
+                    <div class="admin-reviews-card-header">
+
+                        <div>
+
+                            <p class="admin-reviews-card-kicker">
+                                Review Management
+                            </p>
+
+                            <h2>
+                                Recent Customer Reviews
+                            </h2>
+
+                            <p>
+                                Review customer feedback and
+                                inspect individual review details.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="load-reviews-btn"
+                            class="admin-reviews-refresh-btn"
+                        >
+                            ↻ Refresh Reviews
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- ==================================================
+                         REVIEWS LIST
+                    ================================================== -->
+
+                    <div
+                        class="booking-requests-grid admin-reviews-list"
+                        id="admin-reviews-list"
+                    >
+
+                        <article class="admin-reviews-loading-card">
+
+                            <div class="admin-reviews-loading-icon">
+                                ★
+                            </div>
+
+                            <h3>
+                                Loading Reviews
+                            </h3>
+
+                            <p>
+                                Please wait while customer
+                                reviews are being loaded.
+                            </p>
+
+                        </article>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             REVIEW DETAILS
+        ================================================== -->
+
+        <section
+            id="admin-review-details"
+            class="admin-reviews-details-section"
+            style="display: none;"
+        >
+
+            <div class="admin-container">
+
+
+                <div class="admin-reviews-details-card">
+
+
+                    <div class="admin-reviews-details-header">
+
+                        <div>
+
+                            <p class="admin-reviews-card-kicker">
+                                Selected Review
+                            </p>
+
+                            <h2>
+                                Review Details
+                            </h2>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="close-admin-review-details-btn"
+                            class="admin-reviews-close-btn"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="admin-review-details-content"
+                        class="admin-reviews-details-content"
+                    >
+                    </div>
+
+
+                    <div class="admin-reviews-details-actions">
+
+                        <button
+                            type="button"
+                            id="close-admin-review-details-btn-bottom"
+                            class="admin-reviews-secondary-btn"
+                        >
+                            Close
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ADMIN RESPONSIBILITIES
+        ================================================== -->
+
+        <section class="admin-reviews-responsibilities">
+
+            <div class="admin-container">
+
+
+                <div class="admin-reviews-section-heading">
+
+                    <p class="admin-reviews-section-eyebrow">
+                        Quality & Trust
+                    </p>
+
+                    <h2>
+                        Admin Responsibilities
+                    </h2>
+
+                    <p>
+                        Keep customer feedback useful, reliable
+                        and aligned with LocalEase platform standards.
+                    </p>
+
+                </div>
+
+
+
+                <div class="admin-reviews-responsibilities-grid">
+
+
+                    <article class="admin-reviews-responsibility-card">
+
+                        <div class="admin-reviews-responsibility-icon">
+                            ★
+                        </div>
+
+                        <div>
+
+                            <span class="admin-reviews-responsibility-label">
+                                Monitor
+                            </span>
+
+                            <h3>
+                                Customer Feedback
+                            </h3>
+
+                            <p>
+                                Monitor customer reviews and
+                                understand service quality trends.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="admin-reviews-responsibility-card">
+
+                        <div class="admin-reviews-responsibility-icon">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <span class="admin-reviews-responsibility-label">
+                                Maintain
+                            </span>
+
+                            <h3>
+                                Platform Quality
+                            </h3>
+
+                            <p>
+                                Help maintain reliable and
+                                useful feedback across LocalEase.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="admin-reviews-responsibility-card">
+
+                        <div class="admin-reviews-responsibility-icon">
+                            !
+                        </div>
+
+                        <div>
+
+                            <span class="admin-reviews-responsibility-label">
+                                Review
+                            </span>
+
+                            <h3>
+                                Inappropriate Content
+                            </h3>
+
+                            <p>
+                                Identify reviews that may violate
+                                platform standards or guidelines.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BACK TO DASHBOARD
+        ================================================== -->
+
+        <section class="admin-reviews-back-section">
+
+            <div class="admin-container">
+
+                <a href="admin-dashboard.html">
+                    ← Back to Admin Dashboard
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <p>
+                    Connecting Customers with Trusted
+                    Local Service Providers.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <a href="admin-dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="admin-users.html">
+                    Users
+                </a>
+
+                <a href="admin-bookings.html">
+                    Bookings
+                </a>
+
+                <a href="admin-reviews.html">
+                    Reviews
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 LocalEase. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+

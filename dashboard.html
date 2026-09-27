@@ -1,253 +1,2130 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    
+    <meta
+        name="description"
+        content="Manage your LocalEase bookings and discover trusted local services."
+    >
+
+    <meta
+        name="author"
+        content="LocalEase"
+    >
+
     <title>Dashboard - LocalEase</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-</head>
+    <link rel="icon" type="image/png" href="favicon.png"></head>
 
-<body>
 
-    <!-- =================================== HEADER ===========================================================-->
+<body class="dashboard-page">
 
-    <header>
 
-        <h1>LocalEase</h1>
+<!-- ======================================
+     HEADER
+====================================== -->
 
-        <p>Find Trusted Local Services Near You</p>
+<header class="site-header">
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="services.html">Services</a>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="#">Logout</a>
+    <div class="header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <span class="brand-text">
+                LocalEase
+            </span>
+
+        </a>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-navigation">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="services.html"
+                class="nav-link"
+            >
+                Services
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link dashboard-active-link"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+
+            <a
+                href="#"
+                id="logoutLink"
+                class="nav-login-btn"
+            >
+                Logout
+            </a>
+
         </nav>
 
-    </header>
 
-    <!-- MAIN CONTENT-->
+    </div>
 
-    <main>
+</header>
 
-        <!--WELCOME -->
 
-        <section class="dashboard-intro">
 
-            <p class="breadcrumb">
-                <a href="index.html">Home</a>
-                /
-                Dashboard
+<!-- ======================================
+     MAIN CONTENT
+====================================== -->
+
+<main>
+
+
+    <!-- ======================================
+         DASHBOARD HERO
+    ====================================== -->
+
+    <section class="dashboard-hero">
+
+        <div class="dashboard-hero-container">
+
+
+            <!-- BREADCRUMB -->
+
+            <p class="dashboard-breadcrumb">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <span>
+                    /
+                </span>
+
+                <span>
+                    Dashboard
+                </span>
+
             </p>
 
-            <h2>Welcome to Your Dashboard👋</h2>
 
-            <p>
-                Manage Your Bookings and Find Local Services Easily.
-            </p>
 
-        </section>
+            <!-- HERO GRID -->
 
-        <!-- QUICK ACTIONS -->
+            <div class="dashboard-hero-grid">
 
-        <section class="dashboard actions">
 
-            <a href="services.html">
-                🔍Find a Service
-            </a>
+                <!-- HERO CONTENT -->
 
-            <a href="booking.html">
-                📅Book a Service
-            </a>
+                <div class="dashboard-hero-content">
 
-        </section>
+                    <span class="dashboard-eyebrow">
+                        CUSTOMER DASHBOARD
+                    </span>
 
-        <!-- ======================================= BOOKING STATS ============================================== -->
 
-        <section class="booking-stats">
+                    <h1>
+                        Welcome,
+                        <span id="welcomeName">
+                            Customer
+                        </span>
+                        👋
+                    </h1>
 
-            <h2>Your Booking Overview</h2>
 
-            <div class="stats-container">
+                    <p class="dashboard-hero-description">
+                        Manage your bookings, track service requests
+                        and discover trusted local professionals
+                        from one simple workspace.
+                    </p>
 
-                <!--Total -->
 
-                <article class="stat-card">
+                    <div class="dashboard-trust-row">
 
-                    <h3>🗒️</h3>
 
-                    <p>Total Bookings</p>
+                        <span class="dashboard-trust-item">
 
-                    <strong>5</strong>
+                            <span class="dashboard-trust-icon">
+                                ✓
+                            </span>
 
-                </article>
+                            Easy Booking
 
-                <!-- Pending -->
+                        </span>
 
-                <article class="stat-card">
 
-                    <h3>⏳</h3>
+                        <span class="dashboard-trust-item">
 
-                    <p>Pending</p>
+                            <span class="dashboard-trust-icon">
+                                ✓
+                            </span>
 
-                    <strong>2</strong>
+                            Trusted Providers
 
-                </article>
+                        </span>
 
-                <!-- Confirmed -->
 
-                <article class="stat-card">
+                        <span class="dashboard-trust-item">
 
-                    <h3>✅</h3>
+                            <span class="dashboard-trust-icon">
+                                ✓
+                            </span>
 
-                    <p>Pending</p>
+                            Secure Platform
 
-                    <strong>2</strong>
+                        </span>
 
-                </article>
 
-                <!-- Completed -->
+                    </div>
 
-                <article class="stat-card">
+                </div>
 
-                    <h3>🎉</h3>
 
-                    <p>Completed</p>
 
-                    <strong>1</strong>
+                <!-- HERO CARD -->
 
-                </article>
+                <div class="dashboard-hero-visual">
+
+                    <div class="dashboard-hero-card">
+
+
+                        <div class="dashboard-hero-card-icon">
+                            📊
+                        </div>
+
+
+                        <span class="dashboard-hero-card-label">
+                            YOUR WORKSPACE
+                        </span>
+
+
+                        <h2>
+                            Everything In One Place
+                        </h2>
+
+
+                        <p>
+                            Track your services, bookings and
+                            customer activity without the hassle.
+                        </p>
+
+
+                        <div class="dashboard-hero-card-divider">
+                        </div>
+
+
+                        <div class="dashboard-hero-card-footer">
+
+                            <span>
+                                LocalEase
+                            </span>
+
+
+                            <span>
+                                ✓ Secure
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
 
             </div>
-
-        </section>
-
-        <!-- RECENT BOOKINGS -->
-
-        <article class="booking-item">
-
-            <div>
-
-                <h3>Electrician Service</h3>
-
-                <p>Provider Pradeep Bhaiya</p>
-
-                <p>📅20 August</p>
-
-                <p>📍Prayagraj, Uttar Pradesh</p>
-
-            </div>
-
-            <span class="status pending">
-                Pending
-            </span>
-
-        </article>
-
-        <!-- Booking 2 -->
-
-        <article class="booking-item">
-
-            <div>
-
-                <h3>Home Cleaning</h3>
-
-                <p>Provider: Ankit Services</p>
-
-                <p>📅 18 August</p>
-
-                <p>📍Prayagraj, Uttar Pradesh</p>
-
-            </div>
-
-            <span class="status confirmed">
-                Confirmed
-            </span>
-
-        </article>
-
-        <!-- Booking 3 -->
-
-        <article class="booking-item">
-
-            <div>
-
-                <h3>Plumbing Service</h3>
-
-                <p>Provider: Ravi Plumbing</p>
-
-                <p>📅15 August</p>
-
-                <p>📍Prayagraj, Uttar Pradesh</p>
-
-            </div>
-
-            <span class="status completed">
-                Completed
-            </span>
-
-        </article>
-
-    </section>
-
-
-    <!-- ============================================= PROFILE =================================================-->
-
-    <section class="dashboard-prsofile">
-
-        <h2>Your Action</h2>
-
-        <div class="profile-card">
-
-            <h3>Customer Profile</h3>
-
-            <p>
-                <strong>Name:</strong>
-                Demo Customer
-            </p>
-
-            <p>
-                <strong>Email:</strong>
-                customer@example.com
-            </p>
-
-            <p>
-                <strong>Location:</strong>
-                Prayagraj,Uttar Pradesh
-            </p>
-
-            <a href="#">
-                Edit Profile
-            </a>
 
         </div>
 
     </section>
 
-    </main>
 
-    <!-- ============================================ FOOTER ==============================================-->
 
-    <footer>
+    <!-- ======================================
+         DASHBOARD WORKSPACE
+    ====================================== -->
 
-        <h3>LocalEase</h3>
+    <section class="dashboard-workspace">
+
+        <div class="dashboard-container">
+
+
+            <!-- ======================================
+                 QUICK ACTIONS
+            ====================================== -->
+
+            <section class="dashboard-actions-section">
+
+
+                <div class="dashboard-section-heading">
+
+                    <div>
+
+                        <span class="dashboard-section-eyebrow">
+                            QUICK ACTIONS
+                        </span>
+
+
+                        <h2>
+                            What would you like to do?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-actions-grid">
+
+
+                    <!-- FIND SERVICE -->
+
+                    <a
+                        href="services.html"
+                        class="dashboard-action-card dashboard-action-primary"
+                    >
+
+                        <div class="dashboard-action-icon">
+                            🔍
+                        </div>
+
+
+                        <div class="dashboard-action-content">
+
+                            <span class="dashboard-action-label">
+                                Explore
+                            </span>
+
+
+                            <h3>
+                                Find a Service
+                            </h3>
+
+
+                            <p>
+                                Discover trusted local professionals
+                                for your everyday needs.
+                            </p>
+
+                        </div>
+
+
+                        <span class="dashboard-action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- BOOK SERVICE -->
+
+                    <a
+                        href="booking.html"
+                        class="dashboard-action-card dashboard-action-secondary"
+                    >
+
+                        <div class="dashboard-action-icon">
+                            📅
+                        </div>
+
+
+                        <div class="dashboard-action-content">
+
+                            <span class="dashboard-action-label">
+                                Get Started
+                            </span>
+
+
+                            <h3>
+                                Book a Service
+                            </h3>
+
+
+                            <p>
+                                Choose a service and schedule your
+                                appointment with ease.
+                            </p>
+
+                        </div>
+
+
+                        <span class="dashboard-action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+
+                    <!-- MY BOOKINGS -->
+
+                    <a
+                        href="my-bookings.html"
+                        class="dashboard-action-card dashboard-action-tertiary"
+                    >
+
+                        <div class="dashboard-action-icon">
+                            📋
+                        </div>
+
+
+                        <div class="dashboard-action-content">
+
+                            <span class="dashboard-action-label">
+                                Manage
+                            </span>
+
+
+                            <h3>
+                                My Bookings
+                            </h3>
+
+
+                            <p>
+                                View your active, completed and
+                                previous service bookings.
+                            </p>
+
+                        </div>
+
+
+                        <span class="dashboard-action-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ======================================
+                 BOOKING STATISTICS
+            ====================================== -->
+
+            <section class="dashboard-stats-section">
+
+
+                <div class="dashboard-section-heading">
+
+                    <div>
+
+                        <span class="dashboard-section-eyebrow">
+                            BOOKING ACTIVITY
+                        </span>
+
+
+                        <h2>
+                            Your Booking Overview
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="my-bookings.html"
+                        class="dashboard-view-all-link"
+                    >
+                        View All
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                <div class="dashboard-stats-grid">
+
+
+                    <!-- TOTAL -->
+
+                    <article class="dashboard-stat-card dashboard-stat-total">
+
+                        <div class="dashboard-stat-top">
+
+                            <div class="dashboard-stat-icon">
+                                🗒️
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Total Bookings
+                        </p>
+
+
+                        <strong
+                            class="stat-number"
+                            id="totalBookings"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="dashboard-stat-description">
+                            All your service bookings
+                        </span>
+
+                    </article>
+
+
+
+                    <!-- PENDING -->
+
+                    <article class="dashboard-stat-card dashboard-stat-pending">
+
+                        <div class="dashboard-stat-top">
+
+                            <div class="dashboard-stat-icon">
+                                ⏳
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Pending
+                        </p>
+
+
+                        <strong
+                            class="stat-number"
+                            id="pendingBookings"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="dashboard-stat-description">
+                            Waiting for confirmation
+                        </span>
+
+                    </article>
+
+
+
+                    <!-- CONFIRMED -->
+
+                    <article class="dashboard-stat-card dashboard-stat-confirmed">
+
+                        <div class="dashboard-stat-top">
+
+                            <div class="dashboard-stat-icon">
+                                ✓
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Confirmed
+                        </p>
+
+
+                        <strong
+                            class="stat-number"
+                            id="confirmedBookings"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="dashboard-stat-description">
+                            Upcoming confirmed services
+                        </span>
+
+                    </article>
+
+
+
+                    <!-- COMPLETED -->
+
+                    <article class="dashboard-stat-card dashboard-stat-completed">
+
+                        <div class="dashboard-stat-top">
+
+                            <div class="dashboard-stat-icon">
+                                🎉
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Completed
+                        </p>
+
+
+                        <strong
+                            class="stat-number"
+                            id="completedBookings"
+                        >
+                            0
+                        </strong>
+
+
+                        <span class="dashboard-stat-description">
+                            Successfully completed
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ======================================
+                 RECENT BOOKINGS
+            ====================================== -->
+
+            <section class="dashboard-content-section">
+
+
+                <div class="dashboard-section-heading">
+
+                    <div>
+
+                        <span class="dashboard-section-eyebrow">
+                            RECENT ACTIVITY
+                        </span>
+
+
+                        <h2>
+                            Recent Bookings
+                        </h2>
+
+
+                        <p class="dashboard-section-description">
+                            Quickly check the latest services
+                            you have booked.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="my-bookings.html"
+                        class="dashboard-view-all-link"
+                    >
+                        View All
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                <div
+                    id="recentBookings"
+                    class="recent-bookings-list"
+                >
+
+                    <div class="recent-booking">
+
+                        <div class="recent-booking-icon">
+                            📋
+                        </div>
+
+
+                        <div class="recent-booking-content">
+
+                            <h4>
+                                Loading...
+                            </h4>
+
+
+                            <p>
+                                Loading your bookings...
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ======================================
+                 CUSTOMER PROFILE
+            ====================================== -->
+
+            <section class="dashboard-content-section dashboard-profile-section">
+
+
+                <div class="dashboard-section-heading">
+
+                    <div>
+
+                        <span class="dashboard-section-eyebrow">
+                            ACCOUNT INFORMATION
+                        </span>
+
+
+                        <h2>
+                            Customer Profile
+                        </h2>
+
+
+                        <p class="dashboard-section-description">
+                            Your basic account information at a glance.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="profile.html"
+                        class="dashboard-view-all-link"
+                    >
+                        Edit Profile
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                <div class="dashboard-profile-card">
+
+
+                    <div class="dashboard-profile-intro">
+
+                        <div class="dashboard-profile-avatar">
+                            👤
+                        </div>
+
+
+                        <div>
+
+                            <span class="dashboard-profile-label">
+                                LocalEase Customer
+                            </span>
+
+
+                            <h3>
+                                Your Account
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="profile-details-grid">
+
+
+                        <!-- NAME -->
+
+                        <div class="profile-detail">
+
+                            <span>
+                                Name
+                            </span>
+
+
+                            <strong id="customerName">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="profile-detail">
+
+                            <span>
+                                Email
+                            </span>
+
+
+                            <strong id="customerEmail">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+
+
+                        <!-- LOCATION -->
+
+                        <div class="profile-detail">
+
+                            <span>
+                                Location
+                            </span>
+
+
+                            <strong id="customerLocation">
+                                Not provided
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         EXPLORE SERVICES CTA
+    ====================================== -->
+
+    <section class="dashboard-explore-section">
+
+        <div class="dashboard-explore-container">
+
+
+            <div class="dashboard-explore-content">
+
+                <span class="dashboard-explore-eyebrow">
+                    NEED SOMETHING ELSE?
+                </span>
+
+
+                <h2>
+                    Find Your Next
+                    <span>
+                        Local Service
+                    </span>
+                </h2>
+
+
+                <p>
+                    Explore trusted professionals and book
+                    the right service for your everyday needs.
+                </p>
+
+
+                <a
+                    href="services.html"
+                    class="dashboard-explore-btn"
+                >
+                    Browse Services
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <div class="dashboard-explore-visual">
+
+                <div class="dashboard-explore-circle">
+
+                    <span>
+                        🛠️
+                    </span>
+
+                </div>
+
+
+                <div class="dashboard-explore-small-circle">
+                    ✓
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         BACK TO HOME
+    ====================================== -->
+
+    <section class="dashboard-back-section">
+
+        <a href="index.html">
+            ← Back to Home
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================
+     FOOTER
+====================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
+            </a>
+
+
+            <p>
+                Connecting Customers with Trusted
+                Local Service Providers.
+            </p>
+
+        </div>
+
+
+
+        <!-- EXPLORE -->
+
+        <div class="footer-column">
+
+            <h3>
+                Explore
+            </h3>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </div>
+
+
+
+        <!-- ACCOUNT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+
+            <a href="my-bookings.html">
+                My Bookings
+            </a>
+
+
+            <a href="login.html">
+                Login
+            </a>
+
+        </div>
+
+
+
+        <!-- LOCALEASE -->
+
+        <div class="footer-column">
+
+            <h3>
+                LocalEase
+            </h3>
+
+
+            <a href="about.html">
+                About Us
+            </a>
+
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <div class="footer-bottom">
 
         <p>
-            Connecting Customers with Trusted Local Service Providers.
+            © 2026 LocalEase. All Rights Reserved.
         </p>
 
-        <p>
-             © 2026 LocalEase. All Rights Reserved.
-        </p>
-    </footer>
-    
+    </div>
+
+</footer>
+
+
+
+<!-- ======================================
+     EXISTING JAVASCRIPT
+     
+     IMPORTANT:
+     Dashboard functionality is handled by
+     script.js and the existing dashboard
+     initialization below.
+====================================== -->
+
 <script src="script.js"></script>
+
+
+
+<script>
+
+    const AUTH_API =
+        "http://localhost:5000/api/auth";
+
+    const BOOKING_API =
+        "http://localhost:5000/api/bookings";
+
+
+
+    /* =========================================================
+       PAGE INITIALIZATION
+    ========================================================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeDashboard
+    );
+
+
+
+    async function initializeDashboard() {
+
+        const isLoggedIn =
+            checkCustomerLogin();
+
+        if (!isLoggedIn) {
+
+            return;
+
+        }
+
+
+
+        setupLogout();
+
+        await loadCustomerInformation();
+
+        await loadCustomerBookings();
+
+    }
+
+
+
+    /* =========================================================
+       CHECK CUSTOMER LOGIN
+    ========================================================= */
+
+    function checkCustomerLogin() {
+
+        const token =
+            localStorage.getItem(
+                "localeaseToken"
+            );
+
+        const userData =
+            localStorage.getItem(
+                "localeaseUser"
+            );
+
+
+
+        if (!token || !userData) {
+
+            window.location.href =
+                "login.html";
+
+            return false;
+
+        }
+
+
+
+        try {
+
+            const user =
+                JSON.parse(userData);
+
+
+
+            if (user.role === "provider") {
+
+                window.location.href =
+                    "provider-dashboard.html";
+
+                return false;
+
+            }
+
+
+
+            if (user.role === "admin") {
+
+                window.location.href =
+                    "admin-dashboard.html";
+
+                return false;
+
+            }
+
+
+
+            if (user.role !== "customer") {
+
+                window.location.href =
+                    "login.html";
+
+                return false;
+
+            }
+
+
+
+            return true;
+
+        } catch (error) {
+
+            console.error(
+                "Login data error:",
+                error
+            );
+
+
+
+            clearLocalEaseSession();
+
+            window.location.href =
+                "login.html";
+
+            return false;
+
+        }
+
+    }
+
+
+
+    /* =========================================================
+       LOAD CUSTOMER INFORMATION
+    ========================================================= */
+
+    async function loadCustomerInformation() {
+
+        const token =
+            localStorage.getItem(
+                "localeaseToken"
+            );
+
+
+
+        if (!token) {
+
+            return;
+
+        }
+
+
+
+        try {
+
+            const response =
+                await fetch(
+                    AUTH_API + "/me",
+                    {
+                        method: "GET",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "Authorization":
+                                "Bearer " +
+                                token
+                        }
+                    }
+                );
+
+
+
+            const data =
+                await response.json();
+
+
+
+            if (
+                !response.ok ||
+                !data.success ||
+                !data.user
+            ) {
+
+                throw new Error(
+                    data.message ||
+                    "Unable to load customer information"
+                );
+
+            }
+
+
+
+            const user =
+                data.user;
+
+
+
+            localStorage.setItem(
+                "localeaseUser",
+                JSON.stringify(user)
+            );
+
+
+
+            const customerName =
+                document.getElementById(
+                    "customerName"
+                );
+
+            if (customerName) {
+
+                customerName.textContent =
+                    user.name ||
+                    "Customer";
+
+            }
+
+
+
+            const welcomeName =
+                document.getElementById(
+                    "welcomeName"
+                );
+
+            if (welcomeName) {
+
+                welcomeName.textContent =
+                    user.name ||
+                    "Customer";
+
+            }
+
+
+
+            const customerEmail =
+                document.getElementById(
+                    "customerEmail"
+                );
+
+            if (customerEmail) {
+
+                customerEmail.textContent =
+                    user.email ||
+                    "Not available";
+
+            }
+
+
+
+            const customerLocation =
+                document.getElementById(
+                    "customerLocation"
+                );
+
+            if (customerLocation) {
+
+                customerLocation.textContent =
+                    user.location ||
+                    "Not provided";
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Customer information error:",
+                error
+            );
+
+
+
+            if (
+                error.message &&
+                error.message.toLowerCase().includes(
+                    "token"
+                )
+            ) {
+
+                clearLocalEaseSession();
+
+                window.location.href =
+                    "login.html";
+
+            }
+
+        }
+
+    }
+
+
+
+    /* =========================================================
+       LOAD CUSTOMER BOOKINGS
+    ========================================================= */
+
+    async function loadCustomerBookings() {
+
+        const token =
+            localStorage.getItem(
+                "localeaseToken"
+            );
+
+
+
+        if (!token) {
+
+            return;
+
+        }
+
+
+
+        try {
+
+            const response =
+                await fetch(
+                    BOOKING_API +
+                    "/my-bookings",
+                    {
+                        method: "GET",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json",
+
+                            "Authorization":
+                                "Bearer " +
+                                token
+                        }
+                    }
+                );
+
+
+
+            const data =
+                await response.json();
+
+
+
+            if (
+                !response.ok ||
+                !data.success
+            ) {
+
+                throw new Error(
+                    data.message ||
+                    "Unable to load bookings"
+                );
+
+            }
+
+
+
+            const bookings =
+                Array.isArray(
+                    data.bookings
+                )
+                    ? data.bookings
+                    : [];
+
+
+
+            updateBookingStatistics(
+                bookings
+            );
+
+
+
+            renderRecentBookings(
+                bookings
+            );
+
+
+
+        } catch (error) {
+
+            console.error(
+                "Customer bookings error:",
+                error
+            );
+
+
+
+            showBookingError();
+
+        }
+
+    }
+
+
+
+    /* =========================================================
+       UPDATE BOOKING STATISTICS
+    ========================================================= */
+
+    function updateBookingStatistics(
+        bookings
+    ) {
+
+        let pending = 0;
+
+        let confirmed = 0;
+
+        let completed = 0;
+
+
+
+        bookings.forEach(
+            function (booking) {
+
+                const status =
+                    String(
+                        booking.status ||
+                        ""
+                    ).toLowerCase();
+
+
+
+                if (
+                    status === "pending"
+                ) {
+
+                    pending++;
+
+                }
+
+
+
+                if (
+                    status === "confirmed"
+                ) {
+
+                    confirmed++;
+
+                }
+
+
+
+                if (
+                    status === "completed"
+                ) {
+
+                    completed++;
+
+                }
+
+            }
+        );
+
+
+
+        document.getElementById(
+            "totalBookings"
+        ).textContent =
+            bookings.length;
+
+
+
+        document.getElementById(
+            "pendingBookings"
+        ).textContent =
+            pending;
+
+
+
+        document.getElementById(
+            "confirmedBookings"
+        ).textContent =
+            confirmed;
+
+
+
+        document.getElementById(
+            "completedBookings"
+        ).textContent =
+            completed;
+
+    }
+
+
+
+    /* =========================================================
+       RENDER RECENT BOOKINGS
+    ========================================================= */
+
+    function renderRecentBookings(
+        bookings
+    ) {
+
+        const container =
+            document.getElementById(
+                "recentBookings"
+            );
+
+
+
+        if (!container) {
+
+            return;
+
+        }
+
+
+
+        if (!bookings.length) {
+
+            container.innerHTML = `
+
+                <div class="recent-booking">
+
+                    <div class="recent-booking-icon">
+                        📋
+                    </div>
+
+                    <div class="recent-booking-content">
+
+                        <h4>
+                            No Bookings Yet
+                        </h4>
+
+                        <p>
+                            You have not booked any service yet.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+
+        const sortedBookings =
+            [...bookings].sort(
+                function (a, b) {
+
+                    const dateA =
+                        new Date(
+                            a.createdAt ||
+                            a.bookingDate ||
+                            0
+                        );
+
+                    const dateB =
+                        new Date(
+                            b.createdAt ||
+                            b.bookingDate ||
+                            0
+                        );
+
+                    return dateB - dateA;
+
+                }
+            );
+
+
+
+        const recentBookings =
+            sortedBookings.slice(
+                0,
+                5
+            );
+
+
+
+        container.innerHTML = "";
+
+
+
+        recentBookings.forEach(
+            function (booking) {
+
+                const service =
+                    booking.service || {};
+
+
+
+                const provider =
+                    booking.provider || {};
+
+
+
+                const serviceName =
+                    typeof service === "object"
+                        ? (
+                            service.name ||
+                            service.category ||
+                            "Local Service"
+                        )
+                        : "Local Service";
+
+
+
+                const providerName =
+                    typeof provider === "object"
+                        ? (
+                            provider.name ||
+                            "Not assigned"
+                        )
+                        : "Not assigned";
+
+
+
+                const bookingDate =
+                    formatBookingDate(
+                        booking.bookingDate
+                    );
+
+
+
+                const status =
+                    String(
+                        booking.status ||
+                        "pending"
+                    ).toLowerCase();
+
+
+
+                const statusText =
+                    formatBookingStatus(
+                        status
+                    );
+
+
+
+                const recentBooking =
+                    document.createElement(
+                        "div"
+                    );
+
+
+
+                recentBooking.className =
+                    "recent-booking";
+
+
+
+                const bookingIcon =
+                    document.createElement(
+                        "div"
+                    );
+
+
+
+                bookingIcon.className =
+                    "recent-booking-icon";
+
+
+
+                bookingIcon.textContent =
+                    "📋";
+
+
+
+                const information =
+                    document.createElement(
+                        "div"
+                    );
+
+
+
+                information.className =
+                    "recent-booking-content";
+
+
+
+                const heading =
+                    document.createElement(
+                        "h4"
+                    );
+
+
+
+                heading.textContent =
+                    serviceName;
+
+
+
+                const providerText =
+                    document.createElement(
+                        "p"
+                    );
+
+
+
+                providerText.textContent =
+                    "Provider: " +
+                    providerName;
+
+
+
+                const dateText =
+                    document.createElement(
+                        "p"
+                    );
+
+
+
+                dateText.textContent =
+                    "📅 " +
+                    bookingDate;
+
+
+
+                const addressText =
+                    document.createElement(
+                        "p"
+                    );
+
+
+
+                addressText.textContent =
+                    "📍 " +
+                    (
+                        booking.address ||
+                        "Address not available"
+                    );
+
+
+
+                const statusElement =
+                    document.createElement(
+                        "span"
+                    );
+
+
+
+                statusElement.className =
+                    "booking-status";
+
+
+
+                statusElement.textContent =
+                    statusText;
+
+
+
+                information.appendChild(
+                    heading
+                );
+
+
+
+                information.appendChild(
+                    providerText
+                );
+
+
+
+                information.appendChild(
+                    dateText
+                );
+
+
+
+                information.appendChild(
+                    addressText
+                );
+
+
+
+                recentBooking.appendChild(
+                    bookingIcon
+                );
+
+
+
+                recentBooking.appendChild(
+                    information
+                );
+
+
+
+                recentBooking.appendChild(
+                    statusElement
+                );
+
+
+
+                container.appendChild(
+                    recentBooking
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================================
+       FORMAT BOOKING DATE
+    ========================================================= */
+
+    function formatBookingDate(
+        dateValue
+    ) {
+
+        if (!dateValue) {
+
+            return "Date not available";
+
+        }
+
+
+
+        const date =
+            new Date(dateValue);
+
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return "Date not available";
+
+        }
+
+
+
+        return date.toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+
+    /* =========================================================
+       FORMAT BOOKING STATUS
+    ========================================================= */
+
+    function formatBookingStatus(
+        status
+    ) {
+
+        if (
+            status === "pending"
+        ) {
+
+            return "Pending";
+
+        }
+
+
+
+        if (
+            status === "confirmed"
+        ) {
+
+            return "Confirmed";
+
+        }
+
+
+
+        if (
+            status === "in-progress"
+        ) {
+
+            return "In Progress";
+
+        }
+
+
+
+        if (
+            status === "completed"
+        ) {
+
+            return "Completed";
+
+        }
+
+
+
+        if (
+            status === "cancelled"
+        ) {
+
+            return "Cancelled";
+
+        }
+
+
+
+        return "Pending";
+
+    }
+
+
+
+    /* =========================================================
+       BOOKING ERROR
+    ========================================================= */
+
+    function showBookingError() {
+
+        const container =
+            document.getElementById(
+                "recentBookings"
+            );
+
+
+
+        if (!container) {
+
+            return;
+
+        }
+
+
+
+        container.innerHTML = `
+
+            <div class="recent-booking">
+
+                <div class="recent-booking-icon">
+                    !
+                </div>
+
+                <div class="recent-booking-content">
+
+                    <h4>
+                        Unable to Load Bookings
+                    </h4>
+
+                    <p>
+                        Please make sure the LocalEase backend is running.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* =========================================================
+       LOGOUT
+    ========================================================= */
+
+    function setupLogout() {
+
+        const logoutLink =
+            document.getElementById(
+                "logoutLink"
+            );
+
+
+
+        if (!logoutLink) {
+
+            return;
+
+        }
+
+
+
+        logoutLink.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to logout?"
+                    );
+
+
+
+                if (!confirmLogout) {
+
+                    return;
+
+                }
+
+
+
+                clearLocalEaseSession();
+
+
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================================
+       CLEAR LOCALEASE SESSION
+    ========================================================= */
+
+    function clearLocalEaseSession() {
+
+        localStorage.removeItem(
+            "localeaseToken"
+        );
+
+
+
+        localStorage.removeItem(
+            "localeaseUser"
+        );
+
+
+
+        localStorage.removeItem(
+            "localeaseCurrentBooking"
+        );
+
+
+
+        localStorage.removeItem(
+            "localeaseSelectedService"
+        );
+
+
+
+        localStorage.removeItem(
+            "localeaseSelectedProvider"
+        );
+
+    }
+
+</script>
+
+
 </body>
+
 </html>
+
 
 

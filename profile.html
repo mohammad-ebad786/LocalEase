@@ -1,381 +1,822 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <!-- ============================================= BASIC META =============================================== -->
-
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="Manage your LocalEase profile, personal information and account activity.">
+    <meta
+        name="description"
+        content="Manage your LocalEase profile, account information and booking activity."
+    >
 
-    <meta name="author"
-          content="LocalEase">
+    <meta
+        name="author"
+        content="LocalEase"
+    >
 
     <title>My Profile - LocalEase</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-</head>
-
-
-<body>
-
-
-    <!-- ============================================ HEADER ============================================== -->
-
-    <header>
-
-        <h1>
-            LocalEase
-        </h1>
-
-        <p>
-            Find Trusted Local Services Near You
-        </p>
+    <link rel="icon" type="image/png" href="favicon.png"></head>
 
 
-        <!-- Navigation -->
+<body class="profile-page">
 
-        <nav>
 
-            <a href="index.html">
-                Home
+    <!-- ======================================
+         HEADER
+    ====================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
             </a>
 
-            <a href="services.html">
-                Services
-            </a>
 
-            <a href="provider.html">
-                Become a Provider
-            </a>
 
-            <a href="login.html">
-                Login
-            </a>
+            <!-- NAVIGATION -->
 
-        </nav>
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="nav-link active"
+                >
+                    Profile
+                </a>
+
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+
+        </div>
 
     </header>
 
 
 
-    <!-- ============================================== MAIN CONTENT ================================================= -->
+    <!-- ======================================
+         MAIN CONTENT
+    ====================================== -->
 
     <main>
 
 
-        <!-- ========================================== PROFILE INTRO ========================================== -->
+        <!-- ======================================
+             PROFILE HERO
+        ====================================== -->
 
-        <section class="profile-intro">
+        <section class="profile-hero">
 
-            <p class="breadcrumb">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                /
-
-                My Profile
-
-            </p>
+            <div class="profile-hero-container">
 
 
-            <h2>
-                My Profile
-            </h2>
+                <div class="profile-hero-content">
 
 
-            <p>
-                Manage your LocalEase account and personal information.
-            </p>
+                    <p class="profile-breadcrumb">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <span>/</span>
+
+                        Profile
+
+                    </p>
+
+
+                    <p class="profile-eyebrow">
+                        ACCOUNT CENTER
+                    </p>
+
+
+                    <h1>
+                        Welcome to Your
+                        <span>Profile</span>
+                    </h1>
+
+
+                    <p class="profile-hero-description">
+                        Manage your personal information, account
+                        preferences and LocalEase booking activity
+                        from one place.
+                    </p>
+
+
+                    <div class="profile-trust-row">
+
+                        <span>
+                            ✓ Account Overview
+                        </span>
+
+                        <span>
+                            🔒 Secure Information
+                        </span>
+
+                        <span>
+                            ⚡ Easy Management
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- PROFILE HERO CARD -->
+
+                <div class="profile-hero-visual">
+
+                    <div class="profile-hero-card">
+
+
+                        <div class="profile-hero-avatar">
+                            👤
+                        </div>
+
+
+                        <div class="profile-hero-card-content">
+
+                            <p>
+                                MY ACCOUNT
+                            </p>
+
+                            <h2>
+                                My Profile
+                            </h2>
+                            <span>
+                                Customer Account
+                            </span>
+
+                        </div>
+
+
+                        <div class="profile-hero-status">
+
+                            <span class="profile-status-dot"></span>
+
+                            Active Account
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
 
         </section>
 
 
 
-        <!-- ========================================= PROFILE CARD ============================================ -->
+        <!-- ======================================
+             PROFILE WORKSPACE
+        ====================================== -->
 
-        <section class="profile-card">
+        <section class="profile-workspace">
 
-
-            <!-- ========================================= PROFILE HEADER ======================================= -->
-
-            <div class="profile-header">
-
-                <div class="profile-avatar">
-                    ME
-                </div>
+            <div class="profile-container">
 
 
-                <div class="profile-title">
+                <!-- ======================================
+                     PROFILE INFORMATION
+                ====================================== -->
 
-                    <h2>
-                        Mohammad Ebad
-                    </h2>
-
-                    <p>
-                        LocalEase Customer
-                    </p>
-
-                </div>
+                <section class="profile-information-section">
 
 
-                <button
-                    type="button"
-                    class="edit-profile-btn"
-                >
-                    Edit Profile
-                </button>
+                    <div class="profile-section-heading">
 
-            </div>
+                        <div>
 
+                            <p class="profile-section-eyebrow">
+                                PERSONAL DETAILS
+                            </p>
 
+                            <h2>
+                                Profile Information
+                            </h2>
 
-            <!-- ===================================== PERSONAL INFORMATION ====================================== -->
+                            <p>
+                                View the personal information
+                                associated with your LocalEase account.
+                            </p>
 
-            <div class="profile-section">
-
-                <h3>
-                    Personal Information
-                </h3>
-
-
-                <div class="profile-details-grid">
+                        </div>
 
 
-                    <div class="profile-detail">
-
-                        <span>
-                            Full Name
-                        </span>
-
-                        <strong>
-                            Mohammad Ebad
-                        </strong>
+                        <div class="profile-heading-icon">
+                            👤
+                        </div>
 
                     </div>
 
 
-                    <div class="profile-detail">
 
-                        <span>
-                            Email Address
-                        </span>
+                    <div class="profile-information-card">
 
-                        <strong>
-                            ebad@example.com
-                        </strong>
+
+                        <div class="profile-information-header">
+
+                            <div class="profile-large-avatar">
+                                👤
+                            </div>
+
+
+                            <div>
+
+                                <p class="profile-card-label">
+                                    ACCOUNT HOLDER
+                                </p>
+
+                                <h3>
+                                    My LocalEase Account
+                                </h3>
+                                <span>
+                                    Account Information
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="profile-details-grid">
+
+
+                            <div class="profile-detail">
+
+                                <div class="profile-detail-icon">
+                                    👤
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        Full Name
+                                    </span>
+
+                                    <strong id="profile-name">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-detail">
+
+                                <div class="profile-detail-icon">
+                                    ✉️
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        Email
+                                    </span>
+
+                                    <strong id="profile-email">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-detail">
+
+                                <div class="profile-detail-icon">
+                                    📱
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        Phone Number
+                                    </span>
+
+                                    <strong id="profile-phone">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-detail">
+
+                                <div class="profile-detail-icon">
+                                    📍
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        Location
+                                    </span>
+
+                                    <strong id="profile-location">
+                                        Not provided
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-detail">
+
+                                <div class="profile-detail-icon">
+                                    🛡️
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        Account Type
+                                    </span>
+
+                                    <strong id="profile-role">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="profile-detail">
+
+                                <div class="profile-detail-icon">
+                                    📅
+                                </div>
+
+                                <div>
+
+                                    <span>
+                                        Member Since
+                                    </span>
+
+                                    <strong id="profile-member-since">
+                                        Not available
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- PROFILE ACTIONS -->
+
+                        <div class="profile-actions">
+
+
+                            <button
+                                type="button"
+                                class="edit-profile-btn"
+                            >
+                                <span>
+                                    ✏️
+                                </span>
+
+                                Edit Profile
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="change-password-btn"
+                            >
+                                <span>
+                                    🔒
+                                </span>
+
+                                Change Password
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="notification-settings-btn"
+                            >
+                                <span>
+                                    🔔
+                                </span>
+
+                                Notification Settings
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="logout-btn"
+                            >
+                                <span>
+                                    ↪
+                                </span>
+
+                                Logout
+
+                            </button>
+
+
+                        </div>
+
 
                     </div>
 
 
-                    <div class="profile-detail">
-
-                        <span>
-                            Phone Number
-                        </span>
-
-                        <strong>
-                            +91 XXXXX XXXXX
-                        </strong>
-
-                    </div>
+                </section>
 
 
-                    <div class="profile-detail">
 
-                        <span>
-                            Location
-                        </span>
+                <!-- ======================================
+                     BOOKING STATISTICS
+                ====================================== -->
 
-                        <strong>
-                            Prayagraj, Uttar Pradesh
-                        </strong>
-
-                    </div>
+                <section class="profile-stats-section">
 
 
-                    <div class="profile-detail">
+                    <div class="profile-section-heading">
 
-                        <span>
-                            Account Type
-                        </span>
+                        <div>
 
-                        <strong>
-                            Customer
-                        </strong>
+                            <p class="profile-section-eyebrow">
+                                BOOKING ACTIVITY
+                            </p>
+
+                            <h2>
+                                Booking Statistics
+                            </h2>
+
+                            <p>
+                                A quick overview of your LocalEase
+                                service booking activity.
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="profile-detail">
 
-                        <span>
-                            Member Since
-                        </span>
+                    <div class="profile-stats-grid">
 
-                        <strong>
-                            August 2026
-                        </strong>
+
+                        <article class="profile-stat-card">
+
+                            <div class="profile-stat-icon">
+                                📋
+                            </div>
+
+                            <div>
+
+                                <p>
+                                    TOTAL BOOKINGS
+                                </p>
+
+                                <strong
+                                    id="profile-total-bookings"
+                                >
+                                    00
+                                </strong>
+
+                                <span>
+                                    All service requests
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="profile-stat-card">
+
+                            <div class="profile-stat-icon">
+                                ⚡
+                            </div>
+
+                            <div>
+
+                                <p>
+                                    ACTIVE BOOKINGS
+                                </p>
+
+                                <strong
+                                    id="profile-active-bookings"
+                                >
+                                    00
+                                </strong>
+
+                                <span>
+                                    Currently active
+                                </span>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <article class="profile-stat-card">
+
+                            <div class="profile-stat-icon">
+                                ✓
+                            </div>
+
+                            <div>
+
+                                <p>
+                                    COMPLETED
+                                </p>
+
+                                <strong
+                                    id="profile-completed-bookings"
+                                >
+                                    00
+                                </strong>
+
+                                <span>
+                                    Successfully completed
+                                </span>
+
+                            </div>
+
+                        </article>
+
 
                     </div>
 
 
-                </div>
-
-            </div>
+                </section>
 
 
 
-            <!-- ====================================== ACCOUNT ACTIVITY ======================================= -->
+                <!-- ======================================
+                     RECENT BOOKING
+                ====================================== -->
 
-            <div class="profile-section">
-
-                <h3>
-                    Account Activity
-                </h3>
+                <section class="recent-booking-section">
 
 
-                <div class="profile-stats">
+                    <div class="profile-section-heading">
+
+                        <div>
+
+                            <p class="profile-section-eyebrow">
+                                RECENT ACTIVITY
+                            </p>
+
+                            <h2>
+                                Recent Booking
+                            </h2>
+
+                            <p>
+                                Your latest service booking
+                                activity appears here.
+                            </p>
+
+                        </div>
 
 
-                    <div class="profile-stat">
-
-                        <span class="stat-number">
-                            05
-                        </span>
-
-                        <span class="stat-label">
-                            Total Bookings
-                        </span>
-
-                    </div>
-
-
-                    <div class="profile-stat">
-
-                        <span class="stat-number">
-                            02
-                        </span>
-
-                        <span class="stat-label">
-                            Active Bookings
-                        </span>
+                        <a
+                            href="my-bookings.html"
+                            class="profile-view-bookings-btn"
+                        >
+                            View All Bookings
+                            <span>→</span>
+                        </a>
 
                     </div>
 
 
-                    <div class="profile-stat">
 
-                        <span class="stat-number">
-                            03
-                        </span>
+                    <div
+                        id="profile-recent-booking"
+                        class="recent-booking-card"
+                    >
 
-                        <span class="stat-label">
-                            Completed
-                        </span>
+                        <div class="recent-booking-loading">
+
+                            <div class="recent-booking-loading-icon">
+                                ⏳
+                            </div>
+
+                            <p>
+                                Loading booking activity...
+                            </p>
+
+                        </div>
 
                     </div>
 
 
-                </div>
-
-            </div>
+                </section>
 
 
 
-            <!-- ====================================== RECENT BOOKING ======================================== -->
+                <!-- ======================================
+                     PROFILE SECURITY
+                ====================================== -->
 
-            <div class="profile-section">
-
-                <div class="profile-section-heading">
-
-                    <h3>
-                        Recent Booking
-                    </h3>
+                <section class="profile-security-section">
 
 
-                    <a href="my-bookings.html">
-                        View All
+                    <div class="profile-security-card">
+
+
+                        <div class="profile-security-icon">
+                            🔒
+                        </div>
+
+
+                        <div class="profile-security-content">
+
+                            <p class="profile-section-eyebrow">
+                                ACCOUNT SECURITY
+                            </p>
+
+                            <h2>
+                                Your information is protected
+                            </h2>
+
+                            <p>
+                                LocalEase keeps your account
+                                information secure and only uses
+                                it to provide your requested services.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="notifications.html"
+                            class="profile-security-btn"
+                        >
+                            Account Settings
+                            <span>→</span>
+                        </a>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     EXPLORE SERVICES
+                ====================================== -->
+
+                <section class="profile-explore-section">
+
+
+                    <div class="profile-explore-card">
+
+
+                        <div class="profile-explore-content">
+
+                            <p class="profile-section-eyebrow">
+                                KEEP EXPLORING
+                            </p>
+
+
+                            <h2>
+                                Need a service?
+                                <span>We've got you covered.</span>
+                            </h2>
+
+
+                            <p>
+                                Explore trusted local professionals
+                                and book the service you need in just
+                                a few simple steps.
+                            </p>
+
+
+                            <a
+                                href="services.html"
+                                class="profile-explore-btn"
+                            >
+                                Browse Services
+                                <span>→</span>
+                            </a>
+
+                        </div>
+
+
+                        <div class="profile-explore-visual">
+
+                            <div class="profile-explore-circle">
+                                🛠️
+                            </div>
+
+                            <div class="profile-explore-small-circle">
+                                ✓
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     BACK SECTION
+                ====================================== -->
+
+                <section class="back-section">
+
+                    <a href="index.html">
+                        ← Back to Home
                     </a>
 
-                </div>
+                </section>
 
-
-                <div class="recent-booking">
-
-
-                    <div>
-
-                        <h4>
-                            Electrician Service
-                        </h4>
-
-                        <p>
-                            Provider: Pradeep Bhaiya
-                        </p>
-
-                        <p>
-                            📅 25 August 2026
-                            &nbsp; | &nbsp;
-                            🕐 11:00 AM
-                        </p>
-
-                    </div>
-
-
-                    <span class="profile-status pending">
-                        Pending
-                    </span>
-
-
-                </div>
 
             </div>
-
-
-
-            <!-- ====================================== ACCOUNT SETTINGS ======================================= -->
-
-            <div class="profile-section">
-
-                <h3>
-                    Account Settings
-                </h3>
-
-
-                <div class="profile-actions">
-
-
-                    <a href="#"
-                       class="profile-action">
-                        🔒 Change Password
-                    </a>
-
-
-                    <a href="notifications.html"
-                       class="profile-action">
-                        🔔 Notification Settings
-                    </a>
-
-
-                    <a href="login.html"
-                       class="profile-action danger">
-                        🚪 Logout
-                    </a>
-
-
-                </div>
-
-            </div>
-
 
         </section>
 
@@ -384,28 +825,139 @@
 
 
 
-    <!-- ============================================ FOOTER ============================================== -->
+    <!-- ======================================
+         FOOTER
+    ====================================== -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <h3>
-            LocalEase
-        </h3>
-
-
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
+        <div class="footer-container">
 
 
-        <p>
-            © 2026 LocalEase. All Rights Reserved.
-        </p>
+            <!-- FOOTER BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="brand"
+                >
+
+                    <span class="brand-text">
+                        LocalEase
+                    </span>
+
+                </a>
+
+
+                <p>
+                    Connecting Customers with Trusted
+                    Local Service Providers.
+                </p>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Quick Links
+                </h3>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="services.html">
+                    Services
+                </a>
+
+
+                <a href="my-bookings.html">
+                    My Bookings
+                </a>
+
+            </div>
+
+
+
+            <!-- PROVIDERS -->
+
+            <div class="footer-column">
+
+                <h3>
+                    For Providers
+                </h3>
+
+
+                <a href="provider.html">
+                    Become a Provider
+                </a>
+
+
+                <a href="login.html">
+                    Provider Login
+                </a>
+
+            </div>
+
+
+
+            <!-- SUPPORT -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Support
+                </h3>
+
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+
+                <a href="about.html">
+                    About LocalEase
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+        </div>
+
 
     </footer>
 
 
-<script src="script.js"></script>
+
+    <!-- ======================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+
+
 </body>
 
 </html>
+
+
+

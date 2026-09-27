@@ -1,0 +1,1289 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="LocalEase admin service management for reviewing and managing local services."
+    >
+
+    <title>Admin Services - LocalEase</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png"></head>
+
+
+<body class="admin-services-page">
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+                <span class="brand-text">
+                    LocalEase
+                </span>
+            </a>
+
+
+            <div class="admin-header-label">
+
+                <span class="admin-header-dot"></span>
+
+                Admin Services Management
+
+            </div>
+
+
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+                <a
+                    href="admin-dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="nav-link"
+                >
+                    Profile
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="admin-services-hero">
+
+            <div class="admin-container">
+
+
+                <div class="admin-services-hero-content">
+
+
+                    <p class="admin-services-breadcrumb">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <span>/</span>
+
+                        <a href="admin-dashboard.html">
+                            Admin Dashboard
+                        </a>
+
+                        <span>/</span>
+
+                        <span>
+                            Admin Services
+                        </span>
+
+                    </p>
+
+
+                    <div class="admin-services-eyebrow">
+                        Platform Management
+                    </div>
+
+
+                    <h1>
+                        Manage
+                        <span>Services.</span>
+                    </h1>
+
+
+                    <p class="admin-services-hero-description">
+
+                        Review, create, edit and manage the services
+                        available to customers across the LocalEase
+                        platform.
+
+                    </p>
+
+
+                    <div class="admin-services-hero-status">
+
+                        <span class="admin-services-status-dot"></span>
+
+                        Service management system active
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="admin-services-hero-visual">
+
+
+                    <div class="admin-services-hero-glow"></div>
+
+
+                    <div class="admin-services-overview-card">
+
+
+                        <div class="admin-services-overview-top">
+
+                            <div class="admin-services-overview-icon">
+                                🛠️
+                            </div>
+
+
+                            <div>
+
+                                <p>
+                                    PLATFORM SERVICES
+                                </p>
+
+                                <h2>
+                                    Service Control
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-services-overview-items">
+
+
+                            <div class="admin-services-overview-item">
+
+                                <span class="admin-services-overview-item-icon">
+                                    📋
+                                </span>
+
+                                <span>
+                                    Review service information
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-services-overview-item">
+
+                                <span class="admin-services-overview-item-icon">
+                                    ✏️
+                                </span>
+
+                                <span>
+                                    Create and update services
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-services-overview-item">
+
+                                <span class="admin-services-overview-item-icon">
+                                    🔎
+                                </span>
+
+                                <span>
+                                    Search and filter services
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-services-overview-item">
+
+                                <span class="admin-services-overview-item-icon">
+                                    ⚡
+                                </span>
+
+                                <span>
+                                    Monitor service availability
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SERVICE STATISTICS
+        ====================================================== -->
+
+        <section class="admin-services-stats-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-services-section-heading">
+
+                    <p>
+                        Service Overview
+                    </p>
+
+                    <h2>
+                        Platform service statistics
+                    </h2>
+
+                    <span>
+                        A quick overview of services currently managed
+                        on LocalEase.
+                    </span>
+
+                </div>
+
+
+                <div class="admin-services-stats-grid">
+
+
+                    <!-- TOTAL -->
+
+                    <article class="admin-services-stat-card">
+
+                        <div class="admin-services-stat-top">
+
+                            <div class="admin-services-stat-icon">
+                                🛠️
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Total Services
+                        </h3>
+
+
+                        <p
+                            class="admin-services-stat-number"
+                            id="admin-total-services"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Services available on LocalEase.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- ACTIVE -->
+
+                    <article class="admin-services-stat-card">
+
+                        <div class="admin-services-stat-top">
+
+                            <div class="admin-services-stat-icon active">
+                                ✓
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Active Services
+                        </h3>
+
+
+                        <p
+                            class="admin-services-stat-number"
+                            id="admin-active-services"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Currently active services.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- INACTIVE -->
+
+                    <article class="admin-services-stat-card">
+
+                        <div class="admin-services-stat-top">
+
+                            <div class="admin-services-stat-icon inactive">
+                                ⏸
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Inactive Services
+                        </h3>
+
+
+                        <p
+                            class="admin-services-stat-number"
+                            id="admin-inactive-services"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Services currently unavailable.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- CATEGORIES -->
+
+                    <article class="admin-services-stat-card">
+
+                        <div class="admin-services-stat-top">
+
+                            <div class="admin-services-stat-icon category">
+                                #
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Categories
+                        </h3>
+
+
+                        <p
+                            class="admin-services-stat-number"
+                            id="admin-total-categories"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Service categories on the platform.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SERVICE MANAGEMENT
+        ====================================================== -->
+
+        <section class="admin-services-management-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-services-section-heading">
+
+                    <p>
+                        Service Management
+                    </p>
+
+                    <h2>
+                        Available services
+                    </h2>
+
+                    <span>
+                        Create, edit, search and manage the services
+                        listed on LocalEase.
+                    </span>
+
+                </div>
+
+
+
+                <div class="admin-services-management-card">
+
+
+                    <!-- =================================================
+                         CARD HEADER
+                    ================================================== -->
+
+                    <div class="admin-services-card-header">
+
+
+                        <div>
+
+                            <p class="admin-services-card-kicker">
+                                SERVICE DIRECTORY
+                            </p>
+
+                            <h3>
+                                All Services
+                            </h3>
+
+                            <span>
+                                Review and manage platform services.
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="load-services-btn"
+                            class="admin-services-refresh-btn"
+                        >
+                            ↻ Refresh Services
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CREATE SERVICE
+                    ================================================== -->
+
+                    <div class="admin-services-form-section">
+
+
+                        <div class="admin-services-form-heading">
+
+                            <div class="admin-services-form-icon">
+                                +
+                            </div>
+
+
+                            <div>
+
+                                <p>
+                                    CREATE
+                                </p>
+
+                                <h3>
+                                    Add New Service
+                                </h3>
+
+                                <span>
+                                    Add a new service to the LocalEase
+                                    service directory.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <form id="create-service-form">
+
+
+                            <div class="admin-services-form-grid">
+
+
+                                <div class="form-group">
+
+                                    <label for="create-service-name">
+                                        Service Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="create-service-name"
+                                        name="name"
+                                        placeholder="Enter service name"
+                                        required
+                                    >
+
+                                </div>
+
+
+
+                                <div class="form-group">
+
+                                    <label for="create-service-category">
+                                        Category
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="create-service-category"
+                                        name="category"
+                                        placeholder="Enter service category"
+                                        required
+                                    >
+
+                                </div>
+
+
+
+                                <div class="form-group admin-services-full-width">
+
+                                    <label for="create-service-description">
+                                        Description
+                                    </label>
+
+                                    <textarea
+                                        id="create-service-description"
+                                        name="description"
+                                        placeholder="Enter service description"
+                                        rows="4"
+                                        required
+                                    ></textarea>
+
+                                </div>
+
+
+
+                                <div class="form-group">
+
+                                    <label for="create-service-price">
+                                        Price (₹)
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="create-service-price"
+                                        name="price"
+                                        placeholder="Enter service price"
+                                        min="0"
+                                        step="0.01"
+                                        required
+                                    >
+
+                                </div>
+
+
+
+                                <div class="form-group admin-services-checkbox-group">
+
+                                    <label for="create-service-active">
+
+                                        <input
+                                            type="checkbox"
+                                            id="create-service-active"
+                                            name="isActive"
+                                            checked
+                                        >
+
+                                        <span>
+                                            Service Active
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="admin-services-form-actions">
+
+                                <button
+                                    type="submit"
+                                    id="create-service-btn"
+                                    class="admin-services-primary-btn"
+                                >
+                                    Create Service
+                                </button>
+
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         EDIT SERVICE
+                    ================================================== -->
+
+                    <div
+                        class="admin-services-form-section admin-services-edit-section"
+                        id="edit-service-section"
+                        hidden
+                    >
+
+
+                        <div class="admin-services-form-heading">
+
+                            <div class="admin-services-form-icon edit">
+                                ✎
+                            </div>
+
+
+                            <div>
+
+                                <p>
+                                    UPDATE
+                                </p>
+
+                                <h3>
+                                    Edit Service
+                                </h3>
+
+                                <span>
+                                    Update the selected service information.
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <form id="edit-service-form">
+
+
+                            <input
+                                type="hidden"
+                                id="edit-service-id"
+                            >
+
+
+                            <div class="admin-services-form-grid">
+
+
+                                <div class="form-group">
+
+                                    <label for="edit-service-name">
+                                        Service Name
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="edit-service-name"
+                                        required
+                                    >
+
+                                </div>
+
+
+
+                                <div class="form-group">
+
+                                    <label for="edit-service-category">
+                                        Category
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="edit-service-category"
+                                        required
+                                    >
+
+                                </div>
+
+
+
+                                <div class="form-group admin-services-full-width">
+
+                                    <label for="edit-service-description">
+                                        Description
+                                    </label>
+
+                                    <textarea
+                                        id="edit-service-description"
+                                        rows="4"
+                                        required
+                                    ></textarea>
+
+                                </div>
+
+
+
+                                <div class="form-group">
+
+                                    <label for="edit-service-price">
+                                        Price (₹)
+                                    </label>
+
+                                    <input
+                                        type="number"
+                                        id="edit-service-price"
+                                        min="0"
+                                        step="0.01"
+                                        required
+                                    >
+
+                                </div>
+
+
+
+                                <div class="form-group admin-services-checkbox-group">
+
+                                    <label for="edit-service-active">
+
+                                        <input
+                                            type="checkbox"
+                                            id="edit-service-active"
+                                        >
+
+                                        <span>
+                                            Service Active
+                                        </span>
+
+                                    </label>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="admin-service-actions">
+
+
+                                <button
+                                    type="submit"
+                                    id="save-edit-service-btn"
+                                    class="admin-services-primary-btn"
+                                >
+                                    Save Changes
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    id="cancel-edit-service-btn"
+                                    class="admin-services-secondary-btn"
+                                >
+                                    Cancel
+                                </button>
+
+
+                            </div>
+
+
+                        </form>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         SEARCH + FILTER
+                    ================================================== -->
+
+                    <div class="admin-services-filters">
+
+
+                        <div class="service-search-section">
+
+                            <label for="service-search">
+                                Search Services
+                            </label>
+
+
+                            <div class="admin-services-input-wrap">
+
+                                <span>
+                                    🔎
+                                </span>
+
+                                <input
+                                    type="search"
+                                    id="service-search"
+                                    placeholder="Search by service name or category..."
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="service-filter-section">
+
+                            <label for="service-category-filter">
+                                Filter by Category
+                            </label>
+
+
+                            <select id="service-category-filter">
+
+                                <option value="all">
+                                    All Categories
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         SERVICES LIST
+                    ================================================== -->
+
+                    <div
+                        class="admin-services-list"
+                        id="admin-services-list"
+                    >
+
+                        <div class="empty-state">
+
+                            <div class="admin-services-loading-icon">
+                                ⟳
+                            </div>
+
+                            <h3>
+                                Loading Services
+                            </h3>
+
+                            <p>
+                                Please wait while the service directory
+                                is being loaded.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MANAGEMENT INFORMATION
+        ====================================================== -->
+
+        <section class="admin-services-information-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-services-section-heading">
+
+                    <p>
+                        Management Guide
+                    </p>
+
+                    <h2>
+                        Service management information
+                    </h2>
+
+                    <span>
+                        Key responsibilities available to LocalEase
+                        administrators.
+                    </span>
+
+                </div>
+
+
+                <div class="admin-services-information-grid">
+
+
+                    <article class="admin-services-information-card">
+
+                        <div class="admin-services-information-icon">
+                            📋
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Review Services
+                            </h3>
+
+                            <p>
+                                Check service names, categories,
+                                providers, pricing and availability.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="admin-services-information-card">
+
+                        <div class="admin-services-information-icon">
+                            ⚙️
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Manage Services
+                            </h3>
+
+                            <p>
+                                Manage service information and
+                                availability through the Admin
+                                Services API.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <article class="admin-services-information-card">
+
+                        <div class="admin-services-information-icon">
+                            ⚡
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Monitor Availability
+                            </h3>
+
+                            <p>
+                                Monitor whether services are currently
+                                available to customers.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             QUICK ACTIONS
+        ====================================================== -->
+
+        <section class="admin-services-quick-actions">
+
+            <div class="admin-container">
+
+
+                <div class="admin-services-section-heading">
+
+                    <p>
+                        Navigation
+                    </p>
+
+                    <h2>
+                        Quick actions
+                    </h2>
+
+                    <span>
+                        Move quickly between the main administration
+                        areas.
+                    </span>
+
+                </div>
+
+
+                <div class="admin-services-actions-grid">
+
+
+                    <article class="admin-services-action-card">
+
+                        <div class="admin-services-action-icon">
+                            ◈
+                        </div>
+
+                        <h3>
+                            Admin Dashboard
+                        </h3>
+
+                        <p>
+                            Return to the main LocalEase admin dashboard.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="admin-dashboard-btn"
+                            class="admin-services-action-btn"
+                        >
+                            Dashboard
+                        </button>
+
+                    </article>
+
+
+
+                    <article class="admin-services-action-card">
+
+                        <div class="admin-services-action-icon">
+                            👥
+                        </div>
+
+                        <h3>
+                            Manage Users
+                        </h3>
+
+                        <p>
+                            View and manage registered LocalEase users.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="manage-users-btn"
+                            class="admin-services-action-btn"
+                        >
+                            Manage Users
+                        </button>
+
+                    </article>
+
+
+
+                    <article class="admin-services-action-card">
+
+                        <div class="admin-services-action-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            View Bookings
+                        </h3>
+
+                        <p>
+                            Monitor customer bookings on the platform.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="manage-bookings-btn"
+                            class="admin-services-action-btn"
+                        >
+                            View Bookings
+                        </button>
+
+                    </article>
+
+
+
+                    <article class="admin-services-action-card">
+
+                        <div class="admin-services-action-icon">
+                            💬
+                        </div>
+
+                        <h3>
+                            View Reviews
+                        </h3>
+
+                        <p>
+                            Monitor customer reviews and feedback.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="manage-reviews-btn"
+                            class="admin-services-action-btn"
+                        >
+                            View Reviews
+                        </button>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BACK TO DASHBOARD
+        ====================================================== -->
+
+        <section class="admin-services-back-section">
+
+            <div class="admin-container">
+
+                <a href="admin-dashboard.html">
+                    ← Back to Admin Dashboard
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <p>
+                    Connecting Customers with Trusted Local
+                    Service Providers.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="admin-dashboard.html">
+                    Admin Dashboard
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
+

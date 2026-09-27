@@ -1,360 +1,1030 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <!-- ======================================
+         BASIC META
+    ====================================== -->
+
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    
+    <meta
+        name="description"
+        content="Manage your LocalEase services, bookings, customers and reviews from your provider dashboard."
+    >
+
+    <meta
+        name="author"
+        content="LocalEase"
+    >
+
     <title>Provider Dashboard - LocalEase</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-</head>
+    <link rel="icon" type="image/png" href="favicon.png"></head>
 
-<body>
 
-    <!-- ====================================== HEADER ================================================================-->
 
-    <header>
+<body class="provider-dashboard-page">
 
-    <h1>LocalEase</h1>
 
-    <p>Provider Dashboard</p>
+    <!-- ======================================
+         HEADER
+    ====================================== -->
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="provider-dashboard.html">Dashboard</a>
-        <a href="#">Profile</a>
-        <a href="login.html">Logout</a>
-    </nav>
+    <header class="site-header">
 
-</header>
-    
-    <!-- ====================================== MAIN CONTENT =============================================================-->
+        <div class="header-container">
 
-    <section class="dashboard-intro">
 
-        <p class="breadcrumb">
-            <a href="index.html">Home</a>
-            /
-            Provider Dashboard
-        </p>
+            <!-- BRAND -->
 
-        <h2>Welcome, Pradeep Bhaiya! 👋</h2>
+            <a
+                href="index.html"
+                class="brand"
+            >
 
-        <p>
-            Manage Your Services, Bookings and Customer from One Place.
-        </p>
-    </section>
+                <span class="brand-text">
+                    LocalEase
+                </span>
 
-    <!-- =================================== DASHBOARD STATS ==============================================================-->
+            </a>
 
-    <section class="dashboard-stats">
 
-        <h2>Dashboard Overview</h2>
 
-        <div class="stats-grid">
+            <!-- NAVIGATION -->
 
-            <article class="stat-card">
+            <nav class="main-navigation">
 
-                <h3>New Requests</h3>
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
 
-                <p class="stat-number">4</p>
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
 
-                <p>Booking Requests Waiting for Your Response.</p>
-            </article>
+                <a
+                    href="provider-dashboard.html"
+                    class="nav-link provider-dashboard-active-link"
+                    aria-current="page"
+                >
+                    Dashboard
+                </a>
 
-            <article class="stat-card">
+                <a
+                    href="profile.html"
+                    class="nav-link"
+                >
+                    Profile
+                </a>
 
-                <h3>Upcoming</h3>
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
 
-                <p class="stat-number">3</p>
+            </nav>
 
-                <p>Confirmed Services Coming Up</p>
-
-            </article>
-
-            <article class="stat-card">
-
-                <h3>Completed</h3>
-
-                <p class="stats-number">28</p>
-
-                <p>Services Successfully Completed</p>
-
-            </article>
-
-            <article class="stat-card">
-
-                <h3>Rating</h3>
-
-                <p class="stat-number">4.8⭐</p>
-
-                <p>Average Rating From Your Customers.</p>
-
-            </article>
 
         </div>
 
-    </section>
-
-    <!-- ================================================= BOOKING REQUESTS ===============================================-->
-
-    <section class="booking-requests">
-
-        <h2>New Booking Requests</h2>
-
-        <div class="booking-requests-grid">
+    </header>
 
 
-            <!-- ========================================== REQUESTS 1 ======================================================-->
 
-            <article class="request-card">
+    <!-- ======================================
+         MAIN CONTENT
+    ====================================== -->
 
-                <h3>Electrical Wiring</h3>
+    <main>
 
-                <p>
-                    <strong>Customer:</strong>
-                        Rahul Sharma
-                </p>
 
-                <p>
-                    <strong>Location:</strong>
-                    Prayagraj,Uttar Pradesh
-                </p>
+        <!-- ======================================
+             DASHBOARD HERO
+        ====================================== -->
 
-                <p>
-                    <strong>Date:</strong>
-                    20 August 2026
-                </p>
+        <section class="provider-dashboard-hero">
 
-                <p>
-                    <strong>Time:</strong>
-                    11:00 AM
-                </p>
+            <div class="provider-dashboard-hero-container">
 
-                <p>
-                    <strong>Estimated Price</strong>
-                    ₹500
-                </p>
 
-                <div class="request-actions">
+                <div class="provider-dashboard-hero-grid">
 
-                    <button type="button">
-                        Accept
-                    </button>
 
-                    <button type="button">
-                        Reject
-                    </button>
+                    <!-- HERO CONTENT -->
+
+                    <div class="provider-dashboard-hero-content">
+
+
+                        <p class="provider-dashboard-breadcrumb">
+
+                            <a href="index.html">
+                                Home
+                            </a>
+
+                            <span aria-hidden="true">
+                                /
+                            </span>
+
+                            Provider Dashboard
+
+                        </p>
+
+
+                        <p class="provider-dashboard-eyebrow">
+                            Provider Workspace
+                        </p>
+
+
+                        <h1>
+
+                            Welcome,
+                            <span id="provider-welcome-name">
+                                Provider
+                            </span>
+                            👋
+
+                        </h1>
+
+
+                        <p class="provider-dashboard-hero-description">
+
+                            Manage your services, booking requests,
+                            upcoming work and customer reviews
+                            from one place.
+
+                        </p>
+
+
+                        <div class="provider-dashboard-trust-row">
+
+
+                            <div class="provider-dashboard-trust-item">
+
+                                <span class="provider-dashboard-trust-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Manage Bookings
+                                </span>
+
+                            </div>
+
+
+                            <div class="provider-dashboard-trust-item">
+
+                                <span class="provider-dashboard-trust-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Track Services
+                                </span>
+
+                            </div>
+
+
+                            <div class="provider-dashboard-trust-item">
+
+                                <span class="provider-dashboard-trust-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Customer Reviews
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- HERO VISUAL -->
+
+                    <div class="provider-dashboard-hero-visual">
+
+                        <div class="provider-dashboard-hero-glow"></div>
+
+
+                        <div class="provider-dashboard-hero-card">
+
+
+                            <div class="provider-dashboard-hero-card-header">
+
+                                <div class="provider-dashboard-hero-card-icon">
+                                    ✓
+                                </div>
+
+                                <span>
+                                    Provider Workspace
+                                </span>
+
+                            </div>
+
+
+                            <h2>
+                                Your Business,
+                                <span>One Dashboard.</span>
+                            </h2>
+
+
+                            <div class="provider-dashboard-hero-divider"></div>
+
+
+                            <div class="provider-dashboard-hero-mini-grid">
+
+
+                                <div>
+
+                                    <strong>
+                                        Requests
+                                    </strong>
+
+                                    <span>
+                                        Review & Respond
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Bookings
+                                    </strong>
+
+                                    <span>
+                                        Stay Organized
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Reviews
+                                    </strong>
+
+                                    <span>
+                                        Build Trust
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Services
+                                    </strong>
+
+                                    <span>
+                                        Keep Updated
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
-            </article>
-
-            <!-- REQUEST 2 -->
-
-            <article class="request-card">
-
-                <h3>Fan Installation</h3>
-
-                <p>
-                    <strong>Customer:</strong>
-                    Ankit Verma
-                </p>
-
-                <p>
-                <strong>Location:</strong>
-                Civil Lines, Prayagraj
-                </p>
-
-                <p>
-                    <strong>Date:</strong>
-                    21 August 2026
-                </p>
-
-                <p>
-                    <strong>Time:</strong>
-                    3:00 PM
-                </p>
-
-                <p>
-                    <strong>Estimated Price:</strong>
-                    ₹300
-                </p>
-
-                <div class="request-actions">
-
-                    <button type="button">
-                        Accept
-                    </button>
-
-                    <button type="button"
-                    class="reject-btn">
-                        Reject
-                    </button>
-
-                </div>
-            </article>
-        </div>
-    </section>
-
-
-    <!-- ============================================ UPCOMING BOOKINGS ==================================================-->
-
-
-    <section class="upcoming-bookings">
-
-        <h2>Upcoming Bookings</h2>
-
-        <article class="upcoming-card">
-
-            <div>
-
-                <h3>Switch & Socket Repair</h3>
-
-                <p>Customer: Arjun Singh</p>
-
-                <p>Prayagraj, Uttar Pradesh</p>
 
             </div>
 
-            <div>
+        </section>
 
-                <p>
-                    <strong>Date:</strong>
-                    22 August 2026
-                </p>
 
-                <p>
 
-                    <strong>Time:</strong>
-                    10:00 AM
-                </p>
+        <!-- ======================================
+             DASHBOARD WORKSPACE
+        ====================================== -->
 
-                <span class="booking-status">
-                    Confirmed
-                </span>
+        <section class="provider-dashboard-workspace">
+
+            <div class="provider-dashboard-container">
+
+
+                <!-- ======================================
+                     DASHBOARD OVERVIEW
+                ====================================== -->
+
+                <section class="provider-dashboard-stats-section">
+
+
+                    <div class="provider-dashboard-section-heading">
+
+                        <div>
+
+                            <p class="provider-dashboard-section-eyebrow">
+                                Overview
+                            </p>
+
+                            <h2>
+                                Dashboard Overview
+                            </h2>
+
+                            <p>
+                                A quick look at your current provider activity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="provider-dashboard-stats-grid">
+
+
+                        <!-- NEW REQUESTS -->
+
+                        <article
+                            class="provider-dashboard-stat-card provider-dashboard-stat-request"
+                        >
+
+                            <div class="provider-dashboard-stat-top">
+
+                                <div class="provider-dashboard-stat-icon">
+                                    +
+                                </div>
+
+                                <span>
+                                    New Requests
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="provider-dashboard-stat-number"
+                                id="provider-new-requests"
+                            >
+                                0
+                            </p>
+
+
+                            <p class="provider-dashboard-stat-description">
+
+                                Booking requests waiting
+                                for your response.
+
+                            </p>
+
+                        </article>
+
+
+
+                        <!-- UPCOMING -->
+
+                        <article
+                            class="provider-dashboard-stat-card provider-dashboard-stat-upcoming"
+                        >
+
+                            <div class="provider-dashboard-stat-top">
+
+                                <div class="provider-dashboard-stat-icon">
+                                    →
+                                </div>
+
+                                <span>
+                                    Upcoming
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="provider-dashboard-stat-number"
+                                id="provider-upcoming"
+                            >
+                                0
+                            </p>
+
+
+                            <p class="provider-dashboard-stat-description">
+
+                                Confirmed services
+                                coming up.
+
+                            </p>
+
+                        </article>
+
+
+
+                        <!-- COMPLETED -->
+
+                        <article
+                            class="provider-dashboard-stat-card provider-dashboard-stat-completed"
+                        >
+
+                            <div class="provider-dashboard-stat-top">
+
+                                <div class="provider-dashboard-stat-icon">
+                                    ✓
+                                </div>
+
+                                <span>
+                                    Completed
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="provider-dashboard-stat-number"
+                                id="provider-completed"
+                            >
+                                0
+                            </p>
+
+
+                            <p class="provider-dashboard-stat-description">
+
+                                Services successfully
+                                completed.
+
+                            </p>
+
+                        </article>
+
+
+
+                        <!-- RATING -->
+
+                        <article
+                            class="provider-dashboard-stat-card provider-dashboard-stat-rating"
+                        >
+
+                            <div class="provider-dashboard-stat-top">
+
+                                <div class="provider-dashboard-stat-icon">
+                                    ★
+                                </div>
+
+                                <span>
+                                    Rating
+                                </span>
+
+                            </div>
+
+
+                            <p
+                                class="provider-dashboard-stat-number"
+                                id="provider-rating"
+                            >
+                                0⭐
+                            </p>
+
+
+                            <p class="provider-dashboard-stat-description">
+
+                                Average rating from
+                                your customers.
+
+                            </p>
+
+                        </article>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     NEW BOOKING REQUESTS
+                ====================================== -->
+
+                <section class="provider-dashboard-content-section">
+
+
+                    <div class="provider-dashboard-section-heading">
+
+                        <div>
+
+                            <p class="provider-dashboard-section-eyebrow">
+                                Action Required
+                            </p>
+
+                            <h2>
+                                New Booking Requests
+                            </h2>
+
+                            <p>
+                                Review incoming requests and
+                                respond to your customers.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="booking-requests-grid provider-dashboard-booking-requests-grid"
+                        id="provider-booking-requests"
+                    >
+
+                        <article class="request-card">
+
+                            <div class="provider-dashboard-loading-icon">
+                                ...
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Loading Booking Requests...
+                                </h3>
+
+                                <p>
+                                    Please wait while bookings
+                                    are being loaded.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     UPCOMING BOOKINGS
+                ====================================== -->
+
+                <section class="provider-dashboard-content-section">
+
+
+                    <div class="provider-dashboard-section-heading">
+
+                        <div>
+
+                            <p class="provider-dashboard-section-eyebrow">
+                                Schedule
+                            </p>
+
+                            <h2>
+                                Upcoming Bookings
+                            </h2>
+
+                            <p>
+                                Keep track of your confirmed
+                                services and upcoming work.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        class="provider-upcoming-bookings"
+                        id="provider-upcoming-bookings"
+                    >
+
+                        <article class="upcoming-card">
+
+                            <div class="provider-dashboard-loading-icon">
+                                ...
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Loading...
+                                </h3>
+
+                                <p>
+                                    Please wait while
+                                    bookings are loaded.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     CUSTOMER REVIEWS
+                ====================================== -->
+
+                <section class="provider-dashboard-content-section">
+
+
+                    <div class="provider-dashboard-section-heading">
+
+                        <div>
+
+                            <p class="provider-dashboard-section-eyebrow">
+                                Customer Feedback
+                            </p>
+
+                            <h2>
+                                Customer Reviews
+                            </h2>
+
+                            <p>
+                                See what customers are saying
+                                about your services.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div
+                        id="provider-reviews-message"
+                        class="provider-reviews-message"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        Loading customer reviews...
+                    </div>
+
+
+                    <div
+                        class="provider-reviews-grid"
+                        id="provider-reviews-list"
+                    ></div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     QUICK ACTIONS
+                ====================================== -->
+
+                <section class="provider-dashboard-actions-section">
+
+
+                    <div class="provider-dashboard-section-heading">
+
+                        <div>
+
+                            <p class="provider-dashboard-section-eyebrow">
+                                Manage
+                            </p>
+
+                            <h2>
+                                Quick Actions
+                            </h2>
+
+                            <p>
+                                Jump directly to the tools
+                                you use most.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="actions-grid provider-dashboard-actions-grid">
+
+
+                        <!-- MANAGE SERVICES -->
+
+                        <article class="provider-dashboard-action-card">
+
+                            <div class="provider-dashboard-action-icon">
+                                +
+                            </div>
+
+
+                            <h3>
+                                Manage Services
+                            </h3>
+
+
+                            <p>
+                                Add, edit or remove the
+                                services you provide.
+                            </p>
+
+
+                            <button
+                                type="button"
+                                class="provider-manage-services-btn"
+                            >
+                                Manage Services
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+                            </button>
+
+                        </article>
+
+
+
+                        <!-- VIEW PROFILE -->
+
+                        <article class="provider-dashboard-action-card">
+
+                            <div class="provider-dashboard-action-icon">
+                                ◉
+                            </div>
+
+
+                            <h3>
+                                View Profile
+                            </h3>
+
+
+                            <p>
+                                Update your profile and
+                                professional information.
+                            </p>
+
+
+                            <button
+                                type="button"
+                                class="provider-profile-btn"
+                            >
+                                View Profile
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+                            </button>
+
+                        </article>
+
+
+
+                        <!-- BOOKING HISTORY -->
+
+                        <article class="provider-dashboard-action-card">
+
+                            <div class="provider-dashboard-action-icon">
+                                ↗
+                            </div>
+
+
+                            <h3>
+                                Booking History
+                            </h3>
+
+
+                            <p>
+                                View your previous
+                                completed bookings.
+                            </p>
+
+
+                            <button
+                                type="button"
+                                class="provider-history-btn"
+                            >
+                                View History
+                                <span aria-hidden="true">
+                                    →
+                                </span>
+                            </button>
+
+                        </article>
+
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ======================================
+                     PROVIDER CTA
+                ====================================== -->
+
+                <section class="provider-dashboard-cta-section">
+
+                    <div class="provider-dashboard-cta-card">
+
+
+                        <div class="provider-dashboard-cta-content">
+
+                            <p class="provider-dashboard-cta-eyebrow">
+                                Grow With LocalEase
+                            </p>
+
+                            <h2>
+                                Keep Your Services
+                                <span>Moving Forward.</span>
+                            </h2>
+
+                            <p>
+                                Manage bookings, maintain your
+                                services and build customer trust
+                                from one simple workspace.
+                            </p>
+
+                        </div>
+
+
+                        <div class="provider-dashboard-cta-visual">
+
+                            <div class="provider-dashboard-cta-circle">
+                                ✓
+                            </div>
+
+                            <div class="provider-dashboard-cta-small-circle">
+                                ★
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- ======================================
+                     BACK TO HOME
+                ====================================== -->
+
+                <section class="provider-dashboard-back-section">
+
+                    <a href="index.html">
+                        ← Back to Home
+                    </a>
+
+                </section>
+
 
             </div>
 
-        </article>
+        </section>
 
-        <article class="upcoming-card">
 
-            <div>
+    </main>
 
-                <h3>Light Installation</h3>
 
-                <p>Customer: Aman Gupta</p>
 
-                <p>Naini, Prayagraj</p>
+    <!-- ======================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <p>
+                    Connecting Customers with Trusted
+                    Local Service Providers.
+                </p>
 
             </div>
 
-            <div>
 
-                <p>
-                    <strong>Date:</strong>
-                    24 August 2026
-                </p>
 
-                <p>
-                    <strong>Time</strong>
-                    5:00 PM
-                </p>
+            <div class="footer-column">
 
-                <span class="booking-status">
-                    Confirmed
-                </span>
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="profile.html">
+                    Profile
+                </a>
 
             </div>
 
-        </article>
 
-    </section>
 
-    <!-- ========================================== QUICK ACTIONS ========================================================-->
+            <div class="footer-column">
 
-    <section class="quick-actions">
+                <h4>
+                    Provider
+                </h4>
 
-        <h2>Quick Actions</h2>
+                <a href="provider-dashboard.html">
+                    Provider Dashboard
+                </a>
 
-        <div class="actions-grid">
-
-            <article>
-
-                <h3>Manage Services</h3>
-
-                <p>
-                    Add, Edit or Remove the Service you Provide.
-                </p>
-
-                <button type="button">
+                <a href="provider-services.html">
                     Manage Services
-                </button>
+                </a>
 
-            </article>
+                <a href="provider-booking-history.html">
+                    Booking History
+                </a>
 
-            <article>
+            </div>
 
-                <h3>View Profile</h3>
 
-                <p>
-                    Update Your Profile and Professionals Information.
-                </p>
 
-                <button type="button">
-                    View Profile
-                </button>
+            <div class="footer-column">
 
-            </article>
+                <h4>
+                    LocalEase
+                </h4>
 
-            <h3>Booking History</h3>
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
 
             <p>
-                View Your Previous Completed Bookings.
+                © 2026 LocalEase. All Rights Reserved.
             </p>
-
-            <button type="button">
-                View History
-            </button>
-
-        </article>
 
         </div>
 
-    </section>
-
-    <!-- ============================================ BACK TO HOME ============================================== -->
-
-    <section class="back-section">
-
-        <a href="index.html">
-            ← Back to Home
-        </a>
-
-    </section>
-
-</main>
-
-<!-- ============================================ FOOTER ==============================================-->
-
-    <footer>
-
-        <h3>LocalEase</h3>
-
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
-
-        <p>
-             © 2026 LocalEase. All Rights Reserved.
-        </p>
     </footer>
-    
-<script src="script.js"></script>
+
+
+
+    <!-- ======================================
+         JAVASCRIPT
+    ====================================== -->
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>
+
+
+

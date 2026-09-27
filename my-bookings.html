@@ -1,550 +1,726 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <!-- =========================================== BASIC META ============================================== -->
-
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="View and manage your LocalEase service bookings.">
+    <meta
+        name="description"
+        content="View and manage your LocalEase service bookings."
+    >
 
-    <meta name="author"
-          content="LocalEase">
+    <meta
+        name="author"
+        content="LocalEase"
+    >
 
     <title>My Bookings - LocalEase</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- ======================================
+         AUTH GUARD
+         Prevent access when logged out
+    ====================================== -->
+
+    <script>
+        (function () {
+
+            const token = localStorage.getItem("localeaseToken");
+
+            if (!token) {
+                window.location.replace("login.html");
+            }
+
+        })();
+    </script>
 
 </head>
 
 
-<body>
+<body class="my-bookings-page">
 
 
-    <!-- ========================================= HEADER ============================================= -->
+<!-- ======================================
+     HEADER
+====================================== -->
 
-    <header>
+<header class="site-header">
 
-        <h1>
-            LocalEase
-        </h1>
-
-        <p>
-            Find Trusted Local Services Near You
-        </p>
+    <div class="header-container">
 
 
-        <!-- Navigation -->
+        <!-- BRAND -->
 
-        <nav>
+        <a
+            href="index.html"
+            class="brand"
+        >
 
-            <a href="index.html">
+            <span class="brand-text">
+                LocalEase
+            </span>
+
+        </a>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="main-navigation">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
                 Home
             </a>
 
-            <a href="services.html">
+
+            <a
+                href="services.html"
+                class="nav-link"
+            >
                 Services
             </a>
 
-            <a href="provider.html">
-                Become a Provider
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                Dashboard
             </a>
 
-            <a href="profile.html">
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
                 Profile
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-login-btn"
+                id="logout-btn"
+            >
+                Logout
             </a>
 
         </nav>
 
-    </header>
+
+    </div>
+
+</header>
 
 
 
-    <!-- ========================================= MAIN CONTENT =============================================== -->
+<!-- ======================================
+     MAIN CONTENT
+====================================== -->
 
-    <main>
+<main>
 
 
-        <!-- ============================================ PAGE INTRO ============================================ -->
+    <!-- ======================================
+         HERO
+    ====================================== -->
 
-        <section class="bookings-intro">
+    <section class="my-bookings-hero">
 
-            <p class="breadcrumb">
+        <div class="my-bookings-hero-container">
+
+
+            <!-- BREADCRUMB -->
+
+            <p class="my-bookings-breadcrumb">
 
                 <a href="index.html">
                     Home
                 </a>
 
-                /
+                <span>
+                    /
+                </span>
 
-                My Bookings
+                <span>
+                    My Bookings
+                </span>
 
             </p>
 
 
-            <h2>
-                My Bookings
-            </h2>
+
+            <!-- HERO GRID -->
+
+            <div class="my-bookings-hero-grid">
 
 
-            <p>
-                View and manage all your LocalEase service bookings.
-            </p>
+                <!-- HERO CONTENT -->
 
-        </section>
+                <div class="my-bookings-hero-content">
 
-
-
-        <!-- =========================================== BOOKING FILTERS ============================================= -->
-
-        <section class="booking-filters">
-
-            <button type="button"
-                    class="booking-filter active">
-                All Bookings
-            </button>
-
-            <button type="button"
-                    class="booking-filter">
-                Pending
-            </button>
-
-            <button type="button"
-                    class="booking-filter">
-                Confirmed
-            </button>
-
-            <button type="button"
-                    class="booking-filter">
-                Completed
-            </button>
-
-            <button type="button"
-                    class="booking-filter">
-                Cancelled
-            </button>
-
-        </section>
+                    <span class="my-bookings-eyebrow">
+                        BOOKING WORKSPACE
+                    </span>
 
 
-
-        <!-- ======================================= BOOKINGS LIST ============================================= -->
-
-        <section class="my-bookings-section">
-
-            <h2>
-                Your Bookings
-            </h2>
+                    <h1>
+                        Manage Your
+                        <span>
+                            Bookings
+                        </span>
+                    </h1>
 
 
+                    <p class="my-bookings-hero-description">
+                        Keep track of your services, booking
+                        status and upcoming appointments
+                        from one simple place.
+                    </p>
 
-            <!-- ==================================== BOOKING 1 ======================================= -->
 
-            <article class="booking-card">
+                    <div class="my-bookings-trust-row">
 
-                <div class="booking-card-header">
 
-                    <div>
+                        <span class="my-bookings-trust-item">
 
-                        <span class="booking-label">
-                            Booking ID
+                            <span class="my-bookings-trust-icon">
+                                ✓
+                            </span>
+
+                            Easy Tracking
+
                         </span>
 
-                        <strong>
-                            #LE1001
-                        </strong>
+
+                        <span class="my-bookings-trust-item">
+
+                            <span class="my-bookings-trust-icon">
+                                ✓
+                            </span>
+
+                            Real-time Status
+
+                        </span>
+
+
+                        <span class="my-bookings-trust-item">
+
+                            <span class="my-bookings-trust-icon">
+                                ✓
+                            </span>
+
+                            Trusted Providers
+
+                        </span>
+
 
                     </div>
 
+                </div>
 
-                    <span class="booking-status pending">
+
+
+                <!-- HERO CARD -->
+
+                <div class="my-bookings-hero-visual">
+
+                    <div class="my-bookings-hero-card">
+
+
+                        <div class="my-bookings-hero-card-icon">
+                            📋
+                        </div>
+
+
+                        <span class="my-bookings-hero-card-label">
+                            YOUR BOOKING SPACE
+                        </span>
+
+
+                        <h2>
+                            Stay Organized
+                        </h2>
+
+
+                        <p>
+                            View active, upcoming and completed
+                            service bookings in one place.
+                        </p>
+
+
+                        <div class="my-bookings-hero-card-divider">
+                        </div>
+
+
+                        <div class="my-bookings-hero-card-footer">
+
+                            <span>
+                                LocalEase
+                            </span>
+
+                            <span>
+                                ✓ Secure
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         BOOKINGS WORKSPACE
+    ====================================== -->
+
+    <section class="my-bookings-workspace">
+
+        <div class="my-bookings-container">
+
+
+            <!-- ======================================
+                 BOOKING FILTERS
+            ====================================== -->
+
+            <div class="booking-filters-wrapper">
+
+                <div class="booking-filters-heading">
+
+                    <div>
+
+                        <span class="my-bookings-section-eyebrow">
+                            FILTER BOOKINGS
+                        </span>
+
+                        <h2>
+                            Find What You Need
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-filters">
+
+                    <button
+                        type="button"
+                        class="booking-filter active"
+                        data-status="all"
+                    >
+                        All Bookings
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="booking-filter"
+                        data-status="pending"
+                    >
                         Pending
-                    </span>
-
-                </div>
+                    </button>
 
 
-                <div class="booking-card-content">
-
-                    <div class="booking-service-info">
-
-                        <h3>
-                            Electrician Service
-                        </h3>
-
-                        <p>
-                            👨‍🔧 Provider: Pradeep Bhaiya
-                        </p>
-
-                        <p>
-                            📍 Prayagraj, Uttar Pradesh
-                        </p>
-
-                    </div>
-
-
-                    <div class="booking-details">
-
-                        <p>
-                            <strong>Date:</strong>
-                            25 August 2026
-                        </p>
-
-                        <p>
-                            <strong>Time:</strong>
-                            11:00 AM
-                        </p>
-
-                        <p>
-                            <strong>Starting Price:</strong>
-                            ₹300
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="booking-card-footer">
-
-                    <a href="booking-status.html"
-                       class="booking-view-btn">
-                        View Booking
-                    </a>
-
-                    <a href="service-details.html"
-                       class="booking-secondary-btn">
-                        Service Details
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ====================================== BOOKING 2 ======================================== -->
-
-            <article class="booking-card">
-
-                <div class="booking-card-header">
-
-                    <div>
-
-                        <span class="booking-label">
-                            Booking ID
-                        </span>
-
-                        <strong>
-                            #LE1002
-                        </strong>
-
-                    </div>
-
-
-                    <span class="booking-status confirmed">
+                    <button
+                        type="button"
+                        class="booking-filter"
+                        data-status="confirmed"
+                    >
                         Confirmed
-                    </span>
-
-                </div>
+                    </button>
 
 
-                <div class="booking-card-content">
-
-                    <div class="booking-service-info">
-
-                        <h3>
-                            Home Cleaning Service
-                        </h3>
-
-                        <p>
-                            🧹 Provider: Rahul Services
-                        </p>
-
-                        <p>
-                            📍 Civil Lines, Prayagraj
-                        </p>
-
-                    </div>
+                    <button
+                        type="button"
+                        class="booking-filter"
+                        data-status="in-progress"
+                    >
+                        In Progress
+                    </button>
 
 
-                    <div class="booking-details">
-
-                        <p>
-                            <strong>Date:</strong>
-                            28 August 2026
-                        </p>
-
-                        <p>
-                            <strong>Time:</strong>
-                            9:00 AM
-                        </p>
-
-                        <p>
-                            <strong>Starting Price:</strong>
-                            ₹500
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="booking-card-footer">
-
-                    <a href="booking-status.html"
-                       class="booking-view-btn">
-                        Track Booking
-                    </a>
-
-                    <a href="service-details.html"
-                       class="booking-secondary-btn">
-                        Service Details
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <!-- ==================================== BOOKING 3 ============================================= -->
-
-            <article class="booking-card">
-
-                <div class="booking-card-header">
-
-                    <div>
-
-                        <span class="booking-label">
-                            Booking ID
-                        </span>
-
-                        <strong>
-                            #LE1003
-                        </strong>
-
-                    </div>
-
-
-                    <span class="booking-status completed">
+                    <button
+                        type="button"
+                        class="booking-filter"
+                        data-status="completed"
+                    >
                         Completed
-                    </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="booking-filter"
+                        data-status="cancelled"
+                    >
+                        Cancelled
+                    </button>
 
                 </div>
 
-
-                <div class="booking-card-content">
-
-                    <div class="booking-service-info">
-
-                        <h3>
-                            Plumbing Service
-                        </h3>
-
-                        <p>
-                            🔧 Provider: Arif Plumbing Services
-                        </p>
-
-                        <p>
-                            📍 Prayagraj, Uttar Pradesh
-                        </p>
-
-                    </div>
-
-
-                    <div class="booking-details">
-
-                        <p>
-                            <strong>Date:</strong>
-                            18 August 2026
-                        </p>
-
-                        <p>
-                            <strong>Time:</strong>
-                            3:00 PM
-                        </p>
-
-                        <p>
-                            <strong>Price:</strong>
-                            ₹450
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="booking-card-footer">
-
-                    <a href="booking-status.html"
-                       class="booking-view-btn">
-                        View Booking
-                    </a>
-
-                    <a href="services.html"
-                       class="booking-secondary-btn">
-                        Book Again
-                    </a>
-
-                </div>
-
-            </article>
+            </div>
 
 
 
-            <!-- ================================= BOOKING 4 ======================================== -->
+            <!-- ======================================
+                 BOOKINGS SECTION
+            ====================================== -->
 
-            <article class="booking-card">
+            <section class="my-bookings-section">
 
-                <div class="booking-card-header">
+
+                <div class="my-bookings-section-heading">
 
                     <div>
 
-                        <span class="booking-label">
-                            Booking ID
+                        <span class="my-bookings-section-eyebrow">
+                            YOUR ACTIVITY
                         </span>
 
-                        <strong>
-                            #LE1004
-                        </strong>
+
+                        <h2>
+                            Your Bookings
+                        </h2>
+
+
+                        <p class="my-bookings-section-description">
+                            View your recent service requests,
+                            booking details and current status.
+                        </p>
 
                     </div>
 
 
-                    <span class="booking-status cancelled">
-                        Cancelled
+                    <a
+                        href="services.html"
+                        class="my-bookings-browse-link"
+                    >
+                        Browse Services
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                <!-- DYNAMIC BOOKING LIST -->
+
+                <div class="bookings-list">
+
+                    <div class="bookings-loading">
+
+                        <div class="bookings-loading-icon">
+                            📋
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Loading Your Bookings
+                            </h3>
+
+                            <p>
+                                Please wait while your booking
+                                activity is being loaded.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         EXPLORE LOCALEASE
+    ====================================== -->
+
+    <section class="explore-localEase">
+
+        <div class="explore-localEase-container">
+
+
+            <div class="explore-localEase-content">
+
+                <span class="explore-localEase-eyebrow">
+                    NEED SOMETHING ELSE?
+                </span>
+
+
+                <h2>
+                    Looking for
+                    <span>
+                        More Services?
+                    </span>
+                </h2>
+
+
+                <p>
+                    Explore LocalEase and find trusted
+                    professionals for your everyday needs.
+                </p>
+
+
+                <a
+                    href="services.html"
+                    class="explore-localEase-btn"
+                >
+                    Browse Services
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+
+            <div class="explore-localEase-visual">
+
+                <div class="explore-localEase-circle">
+
+                    <span>
+                        🛠️
                     </span>
 
                 </div>
 
 
-                <div class="booking-card-content">
-
-                    <div class="booking-service-info">
-
-                        <h3>
-                            Carpenter Service
-                        </h3>
-
-                        <p>
-                            🪚 Provider: Sharma Carpenter
-                        </p>
-
-                        <p>
-                            📍 Naini, Prayagraj
-                        </p>
-
-                    </div>
-
-
-                    <div class="booking-details">
-
-                        <p>
-                            <strong>Date:</strong>
-                            15 August 2026
-                        </p>
-
-                        <p>
-                            <strong>Time:</strong>
-                            5:00 PM
-                        </p>
-
-                        <p>
-                            <strong>Price:</strong>
-                            ₹600
-                        </p>
-
-                    </div>
-
+                <div class="explore-localEase-small-circle">
+                    ✓
                 </div>
 
+            </div>
 
-                <div class="booking-card-footer">
 
-                    <a href="booking-status.html"
-                       class="booking-view-btn">
-                        View Details
-                    </a>
+        </div>
 
-                    <a href="services.html"
-                       class="booking-secondary-btn">
-                        Book Another Service
-                    </a>
-
-                </div>
-
-            </article>
-
-        </section>
+    </section>
 
 
 
-        <!-- ========================================= EXPLORE LOCALEASE ============================================ -->
+    <!-- ======================================
+         BACK TO PROFILE
+    ====================================== -->
 
-        <section class="explore-localEase">
+    <section class="back-section">
 
-            <h2>
-                Looking for More Services?
-            </h2>
+        <a href="profile.html">
+            ← Back to Profile
+        </a>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ======================================
+     FOOTER
+====================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <!-- FOOTER BRAND -->
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
+            </a>
 
 
             <p>
-                Explore LocalEase and find trusted professionals
-                for your everyday needs.
+                Connecting Customers with Trusted
+                Local Service Providers.
             </p>
+
+        </div>
+
+
+
+        <!-- EXPLORE -->
+
+        <div class="footer-column">
+
+            <h3>
+                Explore
+            </h3>
+
+
+            <a href="index.html">
+                Home
+            </a>
 
 
             <a href="services.html">
-                Browse Services
+                Services
             </a>
 
-        </section>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </div>
 
 
 
-        <!-- =========================================== BACK TO PROFILE =========================================== -->
+        <!-- ACCOUNT -->
 
-        <section class="back-section">
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
 
             <a href="profile.html">
-                ← Back to Profile
+                Profile
             </a>
 
-        </section>
+
+            <a href="my-bookings.html">
+                My Bookings
+            </a>
 
 
-    </main>
+            <a href="login.html">
+                Login
+            </a>
+
+        </div>
 
 
 
-    <!-- =========================================== FOOTER =========================================== -->
+        <!-- LOCALEASE -->
 
-    <footer>
+        <div class="footer-column">
 
-        <h3>
-            LocalEase
-        </h3>
+            <h3>
+                LocalEase
+            </h3>
 
 
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
+            <a href="about.html">
+                About Us
+            </a>
 
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- FOOTER BOTTOM -->
+
+    <div class="footer-bottom">
 
         <p>
             © 2026 LocalEase. All Rights Reserved.
         </p>
 
-    </footer>
+    </div>
 
+</footer>
+
+
+
+<!-- ======================================
+     JAVASCRIPT
+====================================== -->
 
 <script src="script.js"></script>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const logoutButton = document.getElementById("logout-btn");
+
+        if (logoutButton) {
+
+            logoutButton.addEventListener("click", function (event) {
+
+                event.preventDefault();
+
+                // Clear authentication data
+                localStorage.removeItem("localeaseToken");
+                localStorage.removeItem("localeaseUser");
+
+                // Redirect to login
+                window.location.replace("login.html");
+
+            });
+
+        }
+
+    });
+
+</script>
+
 </body>
 
 </html>

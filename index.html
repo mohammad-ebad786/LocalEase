@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,288 +7,805 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="LocalEase — Find trusted local service providers and book everyday services easily.">
+    <meta
+        name="description"
+        content="LocalEase — Find trusted local service providers and book everyday services easily."
+    >
 
-    <meta name="author"
-          content="LocalEase">
+    <meta
+        name="author"
+        content="LocalEase"
+    >
 
     <title>LocalEase - Local Service Booking</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
 
-</head>
+    <!-- ============================================== CSS =================================================== -->
 
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-<body>
-
-
-    <!-- =========================================== HEADER ============================================== -->
-
-    <header>
-
-        <h1>
-            LocalEase
-        </h1>
-
-        <p>
-            Find Trusted Local Services Near You
-        </p>
+    <link rel="icon" type="image/png" href="favicon.png"></head>
 
 
-        <!-- Navigation -->
+<body class="home-page">
 
-        <nav>
 
-            <a href="index.html">
-                Home
-            </a>
+    <!-- ============================================== HEADER =================================================== -->
 
-            <a href="services.html">
-                Services
-            </a>
+    <header class="site-header">
 
-            <a href="provider.html">
-                Become a Provider
-            </a>
+        <div class="header-container">
 
-            <a href="login.html">
-                Login
-            </a>
 
-        </nav>
+            <!-- Logo -->
+
+            <a
+            href="index.html"
+            class="brand"
+            >
+            <span class="brand-text">
+                LocalEase
+            </span>
+        </a>
+
+
+            <!-- Navigation -->
+
+            <nav
+                class="main-navigation"
+                aria-label="Main Navigation"
+            >
+
+                <a
+                    href="index.html"
+                    class="nav-link active"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+                <a
+                    href="provider.html"
+                    class="nav-link"
+                >
+                    Become a Provider
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Login
+                </a>
+
+            </nav>
+
+
+        </div>
 
     </header>
 
 
 
-    <!-- ========================================== MAIN CONTENT ============================================= -->
+    <!-- ============================================== MAIN CONTENT =================================================== -->
 
     <main>
 
 
-        <!-- ======================================= HERO SECTION =================================== -->
+        <!-- ============================================== HERO SECTION =================================================== -->
 
-        <section>
-
-            <h2>
-                Local Services Made Easy
-            </h2>
-
-            <p>
-                Find Trusted Professionals for Your Everyday Needs.
-            </p>
+        <section class="hero-section">
 
 
-            <!-- Search -->
-
-            <form action="services.html" method="get">
-
-                <input
-                    type="text"
-                    name="service"
-                    placeholder="What service do you need?"
-                    aria-label="Service"
-                >
-
-                <input
-                    type="text"
-                    name="location"
-                    placeholder="Enter your location"
-                    aria-label="Location"
-                >
-
-                <button type="submit">
-                    Search
-                </button>
-
-            </form>
-
-        </section>
+            <div class="hero-container">
 
 
+                <!-- Hero Content -->
 
-        <!-- ========================================== POPULAR SERVICES ======================================== -->
-
-        <section>
-
-            <h2>
-                Popular Services
-            </h2>
+                <div class="hero-content">
 
 
-            <div>
+                    <span class="hero-badge">
+                        Trusted Local Services
+                    </span>
 
 
-                <!-- Electrician -->
+                    <h1 class="hero-title">
+                        Local Services.
+                        <span>
+                            Made Simple.
+                        </span>
+                    </h1>
 
-                <article>
 
-                    <h3>
-                        Electrician
-                    </h3>
-
-                    <p>
-                        Find Electricians Near You.
+                    <p class="hero-description">
+                        Find trusted professionals for everyday services,
+                        compare your options, and book the right person
+                        for the job — all in one place.
                     </p>
 
-                    <a href="service-details.html">
-                        <button type="button">
-                            View Services
+
+                    <!-- Service Search -->
+
+                    <form
+                        class="hero-search-form"
+                        action="services.html"
+                        method="get"
+                    >
+
+                        <div class="search-field">
+
+                            <span class="search-icon">
+                                🔍
+                            </span>
+
+                            <input
+                                type="text"
+                                name="service"
+                                placeholder="What service do you need?"
+                                aria-label="Service"
+                            >
+
+                        </div>
+
+
+                        <div class="search-field">
+
+                            <span class="search-icon">
+                                📍
+                            </span>
+
+                            <input
+                                type="text"
+                                name="location"
+                                placeholder="Enter your location"
+                                aria-label="Location"
+                            >
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="hero-search-btn"
+                        >
+                            Search Services
                         </button>
-                    </a>
 
-                </article>
-
-
-                <!-- Plumber -->
-
-                <article>
-
-                    <h3>
-                        Plumber
-                    </h3>
-
-                    <p>
-                        Find Trusted Plumbers Near You.
-                    </p>
-
-                    <a href="service-details.html">
-                        <button type="button">
-                            View Services
-                        </button>
-                    </a>
-
-                </article>
+                    </form>
 
 
-                <!-- Carpenter -->
+                    <!-- Hero Trust Information -->
 
-                <article>
+                    <div class="hero-trust-row">
 
-                    <h3>
-                        Carpenter
-                    </h3>
+                        <span>
+                            ✓ Trusted Providers
+                        </span>
 
-                    <p>
-                        Hire Skilled Carpenters.
-                    </p>
+                        <span>
+                            ✓ Easy Booking
+                        </span>
 
-                    <a href="service-details.html">
-                        <button type="button">
-                            View Services
-                        </button>
-                    </a>
+                        <span>
+                            ✓ Local Services
+                        </span>
 
-                </article>
+                    </div>
 
 
-                <!-- Home Cleaning -->
+                </div>
 
-                <article>
 
-                    <h3>
-                        Home Cleaning
-                    </h3>
 
-                    <p>
-                        Book Home Cleaning Services.
-                    </p>
+                <!-- Hero Visual -->
 
-                    <a href="service-details.html">
-                        <button type="button">
-                            View Services
-                        </button>
-                    </a>
+                <div class="hero-visual">
 
-                </article>
+
+                    <div class="hero-visual-glow"></div>
+
+
+                    <!-- Main Service Card -->
+
+                    <div class="hero-main-card">
+
+                        <div class="hero-card-header">
+
+                            <div class="hero-card-icon">
+                                🛠️
+                            </div>
+
+                            <div>
+
+                                <span class="hero-card-label">
+                                    Popular Service
+                                </span>
+
+                                <h2>
+                                    Home Services
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="hero-provider-preview">
+
+                            <div class="provider-avatar">
+                                M
+                            </div>
+
+                            <div class="provider-info">
+
+                                <h3>
+                                    Trusted Professional
+                                </h3>
+
+                                <p>
+                                    Verified Local Provider
+                                </p>
+
+                            </div>
+
+                            <span class="provider-rating">
+                                ★ 4.9
+                            </span>
+
+                        </div>
+
+
+                        <div class="hero-card-footer">
+
+                            <span>
+                                Available Near You
+                            </span>
+
+                            <span class="availability-dot"></span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating Service Card -->
+
+                    <div class="floating-service-card floating-card-one">
+
+                        <span class="floating-icon">
+                            ⚡
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Electrician
+                            </strong>
+
+                            <small>
+                                Available nearby
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating Service Card -->
+
+                    <div class="floating-service-card floating-card-two">
+
+                        <span class="floating-icon">
+                            🔧
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Plumber
+                            </strong>
+
+                            <small>
+                                Trusted professionals
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
-        </section>
-
-
-
-        <!-- =========================================== HOW LOCALEASE WORKS ======================================== -->
-
-        <section>
-
-            <h2>
-                How LocalEase Works
-            </h2>
-
-
-            <ol>
-
-                <li>
-
-                    <h3>
-                        Search
-                    </h3>
-
-                    <p>
-                        Search for the service you need.
-                    </p>
-
-                </li>
-
-
-                <li>
-
-                    <h3>
-                        Choose
-                    </h3>
-
-                    <p>
-                        Compare available local service providers.
-                    </p>
-
-                </li>
-
-
-                <li>
-
-                    <h3>
-                        Book
-                    </h3>
-
-                    <p>
-                        Choose a suitable provider and book the service.
-                    </p>
-
-                </li>
-
-            </ol>
 
         </section>
 
 
 
-        <!-- ====================================== SERVICE PROVIDER CTA ========================================= -->
+        <!-- ============================================== POPULAR SERVICES =================================================== -->
 
-        <section>
-
-            <h2>
-                Are You a Service Provider?
-            </h2>
-
-            <p>
-                Register on LocalEase and connect with customers
-                in your area.
-            </p>
+        <section class="popular-services-section">
 
 
-            <a href="provider.html">
+            <div class="section-container">
 
-                <button type="button">
-                    Become a Service Provider
-                </button>
 
-            </a>
+                <!-- Section Heading -->
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-eyebrow">
+                            EXPLORE SERVICES
+                        </span>
+
+                        <h2>
+                            Popular Services
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="services.html"
+                        class="section-view-all"
+                    >
+                        View All Services
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                <!-- Services Grid -->
+
+                <div class="popular-services-grid">
+
+
+                    <!-- Electrician -->
+
+                    <article class="service-card service-card-teal">
+
+                        <div class="service-card-top">
+
+                            <div class="service-icon">
+                                ⚡
+                            </div>
+
+                            <span class="service-card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Electrician
+                        </h3>
+
+
+                        <p>
+                            Find reliable electricians for
+                            electrical repairs and installations.
+                        </p>
+
+
+                        <a
+                            href="service-details.html"
+                            class="service-view-btn"
+                        >
+                            Explore Service
+                            <span>
+                                →
+                            </span>
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- Plumber -->
+
+                    <article class="service-card service-card-blue">
+
+                        <div class="service-card-top">
+
+                            <div class="service-icon">
+                                🔧
+                            </div>
+
+                            <span class="service-card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Plumber
+                        </h3>
+
+
+                        <p>
+                            Get trusted plumbing professionals
+                            for repairs and maintenance.
+                        </p>
+
+
+                        <a
+                            href="service-details.html"
+                            class="service-view-btn"
+                        >
+                            Explore Service
+                            <span>
+                                →
+                            </span>
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- Carpenter -->
+
+                    <article class="service-card service-card-indigo">
+
+                        <div class="service-card-top">
+
+                            <div class="service-icon">
+                                🪚
+                            </div>
+
+                            <span class="service-card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Carpenter
+                        </h3>
+
+
+                        <p>
+                            Hire skilled carpenters for
+                            furniture and home projects.
+                        </p>
+
+
+                        <a
+                            href="service-details.html"
+                            class="service-view-btn"
+                        >
+                            Explore Service
+                            <span>
+                                →
+                            </span>
+                        </a>
+
+                    </article>
+
+
+
+                    <!-- Home Cleaning -->
+
+                    <article class="service-card service-card-violet">
+
+                        <div class="service-card-top">
+
+                            <div class="service-icon">
+                                ✨
+                            </div>
+
+                            <span class="service-card-arrow">
+                                ↗
+                            </span>
+
+                        </div>
+
+
+                        <h3>
+                            Home Cleaning
+                        </h3>
+
+
+                        <p>
+                            Book dependable cleaning professionals
+                            for your home.
+                        </p>
+
+
+                        <a
+                            href="service-details.html"
+                            class="service-view-btn"
+                        >
+                            Explore Service
+                            <span>
+                                →
+                            </span>
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ============================================== HOW LOCALEASE WORKS =================================================== -->
+
+        <section class="how-it-works-section">
+
+
+            <div class="section-container">
+
+
+                <!-- Section Heading -->
+
+                <div class="center-section-heading">
+
+                    <span class="section-eyebrow">
+                        SIMPLE PROCESS
+                    </span>
+
+                    <h2>
+                        How LocalEase Works
+                    </h2>
+
+                    <p>
+                        From finding the right service to getting
+                        the job done, everything stays simple.
+                    </p>
+
+                </div>
+
+
+
+                <!-- Process Steps -->
+
+                <ol class="process-steps">
+
+
+                    <!-- Step One -->
+
+                    <li class="process-step">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+
+                        <div class="step-icon">
+                            🔍
+                        </div>
+
+
+                        <h3>
+                            Search
+                        </h3>
+
+
+                        <p>
+                            Search for the service you need
+                            and enter your location.
+                        </p>
+
+                    </li>
+
+
+
+                    <!-- Step Two -->
+
+                    <li class="process-step">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+
+                        <div class="step-icon">
+                            👥
+                        </div>
+
+
+                        <h3>
+                            Choose
+                        </h3>
+
+
+                        <p>
+                            Explore available local providers
+                            and compare your options.
+                        </p>
+
+                    </li>
+
+
+
+                    <!-- Step Three -->
+
+                    <li class="process-step">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+
+                        <div class="step-icon">
+                            📅
+                        </div>
+
+
+                        <h3>
+                            Book
+                        </h3>
+
+
+                        <p>
+                            Select a suitable provider and
+                            book your service with ease.
+                        </p>
+
+                    </li>
+
+
+                </ol>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ============================================== SERVICE PROVIDER CTA =================================================== -->
+
+        <section class="provider-cta-section">
+
+
+            <div class="provider-cta-container">
+
+
+                <!-- CTA Content -->
+
+                <div class="provider-cta-content">
+
+                    <span class="section-eyebrow">
+                        FOR SERVICE PROVIDERS
+                    </span>
+
+
+                    <h2>
+                        Turn Your Skills Into
+                        <span>
+                            New Opportunities.
+                        </span>
+                    </h2>
+
+
+                    <p>
+                        Join LocalEase, showcase your services,
+                        connect with customers, and grow your
+                        local business.
+                    </p>
+
+
+                    <a
+                        href="provider.html"
+                        class="provider-cta-btn"
+                    >
+                        Become a Service Provider
+                        <span>
+                            →
+                        </span>
+                    </a>
+
+                </div>
+
+
+
+                <!-- CTA Visual -->
+
+                <div class="provider-cta-visual">
+
+
+                    <div class="provider-stat-card">
+
+                        <span class="provider-stat-icon">
+                            👤
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Local Customers
+                            </strong>
+
+                            <small>
+                                Connect with people nearby
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="provider-stat-card">
+
+                        <span class="provider-stat-icon">
+                            📈
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Grow Your Business
+                            </strong>
+
+                            <small>
+                                Build your local presence
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="provider-stat-card">
+
+                        <span class="provider-stat-icon">
+                            ⭐
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Build Trust
+                            </strong>
+
+                            <small>
+                                Showcase your customer reviews
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
 
         </section>
 
@@ -297,29 +814,138 @@
 
 
 
-    <!-- ============================================ FOOTER ========================================== -->
+    <!-- ============================================== FOOTER =================================================== -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <h3>
-            LocalEase
-        </h3>
 
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
+        <div class="footer-container">
 
-        <p>
-            © 2026 LocalEase. All Rights Reserved.
-        </p>
+
+            <!-- Footer Brand -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+                    LocalEase
+                </a>
+
+
+                <p>
+                    Connecting customers with trusted
+                    local service providers.
+                </p>
+
+            </div>
+
+
+
+            <!-- Footer Links -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="provider.html">
+                    Become a Provider
+                </a>
+
+            </div>
+
+
+
+            <!-- Footer Account -->
+
+            <div class="footer-column">
+
+                <h3>
+                    Account
+                </h3>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+                <a href="my-bookings.html">
+                    My Bookings
+                </a>
+
+            </div>
+
+
+
+            <!-- Footer Information -->
+
+            <div class="footer-column">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+                <a href="reviews.html">
+                    Reviews
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Footer Bottom -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+            <p>
+                Built for Local Services.
+            </p>
+
+        </div>
+
 
     </footer>
 
 
-    <!-- JavaScript -->
+
+    <!-- ============================================== JAVASCRIPT =================================================== -->
 
     <script src="script.js"></script>
+
 
 </body>
 
 </html>
+
+
+
+

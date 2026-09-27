@@ -1,0 +1,858 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="LocalEase admin user management for reviewing and managing registered users."
+    >
+
+    <title>Manage Users - LocalEase</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png"></head>
+
+
+<body class="admin-users-page">
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+                <span class="brand-text">
+                    LocalEase
+                </span>
+            </a>
+
+
+            <div class="admin-header-label">
+
+                <span class="admin-header-dot"></span>
+
+                Admin User Management
+
+            </div>
+
+
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="admin-dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="admin-users.html"
+                    class="nav-link active"
+                >
+                    Users
+                </a>
+
+                <a
+                    href="admin-bookings.html"
+                    class="nav-link"
+                >
+                    Bookings
+                </a>
+
+                <a
+                    href="admin-reviews.html"
+                    class="nav-link"
+                >
+                    Reviews
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main>
+
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section class="admin-users-hero">
+
+            <div class="admin-container">
+
+
+                <div class="admin-users-hero-content">
+
+
+                    <p class="admin-users-breadcrumb">
+
+                        <a href="admin-dashboard.html">
+                            Admin Dashboard
+                        </a>
+
+                        <span>/</span>
+
+                        <span>
+                            Manage Users
+                        </span>
+
+                    </p>
+
+
+                    <div class="admin-users-eyebrow">
+                        Platform Administration
+                    </div>
+
+
+                    <h1>
+                        Manage
+                        <span>Users.</span>
+                    </h1>
+
+
+                    <p class="admin-users-hero-description">
+
+                        View, monitor and manage customers,
+                        service providers and administrators
+                        registered on the LocalEase platform.
+
+                    </p>
+
+
+                    <div class="admin-users-hero-status">
+
+                        <span class="admin-users-status-dot"></span>
+
+                        User management system active
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="admin-users-hero-visual">
+
+
+                    <div class="admin-users-hero-glow"></div>
+
+
+                    <div class="admin-users-overview-card">
+
+
+                        <div class="admin-users-overview-top">
+
+                            <div class="admin-users-overview-icon">
+                                👥
+                            </div>
+
+
+                            <div>
+
+                                <p>
+                                    USER DIRECTORY
+                                </p>
+
+                                <h2>
+                                    Account Control
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-users-overview-items">
+
+
+                            <div class="admin-users-overview-item">
+
+                                <span class="admin-users-overview-item-icon">
+                                    👤
+                                </span>
+
+                                <span>
+                                    Review registered accounts
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-users-overview-item">
+
+                                <span class="admin-users-overview-item-icon">
+                                    🔎
+                                </span>
+
+                                <span>
+                                    Search users quickly
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-users-overview-item">
+
+                                <span class="admin-users-overview-item-icon">
+                                    🏷️
+                                </span>
+
+                                <span>
+                                    Filter users by role
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-users-overview-item">
+
+                                <span class="admin-users-overview-item-icon">
+                                    ⚙️
+                                </span>
+
+                                <span>
+                                    Manage account access
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             USER STATISTICS
+        ====================================================== -->
+
+        <section class="admin-users-stats-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-users-section-heading">
+
+                    <p>
+                        User Overview
+                    </p>
+
+                    <h2>
+                        Platform user statistics
+                    </h2>
+
+                    <span>
+                        A quick overview of registered LocalEase
+                        accounts by role.
+                    </span>
+
+                </div>
+
+
+                <div class="admin-users-stats-grid">
+
+
+                    <!-- TOTAL USERS -->
+
+                    <article class="admin-users-stat-card">
+
+                        <div class="admin-users-stat-top">
+
+                            <div class="admin-users-stat-icon">
+                                👥
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Total Users
+                        </h3>
+
+
+                        <p
+                            class="admin-users-stat-number"
+                            id="admin-total-users"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Total registered users on LocalEase.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- CUSTOMERS -->
+
+                    <article class="admin-users-stat-card">
+
+                        <div class="admin-users-stat-top">
+
+                            <div class="admin-users-stat-icon customer">
+                                👤
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Customers
+                        </h3>
+
+
+                        <p
+                            class="admin-users-stat-number"
+                            id="admin-total-customers"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Users looking for local services.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- PROVIDERS -->
+
+                    <article class="admin-users-stat-card">
+
+                        <div class="admin-users-stat-top">
+
+                            <div class="admin-users-stat-icon provider">
+                                🛠️
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Providers
+                        </h3>
+
+
+                        <p
+                            class="admin-users-stat-number"
+                            id="admin-total-providers"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Registered local service providers.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- ADMINS -->
+
+                    <article class="admin-users-stat-card">
+
+                        <div class="admin-users-stat-top">
+
+                            <div class="admin-users-stat-icon admin">
+                                🛡️
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Admins
+                        </h3>
+
+
+                        <p
+                            class="admin-users-stat-number"
+                            id="admin-total-admins"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Users with administrative access.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REGISTERED USERS
+        ====================================================== -->
+
+        <section class="admin-users-management-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-users-section-heading">
+
+                    <p>
+                        User Directory
+                    </p>
+
+                    <h2>
+                        Registered users
+                    </h2>
+
+                    <span>
+                        Search, filter and manage accounts registered
+                        on the LocalEase platform.
+                    </span>
+
+                </div>
+
+
+
+                <div class="admin-users-management-card">
+
+
+                    <!-- =================================================
+                         CARD HEADER
+                    ================================================== -->
+
+                    <div class="admin-users-card-header">
+
+
+                        <div>
+
+                            <p class="admin-users-card-kicker">
+                                ACCOUNT DIRECTORY
+                            </p>
+
+                            <h3>
+                                All Users
+                            </h3>
+
+                            <span>
+                                Review registered customer, provider
+                                and administrator accounts.
+                            </span>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="load-users-btn"
+                            class="admin-users-refresh-btn"
+                        >
+                            ↻ Refresh Users
+                        </button>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         SEARCH + FILTER
+                    ================================================== -->
+
+                    <div class="admin-users-filters">
+
+
+                        <div class="admin-users-search-section">
+
+                            <label for="user-search">
+                                Search Users
+                            </label>
+
+
+                            <div class="admin-users-input-wrap">
+
+                                <span>
+                                    🔎
+                                </span>
+
+                                <input
+                                    type="search"
+                                    id="user-search"
+                                    placeholder="Search by name, email or phone..."
+                                    autocomplete="off"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="admin-users-filter-section">
+
+                            <label for="user-role-filter">
+                                Filter by Role
+                            </label>
+
+
+                            <select id="user-role-filter">
+
+                                <option value="all">
+                                    All Roles
+                                </option>
+
+                                <option value="customer">
+                                    Customers
+                                </option>
+
+                                <option value="provider">
+                                    Providers
+                                </option>
+
+                                <option value="admin">
+                                    Admins
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         USERS LIST
+                    ================================================== -->
+
+                    <div
+                        class="admin-services-list admin-users-list"
+                        id="admin-users-list"
+                    >
+
+                        <div class="empty-state">
+
+                            <div class="admin-users-loading-icon">
+                                ⟳
+                            </div>
+
+                            <h3>
+                                Users Not Loaded
+                            </h3>
+
+                            <p>
+                                Click Refresh Users to load registered
+                                LocalEase users.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             USER DETAILS
+        ====================================================== -->
+
+        <section
+            class="admin-users-details-section"
+            id="admin-user-details-section"
+            hidden
+        >
+
+            <div class="admin-container">
+
+
+                <div class="admin-users-section-heading">
+
+                    <p>
+                        Account Details
+                    </p>
+
+                    <h2>
+                        User information
+                    </h2>
+
+                    <span>
+                        Detailed information for the selected account.
+                    </span>
+
+                </div>
+
+
+                <div class="admin-users-details-card">
+
+
+                    <div class="admin-users-details-header">
+
+
+                        <div>
+
+                            <p class="admin-users-card-kicker">
+                                SELECTED ACCOUNT
+                            </p>
+
+                            <h3>
+                                User Details
+                            </h3>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="close-user-details-btn"
+                            class="admin-users-close-btn"
+                        >
+                            Close
+                        </button>
+
+
+                    </div>
+
+
+                    <div
+                        id="admin-user-details"
+                        class="admin-users-details-content"
+                    >
+
+                        <div class="admin-users-details-empty">
+
+                            <span>
+                                👤
+                            </span>
+
+                            <p>
+                                Select a user to view details.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ADMIN RESPONSIBILITIES
+        ====================================================== -->
+
+        <section class="admin-users-responsibilities">
+
+            <div class="admin-container">
+
+
+                <div class="admin-users-responsibility-card">
+
+
+                    <div class="admin-users-responsibility-icon">
+                        🛡️
+                    </div>
+
+
+                    <div>
+
+                        <p class="admin-users-responsibility-label">
+                            ADMIN RESPONSIBILITIES
+                        </p>
+
+                        <h2>
+                            Keep the LocalEase community organized.
+                        </h2>
+
+                        <p>
+                            Administrators can monitor registered users,
+                            review account information and manage user
+                            access across the LocalEase platform.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BACK TO DASHBOARD
+        ====================================================== -->
+
+        <section class="admin-users-back-section">
+
+            <div class="admin-container">
+
+                <a href="admin-dashboard.html">
+                    ← Back to Admin Dashboard
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <p>
+                    Connecting Customers with Trusted Local
+                    Service Providers.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="admin-dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="admin-bookings.html">
+                    Bookings
+                </a>
+
+                <a href="admin-reviews.html">
+                    Reviews
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+

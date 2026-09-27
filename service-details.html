@@ -1,264 +1,284 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <!-- ============================================= BASIC META ================================================ -->
+    <!-- =============================================
+         BASIC META
+    ============================================== -->
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="View electrician service details, provider information, reviews and booking options on LocalEase.">
+    <meta
+        name="description"
+        content="View service details, customer reviews and booking options on LocalEase."
+    >
 
-    <meta name="author"
-          content="LocalEase">
+    <meta
+        name="author"
+        content="LocalEase"
+    >
 
     <title>Service Details - LocalEase</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
 
-</head>
+    <!-- =============================================
+         CSS
+    ============================================== -->
 
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-<body>
-
-
-    <!-- ===================================== HEADER =========================================== -->
-
-    <header>
-
-        <h1>
-            LocalEase
-        </h1>
-
-        <p>
-            Find Trusted Local Services Near You
-        </p>
+    <link rel="icon" type="image/png" href="favicon.png"></head>
 
 
-        <!-- Navigation -->
 
-        <nav>
+<body class="service-details-page">
 
-            <a href="index.html">
-                Home
+
+    <!-- =============================================
+         HEADER
+    ============================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
             </a>
 
-            <a href="services.html">
-                Services
-            </a>
 
-            <a href="provider.html">
-                Become a Provider
-            </a>
 
-            <a href="login.html">
-                Login
-            </a>
+            <!-- NAVIGATION -->
 
-        </nav>
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="services.html"
+                    class="nav-link active"
+                >
+                    Services
+                </a>
+
+                <a
+                    href="provider.html"
+                    class="nav-link"
+                >
+                    Become a Provider
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Login
+                </a>
+
+            </nav>
+
+        </div>
 
     </header>
 
 
 
-    <!-- =========================================== MAIN CONTENT =========================================== -->
+
+
+    <!-- =============================================
+         MAIN CONTENT
+    ============================================== -->
 
     <main>
 
 
-        <!-- =========================================== PAGE INTRODUCTION =========================================== -->
+        <!-- =============================================
+             SERVICE HERO
+        ============================================== -->
 
-        <section class="service-details-intro">
+        <section class="service-details-hero">
 
-            <p class="breadcrumb">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                /
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                /
-
-                Electrician
-
-            </p>
+            <div class="service-details-container">
 
 
-            <h2>
-                Electrician Services
-            </h2>
+                <!-- BREADCRUMB -->
 
+                <p class="service-details-breadcrumb">
 
-            <p>
-                Find experienced and reliable electricians
-                for your electrical needs.
-            </p>
+                    <a href="index.html">
+                        Home
+                    </a>
 
-        </section>
+                    <span>/</span>
 
+                    <a href="services.html">
+                        Services
+                    </a>
 
+                    <span>/</span>
 
-        <!-- =========================================== PROVIDER PROFILE =========================================== -->
+                    <strong id="breadcrumb-service">
+                        Service
+                    </strong>
 
-        <section class="service-provider-section">
-
-            <h2>
-                Service Provider
-            </h2>
-
-
-            <article class="service-provider-card">
-
-                <h2>
-                    Pradeep Bhaiya
-                </h2>
-
-
-                <p>
-                    ⭐ 4.8 / 5
                 </p>
 
 
-                <p>
-                    📍 Prayagraj, Uttar Pradesh
-                </p>
+
+                <!-- HERO CONTENT -->
+
+                <div class="service-details-hero-grid">
 
 
-                <p>
-                    ⚒️ 5+ Years Experience
-                </p>
+                    <div class="service-details-hero-content">
 
 
-                <p>
-                    💰 Starting From ₹300
-                </p>
-
-
-                <p>
-                    🕐 Available 9:00 AM - 7:00 PM
-                </p>
-
-            </article>
-
-        </section>
+                        <span class="service-details-eyebrow">
+                            LOCAL SERVICE
+                        </span>
 
 
 
-        <!-- ======================================= ABOUT SERVICE ========================================= -->
-
-        <section class="service-about">
-
-            <h2>
-                About This Service
-            </h2>
-
-
-            <p>
-                Our professional electrician service provides
-                reliable solutions for household and commercial
-                electrical problems.
-            </p>
-
-
-            <p>
-                Whether you need electrical installation,
-                wiring repairs, switchboard repair or general
-                electrical maintenance, you can request a
-                service through LocalEase.
-            </p>
-
-        </section>
+                        <h1 id="service-title">
+                            Loading Service...
+                        </h1>
 
 
 
-        <!-- ============================================ SERVICES OFFERED ======================================== -->
-
-        <section class="services-offered">
-
-            <h2>
-                Services Offered
-            </h2>
-
-
-            <ul style="
-                list-style-position: inside;
-                padding-left: 0;
-                text-align: center;
-            ">
-
-                <li>
-                    Electrical Wiring
-                </li>
-
-                <li>
-                    Switch & Socket Repair
-                </li>
-
-                <li>
-                    Fan Installation
-                </li>
-
-                <li>
-                    Light Installation
-                </li>
-
-                <li>
-                    MCB & Fuse Repair
-                </li>
-
-                <li>
-                    Electrical Maintenance
-                </li>
-
-            </ul>
-
-        </section>
+                        <p
+                            id="service-intro"
+                            class="service-details-hero-description"
+                        >
+                            Please wait while we load the service details.
+                        </p>
 
 
 
-        <!-- ====================================== BOOKING ========================================= -->
+                        <!-- HERO TRUST ITEMS -->
 
-        <section class="service-booking">
+                        <div class="service-details-trust-row">
 
-            <h2>
-                Book This Service
-            </h2>
+                            <div class="service-details-trust-item">
 
+                                <span class="service-details-trust-icon">
+                                    ✓
+                                </span>
 
-            <p>
-                Need an electrician? Submit a booking request
-                and the service provider can respond to your request.
-            </p>
+                                <span>
+                                    Trusted Local Service
+                                </span>
 
-
-            <div class="service-action-buttons">
-
-                <a href="booking.html">
-
-                    <button type="button">
-                        Book Now
-                    </button>
-
-                </a>
+                            </div>
 
 
-                <a href="contact.html">
 
-                    <button type="button">
-                        Contact Provider
-                    </button>
+                            <div class="service-details-trust-item">
 
-                </a>
+                                <span class="service-details-trust-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Easy Booking
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="service-details-trust-item">
+
+                                <span class="service-details-trust-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Local Providers
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- HERO SIDE CARD -->
+
+                    <aside class="service-details-hero-card">
+
+
+                        <div class="service-details-hero-card-icon">
+                            ✦
+                        </div>
+
+
+
+                        <span class="service-details-card-label">
+                            SERVICE
+                        </span>
+
+
+
+                        <h2 id="hero-service-card-title">
+                            Local Service
+                        </h2>
+
+
+
+                        <p>
+                            Get reliable help from service providers available through LocalEase.
+                        </p>
+
+
+
+                        <div class="service-details-card-divider"></div>
+
+
+
+                        <div class="service-details-card-meta">
+
+                            <span>
+                                Available for booking
+                            </span>
+
+                            <strong>
+                                ✓
+                            </strong>
+
+                        </div>
+
+
+                    </aside>
+
+
+                </div>
 
             </div>
 
@@ -266,100 +286,512 @@
 
 
 
-        <!-- ================================== CUSTOMER REVIEWS ======================================= -->
-
-        <section class="service-reviews">
-
-            <h2>
-                Customer Reviews
-            </h2>
 
 
-            <!-- Review 1 -->
+        <!-- =============================================
+             SERVICE OVERVIEW
+        ============================================== -->
 
-            <article>
+        <section class="service-details-overview">
 
-                <h3>
-                    ⭐⭐⭐⭐⭐
-                </h3>
-
-
-                <p>
-                    "Very professional and completed the work on time."
-                </p>
+            <div class="service-details-container">
 
 
-                <strong>
-                    - Nasiruzzaman
-                </strong>
-
-            </article>
+                <div class="service-details-main-grid">
 
 
+                    <!-- LEFT CONTENT -->
 
-            <!-- Review 2 -->
-
-            <article>
-
-                <h3>
-                    ⭐⭐⭐⭐⭐
-                </h3>
+                    <div class="service-details-primary-content">
 
 
-                <p>
-                    "Good service and reasonable pricing."
-                </p>
+                        <!-- PROVIDER -->
+
+                        <section class="service-details-section">
+
+                            <div class="service-details-section-heading">
+
+                                <span class="service-details-section-icon">
+                                    👤
+                                </span>
+
+                                <div>
+
+                                    <span class="service-details-section-eyebrow">
+                                        LOCAL PROFESSIONALS
+                                    </span>
+
+                                    <h2>
+                                        Service Provider
+                                    </h2>
+
+                                </div>
+
+                            </div>
 
 
-                <strong>
-                    - Kausar Siddiqui
-                </strong>
 
-            </article>
+                            <article class="service-provider-modern-card">
 
 
-            <p>
+                                <div class="provider-assignment-icon">
+                                    ✦
+                                </div>
 
-                <a href="reviews.html">
-                    View All Reviews →
-                </a>
 
-            </p>
+
+                                <div class="provider-assignment-content">
+
+                                    <h3>
+                                        Provider Assignment
+                                    </h3>
+
+
+
+                                    <p>
+                                        A service provider will be assigned to your booking request.
+                                    </p>
+
+
+
+                                    <div class="provider-assignment-points">
+
+                                        <span>
+                                            ✓ Provider details available after acceptance
+                                        </span>
+
+                                        <span>
+                                            ✓ Customer reviews available below
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                            </article>
+
+                        </section>
+
+
+
+
+
+                        <!-- ABOUT SERVICE -->
+
+                        <section class="service-details-section">
+
+                            <div class="service-details-section-heading">
+
+                                <span class="service-details-section-icon">
+                                    ✦
+                                </span>
+
+                                <div>
+
+                                    <span class="service-details-section-eyebrow">
+                                        SERVICE OVERVIEW
+                                    </span>
+
+                                    <h2>
+                                        About This Service
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="service-about-modern-card">
+
+                                <p id="service-description">
+                                    Loading service description...
+                                </p>
+
+
+
+                                <p id="service-about-text">
+                                    You can request this service through LocalEase by submitting a booking request.
+                                </p>
+
+                            </div>
+
+                        </section>
+
+
+
+
+
+                        <!-- SERVICE INFORMATION -->
+
+                        <section class="service-details-section">
+
+                            <div class="service-details-section-heading">
+
+                                <span class="service-details-section-icon">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <span class="service-details-section-eyebrow">
+                                        AT A GLANCE
+                                    </span>
+
+                                    <h2>
+                                        Service Information
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="service-information-grid">
+
+
+                                <article class="service-information-card">
+
+                                    <span class="service-information-icon">
+                                        #
+                                    </span>
+
+                                    <div>
+
+                                        <span>
+                                            Category
+                                        </span>
+
+                                        <strong id="service-category">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="service-information-card">
+
+                                    <span class="service-information-icon">
+                                        ₹
+                                    </span>
+
+                                    <div>
+
+                                        <span>
+                                            Starting Price
+                                        </span>
+
+                                        <strong id="service-price">
+                                            Starting From ₹0
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="service-information-card">
+
+                                    <span class="service-information-icon">
+                                        ✓
+                                    </span>
+
+                                    <div>
+
+                                        <span>
+                                            Availability
+                                        </span>
+
+                                        <strong>
+                                            Booking Available
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+
+
+                                <article class="service-information-card">
+
+                                    <span class="service-information-icon">
+                                        ★
+                                    </span>
+
+                                    <div>
+
+                                        <span>
+                                            Experience
+                                        </span>
+
+                                        <strong>
+                                            Trusted Local Service
+                                        </strong>
+
+                                    </div>
+
+                                </article>
+
+
+                            </div>
+
+                        </section>
+
+
+                    </div>
+
+
+
+
+
+                    <!-- RIGHT SIDEBAR -->
+
+                    <aside class="service-details-sidebar">
+
+
+                        <!-- BOOKING CARD -->
+
+                        <section class="service-booking-modern-card">
+
+
+                            <span class="service-booking-eyebrow">
+                                READY TO BOOK?
+                            </span>
+
+
+
+                            <h2>
+                                Book This Service
+                            </h2>
+
+
+
+                            <p id="booking-text">
+                                Need this service? Submit a booking request and a service provider can respond to your request.
+                            </p>
+
+
+
+                            <div class="service-action-buttons">
+
+                                <a
+                                    href="booking.html"
+                                    id="book-service-link"
+                                    class="service-primary-btn"
+                                >
+                                    Book Now
+                                    <span>→</span>
+                                </a>
+
+
+
+                                <a
+                                    href="contact.html"
+                                    class="service-secondary-btn"
+                                >
+                                    Contact Us
+                                </a>
+
+                            </div>
+
+
+
+                            <div class="booking-security-note">
+
+                                <span>
+                                    ✓
+                                </span>
+
+                                <p>
+                                    Submit a request and wait for a provider to respond.
+                                </p>
+
+                            </div>
+
+
+                        </section>
+
+
+                    </aside>
+
+
+                </div>
+
+            </div>
 
         </section>
 
 
 
-        <!-- =================================== EXPLORE LOCALEASE ============================================= -->
-
-        <div class="explore-localEase">
-
-            <h2>
-                Looking for More Services?
-            </h2>
 
 
-            <p>
-                Explore LocalEase and find trusted professionals
-                for your everyday needs.
-            </p>
+        <!-- =============================================
+             CUSTOMER REVIEWS
+        ============================================== -->
+
+        <section class="service-details-reviews-section">
+
+            <div class="service-details-container">
 
 
-            <a href="services.html">
-                Browse Services
-            </a>
+                <div class="service-details-section-heading reviews-heading">
 
-        </div>
+                    <span class="service-details-section-icon">
+                        ★
+                    </span>
+
+                    <div>
+
+                        <span class="service-details-section-eyebrow">
+                            CUSTOMER FEEDBACK
+                        </span>
+
+                        <h2>
+                            Customer Reviews
+                        </h2>
+
+                    </div>
+
+                </div>
 
 
 
-        <!-- =========================================== BACK TO SERVICES ========================================= -->
+                <!-- REVIEW SUMMARY -->
 
-        <section class="back-section">
+                <div
+                    id="review-summary"
+                    class="service-review-summary"
+                >
 
-            <a href="services.html">
-                ← Back to All Services
-            </a>
+                    <p>
+                        Loading reviews...
+                    </p>
+
+                </div>
+
+
+
+                <!-- REVIEWS -->
+
+                <div
+                    id="reviews-container"
+                    class="service-details-reviews-grid"
+                ></div>
+
+
+
+                <p
+                    id="reviews-link"
+                    class="service-reviews-link"
+                >
+
+                    <a href="reviews.html">
+                        View All Reviews
+                        <span>→</span>
+                    </a>
+
+                </p>
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- =============================================
+             EXPLORE LOCALEASE
+        ============================================== -->
+
+        <section class="service-details-explore-section">
+
+            <div class="service-details-container">
+
+                <div class="service-details-explore-card">
+
+
+                    <div class="service-details-explore-content">
+
+                        <span class="service-details-explore-eyebrow">
+                            EXPLORE LOCALEASE
+                        </span>
+
+
+
+                        <h2>
+                            Looking for More Services?
+                        </h2>
+
+
+
+                        <p>
+                            Explore LocalEase and find trusted professionals for your everyday needs.
+                        </p>
+
+
+
+                        <a
+                            href="services.html"
+                            class="explore-services-btn"
+                        >
+                            Browse Services
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+
+
+                    <div class="service-details-explore-visual">
+
+                        <div class="explore-visual-circle">
+
+                            <span>
+                                ✦
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="explore-visual-small">
+                            ✓
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- =============================================
+             BACK TO SERVICES
+        ============================================== -->
+
+        <section class="service-details-back-section">
+
+            <div class="service-details-container">
+
+                <a href="services.html">
+                    ← Back to All Services
+                </a>
+
+            </div>
 
         </section>
 
@@ -368,28 +800,675 @@
 
 
 
-    <!-- ============================================ FOOTER =========================================== -->
-
-    <footer>
-
-        <h3>
-            LocalEase
-        </h3>
 
 
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
+    <!-- =============================================
+         FOOTER
+    ============================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
 
 
-        <p>
-            © 2026 LocalEase. All Rights Reserved.
-        </p>
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+                    LocalEase
+                </a>
+
+                <p>
+                    Connecting Customers with Trusted Local Service Providers.
+                </p>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="reviews.html">
+                    Reviews
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    For Providers
+                </h3>
+
+                <a href="provider.html">
+                    Become a Provider
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+            </div>
+
+
+
+            <div class="footer-column">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+        </div>
 
     </footer>
 
 
-<script src="script.js"></script>
+
+
+
+    <!-- =============================================
+         SERVICE DETAILS JAVASCRIPT
+    ============================================== -->
+
+    <script>
+
+        const SERVICE_API = "http://localhost:5000/api/services";
+        const REVIEW_API = "http://localhost:5000/api/reviews";
+
+        let selectedServiceId = null;
+        let currentService = null;
+
+
+
+        // ==============================================
+        // LOAD SERVICE DETAILS
+        // ==============================================
+
+        async function loadServiceDetails() {
+
+            selectedServiceId =
+                localStorage.getItem("localeaseSelectedServiceId");
+
+
+
+            const savedServiceName =
+                localStorage.getItem("localeaseSelectedService");
+
+
+
+            if (!selectedServiceId) {
+
+                document.getElementById("service-title").textContent =
+                    savedServiceName || "Service Not Selected";
+
+
+
+                document.getElementById("service-intro").textContent =
+                    "Please go back to the Services page and select a service.";
+
+
+
+                document.getElementById("service-description").textContent =
+                    "No service has been selected.";
+
+
+
+                document.getElementById("service-category").textContent =
+                    "Category: Not available";
+
+
+
+                document.getElementById("service-price").textContent =
+                    "Starting From ₹0";
+
+
+
+                document.getElementById("review-summary").innerHTML =
+                    "<p>No service has been selected.</p>";
+
+
+
+                document.getElementById("reviews-container").innerHTML =
+                    "";
+
+
+
+                return;
+
+            }
+
+
+
+            try {
+
+                const response = await fetch(
+                    `${SERVICE_API}/${encodeURIComponent(selectedServiceId)}`
+                );
+
+
+
+                const data = await response.json();
+
+
+
+                if (!response.ok ||
+                    !data.success ||
+                    !data.service) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load service."
+                    );
+
+                }
+
+
+
+                currentService =
+                    data.service;
+
+
+
+                displayServiceDetails(
+                    currentService
+                );
+
+
+
+                await loadServiceReviews(
+                    currentService._id
+                );
+
+            }
+
+
+
+            catch (error) {
+
+                console.error(
+                    "Service Details Error:",
+                    error
+                );
+
+
+
+                document.getElementById("service-title").textContent =
+                    "Unable to Load Service";
+
+
+
+                document.getElementById("service-intro").textContent =
+                    "Something went wrong while loading this service.";
+
+
+
+                document.getElementById("service-description").textContent =
+                    "Please go back to the Services page and try again.";
+
+
+
+                document.getElementById("service-category").textContent =
+                    "Category: Not available";
+
+
+
+                document.getElementById("service-price").textContent =
+                    "Starting From ₹0";
+
+
+
+                document.getElementById("review-summary").innerHTML =
+                    "<p>Reviews could not be loaded.</p>";
+
+
+
+                document.getElementById("reviews-container").innerHTML =
+                    "";
+
+            }
+
+        }
+
+
+
+        // ==============================================
+        // DISPLAY SERVICE DETAILS
+        // ==============================================
+
+        function displayServiceDetails(service) {
+
+            const serviceName =
+                service.name ||
+                "Service";
+
+
+
+            const category =
+                service.category ||
+                "General Service";
+
+
+
+            const description =
+                service.description ||
+                "Professional local service available through LocalEase.";
+
+
+
+            const price =
+                Number(service.price) || 0;
+
+
+
+            document.title =
+                `${serviceName} - LocalEase`;
+
+
+
+            document.getElementById("breadcrumb-service").textContent =
+                serviceName;
+
+
+
+            document.getElementById("service-title").textContent =
+                serviceName;
+
+
+
+            document.getElementById("hero-service-card-title").textContent =
+                serviceName;
+
+
+
+            document.getElementById("service-intro").textContent =
+                `Find trusted professionals for your ${category.toLowerCase()} needs.`;
+
+
+
+            document.getElementById("service-description").textContent =
+                description;
+
+
+
+            document.getElementById("service-about-text").textContent =
+                `This ${category.toLowerCase()} service is available for booking through LocalEase. Submit your booking request and an available service provider can respond to your request.`;
+
+
+
+            document.getElementById("service-category").textContent =
+                `Category: ${category}`;
+
+
+
+            document.getElementById("service-price").textContent =
+                `Starting From ₹${price}`;
+
+
+
+            document.getElementById("booking-text").textContent =
+                `Need ${serviceName.toLowerCase()}? Submit a booking request and a service provider can respond to your request.`;
+
+
+
+            localStorage.setItem(
+                "localeaseSelectedService",
+                serviceName
+            );
+
+
+
+            localStorage.setItem(
+                "localeaseSelectedServiceId",
+                String(service._id)
+            );
+
+
+
+            const bookingLink =
+                document.getElementById("book-service-link");
+
+
+
+            bookingLink.href =
+                "booking.html";
+
+        }
+
+
+
+        // ==============================================
+        // LOAD SERVICE REVIEWS
+        // ==============================================
+
+        async function loadServiceReviews(serviceId) {
+
+            const summaryContainer =
+                document.getElementById("review-summary");
+
+
+
+            const reviewsContainer =
+                document.getElementById("reviews-container");
+
+
+
+            try {
+
+                const response = await fetch(
+                    `${REVIEW_API}/service/${encodeURIComponent(serviceId)}`
+                );
+
+
+
+                const data = await response.json();
+
+
+
+                if (!response.ok ||
+                    !data.success) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load reviews."
+                    );
+
+                }
+
+
+
+                const reviews =
+                    Array.isArray(data.reviews)
+                        ? data.reviews
+                        : [];
+
+
+
+                const count =
+                    Number(data.count) || 0;
+
+
+
+                const averageRating =
+                    Number(data.averageRating) || 0;
+
+
+
+                if (count === 0) {
+
+                    summaryContainer.innerHTML = `
+
+                        <p>
+                            ⭐ No reviews yet.
+                        </p>
+
+                    `;
+
+
+
+                    reviewsContainer.innerHTML = `
+
+                        <article class="service-review-card">
+
+                            <p>
+                                Be the first customer to review this service.
+                            </p>
+
+                        </article>
+
+                    `;
+
+
+
+                    return;
+
+                }
+
+
+
+                summaryContainer.innerHTML = `
+
+                    <div class="review-summary-content">
+
+                        <strong>
+                            ${averageRating.toFixed(1)}
+                        </strong>
+
+                        <span>
+                            ⭐
+                        </span>
+
+                        <p>
+                            Based on ${count} customer review${count === 1 ? "" : "s"}.
+                        </p>
+
+                    </div>
+
+                `;
+
+
+
+                reviewsContainer.innerHTML =
+                    reviews
+                        .slice(0, 5)
+                        .map(
+                            review =>
+                                createReviewHTML(review)
+                        )
+                        .join("");
+
+            }
+
+
+
+            catch (error) {
+
+                console.error(
+                    "Review Error:",
+                    error
+                );
+
+
+
+                summaryContainer.innerHTML = `
+
+                    <p>
+                        Reviews unavailable.
+                    </p>
+
+                `;
+
+
+
+                reviewsContainer.innerHTML = `
+
+                    <article class="service-review-card">
+
+                        <p>
+                            Customer reviews could not be loaded at the moment.
+                        </p>
+
+                    </article>
+
+                `;
+
+            }
+
+        }
+
+
+
+        // ==============================================
+        // CREATE REVIEW HTML
+        // ==============================================
+
+        function createReviewHTML(review) {
+
+            const rating =
+                Number(review.rating) || 0;
+
+
+
+            const customerName =
+                review.customer &&
+                review.customer.name
+                    ? review.customer.name
+                    : "Customer";
+
+
+
+            const comment =
+                review.comment
+                    ? escapeHTML(review.comment)
+                    : "No comment provided.";
+
+
+
+            const safeRating =
+                Math.max(
+                    0,
+                    Math.min(
+                        5,
+                        rating
+                    )
+                );
+
+
+
+            const stars =
+                "⭐".repeat(
+                    safeRating
+                );
+
+
+
+            return `
+
+                <article class="service-review-card">
+
+                    <div class="service-review-card-top">
+
+                        <div class="service-review-stars">
+                            ${stars || "⭐"}
+                        </div>
+
+                    </div>
+
+
+
+                    <p class="service-review-comment">
+                        "${comment}"
+                    </p>
+
+
+
+                    <strong class="service-review-customer">
+                        ${escapeHTML(customerName)}
+                    </strong>
+
+                </article>
+
+            `;
+
+        }
+
+
+
+        // ==============================================
+        // ESCAPE HTML
+        // ==============================================
+
+        function escapeHTML(value) {
+
+            return String(value)
+                .replace(
+                    /&/g,
+                    "&amp;"
+                )
+                .replace(
+                    /</g,
+                    "&lt;"
+                )
+                .replace(
+                    />/g,
+                    "&gt;"
+                )
+                .replace(
+                    /"/g,
+                    "&quot;"
+                )
+                .replace(
+                    /'/g,
+                    "&#039;"
+                );
+
+        }
+
+
+
+        // ==============================================
+        // PAGE INITIALIZATION
+        // ==============================================
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadServiceDetails();
+
+            }
+        );
+
+    </script>
+
+
+
+    <!-- ==============================================
+         EXISTING SCRIPT
+    ============================================== -->
+
+    <script src="script.js"></script>
+
+
 </body>
 
 </html>
+
+
+

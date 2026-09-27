@@ -1,314 +1,1231 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <!-- ========================================= BASIC META ======================================== -->
+    <!-- =========================================
+         BASIC META
+    ========================================= -->
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-          content="Track your LocalEase service booking status, provider details and booking progress.">
+    <meta
+        name="description"
+        content="Track your LocalEase service booking status, provider details and booking progress."
+    >
 
-    <meta name="author"
-          content="LocalEase">
+    <meta
+        name="author"
+        content="LocalEase"
+    >
 
     <title>Booking Status - LocalEase</title>
 
-    <link rel="stylesheet" href="style.css">
 
-</head>
+    <!-- =========================================
+         STYLESHEET
+    ========================================= -->
 
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
-<body>
-
-
-    <!-- ============================================== HEADER ================================================= -->
-
-    <header>
-
-        <h1>
-            LocalEase
-        </h1>
-
-        <p>
-            Find Trusted Local Services Near You
-        </p>
+    <link rel="icon" type="image/png" href="favicon.png"></head>
 
 
-        <!-- Navigation -->
+<body class="booking-status-page">
 
-        <nav>
 
-            <a href="index.html">
-                Home
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
             </a>
 
-            <a href="services.html">
-                Services
-            </a>
 
-            <a href="provider.html">
-                Become a Provider
-            </a>
 
-            <a href="login.html">
-                Login
-            </a>
+            <!-- NAVIGATION -->
 
-        </nav>
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="nav-link"
+                >
+                    Profile
+                </a>
+
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Login
+                </a>
+
+            </nav>
+
+
+        </div>
 
     </header>
 
 
 
-    <!-- ============================================ MAIN CONTENT ============================================== -->
+    <!-- =========================================
+         MAIN
+    ========================================= -->
 
     <main>
 
 
-        <!-- =========================================== PAGE INTRO =========================================== -->
+        <!-- =========================================
+             STATUS HERO
+        ========================================= -->
 
-        <section class="booking-status-intro">
+        <section class="booking-status-hero">
 
-            <p class="breadcrumb">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                /
-
-                <a href="my-bookings.html">
-                    My Bookings
-                </a>
-
-                /
-
-                Booking Status
-
-            </p>
+            <div class="booking-status-hero-container">
 
 
-            <h2>
-                Booking Status
-            </h2>
+                <!-- BREADCRUMB -->
+
+                <div class="booking-status-breadcrumb">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <span>/</span>
+
+                    <a href="my-bookings.html">
+                        My Bookings
+                    </a>
+
+                    <span>/</span>
+
+                    <span>
+                        Booking Status
+                    </span>
+
+                </div>
 
 
-            <p>
-                Track and manage your LocalEase service booking.
-            </p>
+
+                <!-- HERO GRID -->
+
+                <div class="booking-status-hero-grid">
+
+
+                    <!-- HERO CONTENT -->
+
+                    <div class="booking-status-hero-content">
+
+                        <span class="booking-status-eyebrow">
+                            BOOKING TRACKER
+                        </span>
+
+
+                        <h1>
+
+                            Track Your
+                            <span>
+                                Booking
+                            </span>
+
+                        </h1>
+
+
+                        <p class="booking-status-hero-description">
+
+                            Stay updated on your service request,
+                            provider assignment and booking progress
+                            — all in one place.
+
+                        </p>
+
+
+
+                        <!-- TRUST ROW -->
+
+                        <div class="booking-status-trust-row">
+
+
+                            <div class="booking-status-trust-item">
+
+                                <span class="booking-status-trust-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Live Status
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="booking-status-trust-item">
+
+                                <span class="booking-status-trust-icon">
+                                    🔒
+                                </span>
+
+                                <span>
+                                    Secure Booking
+                                </span>
+
+                            </div>
+
+
+
+                            <div class="booking-status-trust-item">
+
+                                <span class="booking-status-trust-icon">
+                                    ⚡
+                                </span>
+
+                                <span>
+                                    Easy Tracking
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- HERO STATUS CARD -->
+
+                    <div class="booking-status-hero-card">
+
+
+                        <div class="booking-status-hero-card-icon">
+                            ✓
+                        </div>
+
+
+                        <span class="booking-status-hero-card-label">
+                            CURRENT BOOKING
+                        </span>
+
+
+                        <h2>
+
+                            #
+
+                            <span class="booking-id booking-id-hero">
+                                Loading...
+                            </span>
+
+                        </h2>
+
+
+                        <p class="booking-service-name-header">
+                            Loading service...
+                        </p>
+
+
+                        <div class="booking-status-hero-card-divider"></div>
+
+
+                        <div class="booking-status-hero-card-footer">
+
+                            <span>
+                                Current Status
+                            </span>
+
+
+                            <span class="booking-current-status pending">
+                                Loading...
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
 
         </section>
 
 
 
-        <!-- ============================================ BOOKING STATUS CARD ========================================= -->
+        <!-- =========================================
+             BOOKING WORKSPACE
+        ========================================= -->
 
-        <section class="status-card">
+        <section class="booking-status-workspace">
+
+            <div class="booking-status-container">
 
 
-            <!-- ======================================= STATUS HEADER ====================================== -->
+                <!-- =========================================
+                     STATUS SUMMARY BAR
+                ========================================= -->
 
-            <div class="status-header">
+                <div class="booking-status-summary-bar">
 
-                <div>
 
-                    <span class="booking-label">
-                        Booking ID
+                    <div class="booking-status-summary-item">
+
+                        <span class="booking-status-summary-icon">
+                            📋
+                        </span>
+
+                        <div>
+
+                            <span>
+                                Booking ID
+                            </span>
+
+                            <strong>
+                                #
+
+                                <span class="booking-id">
+                                    Loading...
+                                </span>
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="booking-status-summary-item">
+
+                        <span class="booking-status-summary-icon">
+                            🛠️
+                        </span>
+
+                        <div>
+
+                            <span>
+                                Service
+                            </span>
+
+                            <strong class="booking-service-details">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="booking-status-summary-item">
+
+                        <span class="booking-status-summary-icon">
+                            📅
+                        </span>
+
+                        <div>
+
+                            <span>
+                                Preferred Date
+                            </span>
+
+                            <strong class="booking-date">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="booking-status-summary-item">
+
+                        <span class="booking-status-summary-icon">
+                            💰
+                        </span>
+
+                        <div>
+
+                            <span>
+                                Booking Price
+                            </span>
+
+                            <strong class="booking-total">
+                                Loading...
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                     MAIN STATUS GRID
+                ========================================= -->
+
+                <div class="booking-status-main-grid">
+
+
+                    <!-- =========================================
+                         LEFT CONTENT
+                    ========================================= -->
+
+                    <div class="booking-status-main-content">
+
+
+                        <!-- =========================================
+                             CURRENT STATUS CARD
+                        ========================================= -->
+
+                        <section class="booking-status-card">
+
+
+                            <div class="booking-status-card-heading">
+
+                                <div>
+
+                                    <span class="booking-status-section-eyebrow">
+                                        BOOKING OVERVIEW
+                                    </span>
+
+                                    <h2>
+                                        Your Booking
+                                    </h2>
+
+                                </div>
+
+
+                                <span class="booking-current-status pending">
+                                    Loading...
+                                </span>
+
+                            </div>
+
+
+
+                            <!-- =========================================
+                                 PROVIDER INFORMATION
+                            ========================================= -->
+
+                            <div class="status-provider booking-provider-modern-card">
+
+
+                                <div class="booking-provider-card-header">
+
+                                    <div class="booking-provider-card-icon">
+                                        👤
+                                    </div>
+
+
+                                    <div>
+
+                                        <span class="booking-status-mini-label">
+                                            SERVICE PROVIDER
+                                        </span>
+
+                                        <h3>
+                                            Provider Information
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="booking-provider-modern-content">
+
+
+                                    <!-- PROVIDER -->
+
+                                    <div class="booking-provider-modern-row">
+
+                                        <span>
+                                            Provider
+                                        </span>
+
+                                        <strong class="booking-provider">
+                                            Not assigned
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- LOCATION -->
+
+                                    <div class="booking-provider-modern-row">
+
+                                        <span>
+                                            Location
+                                        </span>
+
+                                        <strong>
+
+                                            <span class="booking-provider-row-icon">
+                                                📍
+                                            </span>
+
+                                            <span class="booking-provider-location">
+                                                Location not available
+                                            </span>
+
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- RATING -->
+
+                                    <div class="booking-provider-modern-row">
+
+                                        <span>
+                                            Rating
+                                        </span>
+
+                                        <strong>
+
+                                            <span class="booking-provider-row-icon">
+                                                ⭐
+                                            </span>
+
+                                            <span class="booking-provider-rating">
+                                                Rating not available
+                                            </span>
+
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- EXPERIENCE -->
+
+                                    <div class="booking-provider-modern-row">
+
+                                        <span>
+                                            Experience
+                                        </span>
+
+                                        <strong>
+
+                                            <span class="booking-provider-row-icon">
+                                                ⚒️
+                                            </span>
+
+                                            <span class="booking-provider-experience">
+                                                Experience not available
+                                            </span>
+
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- SERVICE PRICE -->
+
+                                    <div class="booking-provider-modern-row">
+
+                                        <span>
+                                            Service Price
+                                        </span>
+
+                                        <strong>
+
+                                            <span class="booking-provider-row-icon">
+                                                💰
+                                            </span>
+
+                                            <span class="booking-provider-price">
+                                                Price not available
+                                            </span>
+
+                                        </strong>
+
+                                    </div>
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- =========================================
+                                 BOOKING DETAILS
+                            ========================================= -->
+
+                            <div class="booking-details booking-details-modern">
+
+                                <div class="booking-status-card-heading small">
+
+                                    <div>
+
+                                        <span class="booking-status-section-eyebrow">
+                                            SERVICE DETAILS
+                                        </span>
+
+                                        <h3>
+                                            Booking Information
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="details-grid booking-details-grid">
+
+
+                                    <!-- SERVICE -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Service Required
+                                        </span>
+
+                                        <strong class="booking-service-details">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- DATE -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Preferred Date
+                                        </span>
+
+                                        <strong class="booking-date">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- TIME -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Preferred Time
+                                        </span>
+
+                                        <strong class="booking-time">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- ADDRESS -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Service Address
+                                        </span>
+
+                                        <strong class="booking-address">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- PHONE -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Customer Phone
+                                        </span>
+
+                                        <strong class="booking-phone">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- PRICE -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Booking Price
+                                        </span>
+
+                                        <strong class="booking-total">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+
+                                    <!-- CREATED -->
+
+                                    <div class="booking-detail-box">
+
+                                        <span>
+                                            Booking Created
+                                        </span>
+
+                                        <strong class="booking-created-date">
+                                            Loading...
+                                        </strong>
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- =========================================
+                                 BOOKING NOTES
+                            ========================================= -->
+
+                            <div class="booking-notes-section booking-notes-modern">
+
+                                <div class="booking-status-card-heading small">
+
+                                    <div>
+
+                                        <span class="booking-status-section-eyebrow">
+                                            ADDITIONAL INFORMATION
+                                        </span>
+
+                                        <h3>
+                                            Booking Notes
+                                        </h3>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="booking-notes-box">
+
+                                    <span class="booking-notes-icon">
+                                        💬
+                                    </span>
+
+
+                                    <p class="booking-notes">
+                                        No additional notes provided.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                        </section>
+
+
+
+                        <!-- =========================================
+                             BOOKING PROGRESS
+                        ========================================= -->
+
+                        <section class="status-timeline booking-progress-card">
+
+
+                            <div class="booking-status-card-heading">
+
+                                <div>
+
+                                    <span class="booking-status-section-eyebrow">
+                                        PROGRESS TRACKER
+                                    </span>
+
+                                    <h2>
+                                        Booking Progress
+                                    </h2>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="timeline booking-modern-timeline">
+
+
+                                <!-- STEP 1 -->
+
+                                <div class="timeline-step booking-timeline-item">
+
+                                    <div class="timeline-icon">
+                                        1
+                                    </div>
+
+
+                                    <div class="timeline-content">
+
+                                        <span class="booking-timeline-label">
+                                            STEP 01
+                                        </span>
+
+                                        <h4>
+                                            Booking Request Sent
+                                        </h4>
+
+                                        <p>
+                                            Your booking request has been successfully submitted.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <!-- STEP 2 -->
+
+                                <div class="timeline-step booking-timeline-item">
+
+                                    <div class="timeline-icon">
+                                        2
+                                    </div>
+
+
+                                    <div class="timeline-content">
+
+                                        <span class="booking-timeline-label">
+                                            STEP 02
+                                        </span>
+
+                                        <h4>
+                                            Booking Confirmation
+                                        </h4>
+
+                                        <p>
+                                            Your booking will be confirmed once the provider accepts it.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <!-- STEP 3 -->
+
+                                <div class="timeline-step booking-timeline-item">
+
+                                    <div class="timeline-icon">
+                                        3
+                                    </div>
+
+
+                                    <div class="timeline-content">
+
+                                        <span class="booking-timeline-label">
+                                            STEP 03
+                                        </span>
+
+                                        <h4>
+                                            Service In Progress
+                                        </h4>
+
+                                        <p>
+                                            The provider is working on your requested service.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <!-- STEP 4 -->
+
+                                <div class="timeline-step booking-timeline-item">
+
+                                    <div class="timeline-icon">
+                                        4
+                                    </div>
+
+
+                                    <div class="timeline-content">
+
+                                        <span class="booking-timeline-label">
+                                            STEP 04
+                                        </span>
+
+                                        <h4>
+                                            Service Completed
+                                        </h4>
+
+                                        <p>
+                                            Your requested service has been completed.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </section>
+
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         RIGHT SIDEBAR
+                    ========================================= -->
+
+                    <aside class="booking-status-sidebar">
+
+
+                        <!-- CURRENT STATUS -->
+
+                        <div class="booking-status-side-card booking-status-highlight-card">
+
+                            <span class="booking-status-side-eyebrow">
+                                CURRENT STATUS
+                            </span>
+
+
+                            <div class="booking-status-side-icon">
+                                ✓
+                            </div>
+
+
+                            <h3>
+
+                                <span class="booking-current-status pending">
+                                    Loading...
+                                </span>
+
+                            </h3>
+
+
+                            <p>
+                                Your booking status will update as
+                                the provider processes your request.
+                            </p>
+
+                        </div>
+
+
+
+                        <!-- QUICK DETAILS -->
+
+                        <div class="booking-status-side-card">
+
+
+                            <span class="booking-status-side-eyebrow">
+                                QUICK DETAILS
+                            </span>
+
+
+                            <h3>
+                                Booking Summary
+                            </h3>
+
+
+                            <div class="booking-side-details">
+
+
+                                <div>
+
+                                    <span>
+                                        Date
+                                    </span>
+
+                                    <strong class="booking-date">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+
+
+                                <div>
+
+                                    <span>
+                                        Time
+                                    </span>
+
+                                    <strong class="booking-time">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+
+
+                                <div>
+
+                                    <span>
+                                        Price
+                                    </span>
+
+                                    <strong class="booking-total">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+
+
+                                <div>
+
+                                    <span>
+                                        Created
+                                    </span>
+
+                                    <strong class="booking-created-date">
+                                        Loading...
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ACTIONS -->
+
+                        <div class="booking-status-side-card booking-actions-card">
+
+
+                            <span class="booking-status-side-eyebrow">
+                                QUICK ACTIONS
+                            </span>
+
+
+                            <h3>
+                                Manage Booking
+                            </h3>
+
+
+                            <div class="status-actions booking-modern-actions">
+
+
+                                <a
+                                    href="my-bookings.html"
+                                    class="secondary-btn"
+                                >
+                                    ← My Bookings
+                                </a>
+
+
+                                <a
+                                    href="services.html"
+                                    class="primary-btn"
+                                >
+                                    Browse Services
+                                </a>
+
+
+                                <a
+                                    href="index.html"
+                                    class="primary-btn"
+                                >
+                                    Back to Home
+                                </a>
+
+
+                                <!-- REVIEW BUTTON -->
+
+                                <a
+                                    href="#"
+                                    class="primary-btn"
+                                    id="write-review-btn"
+                                    style="display: none;"
+                                >
+                                    ⭐ Write a Review
+                                </a>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- SECURITY NOTE -->
+
+                        <div class="booking-status-security-note">
+
+                            <span>
+                                🔒
+                            </span>
+
+
+                            <div>
+
+                                <strong>
+                                    Your booking is secure
+                                </strong>
+
+                                <p>
+                                    Your booking information is
+                                    protected by LocalEase.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                    </aside>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             WHAT HAPPENS NEXT
+        ========================================= -->
+
+        <section class="status-note booking-next-section">
+
+            <div class="booking-next-container">
+
+
+                <div class="booking-next-heading">
+
+                    <span class="booking-status-section-eyebrow">
+                        WHAT HAPPENS NEXT
                     </span>
 
+
                     <h2>
-                        #LE1001
+
+                        From Request to
+
+                        <span>
+                            Completed Service
+                        </span>
+
                     </h2>
 
+
                     <p>
-                        Electrician Service
+                        Here is what you can expect after submitting
+                        your service booking.
                     </p>
 
                 </div>
 
 
-                <span class="booking-status pending">
-                    Pending
-                </span>
 
-            </div>
-
-
-
-            <!-- ======================================= PROVIDER INFORMATION ==================================== -->
-
-            <div class="status-provider">
-
-                <h3>
-                    Service Provider
-                </h3>
-
-
-                <p>
-                    <strong>
-                        Provider:
-                    </strong>
-
-                    Pradeep Bhaiya
-                </p>
-
-
-                <p>
-                    📍 Prayagraj, Uttar Pradesh
-                </p>
-
-
-                <p>
-                    ⭐ 4.8 / 5 Rating
-                </p>
-
-
-                <p>
-                    ⚒️ 5+ Years Experience
-                </p>
-
-
-                <p>
-                    💰 Starting From ₹300
-                </p>
-
-            </div>
-
-
-
-            <!-- ========================================= BOOKING DETAILS ===================================== -->
-
-            <div class="booking-details">
-
-                <h3>
-                    Booking Details
-                </h3>
-
-
-                <div class="details-grid">
-
-
-                    <div>
-
-                        <span>
-                            Service Required
-                        </span>
-
-                        <strong>
-                            Electrical Wiring
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Preferred Date
-                        </span>
-
-                        <strong>
-                            25 August 2026
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Preferred Time
-                        </span>
-
-                        <strong>
-                            11:00 AM
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Service Address
-                        </span>
-
-                        <strong>
-                            Prayagraj, Uttar Pradesh
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Booking Price
-                        </span>
-
-                        <strong>
-                            ₹300 onwards
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Booking Date
-                        </span>
-
-                        <strong>
-                            20 August 2026
-                        </strong>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
-            <!-- ======================================== BOOKING PROGRESS ==================================== -->
-
-            <div class="status-timeline">
-
-                <h3>
-                    Booking Progress
-                </h3>
-
-
-                <div class="timeline">
+                <div class="booking-next-grid">
 
 
                     <!-- STEP 1 -->
 
-                    <div class="timeline-step active">
+                    <div class="booking-next-card">
 
-                        <div class="timeline-icon">
-                            ✓
+                        <span class="booking-next-number">
+                            01
+                        </span>
+
+
+                        <div class="booking-next-icon">
+                            👀
                         </div>
 
 
-                        <div class="timeline-content">
+                        <h3>
+                            Provider Reviews Your Request
+                        </h3>
 
-                            <h4>
-                                Booking Request Sent
-                            </h4>
 
-                            <p>
-                                Your booking request has been successfully submitted.
-                            </p>
-
-                        </div>
+                        <p>
+                            The service provider will review your
+                            booking details and requirements.
+                        </p>
 
                     </div>
 
@@ -316,24 +1233,27 @@
 
                     <!-- STEP 2 -->
 
-                    <div class="timeline-step active">
+                    <div class="booking-next-card">
 
-                        <div class="timeline-icon">
-                            2
+                        <span class="booking-next-number">
+                            02
+                        </span>
+
+
+                        <div class="booking-next-icon">
+                            ✓
                         </div>
 
 
-                        <div class="timeline-content">
+                        <h3>
+                            Booking Confirmation
+                        </h3>
 
-                            <h4>
-                                Waiting for Provider
-                            </h4>
 
-                            <p>
-                                The service provider is reviewing your booking request.
-                            </p>
-
-                        </div>
+                        <p>
+                            The provider can accept your booking
+                            request and confirm the service.
+                        </p>
 
                     </div>
 
@@ -341,24 +1261,27 @@
 
                     <!-- STEP 3 -->
 
-                    <div class="timeline-step">
+                    <div class="booking-next-card">
 
-                        <div class="timeline-icon">
-                            3
+                        <span class="booking-next-number">
+                            03
+                        </span>
+
+
+                        <div class="booking-next-icon">
+                            🛠️
                         </div>
 
 
-                        <div class="timeline-content">
+                        <h3>
+                            Service Visit
+                        </h3>
 
-                            <h4>
-                                Booking Confirmation
-                            </h4>
 
-                            <p>
-                                Your booking will be confirmed once the provider accepts it.
-                            </p>
-
-                        </div>
+                        <p>
+                            Once accepted, the provider will visit
+                            you at the selected date and time.
+                        </p>
 
                     </div>
 
@@ -366,24 +1289,27 @@
 
                     <!-- STEP 4 -->
 
-                    <div class="timeline-step">
+                    <div class="booking-next-card">
 
-                        <div class="timeline-icon">
-                            4
+                        <span class="booking-next-number">
+                            04
+                        </span>
+
+
+                        <div class="booking-next-icon">
+                            ⭐
                         </div>
 
 
-                        <div class="timeline-content">
+                        <h3>
+                            Complete Your Booking
+                        </h3>
 
-                            <h4>
-                                Service Completed
-                            </h4>
 
-                            <p>
-                                The service will be completed at your selected date and time.
-                            </p>
-
-                        </div>
+                        <p>
+                            After completion, share your experience
+                            by leaving a review for the provider.
+                        </p>
 
                     </div>
 
@@ -392,109 +1318,71 @@
 
             </div>
 
-
-
-            <!-- ===================================== BOOKING ACTIONS ==================================== -->
-
-            <div class="status-actions">
-
-
-                <a
-                    href="my-bookings.html"
-                    class="secondary-btn"
-                >
-                    ← My Bookings
-                </a>
-
-
-                <a
-                    href="service-details.html"
-                    class="secondary-btn"
-                >
-                    Service Details
-                </a>
-
-
-                <a
-                    href="services.html"
-                    class="primary-btn"
-                >
-                    Browse Services
-                </a>
-
-
-                <a
-                    href="index.html"
-                    class="primary-btn"
-                >
-                    Back to Home
-                </a>
-
-
-            </div>
-
-
         </section>
 
 
 
-        <!-- ===================================== WHAT HAPPENS NEXT =================================== -->
+        <!-- =========================================
+             EXPLORE LOCALEASE
+        ========================================= -->
 
-        <section class="status-note">
+        <section class="booking-status-explore-section">
 
-            <h2>
-                What Happens Next?
-            </h2>
-
-
-            <div>
-
-                <h3>
-                    1. Provider Reviews Your Request
-                </h3>
-
-                <p>
-                    The service provider will review your booking details.
-                </p>
-
-            </div>
+            <div class="booking-status-explore-card">
 
 
-            <div>
+                <div class="booking-status-explore-content">
 
-                <h3>
-                    2. Booking Confirmation
-                </h3>
-
-                <p>
-                    The provider can accept or reject your booking request.
-                </p>
-
-            </div>
+                    <span class="booking-status-section-eyebrow">
+                        KEEP EXPLORING
+                    </span>
 
 
-            <div>
+                    <h2>
 
-                <h3>
-                    3. Service Visit
-                </h3>
+                        Looking for More
 
-                <p>
-                    If accepted, the provider will visit you at the selected date and time.
-                </p>
+                        <span>
+                            Services?
+                        </span>
 
-            </div>
+                    </h2>
 
 
-            <div>
+                    <p>
+                        Explore LocalEase and find trusted
+                        professionals for your everyday needs.
+                    </p>
 
-                <h3>
-                    4. Complete Your Booking
-                </h3>
 
-                <p>
-                    After the service is completed, you can leave a review for the provider.
-                </p>
+                    <a
+                        href="services.html"
+                        class="booking-status-explore-btn"
+                    >
+                        Browse Services
+                    </a>
+
+                </div>
+
+
+
+                <div class="booking-status-explore-visual">
+
+                    <div class="booking-status-explore-circle">
+
+                        <span>
+                            🛠️
+                        </span>
+
+                    </div>
+
+
+                    <div class="booking-status-explore-small-circle">
+                        ✓
+                    </div>
+
+                </div>
+
 
             </div>
 
@@ -502,32 +1390,11 @@
 
 
 
-        <!-- ========================================= EXPLORE LOCALEASE ======================================= -->
+        <!-- =========================================
+             BACK TO PROFILE
+        ========================================= -->
 
-        <div class="explore-localEase">
-
-            <h2>
-                Looking for More Services?
-            </h2>
-
-
-            <p>
-                Explore LocalEase and find trusted professionals
-                for your everyday needs.
-            </p>
-
-
-            <a href="services.html">
-                Browse Services
-            </a>
-
-        </div>
-
-
-
-        <!-- ======================================== BACK TO PROFILE ========================================= -->
-
-        <section class="back-section">
+        <section class="back-section booking-status-back-section">
 
             <a href="profile.html">
                 ← Back to Profile
@@ -540,28 +1407,243 @@
 
 
 
-    <!-- =================================================== FOOTER ============================================ -->
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <h3>
-            LocalEase
-        </h3>
-
-
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
+        <div class="footer-container">
 
 
-        <p>
-            © 2026 LocalEase. All Rights Reserved.
-        </p>
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="footer-logo"
+                >
+                    LocalEase
+                </a>
+
+
+                <p>
+                    Connecting Customers with Trusted
+                    Local Service Providers.
+                </p>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Quick Links
+                </h4>
+
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="services.html">
+                    Services
+                </a>
+
+
+                <a href="my-bookings.html">
+                    My Bookings
+                </a>
+
+            </div>
+
+
+
+            <!-- PROVIDERS -->
+
+            <div class="footer-column">
+
+                <h4>
+                    For Providers
+                </h4>
+
+
+                <a href="provider.html">
+                    Become a Provider
+                </a>
+
+
+                <a href="login.html">
+                    Provider Login
+                </a>
+
+            </div>
+
+
+
+            <!-- SUPPORT -->
+
+            <div class="footer-column">
+
+                <h4>
+                    Support
+                </h4>
+
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+
+                <a href="about.html">
+                    About LocalEase
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+        </div>
 
     </footer>
 
 
-<script src="script.js"></script>
+
+    <!-- =========================================
+         MAIN JAVASCRIPT
+         
+         Booking status data is handled by
+         script.js.
+    ========================================= -->
+
+    <script src="script.js"></script>
+
+
+
+    <!-- =========================================
+         REVIEW BUTTON LOGIC
+    ========================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const reviewButton =
+                    document.getElementById(
+                        "write-review-btn"
+                    );
+
+                /*
+                 * Use the non-hero booking ID element
+                 * so the review URL always receives
+                 * the complete MongoDB booking ID.
+                 */
+                const bookingIdElement =
+                    document.querySelector(
+                        ".booking-status-summary-bar .booking-id"
+                    );
+
+                const statusElement =
+                    document.querySelector(
+                        ".booking-status-hero-card .booking-current-status"
+                    );
+
+
+                if (
+                    !reviewButton ||
+                    !bookingIdElement ||
+                    !statusElement
+                ) {
+
+                    return;
+
+                }
+
+
+                const checkBookingStatus =
+                    setInterval(
+                        function () {
+
+                            const bookingId =
+                                bookingIdElement
+                                    .textContent
+                                    .trim();
+
+
+                            const bookingStatus =
+                                statusElement
+                                    .textContent
+                                    .trim()
+                                    .toLowerCase();
+
+
+                            if (
+                                bookingId &&
+                                bookingId !== "Loading..." &&
+                                bookingStatus &&
+                                bookingStatus !== "loading..."
+                            ) {
+
+                                clearInterval(
+                                    checkBookingStatus
+                                );
+
+
+                                if (
+                                    bookingStatus ===
+                                    "completed"
+                                ) {
+
+                                    reviewButton.style.display =
+                                        "inline-flex";
+
+
+                                    reviewButton.href =
+                                        "reviews.html?bookingId=" +
+                                        encodeURIComponent(
+                                            bookingId
+                                        );
+
+                                } else {
+
+                                    reviewButton.style.display =
+                                        "none";
+
+                                }
+
+                            }
+
+                        },
+                        300
+                    );
+
+            }
+        );
+
+    </script>
+
+
 </body>
 
 </html>
+
+
+

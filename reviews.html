@@ -1,32 +1,929 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>Reviews - LocalEase</title>
+<meta
+    name="description"
+    content="Share your LocalEase service experience through reviews and ratings."
+>
 
-    <link rel="stylesheet" href="style.css">
+<meta
+    name="author"
+    content="LocalEase"
+>
+
+<title>Reviews - LocalEase</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+<link rel="icon" type="image/png" href="favicon.png">
 
 </head>
 
-<body>
+<body class="reviews-page">
 
-    <!-- ======================================== HEADER ============================================== -->
 
-    <header>
+<!-- ==========================================
+     HEADER
+========================================== -->
 
-        <h1>LocalEase</h1>
+<header class="site-header">
 
-        <p>
-            Find Trusted Local Services Near You
-        </p>
+    <div class="header-container">
 
-        <nav>
+
+        <a
+            href="index.html"
+            class="brand"
+        >
+
+            <span class="brand-text">
+                LocalEase
+            </span>
+
+        </a>
+
+
+        <nav class="main-navigation">
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+            <a
+                href="services.html"
+                class="nav-link"
+            >
+                Services
+            </a>
+
+            <a
+                href="provider.html"
+                class="nav-link"
+            >
+                Become a Provider
+            </a>
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+            <a
+                href="login.html"
+                class="nav-login-btn"
+            >
+                Login
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- ==========================================
+     MAIN CONTENT
+========================================== -->
+
+<main>
+
+
+    <!-- ======================================
+         REVIEWS HERO
+    ====================================== -->
+
+    <section class="reviews-hero">
+
+        <div class="reviews-hero-container">
+
+            <div class="reviews-hero-grid">
+
+
+                <!-- HERO CONTENT -->
+
+                <div class="reviews-hero-content">
+
+
+                    <a
+                        href="profile.html"
+                        class="reviews-breadcrumb"
+                    >
+                        ← Back to Profile
+                    </a>
+
+
+                    <p class="reviews-eyebrow">
+                        YOUR EXPERIENCE MATTERS
+                    </p>
+
+
+                    <h1>
+
+                        Reviews That
+                        <span>
+                            Build Trust.
+                        </span>
+
+                    </h1>
+
+
+                    <p class="reviews-hero-description">
+
+                        Share your experience with LocalEase services
+                        and help other customers discover reliable
+                        local service providers.
+
+                    </p>
+
+
+                    <div class="reviews-trust-row">
+
+
+                        <div class="reviews-trust-item">
+
+                            <span class="reviews-trust-icon">
+                                ★
+                            </span>
+
+                            <span>
+                                Rate your experience
+                            </span>
+
+                        </div>
+
+
+                        <div class="reviews-trust-item">
+
+                            <span class="reviews-trust-icon">
+                                ✓
+                            </span>
+
+                            <span>
+                                Review completed services
+                            </span>
+
+                        </div>
+
+
+                        <div class="reviews-trust-item">
+
+                            <span class="reviews-trust-icon">
+                                ♡
+                            </span>
+
+                            <span>
+                                Help other customers
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="reviews-hero-visual">
+
+                    <div class="reviews-hero-glow"></div>
+
+
+                    <div class="reviews-hero-card">
+
+
+                        <div class="reviews-hero-card-header">
+
+                            <div class="reviews-hero-card-icon">
+                                ★
+                            </div>
+
+                            <span class="reviews-card-label">
+                                Customer Feedback
+                            </span>
+
+                        </div>
+
+
+                        <h2>
+
+                            Your Voice
+                            <span>
+                                Matters.
+                            </span>
+
+                        </h2>
+
+
+                        <div class="reviews-hero-divider"></div>
+
+
+                        <div class="reviews-rating-preview">
+
+
+                            <div class="reviews-preview-stars">
+                                ★★★★★
+                            </div>
+
+
+                            <div class="reviews-preview-text">
+
+                                <strong>
+                                    Honest feedback
+                                </strong>
+
+                                <span>
+                                    Helps improve local services
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="reviews-mini-list">
+
+
+                            <div class="reviews-mini-item">
+
+                                <span class="reviews-mini-icon">
+                                    ✓
+                                </span>
+
+                                Verified service experience
+
+                            </div>
+
+
+                            <div class="reviews-mini-item">
+
+                                <span class="reviews-mini-icon">
+                                    ★
+                                </span>
+
+                                Simple rating system
+
+                            </div>
+
+
+                            <div class="reviews-mini-item">
+
+                                <span class="reviews-mini-icon">
+                                    ↗
+                                </span>
+
+                                Edit your review anytime
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ======================================
+         REVIEW WORKSPACE
+    ====================================== -->
+
+    <section class="reviews-workspace">
+
+        <div class="reviews-container">
+
+
+            <!-- ==================================
+                 WRITE REVIEW SECTION
+            ================================== -->
+
+            <section class="review-form-section">
+
+
+                <div class="reviews-section-heading">
+
+                    <div>
+
+                        <p class="reviews-section-eyebrow">
+                            SHARE YOUR EXPERIENCE
+                        </p>
+
+                        <h2 id="reviewFormTitle">
+                            Write a Review
+                        </h2>
+
+                        <p class="reviews-section-description">
+                            Tell us about your recent LocalEase
+                            service experience.
+                        </p>
+
+                    </div>
+
+
+                    <div class="reviews-heading-badge">
+
+                        <span class="reviews-heading-badge-icon">
+                            ★
+                        </span>
+
+                        <span>
+                            Verified Experience
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <form
+                    class="review-form"
+                    id="reviewForm"
+                >
+
+
+                    <!-- ==================================
+                         SERVICE SELECTION
+                    ================================== -->
+
+                    <div class="review-form-card">
+
+
+                        <div class="review-form-card-header">
+
+                            <div class="review-form-card-icon">
+                                01
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Select Your Service
+                                </h3>
+
+                                <p>
+                                    Choose a completed booking to review.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="service">
+                                Completed Service
+                            </label>
+
+
+                            <select
+                                id="service"
+                                name="service"
+                                required
+                            >
+
+                                <option value="">
+                                    Loading completed services...
+                                </option>
+
+                            </select>
+
+
+                            <div
+                                id="bookingInfo"
+                                class="booking-info"
+                                style="display: none;"
+                            >
+
+                                <div class="booking-info-item">
+
+                                    <span class="booking-info-label">
+                                        Booking Date
+                                    </span>
+
+                                    <strong id="bookingDate">
+                                        -
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="booking-info-item">
+
+                                    <span class="booking-info-label">
+                                        Total Price
+                                    </span>
+
+                                    <strong id="bookingPrice">
+                                        -
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="booking-info-item">
+
+                                    <span class="booking-info-label">
+                                        Booking Status
+                                    </span>
+
+                                    <strong id="bookingStatus">
+                                        -
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         PROVIDER + RATING
+                    ================================== -->
+
+                    <div class="review-form-grid">
+
+
+                        <!-- PROVIDER -->
+
+                        <div class="review-form-card">
+
+
+                            <div class="review-form-card-header">
+
+                                <div class="review-form-card-icon">
+                                    02
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Service Provider
+                                    </h3>
+
+                                    <p>
+                                        Your assigned local provider.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="provider">
+                                    Provider Name
+                                </label>
+
+
+                                <input
+                                    type="text"
+                                    id="provider"
+                                    name="provider"
+                                    placeholder="Provider name"
+                                    readonly
+                                    required
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- RATING -->
+
+                        <div class="review-form-card">
+
+
+                            <div class="review-form-card-header">
+
+                                <div class="review-form-card-icon">
+                                    03
+                                </div>
+
+                                <div>
+
+                                    <h3>
+                                        Your Rating
+                                    </h3>
+
+                                    <p>
+                                        How was your overall experience?
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+
+                                <label>
+                                    Rating
+                                </label>
+
+
+                                <div class="rating-stars">
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="rating"
+                                            value="1"
+                                            required
+                                            aria-label="1 star"
+                                        >
+
+                                        ★
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="rating"
+                                            value="2"
+                                            aria-label="2 stars"
+                                        >
+
+                                        ★
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="rating"
+                                            value="3"
+                                            aria-label="3 stars"
+                                        >
+
+                                        ★
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="rating"
+                                            value="4"
+                                            aria-label="4 stars"
+                                        >
+
+                                        ★
+
+                                    </label>
+
+
+                                    <label>
+
+                                        <input
+                                            type="radio"
+                                            name="rating"
+                                            value="5"
+                                            aria-label="5 stars"
+                                        >
+
+                                        ★
+
+                                    </label>
+
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- ==================================
+                         REVIEW COMMENT
+                    ================================== -->
+
+                    <div class="review-form-card">
+
+
+                        <div class="review-form-card-header">
+
+                            <div class="review-form-card-icon">
+                                04
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Tell Us About It
+                                </h3>
+
+                                <p>
+                                    Your feedback helps other customers.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="review">
+                                Your Review
+                            </label>
+
+
+                            <textarea
+                                id="review"
+                                name="review"
+                                rows="6"
+                                maxlength="500"
+                                placeholder="Write your experience here..."
+                                required
+                            ></textarea>
+
+
+                            <div class="review-character-note">
+
+                                <small>
+                                    Maximum 500 characters.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FORM ACTIONS -->
+
+                        <div class="review-form-actions">
+
+
+                            <button
+                                type="submit"
+                                class="review-submit-btn"
+                                id="reviewSubmitBtn"
+                            >
+                                Submit Review
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="cancel-edit-btn"
+                                id="cancelEditBtn"
+                                style="display: none;"
+                            >
+                                Cancel Edit
+                            </button>
+
+
+                        </div>
+
+
+                        <!-- MESSAGE -->
+
+                        <div
+                            id="reviewMessage"
+                            class="review-message"
+                        ></div>
+
+
+                    </div>
+
+
+                </form>
+
+
+            </section>
+
+
+
+            <!-- ==================================
+                 PREVIOUS REVIEWS
+            ================================== -->
+
+            <section class="previous-reviews">
+
+
+                <div class="reviews-section-heading">
+
+                    <div>
+
+                        <p class="reviews-section-eyebrow">
+                            YOUR FEEDBACK
+                        </p>
+
+                        <h2>
+                            Your Previous Reviews
+                        </h2>
+
+                        <p class="reviews-section-description">
+                            Review the experiences you have already shared.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="previousReviews"
+                    class="previous-reviews-list"
+                >
+
+                    <div class="review-loading">
+
+                        <div class="review-state-icon">
+                            …
+                        </div>
+
+                        <h3>
+                            Loading your reviews...
+                        </h3>
+
+                        <p>
+                            Please wait while your reviews are loaded.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================
+                 EXPLORE SERVICES
+            ================================== -->
+
+            <section class="reviews-explore">
+
+
+                <div class="reviews-explore-container">
+
+
+                    <div class="reviews-explore-content">
+
+                        <p class="reviews-explore-eyebrow">
+                            DISCOVER MORE
+                        </p>
+
+
+                        <h2>
+                            Need Another
+                            <span>
+                                Service?
+                            </span>
+                        </h2>
+
+
+                        <p>
+                            Explore LocalEase and find trusted
+                            local service providers for your
+                            everyday needs.
+                        </p>
+
+
+                        <a
+                            href="services.html"
+                            class="reviews-browse-btn"
+                        >
+                            Browse Services
+                        </a>
+
+                    </div>
+
+
+                    <div class="reviews-explore-visual">
+
+                        <div class="reviews-explore-circle">
+                            <span>★</span>
+                        </div>
+
+                        <div class="reviews-explore-small-circle">
+                            ✓
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================
+                 BACK TO PROFILE
+            ================================== -->
+
+            <section class="back-section">
+
+                <a href="profile.html">
+                    ← Back to Profile
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                LocalEase
+            </h3>
+
+            <p>
+                Connecting Customers with Trusted
+                Local Service Providers.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
 
             <a href="index.html">
                 Home
@@ -36,402 +933,696 @@
                 Services
             </a>
 
-            <a href="provider.html">
-                Become a Provider
+            <a href="about.html">
+                About
             </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Account
+            </h4>
 
             <a href="profile.html">
                 Profile
             </a>
 
-        </nav>
-
-    </header>
-
-
-    <!-- =========================================== MAIN CONTENT ============================================== -->
-
-    <main>
-
-
-        <!-- ======================================== PAGE INTRO ======================================= -->
-
-        <section class="reviews-intro">
-
-            <p class="breadcrumb">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                /
-
-                Reviews
-
-            </p>
-
-            <h2>
-                Reviews & Ratings
-            </h2>
-
-            <p>
-                Share your experience and help others find
-                trusted local service providers.
-            </p>
-
-        </section>
-
-
-        <!-- ============================================ WRITE A REVIEW ========================================== -->
-
-        <section class="review-form-section">
-
-            <h2>
-                Write a Review
-            </h2>
-
-            <p class="review-subtitle">
-                Tell us about your recent LocalEase service experience.
-            </p>
-
-
-            <form class="review-form">
-
-
-                <!-- SERVICE -->
-
-                <div class="form-group">
-
-                    <label for="service">
-                        Select Service
-                    </label>
-
-                    <select
-                        id="service"
-                        name="service"
-                        required
-                    >
-
-                        <option value="">
-                            Select a completed service
-                        </option>
-
-                        <option value="electrician">
-                            Electrician Service
-                        </option>
-
-                        <option value="plumbing">
-                            Plumbing Service
-                        </option>
-
-                        <option value="cleaning">
-                            Home Cleaning Service
-                        </option>
-
-                        <option value="carpenter">
-                            Carpenter Service
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- PROVIDER -->
-
-                <div class="form-group">
-
-                    <label for="provider">
-                        Service Provider
-                    </label>
-
-                    <input
-                        type="text"
-                        id="provider"
-                        name="provider"
-                        placeholder="Enter provider name"
-                        required
-                    >
-
-                </div>
-
-
-                <!-- RATING -->
-
-                <div class="form-group">
-
-                    <label>
-                        Your Rating
-                    </label>
-
-                    <div class="rating-stars">
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="rating"
-                                value="1"
-                                required
-                            >
-                            ★
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="rating"
-                                value="2"
-                            >
-                            ★
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="rating"
-                                value="3"
-                            >
-                            ★
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="rating"
-                                value="4"
-                            >
-                            ★
-                        </label>
-
-                        <label>
-                            <input
-                                type="radio"
-                                name="rating"
-                                value="5"
-                            >
-                            ★
-                        </label>
-
-                    </div>
-
-                </div>
-
-
-                <!-- REVIEW -->
-
-                <div class="form-group">
-
-                    <label for="review">
-                        Your Review
-                    </label>
-
-                    <textarea
-                        id="review"
-                        name="review"
-                        rows="5"
-                        placeholder="Write your experience here..."
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <!-- SUBMIT -->
-
-                <button
-                    type="submit"
-                    class="review-submit-btn"
-                >
-                    Submit Review
-                </button>
-
-            </form>
-
-        </section>
-
-
-        <!-- ========================================== PREVIOUS REVIEWS ============================================ -->
-
-        <section class="previous-reviews">
-
-            <h2>
-                Your Previous Reviews
-            </h2>
-
-
-            <!-- REVIEW CARD 1 -->
-
-            <article class="review-card">
-
-                <div class="review-card-header">
-
-                    <div>
-
-                        <h3>
-                            Plumbing Service
-                        </h3>
-
-                        <p>
-                            Arif Plumbing Services
-                        </p>
-
-                    </div>
-
-                    <span class="review-rating">
-                        ★★★★★
-                    </span>
-
-                </div>
-
-                <p class="review-text">
-
-                    Excellent service. The provider arrived
-                    on time and fixed the plumbing issue quickly.
-
-                </p>
-
-                <span class="review-date">
-                    Reviewed on 18 August 2026
-                </span>
-
-            </article>
-
-
-            <!-- REVIEW CARD 2 -->
-
-            <article class="review-card">
-
-                <div class="review-card-header">
-
-                    <div>
-
-                        <h3>
-                            Home Cleaning Service
-                        </h3>
-
-                        <p>
-                            Rahul Services
-                        </p>
-
-                    </div>
-
-                    <span class="review-rating">
-                        ★★★★☆
-                    </span>
-
-                </div>
-
-                <p class="review-text">
-
-                    Good cleaning service and professional
-                    behaviour. Overall a good experience.
-
-                </p>
-
-                <span class="review-date">
-                    Reviewed on 12 August 2026
-                </span>
-
-            </article>
-
-
-            <!-- REVIEW CARD 3 -->
-
-            <article class="review-card">
-
-                <div class="review-card-header">
-
-                    <div>
-
-                        <h3>
-                            Electrician Service
-                        </h3>
-
-                        <p>
-                            Pradeep Bhaiya
-                        </p>
-
-                    </div>
-
-                    <span class="review-rating">
-                        ★★★★★
-                    </span>
-
-                </div>
-
-                <p class="review-text">
-
-                    Very helpful and professional electrician.
-                    The problem was solved without any hassle.
-
-                </p>
-
-                <span class="review-date">
-                    Reviewed on 05 August 2026
-                </span>
-
-            </article>
-
-        </section>
-
-
-        <!-- ======================================= EXPLORE MORE SERVICES ============================================= -->
-
-        <section class="reviews-explore">
-
-            <h2>
-                Need Another Service?
-            </h2>
-
-            <p>
-                Explore LocalEase and find trusted professionals
-                for your everyday needs.
-            </p>
-
-            <a
-                href="services.html"
-                class="reviews-browse-btn"
-            >
-                Browse Services
+            <a href="my-bookings.html">
+                My Bookings
             </a>
 
-        </section>
-
-
-        <!-- ======================================== BACK TO PROFILE ========================================= -->
-
-        <section class="back-section">
-
-            <a href="profile.html">
-                ← Back to Profile
+            <a href="notifications.html">
+                Notifications
             </a>
 
-        </section>
+        </div>
 
 
-    </main>
+        <div class="footer-column">
+
+            <h4>
+                Providers
+            </h4>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+            <a href="provider-dashboard.html">
+                Provider Dashboard
+            </a>
+
+        </div>
 
 
-    <!-- ========================================== FOOTER =============================================== -->
+    </div>
 
-    <footer>
 
-        <h3>
-            LocalEase
-        </h3>
-
-        <p>
-            Connecting Customers with Trusted Local Service Providers.
-        </p>
+    <div class="footer-bottom">
 
         <p>
             © 2026 LocalEase. All Rights Reserved.
         </p>
 
-    </footer>
+    </div>
 
+</footer>
+
+
+
+<!-- ==========================================
+     EXISTING LOCAL EASE JAVASCRIPT
+
+     Keep the existing script.js exactly as it is.
+========================================== -->
 
 <script src="script.js"></script>
+
+
+
+<!-- ==========================================
+     REVIEWS PAGE JAVASCRIPT
+
+     IMPORTANT:
+     This block loads completed bookings and
+     the customer's previous reviews.
+     
+     The existing HTML IDs and CSS classes
+     have been preserved.
+========================================== -->
+
+<script>
+
+/* ============================================================
+   CUSTOMER REVIEWS PAGE
+   STEP 1 — LOAD COMPLETED BOOKINGS
+   STEP 2 — LOAD PREVIOUS REVIEWS
+============================================================ */
+
+(function initializeCustomerReviewsPage() {
+
+    const serviceSelect =
+        document.getElementById("service");
+
+    const providerInput =
+        document.getElementById("provider");
+
+    const bookingInfo =
+        document.getElementById("bookingInfo");
+
+    const bookingDate =
+        document.getElementById("bookingDate");
+
+    const bookingPrice =
+        document.getElementById("bookingPrice");
+
+    const bookingStatus =
+        document.getElementById("bookingStatus");
+
+    const previousReviews =
+        document.getElementById("previousReviews");
+
+
+    if (!serviceSelect) {
+        return;
+    }
+
+
+    /* ========================================================
+       LOAD COMPLETED BOOKINGS
+    ======================================================== */
+
+    async function loadCompletedServices() {
+
+        serviceSelect.innerHTML =
+            "<option value=\"\">Loading completed services...</option>";
+
+        try {
+
+            const data =
+                await apiRequest(
+                    "/bookings/my-bookings",
+                    {
+                        method: "GET"
+                    }
+                );
+
+
+            const allBookings =
+                Array.isArray(data?.bookings)
+                    ? data.bookings
+                    : [];
+
+
+            const completedBookings =
+                allBookings.filter(
+                    function (booking) {
+
+                        const status =
+                            typeof normalizeBookingStatus === "function"
+                                ? normalizeBookingStatus(
+                                    booking.status
+                                )
+                                : String(
+                                    booking.status || ""
+                                )
+                                    .trim()
+                                    .toLowerCase();
+
+                        return status === "completed";
+
+                    }
+                );
+
+
+            serviceSelect.innerHTML =
+                "<option value=\"\">Select a completed service</option>";
+
+
+            if (completedBookings.length === 0) {
+
+                serviceSelect.innerHTML =
+                    "<option value=\"\">No completed services available</option>";
+
+                if (providerInput) {
+                    providerInput.value = "";
+                }
+
+                if (bookingInfo) {
+                    bookingInfo.style.display = "none";
+                }
+
+                return;
+            }
+
+
+            completedBookings.forEach(
+                function (booking) {
+
+                    const service =
+                        booking.service || {};
+
+                    const serviceName =
+                        service.name ||
+                        booking.serviceName ||
+                        "Service";
+
+
+                    const option =
+                        document.createElement("option");
+
+                    option.value =
+                        booking._id || "";
+
+                    option.textContent =
+                        serviceName;
+
+
+                    serviceSelect.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+
+            serviceSelect._completedBookings =
+                completedBookings;
+
+
+            const firstBooking =
+                completedBookings[0];
+
+
+            if (firstBooking) {
+
+                serviceSelect.value =
+                    firstBooking._id || "";
+
+                showSelectedBooking(
+                    firstBooking
+                );
+
+            }
+
+
+            console.log(
+                "Completed bookings loaded:",
+                completedBookings
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Unable to load completed services:",
+                error
+            );
+
+
+            serviceSelect.innerHTML =
+                "<option value=\"\">Unable to load completed services</option>";
+
+        }
+
+    }
+
+
+    /* ========================================================
+       SHOW SELECTED BOOKING
+    ======================================================== */
+
+    function showSelectedBooking(booking) {
+
+        if (!booking) {
+            return;
+        }
+
+
+        const provider =
+            booking.provider || {};
+
+
+        if (providerInput) {
+
+            providerInput.value =
+                provider.name ||
+                booking.providerName ||
+                "Not assigned";
+
+        }
+
+
+        if (bookingDate) {
+
+            bookingDate.textContent =
+                typeof formatDate === "function"
+                    ? formatDate(
+                        booking.bookingDate
+                    )
+                    : (
+                        booking.bookingDate
+                            ? new Date(
+                                booking.bookingDate
+                            ).toLocaleDateString()
+                            : "Not provided"
+                    );
+
+        }
+
+
+        if (bookingPrice) {
+
+            bookingPrice.textContent =
+                typeof formatPrice === "function"
+                    ? formatPrice(
+                        booking.totalPrice
+                    )
+                    : `₹${booking.totalPrice || 0}`;
+
+        }
+
+
+        if (bookingStatus) {
+
+            bookingStatus.textContent =
+                typeof formatBookingStatus === "function"
+                    ? formatBookingStatus(
+                        booking.status
+                    )
+                    : String(
+                        booking.status || "Completed"
+                    );
+
+        }
+
+
+        if (bookingInfo) {
+
+            bookingInfo.style.display =
+                "grid";
+
+        }
+
+
+        console.log(
+            "Selected completed booking:",
+            booking
+        );
+
+    }
+
+
+    /* ========================================================
+       SERVICE DROPDOWN CHANGE
+    ======================================================== */
+
+    serviceSelect.addEventListener(
+        "change",
+        function () {
+
+            const bookingId =
+                serviceSelect.value;
+
+
+            const bookings =
+                serviceSelect._completedBookings || [];
+
+
+            const selectedBooking =
+                bookings.find(
+                    function (booking) {
+
+                        return String(
+                            booking._id
+                        ) === String(
+                            bookingId
+                        );
+
+                    }
+                );
+
+
+            showSelectedBooking(
+                selectedBooking
+            );
+
+        }
+    );
+
+
+    /* ========================================================
+       LOAD PREVIOUS CUSTOMER REVIEWS
+    ======================================================== */
+
+    async function loadPreviousReviews() {
+
+        if (!previousReviews) {
+            return;
+        }
+
+
+        previousReviews.innerHTML =
+            `
+            <div class="review-loading">
+
+                <div class="review-state-icon">
+                    …
+                </div>
+
+                <h3>
+                    Loading your reviews...
+                </h3>
+
+                <p>
+                    Please wait while your reviews are loaded.
+                </p>
+
+            </div>
+            `;
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    "/reviews/my-reviews",
+                    {
+                        method: "GET"
+                    }
+                );
+
+
+            const reviews =
+                Array.isArray(data?.reviews)
+                    ? data.reviews
+                    : [];
+
+
+            console.log(
+                "Previous customer reviews loaded:",
+                reviews
+            );
+
+
+            if (reviews.length === 0) {
+
+                previousReviews.innerHTML =
+                    `
+                    <div class="review-empty">
+
+                        <div class="review-state-icon">
+                            ★
+                        </div>
+
+                        <h3>
+                            No reviews yet
+                        </h3>
+
+                        <p>
+                            You have not submitted any reviews yet.
+                        </p>
+
+                    </div>
+                    `;
+
+                return;
+            }
+
+
+            let html = "";
+
+
+            reviews.forEach(
+                function (review) {
+
+                    const service =
+                        review.service || {};
+
+                    const booking =
+                        review.booking || {};
+
+
+                    const serviceName =
+                        service.name ||
+                        "Service";
+
+
+                    const category =
+                        service.category ||
+                        "";
+
+
+                    const rating =
+                        Number(review.rating) || 0;
+
+
+                    const comment =
+                        review.comment ||
+                        "";
+
+
+                    const reviewDate =
+                        review.createdAt
+                            ? (
+                                typeof formatDate === "function"
+                                    ? formatDate(
+                                        review.createdAt
+                                    )
+                                    : new Date(
+                                        review.createdAt
+                                    ).toLocaleDateString()
+                            )
+                            : "Date not available";
+
+
+                    let stars = "";
+
+
+                    for (
+                        let i = 1;
+                        i <= 5;
+                        i++
+                    ) {
+
+                        stars +=
+                            i <= rating
+                                ? "★"
+                                : "☆";
+
+                    }
+
+
+                    html +=
+                        `
+                        <article
+                            class="previous-review-card"
+                            data-review-id="${escapeHtml(review._id || "")}"
+                        >
+
+                            <div class="previous-review-header">
+
+                                <div>
+
+                                    <h3>
+                                        ${escapeHtml(serviceName)}
+                                    </h3>
+
+                                    ${
+                                        category
+                                            ? `
+                                            <span class="previous-review-category">
+                                                ${escapeHtml(category)}
+                                            </span>
+                                            `
+                                            : ""
+                                    }
+
+                                </div>
+
+
+                                <div class="previous-review-rating">
+
+                                    <span class="previous-review-stars">
+                                        ${stars}
+                                    </span>
+
+                                    <strong>
+                                        ${rating}/5
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="previous-review-details">
+
+                                <span>
+                                    Reviewed on:
+                                    ${escapeHtml(reviewDate)}
+                                </span>
+
+
+                                ${
+                                    booking.bookingDate
+                                        ? `
+                                        <span>
+                                            Booking date:
+                                            ${
+                                                escapeHtml(
+                                                    typeof formatDate === "function"
+                                                        ? formatDate(
+                                                            booking.bookingDate
+                                                        )
+                                                        : new Date(
+                                                            booking.bookingDate
+                                                        ).toLocaleDateString()
+                                                )
+                                            }
+                                        </span>
+                                        `
+                                        : ""
+                                }
+
+                            </div>
+
+
+                            <div class="previous-review-comment">
+
+                                <p>
+                                    ${escapeHtml(
+                                        comment || "No comment provided."
+                                    )}
+                                </p>
+
+                            </div>
+
+
+                            <div class="previous-review-actions">
+
+                                <button
+                                    type="button"
+                                    class="edit-review-btn"
+                                    data-review-id="${escapeHtml(review._id || "")}"
+                                >
+                                    Edit Review
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="delete-review-btn"
+                                    data-review-id="${escapeHtml(review._id || "")}"
+                                >
+                                    Delete Review
+                                </button>
+
+                            </div>
+
+                        </article>
+                        `;
+
+                }
+            );
+
+
+            previousReviews.innerHTML =
+                html;
+
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Unable to load previous reviews:",
+                error
+            );
+
+
+            previousReviews.innerHTML =
+                `
+                <div class="review-error">
+
+                    <div class="review-state-icon">
+                        !
+                    </div>
+
+                    <h3>
+                        Unable to load reviews
+                    </h3>
+
+                    <p>
+                        Please refresh the page and try again.
+                    </p>
+
+                </div>
+                `;
+
+        }
+
+    }
+
+
+    /* ========================================================
+       START PAGE LOAD
+    ======================================================== */
+
+    loadCompletedServices();
+
+    loadPreviousReviews();
+
+
+})();
+
+</script>
+
+
 </body>
 
 </html>

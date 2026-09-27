@@ -1,0 +1,1161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================================
+         BASIC DOCUMENT CONFIGURATION
+    ========================================================= -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="LocalEase admin dashboard for managing users, bookings, services and reviews."
+    >
+
+    <meta
+        name="author"
+        content="LocalEase"
+    >
+
+    <title>Admin Dashboard - LocalEase</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png"></head>
+
+
+<body class="admin-dashboard-page">
+
+
+    <!-- =========================================================
+         ADMIN HEADER
+    ========================================================= -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+                <span class="brand-text">
+                    LocalEase
+                </span>
+            </a>
+
+
+            <div class="admin-header-label">
+
+                <span class="admin-header-dot"></span>
+
+                <span>
+                    Admin Panel
+                </span>
+
+            </div>
+
+
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+                <a
+                    href="admin-dashboard.html"
+                    class="nav-link active"
+                    aria-current="page"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="nav-link"
+                >
+                    Profile
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN ADMIN CONTENT
+    ========================================================= -->
+
+    <main>
+
+
+        <!-- =====================================================
+             ADMIN HERO
+        ===================================================== -->
+
+        <section class="admin-hero">
+
+            <div class="admin-container">
+
+                <div class="admin-hero-content">
+
+                    <p class="admin-breadcrumb">
+
+                        <a href="index.html">
+                            Home
+                        </a>
+
+                        <span>/</span>
+
+                        Admin Dashboard
+
+                    </p>
+
+
+                    <p class="admin-eyebrow">
+                        Platform Control Center
+                    </p>
+
+
+                    <h1>
+                        Welcome to your
+                        <span>
+                            Admin Dashboard
+                        </span>
+                    </h1>
+
+
+                    <p class="admin-hero-description">
+                        Manage users, bookings, services and
+                        customer feedback from one centralized
+                        LocalEase control center.
+                    </p>
+
+
+                    <div class="admin-hero-status">
+
+                        <span class="admin-status-dot"></span>
+
+                        <span>
+                            LocalEase platform is active
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-hero-visual">
+
+                    <div class="admin-hero-glow"></div>
+
+
+                    <div class="admin-overview-card">
+
+                        <div class="admin-overview-card-top">
+
+                            <div class="admin-overview-icon">
+                                ⚡
+                            </div>
+
+                            <span>
+                                LIVE OVERVIEW
+                            </span>
+
+                        </div>
+
+
+                        <h2>
+                            Platform Control
+                        </h2>
+
+
+                        <p>
+                            Keep track of your LocalEase
+                            marketplace activity in one place.
+                        </p>
+
+
+                        <div class="admin-overview-items">
+
+                            <div>
+
+                                <span class="admin-overview-item-icon">
+                                    👥
+                                </span>
+
+                                <span>
+                                    Users
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="admin-overview-item-icon">
+                                    📅
+                                </span>
+
+                                <span>
+                                    Bookings
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="admin-overview-item-icon">
+                                    🛠️
+                                </span>
+
+                                <span>
+                                    Services
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <span class="admin-overview-item-icon">
+                                    ⭐
+                                </span>
+
+                                <span>
+                                    Reviews
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PLATFORM STATISTICS
+        ===================================================== -->
+
+        <section class="admin-stats-section">
+
+            <div class="admin-container">
+
+                <div class="admin-section-heading">
+
+                    <p class="admin-section-eyebrow">
+                        Platform Overview
+                    </p>
+
+                    <h2>
+                        Everything at a glance
+                    </h2>
+
+                    <p>
+                        Monitor the most important LocalEase
+                        platform numbers from one place.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-stats-grid">
+
+
+                    <!-- TOTAL USERS -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-top">
+
+                            <div class="admin-stat-icon admin-stat-icon-teal">
+                                👥
+                            </div>
+
+                            <span>
+                                USERS
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-stat-number"
+                            id="admin-total-users"
+                        >
+                            0
+                        </p>
+
+
+                        <h3>
+                            Total Users
+                        </h3>
+
+
+                        <p>
+                            Registered users across LocalEase.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- CUSTOMERS -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-top">
+
+                            <div class="admin-stat-icon admin-stat-icon-blue">
+                                👤
+                            </div>
+
+                            <span>
+                                CUSTOMERS
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-stat-number"
+                            id="admin-total-customers"
+                        >
+                            0
+                        </p>
+
+
+                        <h3>
+                            Customers
+                        </h3>
+
+
+                        <p>
+                            Customers using LocalEase services.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- PROVIDERS -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-top">
+
+                            <div class="admin-stat-icon admin-stat-icon-indigo">
+                                🧑‍🔧
+                            </div>
+
+                            <span>
+                                PROVIDERS
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-stat-number"
+                            id="admin-total-providers"
+                        >
+                            0
+                        </p>
+
+
+                        <h3>
+                            Providers
+                        </h3>
+
+
+                        <p>
+                            Registered local service providers.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- BOOKINGS -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-top">
+
+                            <div class="admin-stat-icon admin-stat-icon-violet">
+                                📅
+                            </div>
+
+                            <span>
+                                BOOKINGS
+                            </span>
+
+                        </div>
+
+
+                        <p
+                            class="admin-stat-number"
+                            id="admin-total-bookings"
+                        >
+                            0
+                        </p>
+
+
+                        <h3>
+                            Total Bookings
+                        </h3>
+
+
+                        <p>
+                            Bookings created on the platform.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ADMIN MANAGEMENT SECTIONS
+        ===================================================== -->
+
+        <section class="admin-management-section">
+
+            <div class="admin-container">
+
+
+                <!-- =================================================
+                     USER MANAGEMENT
+                ================================================= -->
+
+                <section class="admin-section">
+
+                    <div class="admin-section-heading">
+
+                        <p class="admin-section-eyebrow">
+                            User Management
+                        </p>
+
+                        <h2>
+                            Manage LocalEase users
+                        </h2>
+
+                        <p>
+                            View registered customers and providers
+                            and manage their account information.
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+
+                            <div>
+
+                                <span class="admin-card-kicker">
+                                    USER DIRECTORY
+                                </span>
+
+                                <h3>
+                                    Registered Users
+                                </h3>
+
+                                <p>
+                                    Manage LocalEase customer and
+                                    provider accounts.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="load-users-btn"
+                                class="admin-refresh-btn"
+                            >
+                                <span>
+                                    ↻
+                                </span>
+
+                                Refresh Users
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="admin-users-list"
+                            id="admin-users-list"
+                        >
+
+                            <div class="empty-state">
+
+                                <p>
+                                    Loading users...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     USER DETAILS
+                ================================================= -->
+
+                <section
+                    class="admin-section"
+                    id="admin-user-details-section"
+                    hidden
+                >
+
+                    <div class="admin-section-heading">
+
+                        <p class="admin-section-eyebrow">
+                            Selected Account
+                        </p>
+
+                        <h2>
+                            User Details
+                        </h2>
+
+                        <p>
+                            View the selected user's account information.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="admin-card admin-user-details-card"
+                        id="admin-user-details"
+                    >
+
+                        <p>
+                            Select a user to view their details.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     BOOKING MANAGEMENT
+                ================================================= -->
+
+                <section class="admin-section">
+
+                    <div class="admin-section-heading">
+
+                        <p class="admin-section-eyebrow">
+                            Booking Management
+                        </p>
+
+                        <h2>
+                            Monitor platform bookings
+                        </h2>
+
+                        <p>
+                            Review customer bookings and monitor
+                            booking activity across LocalEase.
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+
+                            <div>
+
+                                <span class="admin-card-kicker">
+                                    BOOKING ACTIVITY
+                                </span>
+
+                                <h3>
+                                    All Bookings
+                                </h3>
+
+                                <p>
+                                    Review booking activity across
+                                    the platform.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="load-bookings-btn"
+                                class="admin-refresh-btn"
+                            >
+                                <span>
+                                    ↻
+                                </span>
+
+                                Refresh Bookings
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="admin-bookings-list"
+                            id="admin-bookings-list"
+                        >
+
+                            <div class="empty-state">
+
+                                <p>
+                                    Loading bookings...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     SERVICE MANAGEMENT
+                ================================================= -->
+
+                <section class="admin-section">
+
+                    <div class="admin-section-heading">
+
+                        <p class="admin-section-eyebrow">
+                            Service Management
+                        </p>
+
+                        <h2>
+                            Manage platform services
+                        </h2>
+
+                        <p>
+                            Review and manage the services available
+                            on the LocalEase platform.
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+
+                            <div>
+
+                                <span class="admin-card-kicker">
+                                    SERVICE DIRECTORY
+                                </span>
+
+                                <h3>
+                                    Available Services
+                                </h3>
+
+                                <p>
+                                    Manage the services listed on LocalEase.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="load-services-btn"
+                                class="admin-refresh-btn"
+                            >
+                                <span>
+                                    ↻
+                                </span>
+
+                                Refresh Services
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="admin-services-list"
+                            id="admin-services-list"
+                        >
+
+                            <div class="empty-state">
+
+                                <p>
+                                    Loading services...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     REVIEW MANAGEMENT
+                ================================================= -->
+
+                <section class="admin-section">
+
+                    <div class="admin-section-heading">
+
+                        <p class="admin-section-eyebrow">
+                            Review Management
+                        </p>
+
+                        <h2>
+                            Monitor customer feedback
+                        </h2>
+
+                        <p>
+                            Review ratings and customer feedback
+                            submitted on the platform.
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-card">
+
+                        <div class="admin-card-header">
+
+                            <div>
+
+                                <span class="admin-card-kicker">
+                                    CUSTOMER FEEDBACK
+                                </span>
+
+                                <h3>
+                                    Customer Reviews
+                                </h3>
+
+                                <p>
+                                    Monitor customer feedback and ratings.
+                                </p>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="load-reviews-btn"
+                                class="admin-refresh-btn"
+                            >
+                                <span>
+                                    ↻
+                                </span>
+
+                                Refresh Reviews
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            class="admin-reviews-list"
+                            id="admin-reviews-list"
+                        >
+
+                            <div class="empty-state">
+
+                                <p>
+                                    Loading reviews...
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             QUICK ADMIN ACTIONS
+        ===================================================== -->
+
+        <section class="admin-quick-actions">
+
+            <div class="admin-container">
+
+                <div class="admin-section-heading">
+
+                    <p class="admin-section-eyebrow">
+                        Quick Actions
+                    </p>
+
+                    <h2>
+                        Manage LocalEase faster
+                    </h2>
+
+                    <p>
+                        Jump directly to the most frequently
+                        used admin management areas.
+                    </p>
+
+                </div>
+
+
+                <div class="admin-actions-grid">
+
+
+                    <!-- USERS -->
+
+                    <article class="admin-action-card">
+
+                        <div class="admin-action-icon">
+                            👥
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Manage Users
+                            </h3>
+
+                            <p>
+                                View users and manage account
+                                activation status.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="manage-users-btn"
+                            class="admin-action-btn"
+                        >
+                            Manage Users
+                            <span>
+                                →
+                            </span>
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- BOOKINGS -->
+
+                    <article class="admin-action-card">
+
+                        <div class="admin-action-icon admin-action-blue">
+                            📅
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                View Bookings
+                            </h3>
+
+                            <p>
+                                Monitor customer bookings
+                                and booking details.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="manage-bookings-btn"
+                            class="admin-action-btn"
+                        >
+                            View Bookings
+                            <span>
+                                →
+                            </span>
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- SERVICES -->
+
+                    <article class="admin-action-card">
+
+                        <div class="admin-action-icon admin-action-indigo">
+                            🛠️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Manage Services
+                            </h3>
+
+                            <p>
+                                Review services available
+                                on the platform.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="manage-services-btn"
+                            class="admin-action-btn"
+                        >
+                            Manage Services
+                            <span>
+                                →
+                            </span>
+                        </button>
+
+                    </article>
+
+
+
+                    <!-- REVIEWS -->
+
+                    <article class="admin-action-card">
+
+                        <div class="admin-action-icon admin-action-violet">
+                            ⭐
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Review Feedback
+                            </h3>
+
+                            <p>
+                                View customer reviews
+                                and platform feedback.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="manage-reviews-btn"
+                            class="admin-action-btn"
+                        >
+                            View Reviews
+                            <span>
+                                →
+                            </span>
+                        </button>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BACK TO HOME
+        ===================================================== -->
+
+        <section class="admin-back-section">
+
+            <div class="admin-container">
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <p>
+                    Connecting Customers with Trusted
+                    Local Service Providers.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Platform
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Admin
+                </h4>
+
+                <a href="admin-dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="admin-bookings.html">
+                    Bookings
+                </a>
+
+                <a href="admin-services.html">
+                    Services
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Account
+                </h4>
+
+                <a href="profile.html">
+                    Profile
+                </a>
+
+                <a href="login.html">
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="footer-container">
+
+                <p>
+                    © 2026 LocalEase. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         LOCALEASE FRONTEND JAVASCRIPT
+    ========================================================= -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+
+

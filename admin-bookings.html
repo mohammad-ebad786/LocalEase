@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Manage Bookings - LocalEase</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link rel="icon" type="image/png" href="favicon.png"></head>
+
+
+<body class="admin-bookings-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+
+            <!-- BRAND -->
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
+            </a>
+
+
+            <!-- ADMIN LABEL -->
+
+            <div class="admin-header-label">
+
+                <span class="admin-header-dot"></span>
+
+                Admin Panel
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+
+                <a
+                    href="admin-dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="admin-users.html"
+                    class="nav-link"
+                >
+                    Users
+                </a>
+
+
+                <a
+                    href="admin-bookings.html"
+                    class="nav-link active"
+                >
+                    Bookings
+                </a>
+
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="admin-bookings-hero">
+
+            <div class="admin-container">
+
+
+                <div class="admin-bookings-hero-content">
+
+
+                    <p class="admin-bookings-breadcrumb">
+
+                        <a href="admin-dashboard.html">
+                            Admin Dashboard
+                        </a>
+
+                        <span>/</span>
+
+                        Manage Bookings
+
+                    </p>
+
+
+                    <span class="admin-bookings-eyebrow">
+                        Booking Management
+                    </span>
+
+
+                    <h1>
+                        Manage
+                        <span>Bookings</span>
+                    </h1>
+
+
+                    <p class="admin-bookings-hero-description">
+
+                        Monitor customer bookings, track service
+                        requests and keep the LocalEase marketplace
+                        running smoothly.
+
+                    </p>
+
+
+                    <div class="admin-bookings-hero-status">
+
+                        <span class="admin-bookings-status-dot"></span>
+
+                        Live Booking Overview
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="admin-bookings-hero-visual">
+
+
+                    <div class="admin-bookings-hero-glow"></div>
+
+
+                    <div class="admin-bookings-overview-card">
+
+
+                        <div class="admin-bookings-overview-top">
+
+                            <div class="admin-bookings-overview-icon">
+                                📅
+                            </div>
+
+                            <div>
+
+                                <p>
+                                    PLATFORM BOOKINGS
+                                </p>
+
+                                <h2>
+                                    Booking Activity
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="admin-bookings-overview-items">
+
+
+                            <div class="admin-bookings-overview-item">
+
+                                <span class="admin-bookings-overview-item-icon">
+                                    📋
+                                </span>
+
+                                <span>
+                                    Monitor all bookings
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-bookings-overview-item">
+
+                                <span class="admin-bookings-overview-item-icon">
+                                    ⏳
+                                </span>
+
+                                <span>
+                                    Track pending requests
+                                </span>
+
+                            </div>
+
+
+                            <div class="admin-bookings-overview-item">
+
+                                <span class="admin-bookings-overview-item-icon">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    Follow booking progress
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOOKING STATISTICS
+        ================================================== -->
+
+        <section class="admin-bookings-stats-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-bookings-section-heading">
+
+                    <p>
+                        Overview
+                    </p>
+
+                    <h2>
+                        Booking Statistics
+                    </h2>
+
+                    <span>
+                        Current booking activity across the platform.
+                    </span>
+
+                </div>
+
+
+
+                <div class="admin-bookings-stats-grid">
+
+
+                    <!-- TOTAL -->
+
+                    <article class="admin-bookings-stat-card">
+
+                        <div class="admin-bookings-stat-top">
+
+                            <div class="admin-bookings-stat-icon">
+                                📊
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Total Bookings
+                        </h3>
+
+
+                        <p
+                            class="admin-bookings-stat-number"
+                            id="admin-total-bookings"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Total bookings created on LocalEase.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- PENDING -->
+
+                    <article class="admin-bookings-stat-card">
+
+                        <div class="admin-bookings-stat-top">
+
+                            <div class="admin-bookings-stat-icon pending">
+                                ⏳
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Pending
+                        </h3>
+
+
+                        <p
+                            class="admin-bookings-stat-number"
+                            id="admin-pending-bookings"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Bookings waiting for provider response.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- CONFIRMED -->
+
+                    <article class="admin-bookings-stat-card">
+
+                        <div class="admin-bookings-stat-top">
+
+                            <div class="admin-bookings-stat-icon confirmed">
+                                ✓
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Confirmed
+                        </h3>
+
+
+                        <p
+                            class="admin-bookings-stat-number"
+                            id="admin-confirmed-bookings"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Successfully confirmed service bookings.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- COMPLETED -->
+
+                    <article class="admin-bookings-stat-card">
+
+                        <div class="admin-bookings-stat-top">
+
+                            <div class="admin-bookings-stat-icon completed">
+                                ★
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Completed
+                        </h3>
+
+
+                        <p
+                            class="admin-bookings-stat-number"
+                            id="admin-completed-bookings"
+                        >
+                            0
+                        </p>
+
+
+                        <p>
+                            Services successfully completed.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RECENT BOOKINGS
+        ================================================== -->
+
+        <section class="admin-bookings-list-section">
+
+            <div class="admin-container">
+
+
+                <div class="admin-bookings-section-heading">
+
+                    <p>
+                        Management
+                    </p>
+
+                    <h2>
+                        Recent Bookings
+                    </h2>
+
+                    <span>
+                        Review and monitor the latest service bookings.
+                    </span>
+
+                </div>
+
+
+
+                <!--
+
+                    IMPORTANT:
+                    script.js dynamically inserts
+                    booking cards into this container.
+
+                -->
+
+                <div
+                    class="booking-requests-grid"
+                    id="admin-bookings-list"
+                >
+
+                    <!-- Dynamic booking cards will appear here -->
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ADMIN RESPONSIBILITIES
+        ================================================== -->
+
+        <section class="admin-bookings-responsibilities">
+
+            <div class="admin-container">
+
+
+                <div class="admin-bookings-responsibility-card">
+
+
+                    <div class="admin-bookings-responsibility-icon">
+                        🛡️
+                    </div>
+
+
+                    <div class="admin-bookings-responsibility-content">
+
+                        <p class="admin-bookings-responsibility-label">
+                            ADMIN RESPONSIBILITIES
+                        </p>
+
+
+                        <h2>
+                            Keep every booking on track.
+                        </h2>
+
+
+                        <p>
+
+                            Administrators can monitor bookings,
+                            review booking details, track service
+                            status and manage booking-related issues
+                            across the LocalEase platform.
+
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BACK TO DASHBOARD
+        ================================================== -->
+
+        <section class="admin-bookings-back-section">
+
+            <div class="admin-container">
+
+                <a href="admin-dashboard.html">
+                    ← Back to Admin Dashboard
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    LocalEase
+                </h3>
+
+                <p>
+                    Connecting Customers with Trusted
+                    Local Service Providers.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Platform
+                </h4>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="admin-dashboard.html">
+                    Dashboard
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Management
+                </h4>
+
+                <a href="admin-users.html">
+                    Users
+                </a>
+
+                <a href="admin-bookings.html">
+                    Bookings
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © 2026 LocalEase. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+
