@@ -1,39 +1,23 @@
 const mongoose = require("mongoose");
 
-
-// ==================================================
 // PROVIDER APPLICATION SCHEMA
-// ==================================================
-
 const providerApplicationSchema = new mongoose.Schema(
     {
-
-        // ==============================================
-        // PROVIDER NAME
-        // ==============================================
-
+        // Provider name
         name: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==============================================
-        // PHONE
-        // ==============================================
-
+        // Phone number
         phone: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==============================================
-        // EMAIL
-        // ==============================================
-
+        // Email address
         email: {
             type: String,
             required: true,
@@ -41,67 +25,43 @@ const providerApplicationSchema = new mongoose.Schema(
             trim: true
         },
 
-
-        // ==============================================
-        // SERVICE LOCATION
-        // ==============================================
-
+        // Service location
         location: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==============================================
-        // SERVICE CATEGORY
-        // ==============================================
-
+        // Service category
         serviceCategory: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==============================================
-        // EXPERIENCE
-        // ==============================================
-
+        // Years of experience
         experience: {
             type: Number,
             required: true,
             min: 0
         },
 
-
-        // ==============================================
-        // STARTING PRICE
-        // ==============================================
-
+        // Starting service price
         price: {
             type: Number,
             required: true,
             min: 0
         },
 
-
-        // ==============================================
-        // SERVICE DESCRIPTION
-        // ==============================================
-
+        // Service description
         description: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==============================================
-        // APPLICATION STATUS
+        // Application status
         // pending / approved / rejected
-        // ==============================================
-
         status: {
             type: String,
             enum: [
@@ -112,37 +72,23 @@ const providerApplicationSchema = new mongoose.Schema(
             default: "pending"
         },
 
-
-        // ==============================================
-        // LINKED USER
-        // Added after provider account is created
-        // ==============================================
-
+        // Linked user account after provider registration
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             default: null
         }
-
     },
     {
         timestamps: true
     }
 );
 
-
-// ==================================================
 // CREATE MODEL
-// ==================================================
-
 const ProviderApplication = mongoose.model(
     "ProviderApplication",
     providerApplicationSchema
 );
 
-
-// ==================================================
 // EXPORT MODEL
-// ==================================================
-
 module.exports = ProviderApplication;

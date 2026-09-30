@@ -4,19 +4,13 @@ const ProviderApplication = require("../models/ProviderApplication");
 
 const router = express.Router();
 
-
-// ======================================================
 // SUBMIT PROVIDER APPLICATION
 // POST /api/provider/apply
 // Public route
-// ======================================================
-
 router.post(
     "/apply",
     async (req, res) => {
-
         try {
-
             const {
                 name,
                 phone,
@@ -28,11 +22,7 @@ router.post(
                 description
             } = req.body;
 
-
-            // ==============================================
-            // VALIDATE REQUIRED FIELDS
-            // ==============================================
-
+            // Validate required fields
             if (
                 !name ||
                 !phone ||
@@ -43,81 +33,55 @@ router.post(
                 price === undefined ||
                 !description
             ) {
-
                 return res.status(400).json({
                     success: false,
                     message:
                         "All provider application fields are required"
                 });
-
             }
 
-
-            // ==============================================
-            // VALIDATE EXPERIENCE
-            // ==============================================
-
+            // Validate experience
             if (
                 typeof experience !== "number" ||
                 experience < 0
             ) {
-
                 return res.status(400).json({
                     success: false,
                     message:
                         "Experience must be a valid number"
                 });
-
             }
 
-
-            // ==============================================
-            // VALIDATE PRICE
-            // ==============================================
-
+            // Validate price
             if (
                 typeof price !== "number" ||
                 price < 0
             ) {
-
                 return res.status(400).json({
                     success: false,
                     message:
                         "Price must be a valid number"
                 });
-
             }
 
-
-            // ==============================================
-            // CHECK EXISTING PENDING APPLICATION
-            // ==============================================
-
+            // Check existing pending application
             const existingApplication =
                 await ProviderApplication.findOne({
                     email: email.toLowerCase().trim(),
                     status: "pending"
                 });
 
-
             if (existingApplication) {
-
                 return res.status(409).json({
                     success: false,
                     message:
                         "A provider application with this email is already pending"
                 });
-
             }
 
-
-            // ==============================================
-            // CREATE APPLICATION
-            // ==============================================
-
+            // Create application
             const application =
                 await ProviderApplication.create({
-
                     name: name.trim(),
 
                     phone: phone.trim(),
@@ -139,16 +103,10 @@ router.post(
                         description.trim(),
 
                     status: "pending"
-
                 });
 
-
-            // ==============================================
-            // SUCCESS RESPONSE
-            // ==============================================
-
+            // Success response
             res.status(201).json({
-
                 success: true,
 
                 message:
@@ -160,30 +118,20 @@ router.post(
                     email: application.email,
                     status: application.status
                 }
-
             });
-
         } catch (error) {
-
             console.error(
                 "Provider application error:",
                 error
             );
 
-
             res.status(500).json({
                 success: false,
                 message: "Server error"
             });
-
         }
-
     }
 );
 
-
-// ======================================================
 // EXPORT ROUTER
-// ======================================================
-
 module.exports = router;

@@ -5,20 +5,17 @@ const Review = require("../models/Review");
 const Booking = require("../models/Booking");
 const User = require("../models/User");
 
-// JWT Authentication Middleware
+// Authentication middleware
 const { protect } = require("../middleware/authMiddleware");
 
-// Role-Based Authorization Middleware
+// Role-based authorization middleware
 const authorizeRoles = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
 
-// ======================================================
 // CREATE REVIEW
 // Customer only
-// ======================================================
-
 router.post(
     "/",
     protect,
@@ -33,7 +30,7 @@ router.post(
             } = req.body;
 
 
-            // Check required fields
+            // Validate required fields
             if (!bookingId || rating === undefined) {
                 return res.status(400).json({
                     success: false,
@@ -177,11 +174,8 @@ router.post(
 );
 
 
-// ======================================================
 // GET SERVICE REVIEWS
 // Public API
-// ======================================================
-
 router.get(
     "/service/:serviceId",
     async (req, res) => {
@@ -249,11 +243,8 @@ router.get(
 );
 
 
-// ======================================================
 // GET PROVIDER REVIEWS
 // Public API
-// ======================================================
-
 router.get(
     "/provider/:providerId",
     async (req, res) => {
@@ -352,11 +343,8 @@ router.get(
 );
 
 
-// ======================================================
 // GET MY REVIEWS
 // Customer only
-// ======================================================
-
 router.get(
     "/my-reviews",
     protect,
@@ -402,11 +390,8 @@ router.get(
 );
 
 
-// ======================================================
 // GET SINGLE REVIEW
 // Public API
-// ======================================================
-
 router.get(
     "/:id",
     async (req, res) => {
@@ -468,11 +453,8 @@ router.get(
 );
 
 
-// ======================================================
 // UPDATE MY REVIEW
 // Customer only
-// ======================================================
-
 router.put(
     "/:id",
     protect,
@@ -603,11 +585,8 @@ router.put(
 );
 
 
-// ======================================================
 // DELETE MY REVIEW
 // Customer only
-// ======================================================
-
 router.delete(
     "/:id",
     protect,
@@ -640,7 +619,7 @@ router.delete(
                     message: "Review not found"
                 });
             }
-            
+
 
             await review.deleteOne();
 
@@ -668,8 +647,5 @@ router.delete(
 );
 
 
-// ======================================================
 // EXPORT ROUTER
-// ======================================================
-
 module.exports = router;

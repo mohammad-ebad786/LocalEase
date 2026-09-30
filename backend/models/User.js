@@ -1,19 +1,16 @@
 const mongoose = require("mongoose");
 
+// USER SCHEMA
 const userSchema = new mongoose.Schema(
     {
-        // ==================================================
-        // USER NAME
-        // ==================================================
+        // User name
         name: {
             type: String,
             required: true,
             trim: true
         },
 
-        // ==================================================
-        // EMAIL
-        // ==================================================
+        // Email address
         email: {
             type: String,
             required: true,
@@ -22,46 +19,36 @@ const userSchema = new mongoose.Schema(
             trim: true
         },
 
-        // ==================================================
-// PHONE
-// ==================================================
-phone: {
-    type: String,
-    required: true,
-    trim: true
-},
+        // Phone number
+        phone: {
+            type: String,
+            required: true,
+            trim: true
+        },
 
-// ==================================================
-// LOCATION
-// ==================================================
-location: {
-    type: String,
-    trim: true,
-    default: ""
-},
+        // User location
+        location: {
+            type: String,
+            trim: true,
+            default: ""
+        },
 
-// ==================================================
-// PASSWORD
-// ==================================================
-password: {
-    type: String,
-    required: true
-},
+        // Password
+        password: {
+            type: String,
+            required: true
+        },
 
-        // ==================================================
-        // USER ROLE
+        // User role
         // customer / provider / admin
-        // ==================================================
         role: {
             type: String,
             enum: ["customer", "provider", "admin"],
             default: "customer"
         },
 
-        // ==================================================
-        // ACCOUNT STATUS
+        // Account status
         // Used by Admin to activate/deactivate users
-        // ==================================================
         isActive: {
             type: Boolean,
             default: true
@@ -72,9 +59,5 @@ password: {
     }
 );
 
-
-// ======================================================
 // EXPORT USER MODEL
-// ======================================================
-
 module.exports = mongoose.model("User", userSchema);

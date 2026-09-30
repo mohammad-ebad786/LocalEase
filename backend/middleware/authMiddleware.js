@@ -1,24 +1,12 @@
 const jwt = require("jsonwebtoken");
 
-
-// ==================================================
 // JWT AUTHENTICATION MIDDLEWARE
-// ==================================================
-
 const protect = (req, res, next) => {
     try {
-
-        // ==================================================
-        // GET AUTHORIZATION HEADER
-        // ==================================================
-
+        // Get authorization header
         const authHeader = req.headers.authorization;
 
-
-        // ==================================================
-        // CHECK AUTHORIZATION HEADER
-        // ==================================================
-
+        // Check authorization header
         if (
             !authHeader ||
             !authHeader.startsWith("Bearer ")
@@ -29,18 +17,10 @@ const protect = (req, res, next) => {
             });
         }
 
-
-        // ==================================================
-        // EXTRACT TOKEN
-        // ==================================================
-
+        // Extract token
         const token = authHeader.split(" ")[1];
 
-
-        // ==================================================
-        // CHECK TOKEN EXISTS
-        // ==================================================
-
+        // Check token exists
         if (!token) {
             return res.status(401).json({
                 success: false,
@@ -48,11 +28,7 @@ const protect = (req, res, next) => {
             });
         }
 
-
-        // ==================================================
-        // CHECK JWT SECRET
-        // ==================================================
-
+        // Check JWT secret
         if (!process.env.JWT_SECRET) {
             console.error(
                 "❌ JWT_SECRET is not configured in .env"
@@ -64,23 +40,14 @@ const protect = (req, res, next) => {
             });
         }
 
-
-        // ==================================================
-        // VERIFY JWT TOKEN
-        // ==================================================
-
+        // Verify JWT token
         const decoded = jwt.verify(
             token,
             process.env.JWT_SECRET
         );
 
-
-        // ==================================================
-        // ATTACH USER DATA TO REQUEST
-        // ==================================================
-
+        // Attach user data to request
         req.user = decoded;
-
 
         console.log(
             "✅ JWT verified:",
@@ -90,25 +57,16 @@ const protect = (req, res, next) => {
             }
         );
 
-
-        // ==================================================
-        // CONTINUE
-        // ==================================================
-
+        // Continue to next middleware
         next();
 
     } catch (error) {
-
         console.error(
             "❌ JWT verification error:",
             error.message
         );
 
-
-        // ==================================================
-        // INVALID / EXPIRED TOKEN
-        // ==================================================
-
+        // Handle invalid or expired token
         return res.status(401).json({
             success: false,
             message: "Invalid or expired token"
@@ -116,26 +74,14 @@ const protect = (req, res, next) => {
     }
 };
 
-
-
-// ==================================================
 // ROLE-BASED AUTHORIZATION
-// ==================================================
-// NOTE:
 // Most application routes currently use
 // middleware/roleMiddleware.js.
-// This function is kept here for compatibility
-// with any route that directly imports { authorize }.
-// ==================================================
-
+// This function is kept for compatibility
+// with routes that directly import { authorize }.
 const authorize = (...allowedRoles) => {
-
     return (req, res, next) => {
-
-        // ==================================================
-        // CHECK AUTHENTICATION
-        // ==================================================
-
+        // Check authentication
         if (!req.user) {
             return res.status(401).json({
                 success: false,
@@ -143,11 +89,7 @@ const authorize = (...allowedRoles) => {
             });
         }
 
-
-        // ==================================================
-        // CHECK ROLE
-        // ==================================================
-
+        // Check user role
         if (
             !allowedRoles.includes(req.user.role)
         ) {
@@ -158,27 +100,17 @@ const authorize = (...allowedRoles) => {
             });
         }
 
-
-        // ==================================================
-        // ROLE AUTHORIZED
-        // ==================================================
-
+        // Role authorized
         console.log(
             "✅ Role authorized:",
             req.user.role
         );
 
-
         next();
     };
 };
 
-
-
-// ==================================================
 // EXPORT MIDDLEWARES
-// ==================================================
-
 module.exports = {
     protect,
     authorize

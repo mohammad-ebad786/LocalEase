@@ -3,7 +3,8 @@ require("dotenv").config();
 
 const User = require("./models/User");
 
-async function makeProvider() {
+// MAKE USER ADMIN
+async function makeAdmin() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
 
@@ -12,7 +13,7 @@ async function makeProvider() {
         const user = await User.findOneAndUpdate(
             { email: "stargirlaamna@gmail.com" },
             {
-                role: "provider",
+                role: "admin",
                 isActive: true
             },
             {
@@ -25,7 +26,7 @@ async function makeProvider() {
             return;
         }
 
-        console.log("Provider account updated successfully ✅");
+        console.log("Admin account updated successfully ✅");
 
         console.log({
             name: user.name,
@@ -43,4 +44,5 @@ async function makeProvider() {
     }
 }
 
-makeProvider();
+// RUN SCRIPT
+makeAdmin();

@@ -1,732 +1,624 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <!-- ==========================================
-         BASIC META
-    ========================================== -->
+<!-- ==================== BASIC META ==================== -->
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="Create a LocalEase account to find and book trusted local services."
-    >
+<meta
+    name="description"
+    content="Create a LocalEase account to find and book trusted local services."
+>
 
-    <meta
-        name="author"
-        content="LocalEase"
-    >
+<meta
+    name="author"
+    content="LocalEase"
+>
 
-    <title>Create Account - LocalEase</title>
+<title>Create Account - LocalEase</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 
-    <link rel="icon" type="image/png" href="favicon.png"></head>
+<link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+>
 
+</head>
 
 <body class="signup-page">
 
+<!-- ==================== HEADER ==================== -->
 
-    <!-- ==========================================
-         HEADER
-    ========================================== -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="header-container">
 
-        <div class="header-container">
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="LocalEase Home"
+        >
+            <span class="brand-text">
+                LocalEase
+            </span>
+        </a>
 
 
-            <!-- BRAND -->
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
+        >
 
             <a
                 href="index.html"
-                class="brand"
-                aria-label="LocalEase Home"
+                class="nav-link"
             >
-
-                <span class="brand-text">
-                    LocalEase
-                </span>
-
+                Home
             </a>
 
-
-
-            <!-- NAVIGATION -->
-
-            <nav
-                class="main-navigation"
-                aria-label="Main Navigation"
+            <a
+                href="services.html"
+                class="nav-link"
             >
+                Services
+            </a>
 
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
+            <a
+                href="provider.html"
+                class="nav-link"
+            >
+                Become a Provider
+            </a>
+
+            <a
+                href="login.html"
+                class="nav-login-btn"
+            >
+                Login
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
 
 
-                <a
-                    href="services.html"
-                    class="nav-link"
-                >
-                    Services
-                </a>
+<!-- ==================== MAIN CONTENT ==================== -->
+
+<main>
 
 
-                <a
-                    href="provider.html"
-                    class="nav-link"
-                >
-                    Become a Provider
-                </a>
+    <!-- ==================== SIGNUP HERO ==================== -->
+
+    <section class="signup-hero">
+
+        <div class="signup-hero-container">
 
 
-                <a
-                    href="login.html"
-                    class="nav-login-btn"
-                >
-                    Login
-                </a>
+            <!-- Signup Introduction -->
 
-            </nav>
+            <div class="signup-hero-content">
+
+                <p class="signup-eyebrow">
+                    JOIN LOCALEASE
+                </p>
+
+                <h1>
+                    Start Your
+                    <span>LocalEase Journey.</span>
+                </h1>
+
+                <p class="signup-hero-description">
+                    Create your account and discover trusted
+                    local professionals for the services you need.
+                </p>
+
+
+                <div class="signup-trust-list">
+
+                    <div class="signup-trust-item">
+
+                        <span class="signup-trust-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Discover trusted local professionals
+                        </span>
+
+                    </div>
+
+
+                    <div class="signup-trust-item">
+
+                        <span class="signup-trust-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Book services easily
+                        </span>
+
+                    </div>
+
+
+                    <div class="signup-trust-item">
+
+                        <span class="signup-trust-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Manage everything from one account
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Provider Registration -->
+
+                <div class="signup-provider-note">
+
+                    <span class="signup-provider-note-icon">
+                        ⚒
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Want to provide services?
+                        </strong>
+
+                        <p>
+                            Register as a Service Provider
+                            and connect with local customers.
+                        </p>
+
+                        <a href="provider.html">
+                            Become a Provider →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================== SIGNUP FORM CARD ==================== -->
+
+            <div class="signup-card-wrapper">
+
+                <section class="signup-section">
+
+                    <div class="signup-card-header">
+
+                        <div class="signup-card-icon">
+                            +
+                        </div>
+
+                        <div>
+
+                            <p class="signup-card-eyebrow">
+                                CREATE ACCOUNT
+                            </p>
+
+                            <h2>
+                                Get Started
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="signup-subtitle">
+                        Enter your details to create your LocalEase account.
+                    </p>
+
+
+                    <!-- ==================== SIGNUP FORM ==================== -->
+
+                    <form class="signup-form">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter your phone number"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="location">
+                                Your Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="Enter your city or area"
+                                autocomplete="address-level2"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="confirm-password">
+                                Confirm Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirm-password"
+                                name="confirm-password"
+                                placeholder="Confirm your password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="account-type">
+                                Account Type
+                            </label>
+
+                            <select
+                                id="account-type"
+                                name="account-type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Account Type
+                                </option>
+
+                                <option value="customer">
+                                    Customer
+                                </option>
+
+                                <option value="provider">
+                                    Service Provider
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="terms-group">
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    name="terms"
+                                    required
+                                >
+
+                                <span>
+                                    I agree to the Terms & Conditions
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="signup-btn"
+                        >
+                            Create Account
+                        </button>
+
+                    </form>
+
+
+                    <p class="signup-login-link">
+
+                        Already have an account?
+
+                        <a href="login.html">
+                            Login
+                        </a>
+
+                    </p>
+
+                </section>
+
+            </div>
 
         </div>
 
-    </header>
+    </section>
 
 
+    <!-- ==================== ACCOUNT TYPES ==================== -->
 
-    <!-- ==========================================
-         MAIN CONTENT
-    ========================================== -->
+    <section class="signup-account-types">
 
-    <main>
+        <div class="signup-account-types-container">
 
 
-        <!-- ==========================================
-             SIGNUP HERO
-        ========================================== -->
+            <div class="signup-account-types-heading">
 
-        <section class="signup-hero">
+                <p class="signup-account-types-eyebrow">
+                    ONE PLATFORM
+                </p>
 
-            <div class="signup-hero-container">
-
-
-                <!-- LEFT CONTENT -->
-
-                <div class="signup-hero-content">
-
-
-                    <p class="signup-eyebrow">
-                        JOIN LOCALEASE
-                    </p>
-
-
-                    <h1>
-                        Start Your
-                        <span>LocalEase Journey.</span>
-                    </h1>
-
-
-                    <p class="signup-hero-description">
-
-                        Create your account and discover trusted
-                        local professionals for the services you need.
-
-                    </p>
-
-
-                    <div class="signup-trust-list">
-
-
-                        <div class="signup-trust-item">
-
-                            <span class="signup-trust-icon">
-                                ✓
-                            </span>
-
-                            <span>
-                                Discover trusted local professionals
-                            </span>
-
-                        </div>
-
-
-                        <div class="signup-trust-item">
-
-                            <span class="signup-trust-icon">
-                                ✓
-                            </span>
-
-                            <span>
-                                Book services easily
-                            </span>
-
-                        </div>
-
-
-                        <div class="signup-trust-item">
-
-                            <span class="signup-trust-icon">
-                                ✓
-                            </span>
-
-                            <span>
-                                Manage everything from one account
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- ACCOUNT TYPE NOTE -->
-
-                    <div class="signup-provider-note">
-
-                        <span class="signup-provider-note-icon">
-                            ⚒
-                        </span>
-
-
-                        <div>
-
-                            <strong>
-                                Want to provide services?
-                            </strong>
-
-                            <p>
-                                Register as a Service Provider
-                                and connect with local customers.
-                            </p>
-
-                            <a href="provider.html">
-                                Become a Provider →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- ==========================================
-                     SIGNUP FORM CARD
-                ========================================== -->
-
-                <div class="signup-card-wrapper">
-
-                    <section class="signup-section">
-
-
-                        <div class="signup-card-header">
-
-                            <div class="signup-card-icon">
-                                +
-                            </div>
-
-
-                            <div>
-
-                                <p class="signup-card-eyebrow">
-                                    CREATE ACCOUNT
-                                </p>
-
-                                <h2>
-                                    Get Started
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <p class="signup-subtitle">
-                            Enter your details to create your LocalEase account.
-                        </p>
-
-
-
-                        <!-- ==========================================
-                             SIGNUP FORM
-                        ========================================== -->
-
-                        <form class="signup-form">
-
-
-                            <!-- FULL NAME -->
-
-                            <div class="form-group">
-
-                                <label for="name">
-                                    Full Name
-                                </label>
-
-
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Enter your full name"
-                                    autocomplete="name"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- EMAIL -->
-
-                            <div class="form-group">
-
-                                <label for="email">
-                                    Email Address
-                                </label>
-
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Enter your email address"
-                                    autocomplete="email"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- PHONE -->
-
-                            <div class="form-group">
-
-                                <label for="phone">
-                                    Phone Number
-                                </label>
-
-
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    placeholder="Enter your phone number"
-                                    autocomplete="tel"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- LOCATION -->
-
-                            <div class="form-group">
-
-                                <label for="location">
-                                    Your Location
-                                </label>
-
-
-                                <input
-                                    type="text"
-                                    id="location"
-                                    name="location"
-                                    placeholder="Enter your city or area"
-                                    autocomplete="address-level2"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- PASSWORD -->
-
-                            <div class="form-group">
-
-                                <label for="password">
-                                    Password
-                                </label>
-
-
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    placeholder="Create a password"
-                                    autocomplete="new-password"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- CONFIRM PASSWORD -->
-
-                            <div class="form-group">
-
-                                <label for="confirm-password">
-                                    Confirm Password
-                                </label>
-
-
-                                <input
-                                    type="password"
-                                    id="confirm-password"
-                                    name="confirm-password"
-                                    placeholder="Confirm your password"
-                                    autocomplete="new-password"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- ACCOUNT TYPE -->
-
-                            <div class="form-group">
-
-                                <label for="account-type">
-                                    Account Type
-                                </label>
-
-
-                                <select
-                                    id="account-type"
-                                    name="account-type"
-                                    required
-                                >
-
-                                    <option value="">
-                                        Select Account Type
-                                    </option>
-
-
-                                    <option value="customer">
-                                        Customer
-                                    </option>
-
-
-                                    <option value="provider">
-                                        Service Provider
-                                    </option>
-
-                                </select>
-
-                            </div>
-
-
-
-                            <!-- TERMS -->
-
-                            <div class="terms-group">
-
-                                <label>
-
-                                    <input
-                                        type="checkbox"
-                                        name="terms"
-                                        required
-                                    >
-
-                                    <span>
-                                        I agree to the Terms & Conditions
-                                    </span>
-
-                                </label>
-
-                            </div>
-
-
-
-                            <!-- CREATE ACCOUNT -->
-
-                            <button
-                                type="submit"
-                                class="signup-btn"
-                            >
-                                Create Account
-                            </button>
-
-
-                        </form>
-
-
-
-                        <!-- LOGIN LINK -->
-
-                        <p class="signup-login-link">
-
-                            Already have an account?
-
-                            <a href="login.html">
-                                Login
-                            </a>
-
-                        </p>
-
-                    </section>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             ACCOUNT TYPES
-        ========================================== -->
-
-        <section class="signup-account-types">
-
-            <div class="signup-account-types-container">
-
-
-                <div class="signup-account-types-heading">
-
-                    <p class="signup-account-types-eyebrow">
-                        ONE PLATFORM
-                    </p>
-
-
-                    <h2>
-                        Built For
-                        <span>Customers & Providers.</span>
-                    </h2>
-
-
-                    <p>
-                        Choose the account that matches how you
-                        want to use LocalEase.
-                    </p>
-
-                </div>
-
-
-
-                <div class="signup-account-cards">
-
-
-                    <!-- CUSTOMER -->
-
-                    <article class="signup-account-card">
-
-                        <div class="signup-account-icon">
-                            👤
-                        </div>
-
-
-                        <div>
-
-                            <p class="signup-account-label">
-                                CUSTOMER
-                            </p>
-
-
-                            <h3>
-                                Find & Book Services
-                            </h3>
-
-
-                            <p>
-                                Discover trusted professionals,
-                                compare services and manage your bookings.
-                            </p>
-
-
-                            <a href="signup.html">
-                                Create Customer Account
-                                <span>→</span>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROVIDER -->
-
-                    <article class="signup-account-card signup-provider-card">
-
-                        <div class="signup-account-icon">
-                            ⚒
-                        </div>
-
-
-                        <div>
-
-                            <p class="signup-account-label">
-                                SERVICE PROVIDER
-                            </p>
-
-
-                            <h3>
-                                Grow Your Local Business
-                            </h3>
-
-
-                            <p>
-                                List your services and connect with
-                                customers in your local area.
-                            </p>
-
-
-                            <a href="provider.html">
-                                Register as Provider
-                                <span>→</span>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- ==========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="site-footer">
-
-        <div class="footer-container">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
-
-                <h3>
-                    LocalEase
-                </h3>
-
+                <h2>
+                    Built For
+                    <span>Customers & Providers.</span>
+                </h2>
 
                 <p>
-                    Connecting Customers with Trusted
-                    Local Service Providers.
+                    Choose the account that matches how you
+                    want to use LocalEase.
                 </p>
 
             </div>
 
 
-
-            <!-- PLATFORM -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Platform
-                </h4>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="provider.html">
-                    Become a Provider
-                </a>
-
-            </div>
+            <div class="signup-account-cards">
 
 
+                <!-- Customer Account -->
 
-            <!-- ACCOUNT -->
+                <article class="signup-account-card">
 
-            <div class="footer-column">
+                    <div class="signup-account-icon">
+                        👤
+                    </div>
 
-                <h4>
-                    Account
-                </h4>
+                    <div>
 
-                <a href="login.html">
-                    Login
-                </a>
+                        <p class="signup-account-label">
+                            CUSTOMER
+                        </p>
 
-                <a href="signup.html">
-                    Create Account
-                </a>
+                        <h3>
+                            Find & Book Services
+                        </h3>
 
-            </div>
+                        <p>
+                            Discover trusted professionals,
+                            compare services and manage your bookings.
+                        </p>
+
+                        <a href="signup.html">
+                            Create Customer Account
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
 
 
+                <!-- Provider Account -->
 
-            <!-- SUPPORT -->
+                <article class="signup-account-card signup-provider-card">
 
-            <div class="footer-column">
+                    <div class="signup-account-icon">
+                        ⚒
+                    </div>
 
-                <h4>
-                    Support
-                </h4>
+                    <div>
 
-                <a href="about.html">
-                    About
-                </a>
+                        <p class="signup-account-label">
+                            SERVICE PROVIDER
+                        </p>
 
-                <a href="contact.html">
-                    Contact
-                </a>
+                        <h3>
+                            Grow Your Local Business
+                        </h3>
+
+                        <p>
+                            List your services and connect with
+                            customers in your local area.
+                        </p>
+
+                        <a href="provider.html">
+                            Register as Provider
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
 
             </div>
 
         </div>
 
+    </section>
+
+</main>
 
 
-        <div class="footer-bottom">
+<!-- ==================== FOOTER ==================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                LocalEase
+            </h3>
 
             <p>
-                © 2026 LocalEase. All Rights Reserved.
+                Connecting Customers with Trusted
+                Local Service Providers.
             </p>
 
         </div>
 
-    </footer>
+
+        <div class="footer-column">
+
+            <h4>
+                Platform
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+        </div>
 
 
+        <div class="footer-column">
 
-    <!-- ==========================================
-         JAVASCRIPT
-    ========================================== -->
+            <h4>
+                Account
+            </h4>
 
-    <script src="script.js"></script>
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Support
+            </h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+
+<script src="script.js"></script>
 
 </body>
 
 </html>
-
-
-

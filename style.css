@@ -1,11 +1,7 @@
-/* =========================================================
-   LOCALEASE - INDEX PAGE
-========================================================= */
+/* LOCALEASE - INDEX PAGE */
 
 
-/* =========================================================
-   1. ROOT VARIABLES
-========================================================= */
+/* ROOT VARIABLES */
 
 :root {
 
@@ -48,9 +44,7 @@
 }
 
 
-/* =========================================================
-   2. GLOBAL RESET
-========================================================= */
+/* GLOBAL RESET */
 
 * {
     margin: 0;
@@ -122,9 +116,7 @@ img {
 }
 
 
-/* =========================================================
-   3. HEADER
-========================================================= */
+/* HEADER */
 
 .services-page .site-header {
     background: #08131c !important;
@@ -161,9 +153,7 @@ img {
 }
 
 
-/* =========================================================
-   4. BRAND
-========================================================= */
+/* BRAND */
 
 .brand {
 
@@ -196,9 +186,7 @@ img {
 }
 
 
-/* =========================================================
-   5. MAIN NAVIGATION
-========================================================= */
+/* MAIN NAVIGATION */
 
 .main-navigation {
 
@@ -305,9 +293,7 @@ img {
 }
 
 
-/* =========================================================
-   6. HERO SECTION
-========================================================= */
+/* HERO SECTION */
 
 .hero-section {
 
@@ -424,9 +410,7 @@ img {
 }
 
 
-/* =========================================================
-   7. HERO CONTENT
-========================================================= */
+/* HERO CONTENT */
 
 .hero-content {
 
@@ -534,9 +518,7 @@ img {
 }
 
 
-/* =========================================================
-   8. HERO SEARCH
-========================================================= */
+/* HERO SEARCH */
 
 .hero-search-form {
 
@@ -712,9 +694,7 @@ img {
 }
 
 
-/* =========================================================
-   9. HERO TRUST ROW
-========================================================= */
+/* HERO TRUST ROW */
 
 .hero-trust-row {
 
@@ -747,9 +727,7 @@ img {
 }
 
 
-/* =========================================================
-   10. HERO VISUAL
-========================================================= */
+/* HERO VISUAL */
 
 .hero-visual {
 
@@ -791,9 +769,7 @@ img {
 }
 
 
-/* =========================================================
-   11. HERO MAIN CARD
-========================================================= */
+/* HERO MAIN CARD */
 
 .hero-main-card {
 
@@ -913,9 +889,7 @@ img {
 }
 
 
-/* =========================================================
-   12. HERO PROVIDER PREVIEW
-========================================================= */
+/* HERO PROVIDER PREVIEW */
 
 .hero-provider-preview {
 
@@ -1072,9 +1046,7 @@ img {
 }
 
 
-/* =========================================================
-   13. FLOATING HERO CARDS
-========================================================= */
+/* FLOATING HERO CARDS */
 
 .floating-service-card {
 
@@ -1196,9 +1168,7 @@ img {
 }
 
 
-/* =========================================================
-   14. COMMON SECTION
-========================================================= */
+/* COMMON SECTION */
 
 .popular-services-section {
 
@@ -1233,9 +1203,7 @@ img {
 }
 
 
-/* =========================================================
-   15. SECTION HEADING
-========================================================= */
+/* SECTION HEADING */
 
 .section-heading {
 
@@ -1340,9 +1308,7 @@ img {
 }
 
 
-/* =========================================================
-   16. POPULAR SERVICES GRID
-========================================================= */
+/* POPULAR SERVICES GRID */
 
 .popular-services-grid {
 
@@ -1559,9 +1525,7 @@ img {
 }
 
 
-/* =========================================================
-   17. SERVICE CARD COLOURS
-========================================================= */
+/* SERVICE CARD COLOURS */
 
 .service-card-teal::before {
 
@@ -1627,9 +1591,7 @@ img {
 }
 
 
-/* =========================================================
-   18. HOW IT WORKS SECTION
-========================================================= */
+/* HOW IT WORKS SECTION */
 
 .how-it-works-section {
 
@@ -1684,9 +1646,7 @@ img {
 }
 
 
-/* =========================================================
-   19. PROCESS STEPS
-========================================================= */
+/* PROCESS STEPS */
 
 .process-steps {
 
@@ -1855,9 +1815,7 @@ img {
 }
 
 
-/* =========================================================
-   20. PROVIDER CTA
-========================================================= */
+/* PROVIDER CTA */
 
 .provider-cta-section {
 
@@ -2066,9 +2024,7 @@ img {
 }
 
 
-/* =========================================================
-   21. PROVIDER CTA VISUAL
-========================================================= */
+/* PROVIDER CTA VISUAL */
 
 .provider-cta-visual {
 
@@ -2176,9 +2132,7 @@ img {
 }
 
 
-/* =========================================================
-   22. FOOTER
-========================================================= */
+/* FOOTER */
 
 .site-footer {
 
@@ -2311,9 +2265,7 @@ img {
 }
 
 
-/* =========================================================
-   23. FOOTER BOTTOM
-========================================================= */
+/* FOOTER BOTTOM */
 
 .footer-bottom {
 
@@ -2355,9 +2307,7 @@ img {
 }
 
 
-/* =========================================================
-   24. TABLET RESPONSIVE
-========================================================= */
+/* TABLET RESPONSIVE */
 
 @media (max-width: 1000px) {
 
@@ -2450,9 +2400,7 @@ img {
 }
 
 
-/* =========================================================
-   25. MOBILE RESPONSIVE
-========================================================= */
+/* MOBILE RESPONSIVE */
 
 @media (max-width: 700px) {
 
@@ -2743,9 +2691,7 @@ img {
 }
 
 
-/* =========================================================
-   26. SMALL MOBILE RESPONSIVE
-========================================================= */
+/* SMALL MOBILE RESPONSIVE */
 
 @media (max-width: 430px) {
 
@@ -2818,14 +2764,10 @@ img {
 
 
 
-/* =========================================================
-   LOCALEASE - SERVICES PAGE
-========================================================= */
+/* LOCALEASE - SERVICES PAGE */
 
 
-/* =========================================================
-   1. SERVICES PAGE BASE
-========================================================= */
+/* SERVICES PAGE BASE */
 
 body.services-page {
 
@@ -2838,9 +2780,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   2. SERVICES HERO SECTION
-========================================================= */
+/* SERVICES HERO SECTION */
 
 .services-hero-section {
 
@@ -2957,9 +2897,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   3. SERVICES HERO CONTENT
-========================================================= */
+/* SERVICES HERO CONTENT */
 
 .services-hero-content {
 
@@ -3028,9 +2966,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   4. SERVICES HERO HIGHLIGHTS
-========================================================= */
+/* SERVICES HERO HIGHLIGHTS */
 
 .services-hero-highlights {
 
@@ -3160,9 +3096,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   5. SERVICES SEARCH SECTION
-========================================================= */
+/* SERVICES SEARCH SECTION */
 
 .services-search-section {
 
@@ -3220,9 +3154,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   6. SERVICE SEARCH PANEL
-========================================================= */
+/* SERVICE SEARCH PANEL */
 
 .service-search-panel {
 
@@ -3475,9 +3407,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   7. ALL SERVICES SECTION
-========================================================= */
+/* ALL SERVICES SECTION */
 
 .all-services-section {
 
@@ -3555,9 +3485,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   8. SERVICES GRID
-========================================================= */
+/* SERVICES GRID */
 
 .services-grid {
 
@@ -3573,9 +3501,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   9. SERVICES PAGE CARD
-========================================================= */
+/* SERVICES PAGE CARD */
 
 .services-page-card {
 
@@ -3663,9 +3589,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   10. SERVICES PAGE CARD TOP
-========================================================= */
+/* SERVICES PAGE CARD TOP */
 
 .services-page-card-top {
 
@@ -3748,9 +3672,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   11. SERVICES PAGE CARD CONTENT
-========================================================= */
+/* SERVICES PAGE CARD CONTENT */
 
 .services-page-card-content {
 
@@ -3800,9 +3722,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   12. SERVICES PAGE CARD FOOTER
-========================================================= */
+/* SERVICES PAGE CARD FOOTER */
 
 .services-page-card-footer {
 
@@ -3875,9 +3795,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   13. SERVICES PAGE CARD BUTTON
-========================================================= */
+/* SERVICES PAGE CARD BUTTON */
 
 .services-page-card-btn {
 
@@ -3961,9 +3879,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   14. SERVICES LOADING STATE
-========================================================= */
+/* SERVICES LOADING STATE */
 
 .services-loading-card {
 
@@ -4060,9 +3976,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   15. SERVICE EMPTY STATE
-========================================================= */
+/* SERVICE EMPTY STATE */
 
 .service-empty {
 
@@ -4167,9 +4081,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   16. SERVICE ERROR STATE
-========================================================= */
+/* SERVICE ERROR STATE */
 
 .service-error {
 
@@ -4267,9 +4179,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   17. SERVICES PROVIDER CTA
-========================================================= */
+/* SERVICES PROVIDER CTA */
 
 .services-provider-section {
 
@@ -4422,9 +4332,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   18. SERVICES PROVIDER HIGHLIGHTS
-========================================================= */
+/* SERVICES PROVIDER HIGHLIGHTS */
 
 .services-provider-highlights {
 
@@ -4538,9 +4446,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   19. SERVICES PAGE RESPONSIVE - TABLET
-========================================================= */
+/* SERVICES PAGE RESPONSIVE - TABLET */
 
 @media (max-width: 1000px) {
 
@@ -4639,9 +4545,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   20. SERVICES PAGE RESPONSIVE - MOBILE
-========================================================= */
+/* SERVICES PAGE RESPONSIVE - MOBILE */
 
 @media (max-width: 700px) {
 
@@ -4829,9 +4733,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   21. SERVICES PAGE RESPONSIVE - SMALL MOBILE
-========================================================= */
+/* SERVICES PAGE RESPONSIVE - SMALL MOBILE */
 
 @media (max-width: 430px) {
 
@@ -4907,14 +4809,10 @@ body.services-page {
 
 
 
-/* =========================================================
-   SERVICE DETAILS PAGE
-========================================================= */
+/* SERVICE DETAILS PAGE */
 
 
-/* =========================================================
-   1. PAGE BASE
-========================================================= */
+/* PAGE BASE */
 
 .service-details-page {
     background: var(--color-background);
@@ -4931,9 +4829,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   2. HEADER
-========================================================= */
+/* HEADER */
 
 .service-details-page .site-header {
     background: #08131c !important;
@@ -4981,9 +4877,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   3. SERVICE DETAILS HERO
-========================================================= */
+/* SERVICE DETAILS HERO */
 
 .service-details-hero {
     position: relative;
@@ -5014,9 +4908,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   4. HERO BREADCRUMB
-========================================================= */
+/* HERO BREADCRUMB */
 
 .service-details-breadcrumb {
     display: flex;
@@ -5056,9 +4948,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   5. HERO GRID
-========================================================= */
+/* HERO GRID */
 
 .service-details-hero-grid {
     display: grid;
@@ -5073,9 +4963,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   6. HERO CONTENT
-========================================================= */
+/* HERO CONTENT */
 
 .service-details-hero-content {
     max-width: 700px;
@@ -5129,9 +5017,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   7. HERO TRUST ROW
-========================================================= */
+/* HERO TRUST ROW */
 
 .service-details-trust-row {
     display: flex;
@@ -5188,9 +5074,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   8. HERO SIDE CARD
-========================================================= */
+/* HERO SIDE CARD */
 
 .service-details-hero-card {
     padding: 30px;
@@ -5322,9 +5206,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   9. OVERVIEW SECTION
-========================================================= */
+/* OVERVIEW SECTION */
 
 .service-details-overview {
     padding: 88px 0 95px;
@@ -5349,9 +5231,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   10. SECTION HEADING
-========================================================= */
+/* SECTION HEADING */
 
 .service-details-section {
     margin-bottom: 58px;
@@ -5421,9 +5301,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   11. PROVIDER CARD
-========================================================= */
+/* PROVIDER CARD */
 
 .service-provider-modern-card {
     display: flex;
@@ -5512,9 +5390,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   12. ABOUT SERVICE
-========================================================= */
+/* ABOUT SERVICE */
 
 .service-about-modern-card {
     padding: 28px;
@@ -5550,9 +5426,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   13. SERVICE INFORMATION GRID
-========================================================= */
+/* SERVICE INFORMATION GRID */
 
 .service-information-grid {
     display: grid;
@@ -5647,9 +5521,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   14. BOOKING SIDEBAR
-========================================================= */
+/* BOOKING SIDEBAR */
 
 .service-details-sidebar {
     position: sticky;
@@ -5740,9 +5612,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   15. BOOKING BUTTONS
-========================================================= */
+/* BOOKING BUTTONS */
 
 .service-action-buttons {
     display: grid;
@@ -5816,9 +5686,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   16. BOOKING NOTE
-========================================================= */
+/* BOOKING NOTE */
 
 .booking-security-note {
     display: flex;
@@ -5856,9 +5724,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   17. REVIEWS SECTION
-========================================================= */
+/* REVIEWS SECTION */
 
 .service-details-reviews-section {
     padding: 88px 0 92px;
@@ -5920,9 +5786,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   18. REVIEW GRID
-========================================================= */
+/* REVIEW GRID */
 
 .service-details-reviews-grid {
     display: grid;
@@ -5986,9 +5850,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   19. REVIEWS LINK
-========================================================= */
+/* REVIEWS LINK */
 
 .service-reviews-link {
     margin: 25px 0 0;
@@ -6021,9 +5883,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   20. EXPLORE LOCALEASE
-========================================================= */
+/* EXPLORE LOCALEASE */
 
 .service-details-explore-section {
     padding: 78px 0;
@@ -6146,9 +6006,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   21. EXPLORE VISUAL
-========================================================= */
+/* EXPLORE VISUAL */
 
 .service-details-explore-visual {
     display: flex;
@@ -6216,9 +6074,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   22. BACK SECTION
-========================================================= */
+/* BACK SECTION */
 
 .service-details-back-section {
     padding: 0 0 65px;
@@ -6251,9 +6107,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   23. FOOTER
-========================================================= */
+/* FOOTER */
 
 .service-details-page .site-footer {
     background: #08131c;
@@ -6287,9 +6141,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   24. TABLET
-========================================================= */
+/* TABLET */
 
 @media (max-width: 1000px) {
 
@@ -6331,9 +6183,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   25. MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -6449,9 +6299,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   26. SMALL MOBILE
-========================================================= */
+/* SMALL MOBILE */
 
 @media (max-width: 430px) {
 
@@ -6492,14 +6340,10 @@ body.services-page {
 
 
 
-/* ==========================================
-   LOCALEASE - BOOKING PAGE CSS
-   ========================================== */
+/* LOCALEASE - BOOKING PAGE */
 
 
-/* ==========================================
-   1. BOOKING PAGE BASE
-   ========================================== */
+/* BOOKING PAGE BASE */
 
 .booking-page {
     min-height: 100vh;
@@ -6509,9 +6353,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   2. HEADER
-   ========================================== */
+/* HEADER */
 
 .booking-page .site-header {
     position: sticky;
@@ -6570,9 +6412,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   3. BOOKING HERO
-   ========================================== */
+/* BOOKING HERO */
 
 .booking-hero-section {
     position: relative;
@@ -6663,9 +6503,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   4. BOOKING MAIN SECTION
-   ========================================== */
+/* BOOKING MAIN SECTION */
 
 .booking-section {
     padding: 82px 0 95px;
@@ -6692,9 +6530,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   5. BOOKING FORM CARD
-   ========================================== */
+/* BOOKING FORM CARD */
 
 .booking-form-card {
     padding: 36px;
@@ -6752,9 +6588,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   6. SELECTED SERVICE CARD
-   ========================================== */
+/* SELECTED SERVICE CARD */
 
 .booking-selected-service-card {
     display: flex;
@@ -6840,9 +6674,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   7. FORM
-   ========================================== */
+/* FORM */
 
 .booking-form {
     display: flex;
@@ -6946,9 +6778,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   8. BOOKING MESSAGE
-   ========================================== */
+/* BOOKING MESSAGE */
 
 .booking-message {
     min-height: 20px;
@@ -6970,9 +6800,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   9. FORM ACTIONS
-   ========================================== */
+/* FORM ACTIONS */
 
 .booking-form-actions {
     display: flex;
@@ -7063,9 +6891,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   10. SECURITY NOTE
-   ========================================== */
+/* SECURITY NOTE */
 
 .booking-security-note {
     display: flex;
@@ -7098,9 +6924,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   11. BOOKING INFO SIDEBAR
-   ========================================== */
+/* BOOKING INFO SIDEBAR */
 
 .booking-info-card {
     position: sticky;
@@ -7185,9 +7009,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   12. BOOKING STEPS
-   ========================================== */
+/* BOOKING STEPS */
 
 .booking-info-step {
     position: relative;
@@ -7265,9 +7087,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   13. TRUST CARD
-   ========================================== */
+/* TRUST CARD */
 
 .booking-trust-card {
     display: flex;
@@ -7316,9 +7136,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   14. BACK TO HOME
-   ========================================== */
+/* BACK TO HOME */
 
 .booking-back-section {
     padding: 0 0 75px;
@@ -7349,9 +7167,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   15. FOOTER
-   ========================================== */
+/* FOOTER */
 
 .booking-page .site-footer {
     padding: 65px 0 0;
@@ -7468,9 +7284,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   16. RESPONSIVE - 1000px
-   ========================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -7501,9 +7315,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   17. RESPONSIVE - 700px
-   ========================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -7597,9 +7409,7 @@ body.services-page {
 
 
 
-/* ==========================================
-   18. RESPONSIVE - 430px
-   ========================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -7670,14 +7480,10 @@ body.services-page {
 
 
 
-/* ==========================================
-   LOCALEASE - BOOKING STATUS PAGE CSS
-   ========================================== */
+/* LOCALEASE - BOOKING STATUS PAGE */
 
 
-/* ==========================================
-   1. PAGE BASE
-   ========================================== */
+/* PAGE BASE */
 
 .booking-status-page {
     min-height: 100vh;
@@ -7687,9 +7493,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   2. HEADER
-   ========================================== */
+/* HEADER */
 
 .booking-status-page .site-header {
     position: sticky;
@@ -7802,9 +7606,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   3. HERO
-   ========================================== */
+/* HERO */
 
 .booking-status-hero {
     position: relative;
@@ -7843,9 +7645,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   4. BREADCRUMB
-   ========================================== */
+/* BREADCRUMB */
 
 .booking-status-breadcrumb {
     display: flex;
@@ -7882,9 +7682,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   5. HERO GRID
-   ========================================== */
+/* HERO GRID */
 
 .booking-status-hero-grid {
     display: grid;
@@ -7959,9 +7757,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   6. TRUST ROW
-   ========================================== */
+/* TRUST ROW */
 
 .booking-status-trust-row {
     display: flex;
@@ -8002,9 +7798,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   7. HERO BOOKING CARD
-   ========================================== */
+/* HERO BOOKING CARD */
 
 .booking-status-hero-card {
     min-width: 0;
@@ -8141,9 +7935,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   STATUS BADGE
-========================================================= */
+/* STATUS BADGE */
 
 .admin-dashboard-page
 .booking-status {
@@ -8190,9 +7982,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   BOOKING STATUS COLOURS
-========================================================= */
+/* BOOKING STATUS COLOURS */
 
 .admin-dashboard-page
 .booking-status.pending {
@@ -8268,9 +8058,7 @@ body.services-page {
 
 }
 
-/* ==========================================
-   9. WORKSPACE
-   ========================================== */
+/* WORKSPACE */
 
 .booking-status-workspace {
     padding: 78px 0 50px;
@@ -8289,9 +8077,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   10. SUMMARY BAR
-   ========================================== */
+/* SUMMARY BAR */
 
 .booking-status-summary-bar {
     display: grid;
@@ -8384,9 +8170,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   11. MAIN GRID
-   ========================================== */
+/* MAIN GRID */
 
 .booking-status-main-grid {
     display: grid;
@@ -8409,9 +8193,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   12. MAIN CARDS
-   ========================================== */
+/* MAIN CARDS */
 
 .booking-status-card,
 .booking-progress-card {
@@ -8485,9 +8267,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   13. PROVIDER CARD
-   ========================================== */
+/* PROVIDER CARD */
 
 .booking-provider-modern-card {
     margin-bottom: 30px;
@@ -8635,9 +8415,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   14. BOOKING DETAILS
-   ========================================== */
+/* BOOKING DETAILS */
 
 .booking-details-modern {
     padding-top: 4px;
@@ -8708,9 +8486,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   15. BOOKING NOTES
-   ========================================== */
+/* BOOKING NOTES */
 
 .booking-notes-modern {
     margin-top: 30px;
@@ -8753,9 +8529,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   16. PROGRESS TIMELINE
-   ========================================== */
+/* PROGRESS TIMELINE */
 
 .booking-progress-card {
     position: relative;
@@ -8885,9 +8659,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   17. SIDEBAR
-   ========================================== */
+/* SIDEBAR */
 
 .booking-status-sidebar {
     position: sticky;
@@ -9001,9 +8773,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   18. SIDEBAR QUICK DETAILS
-   ========================================== */
+/* SIDEBAR QUICK DETAILS */
 
 .booking-side-details {
     display: flex;
@@ -9051,9 +8821,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   19. SIDEBAR ACTIONS
-   ========================================== */
+/* SIDEBAR ACTIONS */
 
 .booking-modern-actions {
     display: flex;
@@ -9124,9 +8892,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   20. SECURITY NOTE
-   ========================================== */
+/* SECURITY NOTE */
 
 .booking-status-security-note {
     display: flex;
@@ -9174,9 +8940,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   21. WHAT HAPPENS NEXT
-   ========================================== */
+/* WHAT HAPPENS NEXT */
 
 .booking-next-section {
     padding: 90px 0;
@@ -9336,9 +9100,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   22. EXPLORE LOCALEASE
-   ========================================== */
+/* EXPLORE LOCALEASE */
 
 .booking-status-explore-section {
     padding: 75px 0;
@@ -9465,9 +9227,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   23. EXPLORE VISUAL
-   ========================================== */
+/* EXPLORE VISUAL */
 
 .booking-status-explore-visual {
     position: relative;
@@ -9540,9 +9300,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   24. BACK SECTION
-   ========================================== */
+/* BACK SECTION */
 
 .booking-status-back-section {
     padding: 0 0 75px;
@@ -9570,9 +9328,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   25. FOOTER
-   ========================================== */
+/* FOOTER */
 
 .booking-status-page .site-footer {
     padding: 65px 0 0;
@@ -9694,9 +9450,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   26. RESPONSIVE - 1000px
-   ========================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -9762,9 +9516,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   27. RESPONSIVE - 700px
-   ========================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -9935,9 +9687,7 @@ body.services-page {
 }
 
 
-/* ==========================================
-   28. RESPONSIVE - 430px
-   ========================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -10026,15 +9776,10 @@ body.services-page {
 
 
 
-/* =========================================================
-   MY BOOKINGS PAGE
-   Modern LocalEase Booking Workspace
-   ========================================================= */
+/* LOCALEASE - MY BOOKINGS PAGE */
 
 
-/* =========================================================
-   1. PAGE FOUNDATION
-========================================================= */
+/* PAGE FOUNDATION */
 
 .my-bookings-page {
     min-height: 100vh;
@@ -10043,9 +9788,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   2. HEADER
-========================================================= */
+/* HEADER */
 
 .my-bookings-page .site-header {
     position: sticky;
@@ -10168,9 +9911,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   3. HERO
-========================================================= */
+/* HERO */
 
 .my-bookings-page .my-bookings-hero {
     position: relative;
@@ -10500,9 +10241,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   4. BOOKINGS WORKSPACE
-========================================================= */
+/* BOOKINGS WORKSPACE */
 
 .my-bookings-page .my-bookings-workspace {
     padding: 75px 0 95px;
@@ -10519,9 +10258,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   5. FILTER HEADING
-========================================================= */
+/* FILTER HEADING */
 
 .my-bookings-page .booking-filters-wrapper {
     margin-bottom: 58px;
@@ -10548,9 +10285,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   6. SECTION EYEBROW
-========================================================= */
+/* SECTION EYEBROW */
 
 .my-bookings-page .my-bookings-section-eyebrow {
     display: block;
@@ -10571,9 +10306,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   7. BOOKING FILTERS
-========================================================= */
+/* BOOKING FILTERS */
 
 .my-bookings-page .booking-filters {
     display: flex;
@@ -10643,9 +10376,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   8. BOOKINGS SECTION HEADING
-========================================================= */
+/* BOOKINGS SECTION HEADING */
 
 .my-bookings-page .my-bookings-section {
     margin: 0;
@@ -10743,9 +10474,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   9. BOOKINGS LIST
-========================================================= */
+/* BOOKINGS LIST */
 
 .my-bookings-page .bookings-list {
     display: flex;
@@ -10756,9 +10485,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   10. LOADING STATE
-========================================================= */
+/* LOADING STATE */
 
 .my-bookings-page .bookings-loading {
     display: flex;
@@ -10822,9 +10549,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   11. DYNAMIC BOOKING CARDS
-========================================================= */
+/* DYNAMIC BOOKING CARDS */
 
 .my-bookings-page .booking-card {
     position: relative;
@@ -11024,9 +10749,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   12. EXPLORE SECTION
-========================================================= */
+/* EXPLORE SECTION */
 
 .my-bookings-page .explore-localEase {
     padding: 0 0 75px;
@@ -11247,9 +10970,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   13. BACK TO PROFILE
-========================================================= */
+/* BACK TO PROFILE */
 
 .my-bookings-page .back-section {
     padding: 0 0 75px;
@@ -11300,9 +11021,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   14. FOOTER
-========================================================= */
+/* FOOTER */
 
 .my-bookings-page .site-footer {
     padding: 65px 0 0;
@@ -11422,9 +11141,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   15. RESPONSIVE — TABLET
-========================================================= */
+/* RESPONSIVE — TABLET */
 
 @media (max-width: 1000px) {
 
@@ -11473,9 +11190,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   16. RESPONSIVE — MOBILE
-========================================================= */
+/* RESPONSIVE — MOBILE */
 
 @media (max-width: 700px) {
 
@@ -11686,9 +11401,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   17. RESPONSIVE — SMALL MOBILE
-========================================================= */
+/* RESPONSIVE — SMALL MOBILE */
 
 @media (max-width: 430px) {
 
@@ -11738,14 +11451,10 @@ body.services-page {
 
 
 
-/* ======================================
-   PROFILE PAGE
-====================================== */
+/* PROFILE PAGE */
 
 
-/* ======================================
-   1. PROFILE PAGE VARIABLES
-====================================== */
+/* PROFILE PAGE VARIABLES */
 
 .profile-page {
     --profile-teal: #0f766e;
@@ -11780,9 +11489,7 @@ body.services-page {
 
 
 
-/* ======================================
-   2. PAGE BASE
-====================================== */
+/* PAGE BASE */
 
 .profile-page {
     min-height: 100vh;
@@ -11792,9 +11499,7 @@ body.services-page {
 
 
 
-/* ======================================
-   3. HEADER
-====================================== */
+/* HEADER */
 
 .profile-page .site-header {
 
@@ -11956,9 +11661,7 @@ body.services-page {
 
 
 
-/* ======================================
-   4. PROFILE HERO
-====================================== */
+/* PROFILE HERO */
 
 .profile-hero {
 
@@ -12184,9 +11887,7 @@ body.services-page {
 
 
 
-/* ======================================
-   5. PROFILE HERO CARD
-====================================== */
+/* PROFILE HERO CARD */
 
 .profile-hero-visual {
 
@@ -12357,9 +12058,7 @@ body.services-page {
 
 
 
-/* ======================================
-   6. PROFILE WORKSPACE
-====================================== */
+/* PROFILE WORKSPACE */
 
 .profile-workspace {
 
@@ -12396,9 +12095,7 @@ body.services-page {
 
 
 
-/* ======================================
-   7. SECTION HEADING
-====================================== */
+/* SECTION HEADING */
 
 .profile-section-heading {
 
@@ -12493,9 +12190,7 @@ body.services-page {
 
 
 
-/* ======================================
-   8. PROFILE INFORMATION CARD
-====================================== */
+/* PROFILE INFORMATION CARD */
 
 .profile-information-card {
 
@@ -12613,9 +12308,7 @@ body.services-page {
 
 
 
-/* ======================================
-   9. PROFILE DETAILS
-====================================== */
+/* PROFILE DETAILS */
 
 .profile-details-grid {
 
@@ -12726,9 +12419,7 @@ body.services-page {
 
 
 
-/* ======================================
-   10. PROFILE ACTIONS
-====================================== */
+/* PROFILE ACTIONS */
 
 .profile-actions {
 
@@ -12830,9 +12521,7 @@ body.services-page {
 
 
 
-/* ======================================
-   11. BOOKING STATISTICS
-====================================== */
+/* BOOKING STATISTICS */
 
 .profile-stats-grid {
 
@@ -12981,9 +12670,7 @@ body.services-page {
 
 
 
-/* ======================================
-   12. VIEW ALL BOOKINGS BUTTON
-====================================== */
+/* VIEW ALL BOOKINGS BUTTON */
 
 .profile-view-bookings-btn {
 
@@ -13037,9 +12724,7 @@ body.services-page {
 
 
 
-/* ======================================
-   13. RECENT BOOKING
-====================================== */
+/* RECENT BOOKING */
 
 .recent-booking-card {
 
@@ -13116,9 +12801,7 @@ body.services-page {
 
 
 
-/* ======================================
-   14. DYNAMIC RECENT BOOKING SUPPORT
-====================================== */
+/* DYNAMIC RECENT BOOKING SUPPORT */
 
 .recent-booking-card .booking-card {
 
@@ -13173,9 +12856,7 @@ body.services-page {
 
 
 
-/* ======================================
-   15. SECURITY SECTION
-====================================== */
+/* SECURITY SECTION */
 
 .profile-security-card {
 
@@ -13318,9 +12999,7 @@ body.services-page {
 
 
 
-/* ======================================
-   16. EXPLORE SERVICES
-====================================== */
+/* EXPLORE SERVICES */
 
 .profile-explore-card {
 
@@ -13562,9 +13241,7 @@ body.services-page {
 
 
 
-/* ======================================
-   17. BACK SECTION
-====================================== */
+/* BACK SECTION */
 
 .profile-page .back-section {
 
@@ -13604,9 +13281,7 @@ body.services-page {
 
 
 
-/* ======================================
-   18. FOOTER
-====================================== */
+/* FOOTER */
 
 .profile-page .site-footer {
 
@@ -13741,9 +13416,7 @@ body.services-page {
 
 
 
-/* ======================================
-   19. RESPONSIVE - 1000px
-====================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -13835,9 +13508,7 @@ body.services-page {
 
 
 
-/* ======================================
-   20. RESPONSIVE - 700px
-====================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -14092,9 +13763,7 @@ body.services-page {
 
 
 
-/* ======================================
-   21. RESPONSIVE - 430px
-====================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -14185,16 +13854,10 @@ body.services-page {
 
 
 
-/* =========================================================
-   LOCALEASE — DASHBOARD PAGE
-   Modern Customer Dashboard UI
-   Based on the final Index design system
-========================================================= */
+/* LOCALEASE - DASHBOARD PAGE */
 
 
-/* =========================================================
-   1. DASHBOARD PAGE VARIABLES
-========================================================= */
+/* DASHBOARD PAGE VARIABLES */
 
 .dashboard-page {
     --dashboard-primary: #0f766e;
@@ -14237,9 +13900,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   2. GLOBAL DASHBOARD PAGE
-========================================================= */
+/* GLOBAL DASHBOARD PAGE */
 
 .dashboard-page,
 .dashboard-page * {
@@ -14272,9 +13933,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   3. HEADER
-========================================================= */
+/* HEADER */
 
 .dashboard-page .site-header {
     position: sticky;
@@ -14399,9 +14058,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   4. DASHBOARD HERO
-========================================================= */
+/* DASHBOARD HERO */
 
 .dashboard-page .dashboard-hero {
     position: relative;
@@ -14560,9 +14217,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   5. DASHBOARD TRUST ROW
-========================================================= */
+/* DASHBOARD TRUST ROW */
 
 .dashboard-page .dashboard-trust-row {
     display: flex;
@@ -14603,9 +14258,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   6. DASHBOARD HERO CARD
-========================================================= */
+/* DASHBOARD HERO CARD */
 
 .dashboard-page .dashboard-hero-visual {
     display: flex;
@@ -14735,9 +14388,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   7. DASHBOARD WORKSPACE
-========================================================= */
+/* DASHBOARD WORKSPACE */
 
 .dashboard-page .dashboard-workspace {
     padding: 82px 0 95px;
@@ -14755,9 +14406,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   8. COMMON SECTION HEADING
-========================================================= */
+/* COMMON SECTION HEADING */
 
 .dashboard-page .dashboard-section-heading {
     display: flex;
@@ -14834,9 +14483,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   9. QUICK ACTIONS
-========================================================= */
+/* QUICK ACTIONS */
 
 .dashboard-page .dashboard-actions-section {
     margin-bottom: 75px;
@@ -15039,9 +14686,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   10. STATS
-========================================================= */
+/* STATS */
 
 .dashboard-page .dashboard-stats-section {
     margin-bottom: 78px;
@@ -15159,18 +14804,14 @@ body.services-page {
 }
 
 
-/* =========================================================
-   11. CONTENT SECTIONS
-========================================================= */
+/* CONTENT SECTIONS */
 
 .dashboard-page .dashboard-content-section {
     margin-bottom: 72px;
 }
 
 
-/* =========================================================
-   12. RECENT BOOKINGS
-========================================================= */
+/* RECENT BOOKINGS */
 
 .dashboard-page .recent-bookings-list {
     display: grid;
@@ -15315,9 +14956,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   13. LOADING STATE
-========================================================= */
+/* LOADING STATE */
 
 .dashboard-page .recent-booking.loading-card {
     grid-column: 1 / -1;
@@ -15343,9 +14982,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   14. CUSTOMER PROFILE
-========================================================= */
+/* CUSTOMER PROFILE */
 
 .dashboard-page .dashboard-profile-section {
     margin-bottom: 78px;
@@ -15494,9 +15131,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   15. EXPLORE LOCALEASE
-========================================================= */
+/* EXPLORE LOCALEASE */
 
 .dashboard-page .dashboard-explore-section {
     margin-top: 10px;
@@ -15701,9 +15336,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   16. BACK SECTION
-========================================================= */
+/* BACK SECTION */
 
 .dashboard-page .dashboard-back-section {
     padding: 30px 0 0;
@@ -15725,9 +15358,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   17. FOOTER
-========================================================= */
+/* FOOTER */
 
 .dashboard-page .site-footer {
     padding: 65px 0 0;
@@ -15820,9 +15451,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   18. RESPONSIVE — 1000px
-========================================================= */
+/* RESPONSIVE — 1000px */
 
 @media (max-width: 1000px) {
 
@@ -15878,9 +15507,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   19. RESPONSIVE — 700px
-========================================================= */
+/* RESPONSIVE — 700px */
 
 @media (max-width: 700px) {
 
@@ -16010,9 +15637,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   20. RESPONSIVE — 430px
-========================================================= */
+/* RESPONSIVE — 430px */
 
 @media (max-width: 430px) {
 
@@ -16086,14 +15711,10 @@ body.services-page {
 
 
 
-/* =========================================================
-   LOCALEASE — PROVIDER PAGE
-========================================================= */
+/* LOCALEASE - PROVIDER PAGE */
 
 
-/* =========================================================
-   1. PROVIDER PAGE VARIABLES
-========================================================= */
+/* PROVIDER PAGE VARIABLES */
 
 .provider-page {
     --provider-primary: #0f766e;
@@ -16138,9 +15759,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   2. GLOBAL PROVIDER PAGE
-========================================================= */
+/* GLOBAL PROVIDER PAGE */
 
 .provider-page,
 .provider-page * {
@@ -16177,9 +15796,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   3. HEADER
-========================================================= */
+/* HEADER */
 
 .provider-page .site-header {
     position: sticky;
@@ -16303,9 +15920,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   4. PROVIDER HERO
-========================================================= */
+/* PROVIDER HERO */
 
 .provider-page .provider-hero-section {
     position: relative;
@@ -16466,9 +16081,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   5. HERO TRUST ROW
-========================================================= */
+/* HERO TRUST ROW */
 
 .provider-page .provider-trust-row {
     display: flex;
@@ -16510,9 +16123,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   6. HERO PROVIDER JOURNEY CARD
-========================================================= */
+/* HERO PROVIDER JOURNEY CARD */
 
 .provider-page .provider-hero-visual {
     display: flex;
@@ -16647,9 +16258,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   7. PROVIDER WORKSPACE
-========================================================= */
+/* PROVIDER WORKSPACE */
 
 .provider-page .provider-workspace {
     padding: 88px 0 95px;
@@ -16667,9 +16276,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   8. SECTION HEADING
-========================================================= */
+/* SECTION HEADING */
 
 .provider-page .provider-section-heading {
     display: flex;
@@ -16732,9 +16339,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   9. REGISTRATION GRID
-========================================================= */
+/* REGISTRATION GRID */
 
 .provider-page .provider-registration-grid {
     display: grid;
@@ -16749,9 +16354,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   10. FORM CARD
-========================================================= */
+/* FORM CARD */
 
 .provider-page .provider-form-card {
     padding: 34px;
@@ -16822,9 +16425,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   11. FORM LAYOUT
-========================================================= */
+/* FORM LAYOUT */
 
 .provider-page .provider-form {
     display: grid;
@@ -16913,9 +16514,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   12. TERMS
-========================================================= */
+/* TERMS */
 
 .provider-page .provider-terms {
     grid-column: 1 / -1;
@@ -16958,9 +16557,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   13. PROVIDER MESSAGE
-========================================================= */
+/* PROVIDER MESSAGE */
 
 .provider-page .provider-message {
     grid-column: 1 / -1;
@@ -17004,9 +16601,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   14. SUBMIT BUTTON
-========================================================= */
+/* SUBMIT BUTTON */
 
 .provider-page .provider-btn {
     grid-column: 1 / -1;
@@ -17066,9 +16661,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   15. PROVIDER SIDEBAR
-========================================================= */
+/* PROVIDER SIDEBAR */
 
 .provider-page .provider-sidebar {
     display: grid;
@@ -17178,9 +16771,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   16. SECURITY CARD
-========================================================= */
+/* SECURITY CARD */
 
 .provider-page .provider-security-card {
     display: flex;
@@ -17239,9 +16830,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   17. BENEFITS SECTION
-========================================================= */
+/* BENEFITS SECTION */
 
 .provider-page .provider-benefits-section {
     padding: 90px 0;
@@ -17371,9 +16960,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   18. BACK TO HOME
-========================================================= */
+/* BACK TO HOME */
 
 .provider-page .provider-back-section {
     padding: 35px 0;
@@ -17397,9 +16984,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   19. FOOTER
-========================================================= */
+/* FOOTER */
 
 .provider-page .site-footer {
     padding: 65px 0 0;
@@ -17492,9 +17077,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   20. RESPONSIVE — 1000px
-========================================================= */
+/* RESPONSIVE — 1000px */
 
 @media (max-width: 1000px) {
 
@@ -17537,9 +17120,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   21. RESPONSIVE — 700px
-========================================================= */
+/* RESPONSIVE — 700px */
 
 @media (max-width: 700px) {
 
@@ -17664,9 +17245,7 @@ body.services-page {
 }
 
 
-/* =========================================================
-   22. RESPONSIVE — 430px
-========================================================= */
+/* RESPONSIVE — 430px */
 
 @media (max-width: 430px) {
 
@@ -17725,14 +17304,10 @@ body.services-page {
 
 
 
-/* ======================================
-   PROVIDER DASHBOARD PAGE
-   ====================================== */
+/* PROVIDER DASHBOARD PAGE */
 
 
-/* ======================================
-   1. PAGE VARIABLES
-   ====================================== */
+/* PAGE VARIABLES */
 
 .provider-dashboard-page {
 
@@ -17792,9 +17367,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   2. GLOBAL PAGE RESET
-   ====================================== */
+/* GLOBAL PAGE RESET */
 
 .provider-dashboard-page *,
 .provider-dashboard-page *::before,
@@ -17820,9 +17393,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   3. HEADER
-   ====================================== */
+/* HEADER */
 
 .provider-dashboard-page .site-header {
 
@@ -18056,9 +17627,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   4. HERO
-   ====================================== */
+/* HERO */
 
 .provider-dashboard-page .provider-dashboard-hero {
 
@@ -18366,9 +17935,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   5. HERO VISUAL
-   ====================================== */
+/* HERO VISUAL */
 
 .provider-dashboard-page .provider-dashboard-hero-visual {
 
@@ -18642,9 +18209,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   6. WORKSPACE
-   ====================================== */
+/* WORKSPACE */
 
 .provider-dashboard-page .provider-dashboard-workspace {
 
@@ -18671,9 +18236,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   7. SECTION HEADINGS
-   ====================================== */
+/* SECTION HEADINGS */
 
 .provider-dashboard-page .provider-dashboard-section-heading {
 
@@ -18758,9 +18321,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   8. STATS
-   ====================================== */
+/* STATS */
 
 .provider-dashboard-page .provider-dashboard-stats-section {
 
@@ -19058,9 +18619,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   9. CONTENT SECTIONS
-   ====================================== */
+/* CONTENT SECTIONS */
 
 .provider-dashboard-page .provider-dashboard-content-section {
 
@@ -19070,9 +18629,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   10. BOOKING REQUESTS
-   ====================================== */
+/* BOOKING REQUESTS */
 
 .provider-dashboard-page
 .provider-dashboard-booking-requests-grid {
@@ -19295,9 +18852,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   11. UPCOMING BOOKINGS
-   ====================================== */
+/* UPCOMING BOOKINGS */
 
 .provider-dashboard-page .provider-upcoming-bookings {
 
@@ -19462,9 +19017,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   12. CUSTOMER REVIEWS
-   ====================================== */
+/* CUSTOMER REVIEWS */
 
 .provider-dashboard-page .provider-reviews-message {
 
@@ -19514,9 +19067,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   13. QUICK ACTIONS
-   ====================================== */
+/* QUICK ACTIONS */
 
 .provider-dashboard-page .provider-dashboard-actions-section {
 
@@ -19771,9 +19322,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   14. PROVIDER CTA
-   ====================================== */
+/* PROVIDER CTA */
 
 .provider-dashboard-page .provider-dashboard-cta-section {
 
@@ -20051,9 +19600,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   15. BACK SECTION
-   ====================================== */
+/* BACK SECTION */
 
 .provider-dashboard-page .provider-dashboard-back-section {
 
@@ -20097,9 +19644,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   16. FOOTER
-   ====================================== */
+/* FOOTER */
 
 .provider-dashboard-page .site-footer {
 
@@ -20265,9 +19810,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   17. RESPONSIVE - 1000px
-   ====================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -20361,9 +19904,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   18. RESPONSIVE - 700px
-   ====================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -20662,9 +20203,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   19. RESPONSIVE - 430px
-   ====================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -20746,14 +20285,10 @@ body.services-page {
 
 
 
-/* ======================================
-   PROVIDER SERVICES PAGE
-   ====================================== */
+/* PROVIDER SERVICES PAGE */
 
 
-/* ======================================
-   1. PAGE VARIABLES
-   ====================================== */
+/* PAGE VARIABLES */
 
 .provider-services-page {
 
@@ -20813,9 +20348,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   2. RESET
-   ====================================== */
+/* RESET */
 
 .provider-services-page *,
 .provider-services-page *::before,
@@ -20843,9 +20376,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   3. HEADER
-   ====================================== */
+/* HEADER */
 
 .provider-services-page .site-header {
 
@@ -21039,9 +20570,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   4. HERO
-   ====================================== */
+/* HERO */
 
 .provider-services-page .provider-services-hero {
 
@@ -21343,9 +20872,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   5. HERO VISUAL
-   ====================================== */
+/* HERO VISUAL */
 
 .provider-services-page .provider-services-hero-visual {
 
@@ -21666,9 +21193,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   6. WORKSPACE
-   ====================================== */
+/* WORKSPACE */
 
 .provider-services-page .provider-services-workspace {
 
@@ -21695,9 +21220,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   7. SECTION HEADINGS
-   ====================================== */
+/* SECTION HEADINGS */
 
 .provider-services-page .provider-services-section-heading {
 
@@ -21773,9 +21296,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   8. FORM LAYOUT
-   ====================================== */
+/* FORM LAYOUT */
 
 .provider-services-page
 .provider-service-form-section {
@@ -21804,9 +21325,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   9. FORM CARD
-   ====================================== */
+/* FORM CARD */
 
 .provider-services-page .provider-service-form-card {
 
@@ -21923,9 +21442,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   10. FORM GROUPS
-   ====================================== */
+/* FORM GROUPS */
 
 .provider-services-page #provider-service-form {
 
@@ -22060,9 +21577,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   11. PRICE INPUT
-   ====================================== */
+/* PRICE INPUT */
 
 .provider-services-page .provider-service-price-wrapper {
 
@@ -22109,9 +21624,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   12. FORM ACTIONS
-   ====================================== */
+/* FORM ACTIONS */
 
 .provider-services-page .form-actions {
 
@@ -22225,9 +21738,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   13. FORM SIDEBAR
-   ====================================== */
+/* FORM SIDEBAR */
 
 .provider-services-page .provider-service-form-sidebar {
 
@@ -22516,9 +22027,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   14. MY SERVICES
-   ====================================== */
+/* MY SERVICES */
 
 .provider-services-page .provider-services-list-section {
 
@@ -22568,11 +22077,7 @@ body.services-page {
 }
 
 
-/*
-   Dynamic service cards generated by script.js
-   are intentionally kept flexible so the existing
-   JavaScript-generated markup can continue working.
-*/
+/* Dynamic service cards are generated by script.js. */
 
 .provider-services-page .provider-services-grid > * {
 
@@ -22685,9 +22190,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   15. PROVIDER CTA
-   ====================================== */
+/* PROVIDER CTA */
 
 .provider-services-page .provider-services-cta-section {
 
@@ -22965,9 +22468,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   16. BACK TO DASHBOARD
-   ====================================== */
+/* BACK TO DASHBOARD */
 
 .provider-services-page .provider-services-back-section {
 
@@ -23011,9 +22512,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   17. FOOTER
-   ====================================== */
+/* FOOTER */
 
 .provider-services-page .site-footer {
 
@@ -23179,9 +22678,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   18. RESPONSIVE - 1000px
-   ====================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -23284,9 +22781,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   19. RESPONSIVE - 700px
-   ====================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -23561,9 +23056,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   20. RESPONSIVE - 430px
-   ====================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -23687,9 +23180,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   PROVIDER SERVICE ACTIONS
-====================================== */
+/* PROVIDER SERVICE ACTIONS */
 
 .provider-services-page .provider-services-grid
 .service-actions {
@@ -23737,9 +23228,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   EDIT BUTTON
-====================================== */
+/* EDIT BUTTON */
 
 .provider-services-page .provider-services-grid
 .service-actions .edit-provider-service {
@@ -23774,9 +23263,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   DELETE BUTTON
-====================================== */
+/* DELETE BUTTON */
 
 .provider-services-page .provider-services-grid
 .service-actions .delete-provider-service {
@@ -23811,9 +23298,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   MOBILE
-====================================== */
+/* MOBILE */
 
 @media (max-width: 430px) {
 
@@ -23851,9 +23336,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   PROVIDER SERVICE ACTION ICONS
-====================================== */
+/* PROVIDER SERVICE ACTION ICONS */
 
 .provider-services-page .service-actions
 .service-action-icon {
@@ -23872,14 +23355,10 @@ body.services-page {
 
 
 
-/* ======================================
-   PROVIDER BOOKING HISTORY PAGE
-====================================== */
+/* PROVIDER BOOKING HISTORY PAGE */
 
 
-/* ======================================
-   1. PAGE VARIABLES
-====================================== */
+/* PAGE VARIABLES */
 
 .provider-booking-history-page {
 
@@ -23939,9 +23418,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   2. RESET
-====================================== */
+/* RESET */
 
 .provider-booking-history-page *,
 .provider-booking-history-page *::before,
@@ -23969,9 +23446,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   3. HEADER
-====================================== */
+/* HEADER */
 
 .provider-booking-history-page .site-header {
 
@@ -24170,9 +23645,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   4. HERO
-====================================== */
+/* HERO */
 
 .provider-booking-history-page .provider-history-hero {
 
@@ -24474,9 +23947,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   5. HERO VISUAL
-====================================== */
+/* HERO VISUAL */
 
 .provider-booking-history-page .provider-history-hero-visual {
 
@@ -24809,9 +24280,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   6. WORKSPACE
-====================================== */
+/* WORKSPACE */
 
 .provider-booking-history-page
 .provider-history-workspace {
@@ -24840,9 +24309,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   7. SECTION HEADING
-====================================== */
+/* SECTION HEADING */
 
 .provider-booking-history-page
 .provider-history-section-heading {
@@ -24922,9 +24389,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   8. HISTORY MESSAGE
-====================================== */
+/* HISTORY MESSAGE */
 
 .provider-booking-history-page
 .provider-history-message {
@@ -24956,9 +24421,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   9. BOOKING HISTORY GRID
-====================================== */
+/* BOOKING HISTORY GRID */
 
 .provider-booking-history-page
 .provider-history-list {
@@ -24975,9 +24438,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   10. BOOKING CARD
-====================================== */
+/* BOOKING CARD */
 
 .provider-booking-history-page
 .provider-history-booking-card {
@@ -25023,9 +24484,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   11. BOOKING CARD HEADER
-====================================== */
+/* BOOKING CARD HEADER */
 
 .provider-booking-history-page
 .provider-history-booking-header {
@@ -25159,9 +24618,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   12. BOOKING STATUS
-====================================== */
+/* BOOKING STATUS */
 
 .provider-booking-history-page
 .provider-history-booking-status {
@@ -25199,7 +24656,7 @@ body.services-page {
 }
 
 
-/* Completed */
+
 
 .provider-booking-history-page
 .provider-history-booking-status.completed {
@@ -25216,7 +24673,7 @@ body.services-page {
 }
 
 
-/* Confirmed */
+
 
 .provider-booking-history-page
 .provider-history-booking-status.confirmed {
@@ -25233,7 +24690,7 @@ body.services-page {
 }
 
 
-/* Pending */
+
 
 .provider-booking-history-page
 .provider-history-booking-status.pending {
@@ -25250,7 +24707,7 @@ body.services-page {
 }
 
 
-/* Cancelled */
+
 
 .provider-booking-history-page
 .provider-history-booking-status.cancelled {
@@ -25267,7 +24724,7 @@ body.services-page {
 }
 
 
-/* In Progress */
+
 
 .provider-booking-history-page
 .provider-history-booking-status.in-progress {
@@ -25284,9 +24741,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   13. BOOKING DETAILS
-====================================== */
+/* BOOKING DETAILS */
 
 .provider-booking-history-page
 .provider-history-booking-details {
@@ -25405,9 +24860,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   14. EMPTY STATE
-====================================== */
+/* EMPTY STATE */
 
 .provider-booking-history-page
 .provider-history-empty-state {
@@ -25529,9 +24982,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   15. CTA
-====================================== */
+/* CTA */
 
 .provider-booking-history-page
 .provider-history-cta-section {
@@ -25877,9 +25328,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   16. BACK SECTION
-====================================== */
+/* BACK SECTION */
 
 .provider-booking-history-page
 .provider-history-back-section {
@@ -25926,9 +25375,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   17. FOOTER
-====================================== */
+/* FOOTER */
 
 .provider-booking-history-page .site-footer {
 
@@ -26094,9 +25541,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   18. RESPONSIVE - 1000px
-====================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -26179,9 +25624,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   19. RESPONSIVE - 700px
-====================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -26469,9 +25912,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   20. RESPONSIVE - 430px
-====================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -26582,14 +26023,10 @@ body.services-page {
 
 
 
-/* ======================================
-   LOGIN PAGE
-====================================== */
+/* LOGIN PAGE */
 
 
-/* ======================================
-   1. PAGE VARIABLES
-====================================== */
+/* PAGE VARIABLES */
 
 .login-page {
 
@@ -26648,9 +26085,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   2. RESET
-====================================== */
+/* RESET */
 
 .login-page *,
 .login-page *::before,
@@ -26678,9 +26113,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   3. HEADER
-====================================== */
+/* HEADER */
 
 .login-page .site-header {
 
@@ -26868,9 +26301,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   4. LOGIN HERO
-====================================== */
+/* LOGIN HERO */
 
 .login-page .login-hero {
 
@@ -26999,9 +26430,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   5. LOGIN HERO CONTENT
-====================================== */
+/* LOGIN HERO CONTENT */
 
 .login-page .login-hero-content {
 
@@ -27169,9 +26598,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   6. LOGIN CARD WRAPPER
-====================================== */
+/* LOGIN CARD WRAPPER */
 
 .login-page .login-card-wrapper {
 
@@ -27216,9 +26643,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   7. LOGIN CARD
-====================================== */
+/* LOGIN CARD */
 
 .login-page .login-card {
 
@@ -27373,9 +26798,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   8. LOGIN FORM
-====================================== */
+/* LOGIN FORM */
 
 .login-page .login-form {
 
@@ -27476,9 +26899,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   9. LOGIN OPTIONS
-====================================== */
+/* LOGIN OPTIONS */
 
 .login-page .login-options {
 
@@ -27565,9 +26986,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   10. LOGIN BUTTON
-====================================== */
+/* LOGIN BUTTON */
 
 .login-page .login-btn {
 
@@ -27632,9 +27051,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   11. SIGN UP TEXT
-====================================== */
+/* SIGN UP TEXT */
 
 .login-page .signup-text {
 
@@ -27678,9 +27095,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   12. ACCOUNT TYPES SECTION
-====================================== */
+/* ACCOUNT TYPES SECTION */
 
 .login-page .account-types {
 
@@ -27792,9 +27207,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   13. ACCOUNT CARDS
-====================================== */
+/* ACCOUNT CARDS */
 
 .login-page .account-cards {
 
@@ -28052,9 +27465,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   14. FOOTER
-====================================== */
+/* FOOTER */
 
 .login-page .site-footer {
 
@@ -28220,9 +27631,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   15. RESPONSIVE - 1000px
-====================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -28279,9 +27688,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   16. RESPONSIVE - 700px
-====================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -28453,9 +27860,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   17. RESPONSIVE - 430px
-====================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -28553,14 +27958,10 @@ body.services-page {
 
 
 
-/* ======================================
-   SIGNUP PAGE
-====================================== */
+/* SIGNUP PAGE */
 
 
-/* ======================================
-   1. PAGE VARIABLES
-====================================== */
+/* PAGE VARIABLES */
 
 .signup-page {
 
@@ -28618,9 +28019,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   2. RESET
-====================================== */
+/* RESET */
 
 .signup-page *,
 .signup-page *::before,
@@ -28649,9 +28048,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   3. HEADER
-====================================== */
+/* HEADER */
 
 .signup-page .site-header {
 
@@ -28832,9 +28229,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   4. SIGNUP HERO
-====================================== */
+/* SIGNUP HERO */
 
 .signup-page .signup-hero {
 
@@ -28955,9 +28350,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   5. HERO CONTENT
-====================================== */
+/* HERO CONTENT */
 
 .signup-page .signup-hero-content {
 
@@ -29125,9 +28518,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   6. PROVIDER NOTE
-====================================== */
+/* PROVIDER NOTE */
 
 .signup-page .signup-provider-note {
 
@@ -29244,9 +28635,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   7. SIGNUP CARD WRAPPER
-====================================== */
+/* SIGNUP CARD WRAPPER */
 
 .signup-page .signup-card-wrapper {
 
@@ -29291,9 +28680,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   8. SIGNUP FORM CARD
-====================================== */
+/* SIGNUP FORM CARD */
 
 .signup-page .signup-section {
 
@@ -29445,9 +28832,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   9. SIGNUP FORM
-====================================== */
+/* SIGNUP FORM */
 
 .signup-page .signup-form {
 
@@ -29559,9 +28944,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   10. TERMS
-====================================== */
+/* TERMS */
 
 .signup-page .terms-group {
 
@@ -29623,9 +29006,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   11. SIGNUP BUTTON
-====================================== */
+/* SIGNUP BUTTON */
 
 .signup-page .signup-btn {
 
@@ -29693,9 +29074,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   12. LOGIN LINK
-====================================== */
+/* LOGIN LINK */
 
 .signup-page .signup-login-link {
 
@@ -29739,9 +29118,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   13. ACCOUNT TYPES SECTION
-====================================== */
+/* ACCOUNT TYPES SECTION */
 
 .signup-page .signup-account-types {
 
@@ -29856,9 +29233,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   14. ACCOUNT CARDS
-====================================== */
+/* ACCOUNT CARDS */
 
 .signup-page .signup-account-cards {
 
@@ -30096,9 +29471,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   15. FOOTER
-====================================== */
+/* FOOTER */
 
 .signup-page .site-footer {
 
@@ -30264,9 +29637,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   16. RESPONSIVE - 1100px
-====================================== */
+/* RESPONSIVE - 1100px */
 
 @media (max-width: 1100px) {
 
@@ -30284,9 +29655,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   17. RESPONSIVE - 1000px
-====================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -30335,9 +29704,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   18. RESPONSIVE - 700px
-====================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -30526,9 +29893,7 @@ body.services-page {
 }
 
 
-/* ======================================
-   19. RESPONSIVE - 430px
-====================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -30619,14 +29984,10 @@ body.services-page {
 
 
 
-/* ====================================================================
-   NOTIFICATIONS PAGE
-==================================================================== */
+/* NOTIFICATIONS PAGE */
 
 
-/* ====================================================================
-   1. PAGE VARIABLES
-==================================================================== */
+/* PAGE VARIABLES */
 
 .notifications-page {
 
@@ -30684,9 +30045,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   2. RESET
-==================================================================== */
+/* RESET */
 
 .notifications-page *,
 .notifications-page *::before,
@@ -30713,9 +30072,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   3. HEADER
-==================================================================== */
+/* HEADER */
 
 .notifications-page .site-header {
 
@@ -30900,9 +30257,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   4. NOTIFICATION HERO
-==================================================================== */
+/* NOTIFICATION HERO */
 
 .notifications-page .notifications-hero {
 
@@ -31023,9 +30378,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   5. HERO CONTENT
-==================================================================== */
+/* HERO CONTENT */
 
 .notifications-page .notifications-hero-content {
 
@@ -31229,9 +30582,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   6. HERO VISUAL
-==================================================================== */
+/* HERO VISUAL */
 
 .notifications-page .notifications-hero-visual {
 
@@ -31520,9 +30871,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   7. WORKSPACE
-==================================================================== */
+/* WORKSPACE */
 
 .notifications-page .notifications-workspace {
 
@@ -31549,9 +30898,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   8. SECTION HEADING
-==================================================================== */
+/* SECTION HEADING */
 
 .notifications-page .notifications-section-heading {
 
@@ -31636,9 +30983,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   9. MARK ALL READ BUTTON
-==================================================================== */
+/* MARK ALL READ BUTTON */
 
 .notifications-page .notification-mark-read {
 
@@ -31706,9 +31051,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   10. SUMMARY CARD
-==================================================================== */
+/* SUMMARY CARD */
 
 .notifications-page .notification-summary-card {
 
@@ -31808,9 +31151,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   11. NOTIFICATION LIST
-==================================================================== */
+/* NOTIFICATION LIST */
 
 .notifications-page .notification-list {
 
@@ -31921,9 +31262,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   12. NOTIFICATION ICON
-==================================================================== */
+/* NOTIFICATION ICON */
 
 .notifications-page .notification-icon {
 
@@ -31979,9 +31318,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   13. NOTIFICATION CONTENT
-==================================================================== */
+/* NOTIFICATION CONTENT */
 
 .notifications-page .notification-content {
 
@@ -32071,9 +31408,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   14. NEW BADGE
-==================================================================== */
+/* NEW BADGE */
 
 .notifications-page .notification-badge {
 
@@ -32119,9 +31454,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   15. NOTIFICATION ACTION
-==================================================================== */
+/* NOTIFICATION ACTION */
 
 .notifications-page .notification-action-container {
 
@@ -32236,9 +31569,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   16. EMPTY STATE
-==================================================================== */
+/* EMPTY STATE */
 
 .notifications-page .notification-empty {
 
@@ -32364,9 +31695,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   17. EXPLORE CTA
-==================================================================== */
+/* EXPLORE CTA */
 
 .notifications-page .notification-explore {
 
@@ -32641,9 +31970,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   18. EXPLORE VISUAL
-==================================================================== */
+/* EXPLORE VISUAL */
 
 .notifications-page .notification-explore-visual {
 
@@ -32758,9 +32085,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   19. BACK SECTION
-==================================================================== */
+/* BACK SECTION */
 
 .notifications-page .notification-back-section {
 
@@ -32801,9 +32126,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   20. FOOTER
-==================================================================== */
+/* FOOTER */
 
 .notifications-page .site-footer {
 
@@ -32969,9 +32292,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   21. RESPONSIVE - 1000px
-==================================================================== */
+/* RESPONSIVE - 1000px */
 
 @media (max-width: 1000px) {
 
@@ -33036,9 +32357,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   22. RESPONSIVE - 700px
-==================================================================== */
+/* RESPONSIVE - 700px */
 
 @media (max-width: 700px) {
 
@@ -33313,9 +32632,7 @@ body.services-page {
 }
 
 
-/* ====================================================================
-   23. RESPONSIVE - 430px
-==================================================================== */
+/* RESPONSIVE - 430px */
 
 @media (max-width: 430px) {
 
@@ -33441,16 +32758,10 @@ body.services-page {
 
 
 
-/* =========================================================
-   LOCALEASE REVIEWS PAGE
-   Modern SaaS / Service Marketplace UI
-   Based on the finalized LocalEase Index design system
-========================================================= */
+/* LOCALEASE - REVIEWS PAGE */
 
 
-/* =========================================================
-   1. PAGE VARIABLES
-========================================================= */
+/* PAGE VARIABLES */
 
 .reviews-page {
 
@@ -33499,9 +32810,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   2. GLOBAL PAGE RESET
-========================================================= */
+/* GLOBAL PAGE RESET */
 
 .reviews-page *,
 .reviews-page *::before,
@@ -33527,9 +32836,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   3. HEADER
-========================================================= */
+/* HEADER */
 
 .reviews-page .site-header {
 
@@ -33675,9 +32982,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   4. REVIEWS HERO
-========================================================= */
+/* REVIEWS HERO */
 
 .reviews-page .reviews-hero {
 
@@ -33903,9 +33208,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   5. HERO VISUAL CARD
-========================================================= */
+/* HERO VISUAL CARD */
 
 .reviews-page .reviews-hero-visual {
 
@@ -34089,9 +33392,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   6. WORKSPACE
-========================================================= */
+/* WORKSPACE */
 
 .reviews-page .reviews-workspace {
 
@@ -34116,9 +33417,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   7. SECTION HEADINGS
-========================================================= */
+/* SECTION HEADINGS */
 
 .reviews-page .reviews-section-heading {
 
@@ -34175,9 +33474,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   8. REVIEW FORM LAYOUT
-========================================================= */
+/* REVIEW FORM LAYOUT */
 
 .reviews-page .review-form-layout {
 
@@ -34195,9 +33492,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   9. REVIEW FORM CARD
-========================================================= */
+/* REVIEW FORM CARD */
 
 .reviews-page .review-form-card {
 
@@ -34278,9 +33573,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   10. FORM GROUPS
-========================================================= */
+/* FORM GROUPS */
 
 .reviews-page .review-form {
 
@@ -34399,9 +33692,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   11. BOOKING INFORMATION
-========================================================= */
+/* BOOKING INFORMATION */
 
 .reviews-page .booking-info {
 
@@ -34440,9 +33731,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   12. RATING STARS
-========================================================= */
+/* RATING STARS */
 
 .reviews-page .rating-stars {
 
@@ -34524,9 +33813,7 @@ body.services-page {
 
 
 
-/* =========================================================
-   13. SUBMIT / CANCEL BUTTONS
-========================================================= */
+/* SUBMIT / CANCEL BUTTONS */
 
 .reviews-page .review-form-actions {
 
@@ -34685,9 +33972,7 @@ line-height:
 
 
 
-/* =========================================================
-   14. REVIEW MESSAGE
-========================================================= */
+/* REVIEW MESSAGE */
 
 .reviews-page .review-message {
 
@@ -34738,9 +34023,7 @@ line-height:
 
 
 
-/* =========================================================
-   15. FORM SIDEBAR
-========================================================= */
+/* FORM SIDEBAR */
 
 .reviews-page .review-form-sidebar {
 
@@ -34864,9 +34147,7 @@ line-height:
 
 
 
-/* =========================================================
-   16. SECURITY CARD
-========================================================= */
+/* SECURITY CARD */
 
 .reviews-page .review-security-card {
 
@@ -34937,9 +34218,7 @@ line-height:
 
 
 
-/* =========================================================
-   17. PREVIOUS REVIEWS
-========================================================= */
+/* PREVIOUS REVIEWS */
 
 .reviews-page .previous-reviews-section {
 
@@ -34960,9 +34239,7 @@ line-height:
 
 
 
-/* =========================================================
-   18. DYNAMIC REVIEW CARD
-========================================================= */
+/* DYNAMIC REVIEW CARD */
 
 .reviews-page .review-card {
 
@@ -35103,9 +34380,7 @@ line-height:
 
 
 
-/* =========================================================
-   19. REVIEW ACTION BUTTONS
-========================================================= */
+/* REVIEW ACTION BUTTONS */
 
 .reviews-page .edit-review-btn,
 .reviews-page .delete-review-btn {
@@ -35194,9 +34469,7 @@ line-height:
 
 }
 
-/* =========================================================
-   20. LOADING / EMPTY STATES
-========================================================= */
+/* LOADING / EMPTY STATES */
 
 .reviews-page .review-loading,
 .reviews-page .review-empty {
@@ -35241,9 +34514,7 @@ line-height:
 
 
 
-/* =========================================================
-   21. EXPLORE SERVICES CTA
-========================================================= */
+/* EXPLORE SERVICES CTA */
 
 .reviews-page .reviews-explore {
 
@@ -35351,9 +34622,7 @@ line-height:
 
 
 
-/* =========================================================
-   22. BACK SECTION
-========================================================= */
+/* BACK SECTION */
 
 .reviews-page .back-section {
 
@@ -35388,9 +34657,7 @@ line-height:
 
 
 
-/* =========================================================
-   23. FOOTER
-========================================================= */
+/* FOOTER */
 
 .reviews-page .site-footer {
 
@@ -35508,9 +34775,7 @@ line-height:
 
 
 
-/* =========================================================
-   24. RESPONSIVE — TABLET
-========================================================= */
+/* RESPONSIVE — TABLET */
 
 @media (max-width: 1000px) {
 
@@ -35554,9 +34819,7 @@ line-height:
 
 
 
-/* =========================================================
-   25. RESPONSIVE — MOBILE
-========================================================= */
+/* RESPONSIVE — MOBILE */
 
 @media (max-width: 700px) {
 
@@ -35716,9 +34979,7 @@ line-height:
 
 
 
-/* =========================================================
-   26. RESPONSIVE — SMALL MOBILE
-========================================================= */
+/* RESPONSIVE — SMALL MOBILE */
 
 @media (max-width: 430px) {
 
@@ -35807,16 +35068,10 @@ line-height:
 
 
 
-/* =========================================================
-   LOCALEASE - CONTACT PAGE
-   Modern UI
-   Scoped to .contact-page
-========================================================= */
+/* LOCALEASE - CONTACT PAGE */
 
 
-/* =========================================================
-   1. CONTACT PAGE VARIABLES
-========================================================= */
+/* CONTACT PAGE VARIABLES */
 
 .contact-page {
 
@@ -35872,9 +35127,7 @@ line-height:
 }
 
 
-/* =========================================================
-   2. HEADER
-========================================================= */
+/* HEADER */
 
 .contact-page .site-header {
 
@@ -36012,9 +35265,7 @@ line-height:
 }
 
 
-/* =========================================================
-   3. CONTACT HERO
-========================================================= */
+/* CONTACT HERO */
 
 .contact-page .contact-hero {
 
@@ -36234,9 +35485,7 @@ line-height:
 }
 
 
-/* =========================================================
-   4. HERO VISUAL
-========================================================= */
+/* HERO VISUAL */
 
 .contact-page .contact-hero-visual {
 
@@ -36467,9 +35716,7 @@ line-height:
 }
 
 
-/* =========================================================
-   5. CONTACT WORKSPACE
-========================================================= */
+/* CONTACT WORKSPACE */
 
 .contact-page .contact-workspace {
 
@@ -36555,9 +35802,7 @@ line-height:
 }
 
 
-/* =========================================================
-   6. CONTACT MAIN GRID
-========================================================= */
+/* CONTACT MAIN GRID */
 
 .contact-page .contact-main-grid {
 
@@ -36574,9 +35819,7 @@ line-height:
 }
 
 
-/* =========================================================
-   7. CONTACT INFORMATION
-========================================================= */
+/* CONTACT INFORMATION */
 
 .contact-page .contact-information {
 
@@ -36861,9 +36104,7 @@ line-height:
 }
 
 
-/* =========================================================
-   8. CONTACT FORM
-========================================================= */
+/* CONTACT FORM */
 
 .contact-page .contact-form-container {
 
@@ -37123,9 +36364,7 @@ line-height:
 }
 
 
-/* =========================================================
-   9. QUICK HELP SECTION
-========================================================= */
+/* QUICK HELP SECTION */
 
 .contact-page .contact-help {
 
@@ -37273,9 +36512,7 @@ line-height:
 }
 
 
-/* =========================================================
-   10. FAQ SECTION
-========================================================= */
+/* FAQ SECTION */
 
 .contact-page .contact-faq {
 
@@ -37394,9 +36631,7 @@ line-height:
 }
 
 
-/* =========================================================
-   11. EXPLORE CTA
-========================================================= */
+/* EXPLORE CTA */
 
 .contact-page .contact-explore {
 
@@ -37655,9 +36890,7 @@ line-height:
 }
 
 
-/* =========================================================
-   12. BACK SECTION
-========================================================= */
+/* BACK SECTION */
 
 .contact-page .contact-back-section {
 
@@ -37696,9 +36929,7 @@ line-height:
 }
 
 
-/* =========================================================
-   13. FOOTER
-========================================================= */
+/* FOOTER */
 
 .contact-page .site-footer {
 
@@ -37837,9 +37068,7 @@ line-height:
 }
 
 
-/* =========================================================
-   14. RESPONSIVE - TABLET
-========================================================= */
+/* RESPONSIVE - TABLET */
 
 @media (max-width: 1000px) {
 
@@ -37920,9 +37149,7 @@ line-height:
 }
 
 
-/* =========================================================
-   15. RESPONSIVE - MOBILE
-========================================================= */
+/* RESPONSIVE - MOBILE */
 
 @media (max-width: 700px) {
 
@@ -38212,9 +37439,7 @@ line-height:
 }
 
 
-/* =========================================================
-   16. RESPONSIVE - SMALL MOBILE
-========================================================= */
+/* RESPONSIVE - SMALL MOBILE */
 
 @media (max-width: 430px) {
 
@@ -38294,16 +37519,10 @@ line-height:
 
 
 
-/* =========================================================
-   ABOUT PAGE - LOCALEASE
-   Modern UI
-   Scoped only to .about-page
-========================================================= */
+/* LOCALEASE - ABOUT PAGE */
 
 
-/* =========================================================
-   1. ABOUT PAGE VARIABLES
-========================================================= */
+/* ABOUT PAGE VARIABLES */
 
 .about-page {
 
@@ -38350,9 +37569,7 @@ line-height:
 }
 
 
-/* =========================================================
-   2. GLOBAL PAGE
-========================================================= */
+/* GLOBAL PAGE */
 
 .about-page,
 .about-page * {
@@ -38391,9 +37608,7 @@ line-height:
 }
 
 
-/* =========================================================
-   3. HEADER
-========================================================= */
+/* HEADER */
 
 .about-page .site-header {
 
@@ -38553,9 +37768,7 @@ line-height:
 }
 
 
-/* =========================================================
-   4. ABOUT HERO
-========================================================= */
+/* ABOUT HERO */
 
 .about-page .about-hero {
 
@@ -38764,9 +37977,7 @@ line-height:
 }
 
 
-/* =========================================================
-   5. HERO VISUAL
-========================================================= */
+/* HERO VISUAL */
 
 .about-page .about-hero-visual {
 
@@ -39000,9 +38211,7 @@ line-height:
 }
 
 
-/* =========================================================
-   6. SHARED ABOUT CONTAINER
-========================================================= */
+/* SHARED ABOUT CONTAINER */
 
 .about-page .about-container {
 
@@ -39016,9 +38225,7 @@ line-height:
 }
 
 
-/* =========================================================
-   7. OVERVIEW
-========================================================= */
+/* OVERVIEW */
 
 .about-page .about-overview {
 
@@ -39201,9 +38408,7 @@ line-height:
 }
 
 
-/* =========================================================
-   8. MISSION
-========================================================= */
+/* MISSION */
 
 .about-page .about-mission {
 
@@ -39308,9 +38513,7 @@ line-height:
 }
 
 
-/* =========================================================
-   9. SECTION HEADING
-========================================================= */
+/* SECTION HEADING */
 
 .about-page .about-section-heading {
 
@@ -39357,9 +38560,7 @@ line-height:
 }
 
 
-/* =========================================================
-   10. WHY LOCALEASE
-========================================================= */
+/* WHY LOCALEASE */
 
 .about-page .about-why {
 
@@ -39473,9 +38674,7 @@ line-height:
 }
 
 
-/* =========================================================
-   11. BUILT FOR EVERYONE
-========================================================= */
+/* BUILT FOR EVERYONE */
 
 .about-page .about-users {
 
@@ -39679,9 +38878,7 @@ line-height:
 }
 
 
-/* =========================================================
-   12. HOW LOCALEASE WORKS
-========================================================= */
+/* HOW LOCALEASE WORKS */
 
 .about-page .about-process {
 
@@ -39814,9 +39011,7 @@ line-height:
 }
 
 
-/* =========================================================
-   13. EXPLORE CTA
-========================================================= */
+/* EXPLORE CTA */
 
 .about-page .about-explore {
 
@@ -40077,9 +39272,7 @@ line-height:
 }
 
 
-/* =========================================================
-   14. BACK TO HOME
-========================================================= */
+/* BACK TO HOME */
 
 .about-page .about-back-section {
 
@@ -40118,9 +39311,7 @@ line-height:
 }
 
 
-/* =========================================================
-   15. FOOTER
-========================================================= */
+/* FOOTER */
 
 .about-page .site-footer {
 
@@ -40259,9 +39450,7 @@ line-height:
 }
 
 
-/* =========================================================
-   16. RESPONSIVE - TABLET
-========================================================= */
+/* RESPONSIVE - TABLET */
 
 @media (max-width: 1000px) {
 
@@ -40345,9 +39534,7 @@ line-height:
 }
 
 
-/* =========================================================
-   17. RESPONSIVE - MOBILE
-========================================================= */
+/* RESPONSIVE - MOBILE */
 
 @media (max-width: 700px) {
 
@@ -40560,9 +39747,7 @@ line-height:
 }
 
 
-/* =========================================================
-   18. RESPONSIVE - SMALL MOBILE
-========================================================= */
+/* RESPONSIVE - SMALL MOBILE */
 
 @media (max-width: 430px) {
 
@@ -40629,16 +39814,10 @@ line-height:
 
 
 
-/* =========================================================
-   LOCALEASE — ADMIN DASHBOARD
-   COMPLETE PAGE CSS
-   Based on Final Index Page Design System
-========================================================= */
+/* LOCALEASE - ADMIN DASHBOARD */
 
 
-/* =========================================================
-   DESIGN SYSTEM
-========================================================= */
+/* DESIGN SYSTEM */
 
 :root {
 
@@ -40688,9 +39867,7 @@ line-height:
 }
 
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* GLOBAL */
 
 .admin-dashboard-page {
 
@@ -40748,9 +39925,7 @@ line-height:
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+/* CONTAINER */
 
 .admin-dashboard-page
 .admin-container {
@@ -40767,9 +39942,7 @@ line-height:
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .admin-dashboard-page
 .site-header {
@@ -40904,9 +40077,7 @@ line-height:
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 .admin-dashboard-page
 .main-navigation {
@@ -41029,9 +40200,7 @@ line-height:
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .admin-dashboard-page
 .admin-hero {
@@ -41275,9 +40444,7 @@ line-height:
 }
 
 
-/* =========================================================
-   HERO STATUS
-========================================================= */
+/* HERO STATUS */
 
 .admin-dashboard-page
 .admin-hero-status {
@@ -41341,9 +40508,7 @@ line-height:
 }
 
 
-/* =========================================================
-   HERO OVERVIEW CARD
-========================================================= */
+/* HERO OVERVIEW CARD */
 
 .admin-dashboard-page
 .admin-hero-visual {
@@ -41586,9 +40751,7 @@ line-height:
 }
 
 
-/* =========================================================
-   STATS SECTION
-========================================================= */
+/* STATS SECTION */
 
 .admin-dashboard-page
 .admin-stats-section {
@@ -41809,9 +40972,7 @@ line-height:
 }
 
 
-/* =========================================================
-   MANAGEMENT SECTION
-========================================================= */
+/* MANAGEMENT SECTION */
 
 .admin-dashboard-page
 .admin-management-section {
@@ -42020,9 +41181,7 @@ line-height:
 }
 
 
-/* =========================================================
-   DYNAMIC LIST AREA
-========================================================= */
+/* DYNAMIC LIST AREA */
 
 .admin-dashboard-page
 #admin-users-list,
@@ -42120,9 +41279,7 @@ line-height:
 }
 
 
-/* =========================================================
-   DYNAMIC CARD TEXT
-========================================================= */
+/* DYNAMIC CARD TEXT */
 
 .admin-dashboard-page
 #admin-users-list h3,
@@ -42202,9 +41359,7 @@ line-height:
 }
 
 
-/* =========================================================
-   USER CARDS
-========================================================= */
+/* USER CARDS */
 
 .admin-dashboard-page
 #admin-users-list .admin-user-card {
@@ -42227,9 +41382,7 @@ line-height:
 }
 
 
-/* =========================================================
-   BOOKING CARDS
-========================================================= */
+/* BOOKING CARDS */
 
 .admin-dashboard-page
 #admin-bookings-list .request-card {
@@ -42243,9 +41396,7 @@ line-height:
 }
 
 
-/* =========================================================
-   SERVICE CARDS
-========================================================= */
+/* SERVICE CARDS */
 
 .admin-dashboard-page
 #admin-services-list > *,
@@ -42268,9 +41419,7 @@ line-height:
 }
 
 
-/* =========================================================
-   REVIEW CARDS
-========================================================= */
+/* REVIEW CARDS */
 
 .admin-dashboard-page
 #admin-reviews-list > *,
@@ -42315,9 +41464,7 @@ line-height:
 }
 
 
-/* =========================================================
-   REQUEST ACTIONS
-========================================================= */
+/* REQUEST ACTIONS */
 
 .admin-dashboard-page
 .request-actions,
@@ -42365,9 +41512,7 @@ line-height:
 }
 
 
-/* =========================================================
-   STATUS BADGE
-========================================================= */
+/* STATUS BADGE */
 
 .admin-dashboard-page
 .booking-status {
@@ -42417,9 +41562,7 @@ line-height:
 }
 
 
-/* =========================================================
-   VIEW BUTTONS
-========================================================= */
+/* VIEW BUTTONS */
 
 .admin-dashboard-page
 .view-admin-user-btn,
@@ -42507,9 +41650,7 @@ line-height:
 }
 
 
-/* =========================================================
-   ACTIVATE / DEACTIVATE USER
-========================================================= */
+/* ACTIVATE / DEACTIVATE USER */
 
 .admin-dashboard-page
 .toggle-admin-user-status-btn {
@@ -42569,9 +41710,7 @@ line-height:
 }
 
 
-/* =========================================================
-   CANCEL / REJECT BUTTONS
-========================================================= */
+/* CANCEL / REJECT BUTTONS */
 
 .admin-dashboard-page
 .cancel-booking-btn,
@@ -42642,9 +41781,7 @@ line-height:
 
 }
 
-/* =========================================================
-   USER DETAILS CANCEL BUTTON
-========================================================= */
+/* USER DETAILS CANCEL BUTTON */
 
 .admin-dashboard-page
 #dynamic-close-user-details-btn {
@@ -42710,9 +41847,7 @@ line-height:
 }
 
 
-/* =========================================================
-   EDIT BUTTONS
-========================================================= */
+/* EDIT BUTTONS */
 
 .admin-dashboard-page
 .edit-admin-service-btn,
@@ -42772,9 +41907,7 @@ line-height:
 }
 
 
-/* =========================================================
-   DELETE BUTTONS
-========================================================= */
+/* DELETE BUTTONS */
 
 .admin-dashboard-page
 .delete-admin-service-btn,
@@ -42842,9 +41975,7 @@ line-height:
 }
 
 
-/* =========================================================
-   EMPTY STATES
-========================================================= */
+/* EMPTY STATES */
 
 .admin-dashboard-page
 #admin-users-list .empty-state,
@@ -42901,9 +42032,7 @@ line-height:
 }
 
 
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
+/* QUICK ACTIONS */
 
 .admin-dashboard-page
 .admin-quick-actions {
@@ -43096,9 +42225,7 @@ line-height:
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .admin-dashboard-page
 .site-footer {
@@ -43255,9 +42382,7 @@ line-height:
 }
 
 
-/* =========================================================
-   SAFETY / OVERFLOW
-========================================================= */
+/* SAFETY / OVERFLOW */
 
 .admin-dashboard-page
 #admin-users-list *,
@@ -43292,9 +42417,7 @@ line-height:
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* TABLET */
 
 @media (max-width: 1000px) {
 
@@ -43340,9 +42463,7 @@ line-height:
 }
 
 
-/* =========================================================
-   TABLET / SMALL
-========================================================= */
+/* TABLET / SMALL */
 
 @media (max-width: 900px) {
 
@@ -43381,9 +42502,7 @@ line-height:
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -43632,9 +42751,7 @@ line-height:
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+/* SMALL MOBILE */
 
 @media (max-width: 480px) {
 
@@ -43749,9 +42866,7 @@ line-height:
 
 
 
-/* =========================================================
-   COMPACT FOOTER
-========================================================= */
+/* COMPACT FOOTER */
 
 .admin-dashboard-page
 .site-footer {
@@ -43924,9 +43039,7 @@ line-height:
 }
 
 
-/* =========================================================
-   MOBILE FOOTER
-========================================================= */
+/* MOBILE FOOTER */
 
 @media (max-width: 700px) {
 
@@ -44002,9 +43115,7 @@ line-height:
 }
 
 
-/* =========================================================
-   ULTRA COMPACT FOOTER
-========================================================= */
+/* ULTRA COMPACT FOOTER */
 
 .admin-dashboard-page .site-footer {
     background: #08131c;
@@ -44089,9 +43200,7 @@ line-height:
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -44125,15 +43234,10 @@ line-height:
 
 
 
-/* =========================================================
-   LOCALEASE — ADMIN BOOKINGS
-   COMPLETE MODERN PAGE CSS
-========================================================= */
+/* LOCALEASE - ADMIN BOOKINGS */
 
 
-/* =========================================================
-   DESIGN SYSTEM
-========================================================= */
+/* DESIGN SYSTEM */
 
 .admin-bookings-page {
 
@@ -44201,9 +43305,7 @@ line-height:
 }
 
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* GLOBAL */
 
 .admin-bookings-page *,
 .admin-bookings-page *::before,
@@ -44251,9 +43353,7 @@ textarea {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .admin-bookings-page
 .site-header {
@@ -44402,9 +43502,7 @@ textarea {
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 .admin-bookings-page
 .main-navigation {
@@ -44526,9 +43624,7 @@ textarea {
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .admin-bookings-page
 .admin-bookings-hero {
@@ -44852,9 +43948,7 @@ textarea {
 }
 
 
-/* =========================================================
-   HERO OVERVIEW CARD
-========================================================= */
+/* HERO OVERVIEW CARD */
 
 .admin-bookings-page
 .admin-bookings-hero-visual {
@@ -45097,9 +44191,7 @@ textarea {
 }
 
 
-/* =========================================================
-   SECTION HEADINGS
-========================================================= */
+/* SECTION HEADINGS */
 
 .admin-bookings-page
 .admin-bookings-section-heading {
@@ -45176,9 +44268,7 @@ textarea {
 }
 
 
-/* =========================================================
-   STATISTICS
-========================================================= */
+/* STATISTICS */
 
 .admin-bookings-page
 .admin-bookings-stats-section {
@@ -45381,9 +44471,7 @@ textarea {
 }
 
 
-/* =========================================================
-   RECENT BOOKINGS
-========================================================= */
+/* RECENT BOOKINGS */
 
 .admin-bookings-page
 .admin-bookings-list-section {
@@ -45397,9 +44485,7 @@ textarea {
 }
 
 
-/* =========================================================
-   DYNAMIC BOOKING GRID
-========================================================= */
+/* DYNAMIC BOOKING GRID */
 
 .admin-bookings-page
 .booking-requests-grid {
@@ -45422,9 +44508,7 @@ textarea {
 }
 
 
-/* =========================================================
-   DYNAMIC BOOKING CARDS
-========================================================= */
+/* DYNAMIC BOOKING CARDS */
 
 .admin-bookings-page
 .booking-requests-grid > * {
@@ -45480,9 +44564,7 @@ textarea {
 }
 
 
-/* =========================================================
-   BOOKING CARD CONTENT
-========================================================= */
+/* BOOKING CARD CONTENT */
 
 .admin-bookings-page
 .booking-requests-grid h3 {
@@ -45541,9 +44623,7 @@ textarea {
 }
 
 
-/* =========================================================
-   BOOKING STATUS
-========================================================= */
+/* BOOKING STATUS */
 
 .admin-bookings-page
 .booking-requests-grid
@@ -45610,9 +44690,7 @@ textarea {
 }
 
 
-/* =========================================================
-   REQUEST ACTIONS
-========================================================= */
+/* REQUEST ACTIONS */
 
 .admin-bookings-page
 .booking-requests-grid
@@ -45760,9 +44838,7 @@ textarea {
 }
 
 
-/* =========================================================
-   EMPTY BOOKING STATE
-========================================================= */
+/* EMPTY BOOKING STATE */
 
 .admin-bookings-page
 .booking-requests-grid
@@ -45819,9 +44895,7 @@ textarea {
 }
 
 
-/* =========================================================
-   ADMIN RESPONSIBILITIES
-========================================================= */
+/* ADMIN RESPONSIBILITIES */
 
 .admin-bookings-page
 .admin-bookings-responsibilities {
@@ -45962,9 +45036,7 @@ textarea {
 }
 
 
-/* =========================================================
-   BACK TO DASHBOARD
-========================================================= */
+/* BACK TO DASHBOARD */
 
 .admin-bookings-page
 .admin-bookings-back-section {
@@ -46038,9 +45110,7 @@ textarea {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .admin-bookings-page
 .site-footer {
@@ -46211,9 +45281,7 @@ textarea {
 }
 
 
-/* =========================================================
-   RESPONSIVE — TABLET
-========================================================= */
+/* RESPONSIVE — TABLET */
 
 @media (max-width: 1000px) {
 
@@ -46250,9 +45318,7 @@ textarea {
 }
 
 
-/* =========================================================
-   RESPONSIVE — SMALL TABLET
-========================================================= */
+/* RESPONSIVE — SMALL TABLET */
 
 @media (max-width: 900px) {
 
@@ -46285,9 +45351,7 @@ textarea {
 }
 
 
-/* =========================================================
-   RESPONSIVE — MOBILE
-========================================================= */
+/* RESPONSIVE — MOBILE */
 
 @media (max-width: 700px) {
 
@@ -46583,9 +45647,7 @@ textarea {
 }
 
 
-/* =========================================================
-   RESPONSIVE — SMALL MOBILE
-========================================================= */
+/* RESPONSIVE — SMALL MOBILE */
 
 @media (max-width: 480px) {
 
@@ -46624,10 +45686,7 @@ textarea {
 
 
 
-/* =========================================================
-   LOCALEASE — ADMIN SERVICES
-   COMPLETE MODERN PAGE CSS
-========================================================= */
+/* LOCALEASE - ADMIN SERVICES */
 
 .admin-services-page {
 
@@ -46692,9 +45751,7 @@ textarea {
 }
 
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* GLOBAL */
 
 .admin-services-page *,
 .admin-services-page *::before,
@@ -46741,9 +45798,7 @@ textarea {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .admin-services-page .site-header {
 
@@ -46852,9 +45907,7 @@ textarea {
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 .admin-services-page .main-navigation {
 
@@ -46948,9 +46001,7 @@ textarea {
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .admin-services-page .admin-services-hero {
 
@@ -47192,9 +46243,7 @@ textarea {
 }
 
 
-/* =========================================================
-   HERO OVERVIEW CARD
-========================================================= */
+/* HERO OVERVIEW CARD */
 
 .admin-services-page .admin-services-hero-visual {
 
@@ -47378,9 +46427,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SECTION HEADINGS
-========================================================= */
+/* SECTION HEADINGS */
 
 .admin-services-page .admin-services-section-heading {
 
@@ -47437,9 +46484,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   STATISTICS
-========================================================= */
+/* STATISTICS */
 
 .admin-services-page
 .admin-services-stats-section {
@@ -47622,9 +46667,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SERVICE MANAGEMENT SECTION
-========================================================= */
+/* SERVICE MANAGEMENT SECTION */
 
 .admin-services-page
 .admin-services-management-section {
@@ -47657,9 +46700,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   MANAGEMENT CARD HEADER
-========================================================= */
+/* MANAGEMENT CARD HEADER */
 
 .admin-services-page
 .admin-services-card-header {
@@ -47782,9 +46823,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   CREATE / EDIT FORMS
-========================================================= */
+/* CREATE / EDIT FORMS */
 
 .admin-services-page
 .admin-services-form-section {
@@ -48202,9 +47241,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SEARCH + FILTER
-========================================================= */
+/* SEARCH + FILTER */
 
 .admin-services-page
 .admin-services-filters {
@@ -48332,9 +47369,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   DYNAMIC SERVICES LIST
-========================================================= */
+/* DYNAMIC SERVICES LIST */
 
 .admin-services-page
 .admin-services-list {
@@ -48355,10 +47390,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   DYNAMIC SERVICE CARDS
-   Works with cards generated by script.js
-========================================================= */
+/* DYNAMIC SERVICE CARDS */
 
 .admin-services-page
 .admin-services-list > * {
@@ -48459,9 +47491,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   COMMON SERVICE STATUS
-========================================================= */
+/* COMMON SERVICE STATUS */
 
 .admin-services-page
 .admin-services-list .booking-status,
@@ -48525,9 +47555,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   DYNAMIC SERVICE ACTIONS
-========================================================= */
+/* DYNAMIC SERVICE ACTIONS */
 
 .admin-services-page
 .admin-services-list .service-actions,
@@ -48699,9 +47727,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   EMPTY / LOADING STATE
-========================================================= */
+/* EMPTY / LOADING STATE */
 
 .admin-services-page
 .admin-services-list .empty-state {
@@ -48787,9 +47813,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   INFORMATION SECTION
-========================================================= */
+/* INFORMATION SECTION */
 
 .admin-services-page
 .admin-services-information-section {
@@ -48912,9 +47936,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   QUICK ACTIONS
-========================================================= */
+/* QUICK ACTIONS */
 
 .admin-services-page
 .admin-services-quick-actions {
@@ -49087,9 +48109,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   BACK TO DASHBOARD
-========================================================= */
+/* BACK TO DASHBOARD */
 
 .admin-services-page
 .admin-services-back-section {
@@ -49154,9 +48174,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .admin-services-page .site-footer {
 
@@ -49297,9 +48315,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* TABLET */
 
 @media (max-width: 1000px) {
 
@@ -49351,9 +48367,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SMALL TABLET
-========================================================= */
+/* SMALL TABLET */
 
 @media (max-width: 900px) {
 
@@ -49392,9 +48406,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -49802,9 +48814,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+/* SMALL MOBILE */
 
 @media (max-width: 480px) {
 
@@ -49864,10 +48874,7 @@ span:last-child {
 
 
 
-/* =========================================================
-   ADMIN USERS PAGE
-   LocalEase Modern Admin UI
-========================================================= */
+/* LOCALEASE - ADMIN USERS */
 
 .admin-users-page {
     --color-primary: #0f766e;
@@ -49917,9 +48924,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* GLOBAL */
 
 .admin-users-page *,
 .admin-users-page *::before,
@@ -49950,9 +48955,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .admin-users-page .site-header {
     position: sticky;
@@ -50069,9 +49072,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   COMMON CONTAINER
-========================================================= */
+/* COMMON CONTAINER */
 
 .admin-users-page .admin-container {
     width: min(calc(100% - 40px), var(--container-width));
@@ -50079,9 +49080,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .admin-users-page .admin-users-hero {
     position: relative;
@@ -50192,9 +49191,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HERO VISUAL
-========================================================= */
+/* HERO VISUAL */
 
 .admin-users-page .admin-users-hero-visual {
     position: absolute;
@@ -50318,9 +49315,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   STATS
-========================================================= */
+/* STATS */
 
 .admin-users-page .admin-users-stats-section {
     padding: 70px 0 25px;
@@ -50442,9 +49437,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   REGISTERED USERS MANAGEMENT
-========================================================= */
+/* REGISTERED USERS MANAGEMENT */
 
 .admin-users-page .admin-users-management-section {
     padding: 45px 0 70px;
@@ -50532,9 +49525,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SEARCH + FILTERS
-========================================================= */
+/* SEARCH + FILTERS */
 
 .admin-users-page .admin-users-filters {
     display: grid;
@@ -50590,9 +49581,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   USERS LIST
-========================================================= */
+/* USERS LIST */
 
 .admin-users-page .admin-users-list {
     display: grid;
@@ -50603,7 +49592,7 @@ span:last-child {
 }
 
 
-/* Dynamic cards from script.js */
+
 
 .admin-users-page .admin-users-list > .request-card,
 .admin-users-page .admin-users-list > .admin-user-card {
@@ -50666,9 +49655,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   USER STATUS
-========================================================= */
+/* USER STATUS */
 
 .admin-users-page .service-status {
     display: inline-flex;
@@ -50699,9 +49686,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   USER CARD ACTIONS
-========================================================= */
+/* USER CARD ACTIONS */
 
 .admin-users-page .request-actions {
     display: flex;
@@ -50738,7 +49723,7 @@ span:last-child {
 }
 
 
-/* View button */
+
 
 .admin-users-page .view-admin-user-btn {
     border: 1px solid #cbd5e1;
@@ -50755,7 +49740,7 @@ span:last-child {
 }
 
 
-/* Activate button */
+
 
 .admin-users-page .toggle-admin-user-status-btn {
     border: 1px solid #bbf7d0;
@@ -50771,9 +49756,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   USER DETAILS SECTION
-========================================================= */
+/* USER DETAILS SECTION */
 
 .admin-users-page .admin-users-details-section {
     padding: 0 0 70px;
@@ -50861,9 +49844,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIBILITIES
-========================================================= */
+/* RESPONSIBILITIES */
 
 .admin-users-page .admin-users-responsibilities {
     padding: 0 0 70px;
@@ -50945,9 +49926,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   BACK SECTION
-========================================================= */
+/* BACK SECTION */
 
 .admin-users-page .admin-users-back-section {
     padding: 25px 0 70px;
@@ -50989,9 +49968,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .admin-users-page .site-footer {
     background: #08131c;
@@ -51073,9 +50050,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 1000px
-========================================================= */
+/* RESPONSIVE — 1000px */
 
 @media (max-width: 1000px) {
 
@@ -51099,9 +50074,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 900px
-========================================================= */
+/* RESPONSIVE — 900px */
 
 @media (max-width: 900px) {
 
@@ -51127,9 +50100,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 700px
-========================================================= */
+/* RESPONSIVE — 700px */
 
 @media (max-width: 700px) {
 
@@ -51273,9 +50244,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 480px
-========================================================= */
+/* RESPONSIVE — 480px */
 
 @media (max-width: 480px) {
 
@@ -51312,10 +50281,7 @@ span:last-child {
 
 
 
-/* =========================================================
-   ADMIN REVIEWS PAGE
-   LocalEase Modern Admin UI
-========================================================= */
+/* LOCALEASE - ADMIN REVIEWS */
 
 .admin-reviews-page {
     --color-primary: #0f766e;
@@ -51367,9 +50333,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   GLOBAL
-========================================================= */
+/* GLOBAL */
 
 .admin-reviews-page *,
 .admin-reviews-page *::before,
@@ -51400,9 +50364,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .admin-reviews-page .site-header {
     position: sticky;
@@ -51524,9 +50486,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+/* CONTAINER */
 
 .admin-reviews-page .admin-container {
     width: min(calc(100% - 40px), var(--container-width));
@@ -51535,9 +50495,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* HERO */
 
 .admin-reviews-page .admin-reviews-hero {
     position: relative;
@@ -51673,9 +50631,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HERO VISUAL
-========================================================= */
+/* HERO VISUAL */
 
 .admin-reviews-page .admin-reviews-hero-visual {
     position: absolute;
@@ -51809,9 +50765,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   STATISTICS
-========================================================= */
+/* STATISTICS */
 
 .admin-reviews-page .admin-reviews-stats-section {
     padding: 70px 0 25px;
@@ -51962,9 +50916,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   REVIEW MANAGEMENT
-========================================================= */
+/* REVIEW MANAGEMENT */
 
 .admin-reviews-page .admin-reviews-management-section {
     padding: 45px 0 70px;
@@ -52058,9 +51010,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   REVIEWS LIST
-========================================================= */
+/* REVIEWS LIST */
 
 .admin-reviews-page .admin-reviews-list {
     display: grid;
@@ -52071,7 +51021,7 @@ span:last-child {
 }
 
 
-/* Dynamic cards created by script.js */
+
 
 .admin-reviews-page .admin-reviews-list > .request-card {
     min-width: 0;
@@ -52126,9 +51076,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   REVIEW STATUS
-========================================================= */
+/* REVIEW STATUS */
 
 .admin-reviews-page .booking-status {
     display: inline-flex;
@@ -52154,9 +51102,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   REVIEW ACTIONS
-========================================================= */
+/* REVIEW ACTIONS */
 
 .admin-reviews-page .request-actions {
     display: flex;
@@ -52204,9 +51150,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   LOADING CARD
-========================================================= */
+/* LOADING CARD */
 
 .admin-reviews-page .admin-reviews-loading-card {
     grid-column: 1 / -1;
@@ -52257,9 +51201,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   REVIEW DETAILS
-========================================================= */
+/* REVIEW DETAILS */
 
 .admin-reviews-page .admin-reviews-details-section {
     padding: 0 0 70px;
@@ -52382,9 +51324,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIBILITIES
-========================================================= */
+/* RESPONSIBILITIES */
 
 .admin-reviews-page .admin-reviews-responsibilities {
     padding: 65px 0;
@@ -52467,9 +51407,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   BACK TO DASHBOARD
-========================================================= */
+/* BACK TO DASHBOARD */
 
 .admin-reviews-page .admin-reviews-back-section {
     padding: 25px 0 70px;
@@ -52512,9 +51450,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .admin-reviews-page .site-footer {
     background: #08131c;
@@ -52594,9 +51530,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 1000px
-========================================================= */
+/* RESPONSIVE — 1000px */
 
 @media (max-width: 1000px) {
 
@@ -52620,9 +51554,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 900px
-========================================================= */
+/* RESPONSIVE — 900px */
 
 @media (max-width: 900px) {
 
@@ -52644,9 +51576,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 700px
-========================================================= */
+/* RESPONSIVE — 700px */
 
 @media (max-width: 700px) {
 
@@ -52793,9 +51723,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RESPONSIVE — 480px
-========================================================= */
+/* RESPONSIVE — 480px */
 
 @media (max-width: 480px) {
 
@@ -52833,9 +51761,7 @@ span:last-child {
 
 
 
-/* =========================================================
-   DEDICATED REVIEW CARDS
-========================================================= */
+/* DEDICATED REVIEW CARDS */
 
 .admin-reviews-page .admin-reviews-list {
     display: grid;
@@ -52848,9 +51774,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW CARD
---------------------------------------------------------- */
+/* REVIEW CARD */
 
 .admin-reviews-page .admin-reviews-list .request-card,
 .admin-reviews-page .admin-reviews-list .review-card,
@@ -52885,9 +51809,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW CARD HEADER
---------------------------------------------------------- */
+/* REVIEW CARD HEADER */
 
 .admin-reviews-page .admin-reviews-list .review-card-header,
 .admin-reviews-page .admin-reviews-list .admin-review-header {
@@ -52902,7 +51824,7 @@ span:last-child {
 }
 
 
-/* Customer name */
+
 
 .admin-reviews-page .admin-reviews-list .request-card h3,
 .admin-reviews-page .admin-reviews-list .review-card h3,
@@ -52918,9 +51840,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW RATING
---------------------------------------------------------- */
+/* REVIEW RATING */
 
 .admin-reviews-page .admin-reviews-list .review-rating,
 .admin-reviews-page .admin-reviews-list .admin-review-rating {
@@ -52946,9 +51866,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW CUSTOMER INFO
---------------------------------------------------------- */
+/* REVIEW CUSTOMER INFO */
 
 .admin-reviews-page .admin-reviews-list .review-customer,
 .admin-reviews-page .admin-reviews-list .admin-review-customer {
@@ -52966,9 +51884,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   SERVICE INFORMATION
---------------------------------------------------------- */
+/* SERVICE INFORMATION */
 
 .admin-reviews-page .admin-reviews-list .review-service,
 .admin-reviews-page .admin-reviews-list .admin-review-service {
@@ -52999,9 +51915,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW TEXT
---------------------------------------------------------- */
+/* REVIEW TEXT */
 
 .admin-reviews-page .admin-reviews-list .review-text,
 .admin-reviews-page .admin-reviews-list .admin-review-text {
@@ -53021,7 +51935,7 @@ span:last-child {
 }
 
 
-/* Normal paragraphs inside dynamically generated cards */
+
 
 .admin-reviews-page .admin-reviews-list .request-card p,
 .admin-reviews-page .admin-reviews-list .review-card p,
@@ -53042,9 +51956,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW STATUS
---------------------------------------------------------- */
+/* REVIEW STATUS */
 
 .admin-reviews-page .admin-reviews-list .booking-status,
 .admin-reviews-page .admin-reviews-list .review-status,
@@ -53073,9 +51985,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW DATE
---------------------------------------------------------- */
+/* REVIEW DATE */
 
 .admin-reviews-page .admin-reviews-list .review-date,
 .admin-reviews-page .admin-reviews-list .admin-review-date {
@@ -53087,9 +51997,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   REVIEW ACTIONS
---------------------------------------------------------- */
+/* REVIEW ACTIONS */
 
 .admin-reviews-page .admin-reviews-list .request-actions,
 .admin-reviews-page .admin-reviews-list .review-actions,
@@ -53136,7 +52044,7 @@ span:last-child {
 }
 
 
-/* View / Details */
+
 
 .admin-reviews-page .admin-reviews-list .view-review-btn,
 .admin-reviews-page .admin-reviews-list .view-admin-review-btn,
@@ -53159,7 +52067,7 @@ span:last-child {
 }
 
 
-/* Delete / Remove */
+
 
 .admin-reviews-page .admin-reviews-list .delete-review-btn,
 .admin-reviews-page .admin-reviews-list .remove-review-btn {
@@ -53180,9 +52088,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   EMPTY STATE
---------------------------------------------------------- */
+/* EMPTY STATE */
 
 .admin-reviews-page .admin-reviews-list .empty-state {
     grid-column: 1 / -1;
@@ -53215,9 +52121,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 900px) {
 
@@ -53257,11 +52161,9 @@ span:last-child {
 
 
 
-/* =========================================================
-   FORCE SEPARATE REVIEW BOXES
-========================================================= */
+/* FORCE SEPARATE REVIEW BOXES */
 
-/* Main reviews area */
+
 .admin-reviews-page #admin-reviews-list {
     display: grid !important;
 
@@ -53275,7 +52177,7 @@ span:last-child {
 }
 
 
-/* Every direct review item becomes a proper card */
+
 .admin-reviews-page #admin-reviews-list > * {
     position: relative !important;
 
@@ -53306,7 +52208,7 @@ span:last-child {
 }
 
 
-/* Hover */
+
 .admin-reviews-page #admin-reviews-list > *:hover {
     transform: translateY(-3px) !important;
 
@@ -53317,9 +52219,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   Card heading
---------------------------------------------------------- */
+
 
 .admin-reviews-page #admin-reviews-list > * h3 {
     margin: 0 0 14px !important;
@@ -53334,9 +52234,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   Card paragraphs
---------------------------------------------------------- */
+
 
 .admin-reviews-page #admin-reviews-list > * p {
     margin: 0 0 9px !important;
@@ -53349,13 +52247,13 @@ span:last-child {
 }
 
 
-/* Last paragraph */
+
 .admin-reviews-page #admin-reviews-list > * p:last-of-type {
     margin-bottom: 0 !important;
 }
 
 
-/* Strong text */
+
 .admin-reviews-page #admin-reviews-list > * strong {
     color: #334155 !important;
 
@@ -53363,9 +52261,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   Status badge
---------------------------------------------------------- */
+/* Status badge */
 
 .admin-reviews-page #admin-reviews-list .booking-status {
     display: inline-flex !important;
@@ -53394,9 +52290,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   Action area inside each card
---------------------------------------------------------- */
+
 
 .admin-reviews-page #admin-reviews-list > * .request-actions {
     display: flex !important;
@@ -53415,7 +52309,7 @@ span:last-child {
 }
 
 
-/* Buttons */
+
 .admin-reviews-page #admin-reviews-list > * .request-actions button {
     min-height: 35px !important;
 
@@ -53437,7 +52331,7 @@ span:last-child {
 }
 
 
-/* Button hover */
+
 .admin-reviews-page #admin-reviews-list > * .request-actions button:hover {
     border-color: #0f766e !important;
 
@@ -53447,9 +52341,7 @@ span:last-child {
 }
 
 
-/* ---------------------------------------------------------
-   Empty / loading message
---------------------------------------------------------- */
+/* Empty / loading message */
 
 .admin-reviews-page #admin-reviews-list > p {
     grid-column: 1 / -1 !important;
@@ -53470,9 +52362,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 900px) {
 
@@ -53501,14 +52391,10 @@ span:last-child {
 
 
 
-/* =========================================================
-   LOCALEASE 404 PAGE
-========================================================= */
+/* LOCALEASE - 404 PAGE */
 
 
-/* =========================================================
-   PAGE
-========================================================= */
+/* PAGE */
 
 .error-page-body {
     margin: 0;
@@ -53525,9 +52411,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* HEADER */
 
 .error-page-body .site-header {
     position: sticky;
@@ -53561,9 +52445,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   BRAND
-========================================================= */
+/* BRAND */
 
 .error-page-body .brand {
     display: inline-flex;
@@ -53587,9 +52469,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* NAVIGATION */
 
 .error-page-body .main-navigation {
     display: flex;
@@ -53622,9 +52502,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   404 HERO
-========================================================= */
+/* 404 HERO */
 
 .error-page-body .error-hero {
     position: relative;
@@ -53671,9 +52549,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   LEFT CONTENT
-========================================================= */
+/* LEFT CONTENT */
 
 .error-page-body .error-content {
     max-width: 650px;
@@ -53708,9 +52584,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   ERROR CODE
-========================================================= */
+/* ERROR CODE */
 
 .error-page-body .error-code {
     margin: 0;
@@ -53734,9 +52608,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   TITLE
-========================================================= */
+/* TITLE */
 
 .error-page-body .error-content h1 {
     margin: 26px 0 16px;
@@ -53757,9 +52629,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   DESCRIPTION
-========================================================= */
+/* DESCRIPTION */
 
 .error-page-body .error-description {
     max-width: 590px;
@@ -53789,9 +52659,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   ACTION BUTTONS
-========================================================= */
+/* ACTION BUTTONS */
 
 .error-page-body .error-action-buttons {
     margin-top: 30px;
@@ -53871,9 +52739,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   RIGHT VISUAL
-========================================================= */
+/* RIGHT VISUAL */
 
 .error-page-body .error-visual {
     position: relative;
@@ -53906,9 +52772,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   ERROR CARD
-========================================================= */
+/* ERROR CARD */
 
 .error-page-body .error-card {
     position: relative;
@@ -53997,9 +52861,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   HELPFUL LINKS
-========================================================= */
+/* HELPFUL LINKS */
 
 .error-page-body .error-links-section {
     background: #ffffff;
@@ -54073,9 +52935,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* FOOTER */
 
 .error-page-body .site-footer {
     background: #08131c;
@@ -54188,9 +53048,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* TABLET */
 
 @media (max-width: 900px) {
 
@@ -54236,9 +53094,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* MOBILE */
 
 @media (max-width: 700px) {
 
@@ -54446,9 +53302,7 @@ span:last-child {
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+/* SMALL MOBILE */
 
 @media (max-width: 430px) {
 

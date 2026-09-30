@@ -1,19 +1,16 @@
 const express = require("express");
 
-// JWT Authentication Middleware
+// Authentication middleware
 const { protect } = require("../middleware/authMiddleware");
 
-// Role-Based Authorization Middleware
+// Role-based authorization middleware
 const authorize = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
 
-// ==================================================
-// ANY AUTHENTICATED USER
+// AUTHENTICATED USER ROUTE
 // Customer / Provider / Admin
-// ==================================================
-
 router.get(
     "/profile",
     protect,
@@ -29,10 +26,7 @@ router.get(
 );
 
 
-// ==================================================
-// CUSTOMER ONLY
-// ==================================================
-
+// CUSTOMER ONLY ROUTE
 router.get(
     "/customer",
     protect,
@@ -49,10 +43,7 @@ router.get(
 );
 
 
-// ==================================================
-// PROVIDER ONLY
-// ==================================================
-
+// PROVIDER ONLY ROUTE
 router.get(
     "/provider",
     protect,
@@ -69,10 +60,7 @@ router.get(
 );
 
 
-// ==================================================
-// ADMIN ONLY
-// ==================================================
-
+// ADMIN ONLY ROUTE
 router.get(
     "/admin",
     protect,
@@ -89,8 +77,5 @@ router.get(
 );
 
 
-// ==================================================
 // EXPORT ROUTER
-// ==================================================
-
 module.exports = router;

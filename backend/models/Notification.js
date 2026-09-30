@@ -1,49 +1,30 @@
 const mongoose = require("mongoose");
 
-
-// ======================================================
 // NOTIFICATION SCHEMA
-// ======================================================
-
 const notificationSchema = new mongoose.Schema(
     {
-        // ==================================================
-        // USER WHO WILL RECEIVE THE NOTIFICATION
-        // ==================================================
-
+        // User who will receive the notification
         user: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true
         },
 
-
-        // ==================================================
-        // NOTIFICATION TITLE
-        // ==================================================
-
+        // Notification title
         title: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==================================================
-        // NOTIFICATION MESSAGE
-        // ==================================================
-
+        // Notification message
         message: {
             type: String,
             required: true,
             trim: true
         },
 
-
-        // ==================================================
-        // NOTIFICATION TYPE
-        // ==================================================
-
+        // Notification type
         type: {
             type: String,
             enum: [
@@ -54,11 +35,7 @@ const notificationSchema = new mongoose.Schema(
             default: "system"
         },
 
-
-        // ==================================================
-        // READ / UNREAD STATUS
-        // ==================================================
-
+        // Read / unread status
         isRead: {
             type: Boolean,
             default: false
@@ -69,10 +46,7 @@ const notificationSchema = new mongoose.Schema(
     }
 );
 
-
-// ======================================================
 // DATABASE INDEXES
-// ======================================================
 
 // Faster user notification listing
 notificationSchema.index({
@@ -80,20 +54,14 @@ notificationSchema.index({
     createdAt: -1
 });
 
-
 // Faster unread notification queries
 notificationSchema.index({
     user: 1,
     isRead: 1
 });
 
-
-// ======================================================
 // EXPORT MODEL
-// ======================================================
-
 module.exports = mongoose.model(
     "Notification",
     notificationSchema
 );
-

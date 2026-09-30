@@ -9,18 +9,8 @@ const { protect, authorize } = require("../middleware/authMiddleware");
 const router = express.Router();
 
 
-// ==================================================
-// SIGNUP API
+// ==================== SIGNUP API ====================
 // POST /api/auth/signup
-// ==================================================
-//
-// Normal signup creates CUSTOMER.
-//
-// If the email belongs to an APPROVED provider
-// application, the account is created as PROVIDER.
-//
-// Client cannot directly choose role.
-// ==================================================
 
 router.post("/signup", async (req, res) => {
     try {
@@ -34,9 +24,7 @@ router.post("/signup", async (req, res) => {
         } = req.body;
 
 
-        // ==============================================
-        // REQUIRED FIELDS
-        // ==============================================
+        // ==================== REQUIRED FIELDS ====================
 
         if (!name || !email || !phone || !password) {
             return res.status(400).json({
@@ -46,9 +34,7 @@ router.post("/signup", async (req, res) => {
         }
 
 
-        // ==============================================
-        // PASSWORD VALIDATION
-        // ==============================================
+        // ==================== PASSWORD VALIDATION ====================
 
         if (password.length < 6) {
             return res.status(400).json({
@@ -59,18 +45,14 @@ router.post("/signup", async (req, res) => {
         }
 
 
-        // ==============================================
-        // CLEAN INPUT
-        // ==============================================
+        // ==================== CLEAN INPUT ====================
 
         const cleanName = name.trim();
         const cleanEmail = email.trim().toLowerCase();
         const cleanPhone = phone.trim();
 
 
-        // ==============================================
-        // CHECK EXISTING EMAIL
-        // ==============================================
+        // ==================== CHECK EXISTING EMAIL ====================
 
         const existingUser = await User.findOne({
             email: cleanEmail
@@ -85,9 +67,7 @@ router.post("/signup", async (req, res) => {
         }
 
 
-        // ==============================================
-        // CHECK PROVIDER APPLICATION
-        // ==============================================
+        // ==================== CHECK PROVIDER APPLICATION ====================
 
         const providerApplication =
             await ProviderApplication.findOne({
@@ -96,18 +76,7 @@ router.post("/signup", async (req, res) => {
             });
 
 
-        // ==============================================
-        // DETERMINE USER ROLE
-        // ==============================================
-        //
-        // Approved application:
-        //     provider
-        //
-        // No approved application:
-        //     customer
-        //
-        // Role is NEVER accepted from client.
-        // ==============================================
+        // ==================== DETERMINE USER ROLE ====================
 
         const userRole =
             providerApplication
@@ -115,9 +84,7 @@ router.post("/signup", async (req, res) => {
                 : "customer";
 
 
-        // ==============================================
-        // HASH PASSWORD
-        // ==============================================
+        // ==================== HASH PASSWORD ====================
 
         const hashedPassword = await bcrypt.hash(
             password,
@@ -125,9 +92,7 @@ router.post("/signup", async (req, res) => {
         );
 
 
-        // ==============================================
-        // CREATE USER
-        // ==============================================
+        // ==================== CREATE USER ====================
 
         const user = await User.create({
             name: cleanName,
@@ -140,14 +105,7 @@ router.post("/signup", async (req, res) => {
         });
 
 
-        // ==============================================
-        // LINK PROVIDER APPLICATION
-        // ==============================================
-        //
-        // If this account was created from an approved
-        // provider application, store the User ID in
-        // that application.
-        // ==============================================
+        // ==================== LINK PROVIDER APPLICATION ====================
 
         if (providerApplication) {
 
@@ -159,9 +117,7 @@ router.post("/signup", async (req, res) => {
         }
 
 
-        // ==============================================
-        // SUCCESS RESPONSE
-        // ==============================================
+        // ==================== SUCCESS RESPONSE ====================
 
         res.status(201).json({
             success: true,
@@ -197,10 +153,8 @@ router.post("/signup", async (req, res) => {
 });
 
 
-// ==================================================
-// LOGIN API
+// ==================== LOGIN API ====================
 // POST /api/auth/login
-// ==================================================
 
 router.post("/login", async (req, res) => {
 
@@ -214,9 +168,7 @@ router.post("/login", async (req, res) => {
         } = req.body;
 
 
-        // ==============================================
-        // REQUIRED FIELDS
-        // ==============================================
+        // ==================== REQUIRED FIELDS ====================
 
         if (!email || !password) {
             return res.status(400).json({
@@ -227,18 +179,14 @@ router.post("/login", async (req, res) => {
         }
 
 
-        // ==============================================
-        // FIND USER
-        // ==============================================
+        // ==================== FIND USER ====================
 
         const user = await User.findOne({
             email: email.trim().toLowerCase()
         });
 
 
-        // ==============================================
-        // USER NOT FOUND
-        // ==============================================
+        // ==================== USER NOT FOUND ====================
 
         if (!user) {
             return res.status(401).json({
@@ -249,9 +197,7 @@ router.post("/login", async (req, res) => {
         }
 
 
-        // ==============================================
-        // CHECK ACCOUNT STATUS
-        // ==============================================
+        // ==================== CHECK ACCOUNT STATUS ====================
 
         if (user.isActive === false) {
             return res.status(403).json({
@@ -262,9 +208,7 @@ router.post("/login", async (req, res) => {
         }
 
 
-        // ==============================================
-        // COMPARE PASSWORD
-        // ==============================================
+        // ==================== COMPARE PASSWORD ====================
 
         const isPasswordCorrect =
             await bcrypt.compare(
@@ -282,9 +226,7 @@ router.post("/login", async (req, res) => {
         }
 
 
-        // ==============================================
-        // GENERATE JWT
-        // ==============================================
+        // ==================== GENERATE JWT ====================
 
         const token = jwt.sign(
             {
@@ -309,9 +251,7 @@ router.post("/login", async (req, res) => {
         );
 
 
-        // ==============================================
-        // LOGIN SUCCESS
-        // ==============================================
+        // ==================== LOGIN SUCCESS ====================
 
         res.status(200).json({
             success: true,
@@ -344,16 +284,8 @@ router.post("/login", async (req, res) => {
 });
 
 
-// ==================================================
-// RESET PASSWORD API
+// ==================== RESET PASSWORD API ====================
 // PUT /api/auth/reset-password
-// ==================================================
-//
-// NOTE:
-// This is currently a direct email-based reset.
-// Later we can make this more secure with
-// OTP/email verification.
-// ==================================================
 
 router.put("/reset-password", async (req, res) => {
 
@@ -365,9 +297,7 @@ router.put("/reset-password", async (req, res) => {
         } = req.body;
 
 
-        // ==============================================
-        // REQUIRED FIELDS
-        // ==============================================
+        // ==================== REQUIRED FIELDS ====================
 
         if (!email || !newPassword) {
             return res.status(400).json({
@@ -378,9 +308,7 @@ router.put("/reset-password", async (req, res) => {
         }
 
 
-        // ==============================================
-        // PASSWORD VALIDATION
-        // ==============================================
+        // ==================== PASSWORD VALIDATION ====================
 
         if (newPassword.length < 6) {
             return res.status(400).json({
@@ -391,9 +319,7 @@ router.put("/reset-password", async (req, res) => {
         }
 
 
-        // ==============================================
-        // FIND USER
-        // ==============================================
+        // ==================== FIND USER ====================
 
         const user = await User.findOne({
             email:
@@ -409,9 +335,7 @@ router.put("/reset-password", async (req, res) => {
         }
 
 
-        // ==============================================
-        // HASH NEW PASSWORD
-        // ==============================================
+        // ==================== HASH NEW PASSWORD ====================
 
         const hashedPassword =
             await bcrypt.hash(
@@ -426,9 +350,7 @@ router.put("/reset-password", async (req, res) => {
         await user.save();
 
 
-        // ==============================================
-        // SUCCESS
-        // ==============================================
+        // ==================== SUCCESS ====================
 
         res.status(200).json({
             success: true,
@@ -451,10 +373,8 @@ router.put("/reset-password", async (req, res) => {
 });
 
 
-// ==================================================
-// GET MY PROFILE
+// ==================== GET MY PROFILE ====================
 // GET /api/auth/me
-// ==================================================
 
 router.get(
     "/me",
@@ -463,9 +383,7 @@ router.get(
 
         try {
 
-            // ==============================================
-            // FIND LOGGED-IN USER
-            // ==============================================
+            // ==================== FIND LOGGED-IN USER ====================
 
             const user =
                 await User.findById(
@@ -481,9 +399,7 @@ router.get(
             }
 
 
-            // ==============================================
-            // CHECK ACCOUNT STATUS
-            // ==============================================
+            // ==================== CHECK ACCOUNT STATUS ====================
 
             if (user.isActive === false) {
                 return res.status(403).json({
@@ -494,9 +410,7 @@ router.get(
             }
 
 
-            // ==============================================
-            // RESPONSE
-            // ==============================================
+            // ==================== RESPONSE ====================
 
             res.status(200).json({
                 success: true,
@@ -519,10 +433,8 @@ router.get(
 );
 
 
-// ==================================================
-// UPDATE MY PROFILE
+// ==================== UPDATE MY PROFILE ====================
 // PUT /api/auth/me
-// ==================================================
 
 router.put(
     "/me",
@@ -537,9 +449,7 @@ router.put(
             } = req.body;
 
 
-            // ==============================================
-            // REQUIRED FIELDS
-            // ==============================================
+            // ==================== REQUIRED FIELDS ====================
 
             if (!name || !phone) {
                 return res.status(400).json({
@@ -550,9 +460,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // FIND USER
-            // ==============================================
+            // ==================== FIND USER ====================
 
             const user =
                 await User.findById(
@@ -568,9 +476,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // CHECK ACCOUNT STATUS
-            // ==============================================
+            // ==================== CHECK ACCOUNT STATUS ====================
 
             if (user.isActive === false) {
                 return res.status(403).json({
@@ -581,9 +487,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // UPDATE ALLOWED FIELDS ONLY
-            // ==============================================
+            // ==================== UPDATE ALLOWED FIELDS ====================
 
             user.name =
                 name.trim();
@@ -595,9 +499,7 @@ router.put(
             await user.save();
 
 
-            // ==============================================
-            // RESPONSE
-            // ==============================================
+            // ==================== RESPONSE ====================
 
             res.status(200).json({
                 success: true,
@@ -632,10 +534,8 @@ router.put(
 );
 
 
-// ==================================================
-// CHANGE PASSWORD
+// ==================== CHANGE PASSWORD ====================
 // PUT /api/auth/change-password
-// ==================================================
 
 router.put(
     "/change-password",
@@ -650,9 +550,7 @@ router.put(
             } = req.body;
 
 
-            // ==============================================
-            // REQUIRED FIELDS
-            // ==============================================
+            // ==================== REQUIRED FIELDS ====================
 
             if (
                 !currentPassword ||
@@ -666,9 +564,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // PASSWORD VALIDATION
-            // ==============================================
+            // ==================== PASSWORD VALIDATION ====================
 
             if (newPassword.length < 6) {
                 return res.status(400).json({
@@ -679,9 +575,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // FIND USER
-            // ==============================================
+            // ==================== FIND USER ====================
 
             const user =
                 await User.findById(
@@ -697,9 +591,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // CHECK ACCOUNT STATUS
-            // ==============================================
+            // ==================== CHECK ACCOUNT STATUS ====================
 
             if (user.isActive === false) {
                 return res.status(403).json({
@@ -710,9 +602,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // VERIFY CURRENT PASSWORD
-            // ==============================================
+            // ==================== VERIFY CURRENT PASSWORD ====================
 
             const isPasswordCorrect =
                 await bcrypt.compare(
@@ -730,9 +620,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // PREVENT SAME PASSWORD
-            // ==============================================
+            // ==================== PREVENT SAME PASSWORD ====================
 
             const isSamePassword =
                 await bcrypt.compare(
@@ -750,9 +638,7 @@ router.put(
             }
 
 
-            // ==============================================
-            // HASH NEW PASSWORD
-            // ==============================================
+            // ==================== HASH NEW PASSWORD ====================
 
             const hashedPassword =
                 await bcrypt.hash(
@@ -767,9 +653,7 @@ router.put(
             await user.save();
 
 
-            // ==============================================
-            // SUCCESS
-            // ==============================================
+            // ==================== SUCCESS ====================
 
             res.status(200).json({
                 success: true,
@@ -793,10 +677,8 @@ router.put(
 );
 
 
-// ==================================================
-// JWT PROTECTED TEST ROUTE
+// ==================== JWT PROTECTED TEST ROUTE ====================
 // GET /api/auth/test-protected
-// ==================================================
 
 router.get(
     "/test-protected",
@@ -813,10 +695,8 @@ router.get(
 );
 
 
-// ==================================================
-// CUSTOMER ONLY TEST ROUTE
+// ==================== CUSTOMER ONLY TEST ROUTE ====================
 // GET /api/auth/test-customer
-// ==================================================
 
 router.get(
     "/test-customer",
@@ -834,10 +714,8 @@ router.get(
 );
 
 
-// ==================================================
-// PROVIDER ONLY TEST ROUTE
+// ==================== PROVIDER ONLY TEST ROUTE ====================
 // GET /api/auth/test-provider
-// ==================================================
 
 router.get(
     "/test-provider",
@@ -855,10 +733,8 @@ router.get(
 );
 
 
-// ==================================================
-// ADMIN ONLY TEST ROUTE
+// ==================== ADMIN ONLY TEST ROUTE ====================
 // GET /api/auth/test-admin
-// ==================================================
 
 router.get(
     "/test-admin",
@@ -876,8 +752,6 @@ router.get(
 );
 
 
-// ==================================================
-// EXPORT ROUTER
-// ==================================================
+// ==================== EXPORT ROUTER ====================
 
 module.exports = router;

@@ -12,20 +12,14 @@ const authorizeRoles = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
-
-// ==================================================
 // ADMIN DASHBOARD
 // GET /api/admin/dashboard
-// ==================================================
-
 router.get(
     "/dashboard",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const totalUsers =
                 await User.countDocuments();
 
@@ -40,7 +34,6 @@ router.get(
             const totalReviews =
                 await Review.countDocuments();
 
-
             res.status(200).json({
                 success: true,
 
@@ -51,9 +44,7 @@ router.get(
                     reviews: totalReviews
                 }
             });
-
         } catch (error) {
-
             console.error(
                 "Admin dashboard error:",
                 error
@@ -67,20 +58,14 @@ router.get(
     }
 );
 
-
-// ==================================================
 // GET ALL USERS
 // GET /api/admin/users
-// ==================================================
-
 router.get(
     "/users",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const users =
                 await User.find()
                     .select("-password")
@@ -88,15 +73,12 @@ router.get(
                         createdAt: -1
                     });
 
-
             res.status(200).json({
                 success: true,
                 count: users.length,
                 users
             });
-
         } catch (error) {
-
             console.error(
                 "Get admin users error:",
                 error
@@ -110,24 +92,17 @@ router.get(
     }
 );
 
-
-// ==================================================
 // GET SINGLE USER
 // GET /api/admin/users/:id
-// ==================================================
-
 router.get(
     "/users/:id",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -138,11 +113,9 @@ router.get(
                 });
             }
 
-
             const user =
                 await User.findById(id)
                     .select("-password");
-
 
             if (!user) {
                 return res.status(404).json({
@@ -151,14 +124,11 @@ router.get(
                 });
             }
 
-
             res.status(200).json({
                 success: true,
                 user
             });
-
         } catch (error) {
-
             console.error(
                 "Get single admin user error:",
                 error
@@ -172,20 +142,14 @@ router.get(
     }
 );
 
-
-// ==================================================
 // ACTIVATE / DEACTIVATE USER
 // PUT /api/admin/users/:id/status
-// ==================================================
-
 router.put(
     "/users/:id/status",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
@@ -193,7 +157,6 @@ router.put(
             const {
                 isActive
             } = req.body;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -203,7 +166,6 @@ router.put(
                     message: "Invalid user ID"
                 });
             }
-
 
             if (
                 typeof isActive !== "boolean"
@@ -215,10 +177,8 @@ router.put(
                 });
             }
 
-
             const user =
                 await User.findById(id);
-
 
             if (!user) {
                 return res.status(404).json({
@@ -227,12 +187,10 @@ router.put(
                 });
             }
 
-
             user.isActive =
                 isActive;
 
             await user.save();
-
 
             res.status(200).json({
                 success: true,
@@ -250,9 +208,7 @@ router.put(
                     isActive: user.isActive
                 }
             });
-
         } catch (error) {
-
             console.error(
                 "Update user status error:",
                 error
@@ -266,20 +222,14 @@ router.put(
     }
 );
 
-
-// ==================================================
 // GET ALL BOOKINGS
 // GET /api/admin/bookings
-// ==================================================
-
 router.get(
     "/bookings",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const bookings =
                 await Booking.find()
                     .populate(
@@ -298,15 +248,12 @@ router.get(
                         createdAt: -1
                     });
 
-
             res.status(200).json({
                 success: true,
                 count: bookings.length,
                 bookings
             });
-
         } catch (error) {
-
             console.error(
                 "Get admin bookings error:",
                 error
@@ -320,24 +267,17 @@ router.get(
     }
 );
 
-
-// ==================================================
 // GET SINGLE BOOKING
 // GET /api/admin/bookings/:id
-// ==================================================
-
 router.get(
     "/bookings/:id",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -347,7 +287,6 @@ router.get(
                     message: "Invalid booking ID"
                 });
             }
-
 
             const booking =
                 await Booking.findById(id)
@@ -364,7 +303,6 @@ router.get(
                         "name email phone"
                     );
 
-
             if (!booking) {
                 return res.status(404).json({
                     success: false,
@@ -372,14 +310,11 @@ router.get(
                 });
             }
 
-
             res.status(200).json({
                 success: true,
                 booking
             });
-
         } catch (error) {
-
             console.error(
                 "Get single admin booking error:",
                 error
@@ -393,20 +328,14 @@ router.get(
     }
 );
 
-
-// ==================================================
 // GET ALL REVIEWS
 // GET /api/admin/reviews
-// ==================================================
-
 router.get(
     "/reviews",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const reviews =
                 await Review.find()
                     .populate(
@@ -431,15 +360,12 @@ router.get(
                         createdAt: -1
                     });
 
-
             res.status(200).json({
                 success: true,
                 count: reviews.length,
                 reviews
             });
-
         } catch (error) {
-
             console.error(
                 "Get admin reviews error:",
                 error
@@ -453,35 +379,26 @@ router.get(
     }
 );
 
-
-// ==================================================
 // GET ALL SERVICES
 // GET /api/admin/services
-// ==================================================
-
 router.get(
     "/services",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const services =
                 await Service.find()
                     .sort({
                         createdAt: -1
                     });
 
-
             res.status(200).json({
                 success: true,
                 count: services.length,
                 services
             });
-
         } catch (error) {
-
             console.error(
                 "Get admin services error:",
                 error
@@ -495,20 +412,14 @@ router.get(
     }
 );
 
-
-// ==================================================
 // CREATE SERVICE
 // POST /api/admin/services
-// ==================================================
-
 router.post(
     "/services",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 name,
                 description,
@@ -516,7 +427,6 @@ router.post(
                 price,
                 image
             } = req.body;
-
 
             if (
                 !name ||
@@ -531,10 +441,8 @@ router.post(
                 });
             }
 
-
             const numericPrice =
                 Number(price);
-
 
             if (
                 Number.isNaN(numericPrice) ||
@@ -546,7 +454,6 @@ router.post(
                         "Price must be a valid non-negative number"
                 });
             }
-
 
             const service =
                 await Service.create({
@@ -561,16 +468,13 @@ router.post(
                     isActive: true
                 });
 
-
             res.status(201).json({
                 success: true,
                 message:
                     "Service created successfully",
                 service
             });
-
         } catch (error) {
-
             console.error(
                 "Create admin service error:",
                 error
@@ -584,24 +488,17 @@ router.post(
     }
 );
 
-
-// ==================================================
 // UPDATE SERVICE
 // PUT /api/admin/services/:id
-// ==================================================
-
 router.put(
     "/services/:id",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -612,7 +509,6 @@ router.put(
                 });
             }
 
-
             const {
                 name,
                 description,
@@ -622,10 +518,8 @@ router.put(
                 isActive
             } = req.body;
 
-
             const service =
                 await Service.findById(id);
-
 
             if (!service) {
                 return res.status(404).json({
@@ -634,30 +528,24 @@ router.put(
                 });
             }
 
-
             if (name !== undefined) {
                 service.name =
                     name.trim();
             }
-
 
             if (description !== undefined) {
                 service.description =
                     description.trim();
             }
 
-
             if (category !== undefined) {
                 service.category =
                     category.trim();
             }
 
-
             if (price !== undefined) {
-
                 const numericPrice =
                     Number(price);
-
 
                 if (
                     Number.isNaN(numericPrice) ||
@@ -670,22 +558,18 @@ router.put(
                     });
                 }
 
-
                 service.price =
                     numericPrice;
             }
-
 
             if (image !== undefined) {
                 service.image =
                     image.trim();
             }
 
-
             if (
                 isActive !== undefined
             ) {
-
                 if (
                     typeof isActive !== "boolean"
                 ) {
@@ -696,14 +580,11 @@ router.put(
                     });
                 }
 
-
                 service.isActive =
                     isActive;
             }
 
-
             await service.save();
-
 
             res.status(200).json({
                 success: true,
@@ -711,9 +592,7 @@ router.put(
                     "Service updated successfully",
                 service
             });
-
         } catch (error) {
-
             console.error(
                 "Update admin service error:",
                 error
@@ -727,24 +606,17 @@ router.put(
     }
 );
 
-
-// ==================================================
 // DELETE SERVICE
 // DELETE /api/admin/services/:id
-// ==================================================
-
 router.delete(
     "/services/:id",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -755,10 +627,8 @@ router.delete(
                 });
             }
 
-
             const service =
                 await Service.findById(id);
-
 
             if (!service) {
                 return res.status(404).json({
@@ -767,18 +637,14 @@ router.delete(
                 });
             }
 
-
             await Service.findByIdAndDelete(id);
-
 
             res.status(200).json({
                 success: true,
                 message:
                     "Service deleted successfully"
             });
-
         } catch (error) {
-
             console.error(
                 "Delete admin service error:",
                 error
@@ -792,25 +658,16 @@ router.delete(
     }
 );
 
-
-// ==================================================
 // PROVIDER APPLICATIONS
-// ==================================================
 
-
-// ==================================================
 // GET ALL PROVIDER APPLICATIONS
 // GET /api/admin/provider-applications
-// ==================================================
-
 router.get(
     "/provider-applications",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const applications =
                 await ProviderApplication.find()
                     .populate(
@@ -821,15 +678,12 @@ router.get(
                         createdAt: -1
                     });
 
-
             res.status(200).json({
                 success: true,
                 count: applications.length,
                 applications
             });
-
         } catch (error) {
-
             console.error(
                 "Get provider applications error:",
                 error
@@ -843,24 +697,17 @@ router.get(
     }
 );
 
-
-// ==================================================
 // GET SINGLE PROVIDER APPLICATION
 // GET /api/admin/provider-applications/:id
-// ==================================================
-
 router.get(
     "/provider-applications/:id",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -872,14 +719,12 @@ router.get(
                 });
             }
 
-
             const application =
                 await ProviderApplication.findById(id)
                     .populate(
                         "user",
                         "name email phone role isActive"
                     );
-
 
             if (!application) {
                 return res.status(404).json({
@@ -889,14 +734,11 @@ router.get(
                 });
             }
 
-
             res.status(200).json({
                 success: true,
                 application
             });
-
         } catch (error) {
-
             console.error(
                 "Get single provider application error:",
                 error
@@ -910,24 +752,17 @@ router.get(
     }
 );
 
-
-// ==================================================
 // APPROVE PROVIDER APPLICATION
 // PUT /api/admin/provider-applications/:id/approve
-// ==================================================
-
 router.put(
     "/provider-applications/:id/approve",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -939,10 +774,8 @@ router.put(
                 });
             }
 
-
             const application =
                 await ProviderApplication.findById(id);
-
 
             if (!application) {
                 return res.status(404).json({
@@ -951,7 +784,6 @@ router.put(
                         "Provider application not found"
                 });
             }
-
 
             if (
                 application.status === "approved"
@@ -963,7 +795,6 @@ router.put(
                 });
             }
 
-
             if (
                 application.status === "rejected"
             ) {
@@ -974,13 +805,10 @@ router.put(
                 });
             }
 
-
             application.status =
                 "approved";
 
-
             await application.save();
-
 
             res.status(200).json({
                 success: true,
@@ -990,9 +818,7 @@ router.put(
 
                 application
             });
-
         } catch (error) {
-
             console.error(
                 "Approve provider application error:",
                 error
@@ -1006,24 +832,17 @@ router.put(
     }
 );
 
-
-// ==================================================
 // REJECT PROVIDER APPLICATION
 // PUT /api/admin/provider-applications/:id/reject
-// ==================================================
-
 router.put(
     "/provider-applications/:id/reject",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
-
         try {
-
             const {
                 id
             } = req.params;
-
 
             if (
                 !mongoose.Types.ObjectId.isValid(id)
@@ -1035,10 +854,8 @@ router.put(
                 });
             }
 
-
             const application =
                 await ProviderApplication.findById(id);
-
 
             if (!application) {
                 return res.status(404).json({
@@ -1047,7 +864,6 @@ router.put(
                         "Provider application not found"
                 });
             }
-
 
             if (
                 application.status === "rejected"
@@ -1059,7 +875,6 @@ router.put(
                 });
             }
 
-
             if (
                 application.status === "approved"
             ) {
@@ -1070,13 +885,10 @@ router.put(
                 });
             }
 
-
             application.status =
                 "rejected";
 
-
             await application.save();
-
 
             res.status(200).json({
                 success: true,
@@ -1086,9 +898,7 @@ router.put(
 
                 application
             });
-
         } catch (error) {
-
             console.error(
                 "Reject provider application error:",
                 error
@@ -1102,9 +912,5 @@ router.put(
     }
 );
 
-
-// ==================================================
 // EXPORT ROUTER
-// ==================================================
-
 module.exports = router;

@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-// ================================
 // SERVICE SCHEMA
-// ================================
 const serviceSchema = new mongoose.Schema(
     {
         name: {
@@ -50,9 +48,7 @@ const serviceSchema = new mongoose.Schema(
     }
 );
 
-// ================================
 // CREATE MODEL
-// ================================
 const Service = mongoose.model("Service", serviceSchema);
 
 module.exports = Service;

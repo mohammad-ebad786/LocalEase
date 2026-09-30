@@ -1,605 +1,520 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <!-- ==========================================
-         BASIC META
-    ========================================== -->
+<!-- ==================== BASIC META ==================== -->
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="Login to your LocalEase account to manage bookings and local services."
-    >
+<meta
+    name="description"
+    content="Login to your LocalEase account to manage bookings and local services."
+>
 
-    <meta
-        name="author"
-        content="LocalEase"
-    >
+<meta
+    name="author"
+    content="LocalEase"
+>
 
-    <title>Login - LocalEase</title>
+<title>Login - LocalEase</title>
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+<link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+>
 
 </head>
 
-
 <body class="login-page">
 
+<!-- ==================== HEADER ==================== -->
 
-    <!-- ==========================================
-         HEADER
-    ========================================== -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="header-container">
 
-        <div class="header-container">
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="LocalEase Home"
+        >
+            <span class="brand-text">
+                LocalEase
+            </span>
+        </a>
 
 
-            <!-- BRAND -->
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
+        >
 
             <a
                 href="index.html"
-                class="brand"
-                aria-label="LocalEase Home"
+                class="nav-link"
             >
-
-                <span class="brand-text">
-                    LocalEase
-                </span>
-
+                Home
             </a>
 
-
-
-            <!-- NAVIGATION -->
-
-            <nav
-                class="main-navigation"
-                aria-label="Main Navigation"
+            <a
+                href="services.html"
+                class="nav-link"
             >
+                Services
+            </a>
 
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
+            <a
+                href="provider.html"
+                class="nav-link"
+            >
+                Become a Provider
+            </a>
+
+            <a
+                href="login.html"
+                class="nav-login-btn login-active-btn"
+                aria-current="page"
+            >
+                Login
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
 
 
-                <a
-                    href="services.html"
-                    class="nav-link"
-                >
-                    Services
-                </a>
+<!-- ==================== MAIN CONTENT ==================== -->
+
+<main>
 
 
-                <a
-                    href="provider.html"
-                    class="nav-link"
-                >
-                    Become a Provider
-                </a>
+    <!-- ==================== LOGIN HERO ==================== -->
+
+    <section class="login-hero">
+
+        <div class="login-hero-container">
 
 
-                <a
-                    href="login.html"
-                    class="nav-login-btn login-active-btn"
-                    aria-current="page"
-                >
-                    Login
-                </a>
+            <!-- Login Introduction -->
 
-            </nav>
+            <div class="login-hero-content">
+
+                <p class="login-eyebrow">
+                    WELCOME BACK
+                </p>
+
+                <h1>
+                    Your Local
+                    <span>Services.</span>
+                </h1>
+
+                <p class="login-hero-description">
+                    Sign in to manage your bookings,
+                    discover trusted professionals and
+                    keep everything in one place.
+                </p>
+
+
+                <div class="login-trust-list">
+
+                    <div class="login-trust-item">
+
+                        <span class="login-trust-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Manage your bookings
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-trust-item">
+
+                        <span class="login-trust-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Connect with local providers
+                        </span>
+
+                    </div>
+
+
+                    <div class="login-trust-item">
+
+                        <span class="login-trust-icon">
+                            ✓
+                        </span>
+
+                        <span>
+                            Access your LocalEase account
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Login Card -->
+
+            <div class="login-card-wrapper">
+
+                <div class="login-card">
+
+                    <div class="login-card-header">
+
+                        <div class="login-card-icon">
+                            →
+                        </div>
+
+                        <div>
+
+                            <p class="login-card-eyebrow">
+                                ACCOUNT ACCESS
+                            </p>
+
+                            <h2>
+                                Welcome Back
+                            </h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="login-subtitle">
+                        Login to your LocalEase account.
+                    </p>
+
+
+                    <!-- ==================== LOGIN FORM ==================== -->
+
+                    <form class="login-form">
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email address"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="login-options">
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    name="remember"
+                                >
+
+                                <span>
+                                    Remember me
+                                </span>
+
+                            </label>
+
+
+                            <a href="#">
+                                Forgot Password?
+                            </a>
+
+                        </div>
+
+
+                        <div class="login-verification">
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    id="login-verification"
+                                    name="verification"
+                                    required
+                                >
+
+                                <span>
+                                    I'm not a robot
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="login-btn"
+                        >
+                            Login
+                        </button>
+
+                    </form>
+
+
+                    <p class="signup-text">
+
+                        Don't have an account?
+
+                        <a href="signup.html">
+                            Create Account
+                        </a>
+
+                    </p>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </header>
+    </section>
 
 
+    <!-- ==================== ACCOUNT TYPES ==================== -->
 
-    <!-- ==========================================
-         MAIN CONTENT
-    ========================================== -->
+    <section class="account-types">
 
-    <main>
+        <div class="account-types-container">
 
 
-        <!-- ==========================================
-             LOGIN HERO
-        ========================================== -->
+            <div class="account-types-heading">
 
-        <section class="login-hero">
+                <p class="account-types-eyebrow">
+                    JOIN LOCALEASE
+                </p>
 
-            <div class="login-hero-container">
-
-
-                <!-- LEFT CONTENT -->
-
-                <div class="login-hero-content">
-
-
-                    <p class="login-eyebrow">
-                        WELCOME BACK
-                    </p>
-
-
-                    <h1>
-                        Your Local
-                        <span>Services.</span>
-                    </h1>
-
-
-                    <p class="login-hero-description">
-
-                        Sign in to manage your bookings,
-                        discover trusted professionals and
-                        keep everything in one place.
-
-                    </p>
-
-
-                    <div class="login-trust-list">
-
-
-                        <div class="login-trust-item">
-
-                            <span class="login-trust-icon">
-                                ✓
-                            </span>
-
-                            <span>
-                                Manage your bookings
-                            </span>
-
-                        </div>
-
-
-                        <div class="login-trust-item">
-
-                            <span class="login-trust-icon">
-                                ✓
-                            </span>
-
-                            <span>
-                                Connect with local providers
-                            </span>
-
-                        </div>
-
-
-                        <div class="login-trust-item">
-
-                            <span class="login-trust-icon">
-                                ✓
-                            </span>
-
-                            <span>
-                                Access your LocalEase account
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- RIGHT LOGIN CARD -->
-
-                <div class="login-card-wrapper">
-
-
-                    <div class="login-card">
-
-
-                        <div class="login-card-header">
-
-                            <div class="login-card-icon">
-                                →
-                            </div>
-
-
-                            <div>
-
-                                <p class="login-card-eyebrow">
-                                    ACCOUNT ACCESS
-                                </p>
-
-                                <h2>
-                                    Welcome Back
-                                </h2>
-
-                            </div>
-
-                        </div>
-
-
-                        <p class="login-subtitle">
-                            Login to your LocalEase account.
-                        </p>
-
-
-
-                        <!-- ==========================================
-                             LOGIN FORM
-                        ========================================== -->
-
-                        <form class="login-form">
-
-
-                            <!-- EMAIL -->
-
-                            <div class="form-group">
-
-                                <label for="email">
-                                    Email Address
-                                </label>
-
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="Enter your email address"
-                                    autocomplete="email"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- PASSWORD -->
-
-                            <div class="form-group">
-
-                                <label for="password">
-                                    Password
-                                </label>
-
-
-                                <input
-                                    type="password"
-                                    id="password"
-                                    name="password"
-                                    placeholder="Enter your password"
-                                    autocomplete="current-password"
-                                    required
-                                >
-
-                            </div>
-
-
-
-                            <!-- LOGIN OPTIONS -->
-
-                            <div class="login-options">
-
-                                <label>
-
-                                    <input
-                                        type="checkbox"
-                                        name="remember"
-                                    >
-
-                                    <span>
-                                        Remember me
-                                    </span>
-
-                                </label>
-
-
-                                <a href="#">
-                                    Forgot Password?
-                                </a>
-
-                            </div>
-
-
-
-                            <!-- VERIFICATION -->
-
-                            <div class="login-verification">
-
-                                <label>
-
-                                    <input
-                                        type="checkbox"
-                                        id="login-verification"
-                                        name="verification"
-                                        required
-                                    >
-
-                                    <span>
-                                        I'm not a robot
-                                    </span>
-
-                                </label>
-
-                            </div>
-
-
-
-                            <!-- LOGIN BUTTON -->
-
-                            <button
-                                type="submit"
-                                class="login-btn"
-                            >
-                                Login
-                            </button>
-
-
-                        </form>
-
-
-
-                        <!-- SIGN UP -->
-
-                        <p class="signup-text">
-
-                            Don't have an account?
-
-                            <a href="signup.html">
-                                Create Account
-                            </a>
-
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             ACCOUNT TYPES
-        ========================================== -->
-
-        <section class="account-types">
-
-            <div class="account-types-container">
-
-
-                <div class="account-types-heading">
-
-                    <p class="account-types-eyebrow">
-                        JOIN LOCALEASE
-                    </p>
-
-
-                    <h2>
-                        Choose How You Want
-                        <span>To Get Started.</span>
-                    </h2>
-
-
-                    <p>
-                        Whether you need a service or provide one,
-                        LocalEase keeps the experience simple.
-                    </p>
-
-                </div>
-
-
-
-                <div class="account-cards">
-
-
-                    <!-- CUSTOMER -->
-
-                    <article class="account-card customer-account-card">
-
-                        <div class="account-card-icon">
-                            👤
-                        </div>
-
-
-                        <div class="account-card-content">
-
-                            <p class="account-card-label">
-                                FOR CUSTOMERS
-                            </p>
-
-
-                            <h3>
-                                Find Local Services
-                            </h3>
-
-
-                            <p>
-                                Discover trusted local professionals
-                                and book the services you need easily.
-                            </p>
-
-
-                            <a href="signup.html">
-                                Create Customer Account
-                                <span>→</span>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <!-- PROVIDER -->
-
-                    <article class="account-card provider-account-card">
-
-                        <div class="account-card-icon">
-                            ⚒
-                        </div>
-
-
-                        <div class="account-card-content">
-
-                            <p class="account-card-label">
-                                FOR PROVIDERS
-                            </p>
-
-
-                            <h3>
-                                Grow Your Local Service
-                            </h3>
-
-
-                            <p>
-                                List your services and connect with
-                                customers looking for professionals.
-                            </p>
-
-
-                            <a href="provider.html">
-                                Register as Provider
-                                <span>→</span>
-                            </a>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-    </main>
-
-
-
-    <!-- ==========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="site-footer">
-
-        <div class="footer-container">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
-
-                <h3>
-                    LocalEase
-                </h3>
+                <h2>
+                    Choose How You Want
+                    <span>To Get Started.</span>
+                </h2>
 
                 <p>
-                    Connecting Customers with Trusted
-                    Local Service Providers.
+                    Whether you need a service or provide one,
+                    LocalEase keeps the experience simple.
                 </p>
 
             </div>
 
 
-
-            <!-- PLATFORM -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Platform
-                </h4>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="provider.html">
-                    Become a Provider
-                </a>
-
-            </div>
+            <div class="account-cards">
 
 
+                <!-- Customer Account -->
 
-            <!-- ACCOUNT -->
+                <article class="account-card customer-account-card">
 
-            <div class="footer-column">
+                    <div class="account-card-icon">
+                        👤
+                    </div>
 
-                <h4>
-                    Account
-                </h4>
+                    <div class="account-card-content">
 
-                <a href="login.html">
-                    Login
-                </a>
+                        <p class="account-card-label">
+                            FOR CUSTOMERS
+                        </p>
 
-                <a href="signup.html">
-                    Create Account
-                </a>
+                        <h3>
+                            Find Local Services
+                        </h3>
 
-            </div>
+                        <p>
+                            Discover trusted local professionals
+                            and book the services you need easily.
+                        </p>
+
+                        <a href="signup.html">
+                            Create Customer Account
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
 
 
+                <!-- Provider Account -->
 
-            <!-- SUPPORT -->
+                <article class="account-card provider-account-card">
 
-            <div class="footer-column">
+                    <div class="account-card-icon">
+                        ⚒
+                    </div>
 
-                <h4>
-                    Support
-                </h4>
+                    <div class="account-card-content">
 
-                <a href="about.html">
-                    About
-                </a>
+                        <p class="account-card-label">
+                            FOR PROVIDERS
+                        </p>
 
-                <a href="contact.html">
-                    Contact
-                </a>
+                        <h3>
+                            Grow Your Local Service
+                        </h3>
+
+                        <p>
+                            List your services and connect with
+                            customers looking for professionals.
+                        </p>
+
+                        <a href="provider.html">
+                            Register as Provider
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
 
             </div>
 
         </div>
 
+    </section>
+
+</main>
 
 
-        <div class="footer-bottom">
+<!-- ==================== FOOTER ==================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                LocalEase
+            </h3>
 
             <p>
-                © 2026 LocalEase. All Rights Reserved.
+                Connecting Customers with Trusted
+                Local Service Providers.
             </p>
 
         </div>
 
-    </footer>
+
+        <div class="footer-column">
+
+            <h4>
+                Platform
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+        </div>
 
 
+        <div class="footer-column">
 
-    <!-- ==========================================
-         JAVASCRIPT
-    ========================================== -->
+            <h4>
+                Account
+            </h4>
 
-    <script src="script.js"></script>
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="signup.html">
+                Create Account
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Support
+            </h4>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+
+<script src="script.js"></script>
 
 </body>
 

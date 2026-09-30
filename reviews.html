@@ -116,7 +116,7 @@
 
 
 <!-- ==========================================
-     HEADER
+     HEADER AND MAIN NAVIGATION
 ========================================== -->
 
 <header class="site-header">
@@ -195,7 +195,7 @@
 
 
     <!-- ======================================
-         REVIEWS HERO
+         REVIEWS HERO SECTION
     ====================================== -->
 
     <section class="reviews-hero">
@@ -566,7 +566,7 @@
 
 
                     <!-- ==================================
-                         PROVIDER + RATING
+                         PROVIDER AND RATING
                     ================================== -->
 
                     <div class="review-form-grid">
@@ -743,7 +743,7 @@
 
 
                     <!-- ==================================
-                         REVIEW COMMENT
+                         REVIEW COMMENT SECTION
                     ================================== -->
 
                     <div class="review-form-card">
@@ -844,7 +844,7 @@
 
 
             <!-- ==================================
-                 PREVIOUS REVIEWS
+                 PREVIOUS REVIEWS SECTION
             ================================== -->
 
             <section class="previous-reviews">
@@ -900,7 +900,7 @@
 
 
             <!-- ==================================
-                 EXPLORE SERVICES
+                 EXPLORE SERVICES SECTION
             ================================== -->
 
             <section class="reviews-explore">
@@ -1086,7 +1086,7 @@
 
 
 <!-- ==========================================
-     EXISTING LOCAL EASE JAVASCRIPT
+     EXISTING LOCALEASE JAVASCRIPT
 
      Keep the existing script.js exactly as it is.
 ========================================== -->
@@ -1148,7 +1148,7 @@
 
 
     /* ========================================================
-       BASIC HELPERS
+       REVIEWS BASIC HELPERS
     ======================================================== */
 
     if(!serviceSelect){
@@ -1277,7 +1277,7 @@
 
 
     /* ========================================================
-       RESET EDIT MODE
+       RESET REVIEW EDIT MODE
     ======================================================== */
 
     function resetEditMode(clearMessage=true){
@@ -1562,7 +1562,7 @@
 
 
     /* ========================================================
-       SERVICE CHANGE
+       SERVICE SELECTION CHANGE
     ======================================================== */
 
     serviceSelect.addEventListener(
@@ -1871,7 +1871,7 @@
 
 
     /* ========================================================
-       ENTER EDIT MODE
+       ENTER REVIEW EDIT MODE
     ======================================================== */
 
     function enterEditMode(review){
@@ -1989,7 +1989,7 @@
 
 
     /* ========================================================
-       EDIT + DELETE REVIEW ACTIONS
+       EDIT AND DELETE REVIEW ACTIONS
     ======================================================== */
 
     if(previousReviews){
@@ -2010,9 +2010,9 @@
                     );
 
 
-                /* ------------------------------
-                   EDIT
-                ------------------------------ */
+                /* ------------------------------------------
+                   EDIT REVIEW ACTION
+                ------------------------------------------ */
 
                 if(editButton){
 
@@ -2046,9 +2046,9 @@
 
 
 
-                /* ------------------------------
-                   DELETE
-                ------------------------------ */
+                /* ------------------------------------------
+                   DELETE REVIEW ACTION
+                ------------------------------------------ */
 
                 if(deleteButton){
 
@@ -2160,7 +2160,7 @@
 
 
     /* ========================================================
-       REVIEW FORM SUBMIT
+       REVIEW FORM SUBMISSION
     ======================================================== */
 
     if(reviewForm){
@@ -2419,7 +2419,7 @@
 
 
     /* ========================================================
-       CANCEL EDIT
+       CANCEL REVIEW EDIT
     ======================================================== */
 
     if(cancelEditBtn){
@@ -2441,9 +2441,9 @@
 
 
     /* ========================================================
-       RATING CLICK / CHANGE
+       RATING SELECTION CHANGE
        
-       This is the important fix.
+       This handles the rating selection behavior.
 
        Example:
        Click 4th star
@@ -2478,7 +2478,7 @@
 
 
     /* ========================================================
-       AUTH NAVIGATION
+       AUTHENTICATION NAVIGATION
     ======================================================== */
 
     function initializeAuthNavigation(){

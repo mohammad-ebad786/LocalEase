@@ -4,20 +4,13 @@ require("dotenv").config();
 
 const User = require("../models/User");
 
-
-// ==================================================
 // CREATE ADMIN USER
-// ==================================================
-
 const createAdmin = async () => {
-
     try {
-
-        // Connect MongoDB
+        // Connect to MongoDB
         await mongoose.connect(process.env.MONGODB_URI);
 
         console.log("MongoDB connected successfully ✅");
-
 
         // Admin details
         const name = "LocalEase Admin";
@@ -25,15 +18,12 @@ const createAdmin = async () => {
         const phone = "9876543215";
         const password = "Admin@12345";
 
-
         // Check if admin already exists
         const existingAdmin = await User.findOne({
             email: email.toLowerCase()
         });
 
-
         if (existingAdmin) {
-
             console.log("❌ Admin already exists");
 
             await mongoose.connection.close();
@@ -41,31 +31,21 @@ const createAdmin = async () => {
             return;
         }
 
-
         // Hash password
         const hashedPassword = await bcrypt.hash(
             password,
             10
         );
 
-
-        // Create admin
+        // Create admin account
         const admin = await User.create({
-
             name,
-
             email: email.toLowerCase(),
-
             phone,
-
             password: hashedPassword,
-
             role: "admin",
-
             isActive: true
-
         });
-
 
         console.log("======================================");
         console.log("✅ ADMIN CREATED SUCCESSFULLY");
@@ -80,15 +60,12 @@ const createAdmin = async () => {
 
         console.log("======================================");
 
-
-        // Close connection
+        // Close MongoDB connection
         await mongoose.connection.close();
 
         console.log("MongoDB connection closed ✅");
 
-
     } catch (error) {
-
         console.error(
             "❌ Admin creation failed:",
             error.message
@@ -98,9 +75,5 @@ const createAdmin = async () => {
     }
 };
 
-
-// ==================================================
-// RUN
-// ==================================================
-
+// RUN SCRIPT
 createAdmin();

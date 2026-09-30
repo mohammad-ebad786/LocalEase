@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// BOOKING SCHEMA
 const bookingSchema = new mongoose.Schema(
     {
         customer: {
@@ -62,4 +63,5 @@ const bookingSchema = new mongoose.Schema(
     }
 );
 
+// EXPORT BOOKING MODEL
 module.exports = mongoose.model("Booking", bookingSchema);

@@ -1,21 +1,7 @@
-/* ================================================================
-   LOCALEASE - FRONTEND JAVASCRIPT
-   Backend: Node.js + Express + MongoDB
-   Authentication: JWT
-
-   Backend URL:
-   http://localhost:5000
-
-   Integrated APIs:
-   /api/auth
-   /api/notifications
-   /api/reviews
-================================================================ */
+// LOCALEASE FRONTEND JAVASCRIPT
 
 
-/* ================================================================
-   GLOBAL API CONFIGURATION
-================================================================ */
+// GLOBAL API CONFIGURATION
 
 const API_BASE_URL = "http://localhost:5000/api";
 
@@ -26,10 +12,7 @@ const SELECTED_SERVICE_KEY = "localeaseSelectedService";
 const SELECTED_PROVIDER_KEY = "localeaseSelectedProvider";
 
 
-/* ================================================================
-   API RESPONSE HANDLER
-   Validates the server response and returns parsed JSON data.
-================================================================ */
+// API RESPONSE HANDLER
 
 async function getApiResponse(response) {
 
@@ -75,9 +58,7 @@ async function getApiResponse(response) {
 }
 
 
-/* ================================================================
-   AUTHENTICATION STORAGE HELPERS
-================================================================ */
+// AUTHENTICATION STORAGE HELPERS
 
 function getToken() {
 
@@ -144,13 +125,7 @@ function clearAuthData() {
 }
 
 
-/* ================================================================
-   GLOBAL PAGE AUTH GUARD
-   Runs on every page that loads this script.
-   Public pages remain accessible; protected pages require a valid
-   local auth session. Role-specific admin/provider pages are also
-   blocked for the wrong role.
-================================================================ */
+// GLOBAL PAGE AUTH GUARD
 
 (function enforcePageAuthGuard() {
 
@@ -224,11 +199,7 @@ function clearAuthData() {
 })();
 
 
-
-/* ================================================================
-   LOGOUT USER
-   Clears authentication data and returns the user to the login page.
-================================================================ */
+// LOGOUT USER
 
 function logoutUser() {
 
@@ -239,10 +210,7 @@ function logoutUser() {
 }
 
 
-/* ================================================================
-   AUTHORIZATION HEADER
-   Adds the JWT token to authenticated API requests.
-================================================================ */
+// AUTHORIZATION HEADER
 
 function getAuthHeaders() {
 
@@ -264,10 +232,7 @@ function getAuthHeaders() {
 }
 
 
-/* ================================================================
-   GENERIC API REQUEST
-   Centralizes fetch configuration and API error handling.
-================================================================ */
+// GENERIC API REQUEST
 
 async function apiRequest(
     endpoint,
@@ -313,10 +278,7 @@ async function apiRequest(
 }
 
 
-/* ================================================================
-   HTML ESCAPE HELPER
-   Prevents dynamic values from being inserted as raw HTML.
-================================================================ */
+// HTML ESCAPE HELPER
 
 function escapeHtml(value) {
 
@@ -338,9 +300,7 @@ function escapeHtml(value) {
 }
 
 
-/* ================================================================
-   DATE FORMATTER
-================================================================ */
+// DATE FORMATTER
 
 function formatDate(dateValue) {
 
@@ -375,9 +335,7 @@ function formatDate(dateValue) {
 }
 
 
-/* ================================================================
-   DATE AND TIME FORMATTER
-================================================================ */
+// DATE AND TIME FORMATTER
 
 function formatDateTime(dateValue) {
 
@@ -414,10 +372,7 @@ function formatDateTime(dateValue) {
 }
 
 
-/* ================================================================
-   LOGIN REQUIREMENT
-   Redirects unauthenticated users to the login page.
-================================================================ */
+// LOGIN REQUIREMENT
 
 function requireLogin() {
 
@@ -448,10 +403,7 @@ function requireLogin() {
 }
 
 
-/* ================================================================
-   UNAUTHORIZED SESSION HANDLER
-   Clears authentication data when the session expires.
-================================================================ */
+// UNAUTHORIZED SESSION HANDLER
 
 function handleUnauthorized() {
 
@@ -466,10 +418,7 @@ function handleUnauthorized() {
 }
 
 
-/* ================================================================
-   POST-LOGIN REDIRECTION
-   Sends users to the appropriate dashboard based on role.
-================================================================ */
+// POST-LOGIN REDIRECTION
 
 function redirectAfterLogin(user) {
 
@@ -509,9 +458,7 @@ function redirectAfterLogin(user) {
 }
 
 
-/* ================================================================
-   LOGIN PAGE
-================================================================ */
+// LOGIN PAGE
 
 const loginForm =
     document.querySelector(
@@ -696,9 +643,7 @@ if (loginForm) {
 }
 
 
-/* ================================================================
-   FORGOT PASSWORD
-================================================================ */
+// FORGOT PASSWORD
 
 const forgotPasswordLink =
     document.querySelector(
@@ -725,9 +670,7 @@ if (forgotPasswordLink) {
 }
 
 
-/* ================================================================
-   SIGNUP PAGE
-================================================================ */
+// SIGNUP PAGE
 
 const signupForm =
     document.querySelector(
@@ -839,9 +782,7 @@ if (signupForm) {
                 );
 
 
-            /* ----------------------------------------------------
-               BASIC FORM VALIDATION
-            ---------------------------------------------------- */
+            // BASIC FORM VALIDATION
 
             if (
                 !name ||
@@ -860,9 +801,7 @@ if (signupForm) {
             }
 
 
-            /* ----------------------------------------------------
-               LOCATION VALIDATION
-            ---------------------------------------------------- */
+            // LOCATION VALIDATION
 
             if (
                 locationInput &&
@@ -879,9 +818,7 @@ if (signupForm) {
             }
 
 
-            /* ----------------------------------------------------
-               PASSWORD VALIDATION
-            ---------------------------------------------------- */
+            // PASSWORD VALIDATION
 
             if (
                 password.length < 6
@@ -908,9 +845,7 @@ if (signupForm) {
             }
 
 
-            /* ----------------------------------------------------
-               TERMS AND CONDITIONS VALIDATION
-            ---------------------------------------------------- */
+            // TERMS AND CONDITIONS VALIDATION
 
             if (
                 termsCheckbox &&
@@ -925,9 +860,7 @@ if (signupForm) {
             }
 
 
-            /* ----------------------------------------------------
-               PHONE NUMBER VALIDATION
-            ---------------------------------------------------- */
+            // PHONE NUMBER VALIDATION
 
             const phonePattern =
                 /^[0-9+\-\s()]{10,15}$/;
@@ -947,9 +880,7 @@ if (signupForm) {
             }
 
 
-            /* ----------------------------------------------------
-               SUBMIT BUTTON STATE
-            ---------------------------------------------------- */
+            // SUBMIT BUTTON STATE
 
             const signupButton =
                 signupForm.querySelector(
@@ -975,13 +906,7 @@ if (signupForm) {
 
             try {
 
-                /*
-                 * The current signup endpoint creates
-                 * standard customer accounts.
-                 *
-                 * The selected account type is therefore
-                 * not sent to the current backend endpoint.
-                 */
+                // The current signup endpoint creates
 
                 const response =
     await fetch(
@@ -1063,9 +988,7 @@ if (signupForm) {
 }
 
 
-/* ================================================================
-   PROVIDER REGISTRATION FORM
-================================================================ */
+// PROVIDER REGISTRATION FORM
 
 const providerForm =
     document.querySelector(
@@ -1172,9 +1095,7 @@ if (providerForm) {
                 );
 
 
-            /* ----------------------------------------------------
-               SERVICE CATEGORY VALIDATION
-            ---------------------------------------------------- */
+            // SERVICE CATEGORY VALIDATION
 
             if (!providerService) {
 
@@ -1186,9 +1107,7 @@ if (providerForm) {
             }
 
 
-            /* ----------------------------------------------------
-               EXPERIENCE VALIDATION
-            ---------------------------------------------------- */
+            // EXPERIENCE VALIDATION
 
             if (
                 experience !== "" &&
@@ -1203,9 +1122,7 @@ if (providerForm) {
             }
 
 
-            /* ----------------------------------------------------
-               PRICE VALIDATION
-            ---------------------------------------------------- */
+            // PRICE VALIDATION
 
             if (
                 price !== "" &&
@@ -1220,9 +1137,7 @@ if (providerForm) {
             }
 
 
-            /* ----------------------------------------------------
-   TERMS AND CONDITIONS VALIDATION
----------------------------------------------------- */
+            // TERMS AND CONDITIONS VALIDATION
 
 if (
     providerTerms &&
@@ -1240,9 +1155,7 @@ if (
 );
 }
 
-/* ================================================================
-   PROFILE PAGE
-================================================================ */
+// PROFILE PAGE
 
 const profilePage =
     document.querySelector(
@@ -1262,10 +1175,7 @@ if (profilePage) {
 
         try {
 
-            /*
-            * Render cached user data immediately when available.
-            * The API response below remains the source of truth.
-            */
+            // Render cached user data immediately when available.
             let cachedUser = null;
 
             try {
@@ -1406,10 +1316,7 @@ if (profilePage) {
 }
 
 
-/* ================================================================
-   LOAD PROFILE DATA
-   Retrieves the authenticated user's profile from the backend.
-================================================================ */
+// LOAD PROFILE DATA
 
 async function loadMyProfile() {
 
@@ -1499,9 +1406,7 @@ async function loadMyProfile() {
 }
 
 
-/* ================================================================
-   RENDER PROFILE DATA
-================================================================ */
+// RENDER PROFILE DATA
 
 function renderProfile(user) {
 
@@ -1675,11 +1580,7 @@ function renderProfile(user) {
 }
 
 
-
-/* ================================================================
-   LOAD PROFILE ACTIVITY
-   Loads booking statistics for the authenticated user.
-============================================================== */
+// LOAD PROFILE ACTIVITY
 
 async function loadProfileActivity(user) {
 
@@ -2030,10 +1931,7 @@ function renderRecentProfileBooking(bookings) {
 }
 
 
-
-/* ================================================================
-   EDIT / SAVE PROFILE
-================================================================ */
+// EDIT / SAVE PROFILE
 
 async function handleProfileEdit() {
 
@@ -2071,9 +1969,7 @@ async function handleProfileEdit() {
 }
 
 
-/* ================================================================
-   START PROFILE EDITING
-================================================================ */
+// START PROFILE EDITING
 
 function startProfileEditing() {
 
@@ -2169,11 +2065,7 @@ function startProfileEditing() {
 }
 
 
-
-/* ================================================================
-   SAVE PROFILE
-   Sends updated profile information to the backend.
-================================================================ */
+// SAVE PROFILE
 
 async function saveProfile() {
 
@@ -2368,13 +2260,7 @@ async function saveProfile() {
 }
 
 
-
-
-
-
-/* ================================================================
-   CHANGE PASSWORD
-================================================================ */
+// CHANGE PASSWORD
 
 async function handleChangePassword() {
 
@@ -2530,9 +2416,7 @@ async function handleChangePassword() {
 }
 
 
-/* ================================================================
-   DASHBOARD PAGE
-================================================================ */
+// DASHBOARD PAGE
 
 const dashboardPage =
     document.querySelector(
@@ -2546,11 +2430,7 @@ if (dashboardPage) {
 }
 
 
-/* ================================================================
-   LOAD DASHBOARD DATA
-   Determines the logged-in user's role and loads
-   the corresponding dashboard information.
-================================================================ */
+// LOAD DASHBOARD DATA
 
 async function loadDashboardData() {
 
@@ -2616,10 +2496,7 @@ async function loadDashboardData() {
             user.role === "admin"
         ) {
 
-            /*
-             * Administrators use a dedicated dashboard,
-             * so customer dashboard data is not loaded here.
-             */
+            // Administrators use a dedicated dashboard,
 
             return;
         }
@@ -2653,9 +2530,7 @@ async function loadDashboardData() {
 }
 
 
-/* ================================================================
-   CUSTOMER DASHBOARD
-================================================================ */
+// CUSTOMER DASHBOARD
 
 async function loadCustomerDashboard() {
 
@@ -2709,10 +2584,7 @@ async function loadCustomerDashboard() {
 }
 
 
-/* ================================================================
-   CUSTOMER DASHBOARD STATISTICS
-   Calculates and displays booking counts by status.
-================================================================ */
+// CUSTOMER DASHBOARD STATISTICS
 
 function updateCustomerDashboardStats(bookings) {
 
@@ -2842,10 +2714,7 @@ function updateCustomerDashboardStats(bookings) {
 }
 
 
-/* ================================================================
-   RECENT BOOKINGS
-   Displays the latest five bookings on the dashboard.
-================================================================ */
+// RECENT BOOKINGS
 
 function renderRecentBookings(bookings) {
 
@@ -2949,9 +2818,7 @@ function renderRecentBookings(bookings) {
 }
 
 
-/* ================================================================
-   BOOKING STATUS FORMATTER
-================================================================ */
+// BOOKING STATUS FORMATTER
 
 function formatBookingStatus(status) {
 
@@ -3015,17 +2882,9 @@ function formatBookingStatus(status) {
 }
 
 
-/* ========================================================================
-   BOOKING STATUS NORMALIZATION
-   Converts backend booking statuses into consistent application values.
-   ======================================================================== */
+// BOOKING STATUS NORMALIZATION
 
-/**
- * Normalizes booking status values for comparisons and CSS classes.
- *
- * @param {String} status - Raw booking status.
- * @returns {String} Normalized booking status.
- */
+// Normalizes booking status values for comparisons and CSS classes.
 function normalizeBookingStatus(status) {
 
     if (!status) {
@@ -3052,18 +2911,9 @@ function normalizeBookingStatus(status) {
 }
 
 
-/* ========================================================================
-   PROVIDER DASHBOARD
-   ======================================================================== */
+// PROVIDER DASHBOARD
 
-/**
- * Loads booking information for the currently logged-in provider
- * and updates the provider dashboard.
- *
- * Provider bookings are fetched from the backend and then used
- * to update dashboard statistics, booking requests and upcoming
- * bookings.
- */
+// Loads booking information for the currently logged-in provider
 async function loadProviderDashboard() {
 
     if (!requireLogin()) {
@@ -3073,10 +2923,7 @@ async function loadProviderDashboard() {
 
     try {
 
-        /*
-         * Refresh the authenticated user profile so the dashboard
-         * uses the latest role and account information.
-         */
+        // Refresh the authenticated user profile so the dashboard
         const currentUser =
             await loadMyProfile();
 
@@ -3252,16 +3099,9 @@ async function loadProviderDashboard() {
 }
 
 
-/* ========================================================================
-   RENDER PROVIDER DASHBOARD
-   ======================================================================== */
+// RENDER PROVIDER DASHBOARD
 
-/**
- * Updates all provider dashboard sections using
- * the booking records returned by the backend.
- *
- * @param {Array} bookings - Provider booking records.
- */
+// Updates all provider dashboard sections using the booking records returned by the backend.
 function renderProviderDashboard(bookings) {
 
     const safeBookings =
@@ -3270,9 +3110,7 @@ function renderProviderDashboard(bookings) {
             : [];
 
 
-    /*
-     * Separate bookings according to their current status.
-     */
+    // Separate bookings according to their current status.
     const pendingBookings =
         safeBookings.filter(function (booking) {
 
@@ -3321,25 +3159,19 @@ function renderProviderDashboard(bookings) {
         });
 
 
-    /*
-     * Update dashboard statistics.
-     */
+    // Update dashboard statistics.
     updateProviderDashboardStats(
         safeBookings
     );
 
 
-    /*
-     * Render new booking requests.
-     */
+    // Render new booking requests.
     renderProviderBookingRequests(
         pendingBookings
     );
 
 
-    /*
-     * Render confirmed and in-progress bookings.
-     */
+    // Render confirmed and in-progress bookings.
     renderProviderUpcomingBookings(
         confirmedBookings.concat(
             inProgressBookings
@@ -3347,9 +3179,7 @@ function renderProviderDashboard(bookings) {
     );
 
 
-    /*
-     * Update provider name in the dashboard welcome section.
-     */
+    // Update provider name in the dashboard welcome section.
     const providerWelcomeElement =
         document.querySelector(
             "#provider-welcome"
@@ -3362,10 +3192,7 @@ function renderProviderDashboard(bookings) {
             "Provider";
 
 
-        /*
-         * First try to get provider information
-         * from the booking records.
-         */
+        // First try to get provider information
         const bookingWithProvider =
             safeBookings.find(function (booking) {
 
@@ -3388,10 +3215,7 @@ function renderProviderDashboard(bookings) {
         }
 
 
-        /*
-         * Fall back to the locally stored user
-         * when no booking has an assigned provider.
-         */
+        // Fall back to the locally stored user
         if (
             providerName === "Provider"
         ) {
@@ -3438,10 +3262,7 @@ function renderProviderDashboard(bookings) {
 }
 
 
-/* ========================================================================
-   LOAD PROVIDER REVIEWS
-   Loads customer reviews belonging to the logged-in provider.
-   ======================================================================== */
+// LOAD PROVIDER REVIEWS
 
 async function loadProviderReviews() {
 
@@ -3647,9 +3468,7 @@ endpoints.push(
 }
 
 
-/* ========================================================================
-   RENDER PROVIDER REVIEWS
-   ======================================================================== */
+// RENDER PROVIDER REVIEWS
 
 function renderProviderReviews(reviews) {
 
@@ -3854,21 +3673,9 @@ function renderProviderReviews(reviews) {
 }
 
 
-/* ========================================================================
-   UPDATE PROVIDER DASHBOARD STATISTICS
-   ======================================================================== */
+// UPDATE PROVIDER DASHBOARD STATISTICS
 
-/**
- * Calculates and updates provider dashboard statistics.
- *
- * Dashboard cards:
- * - New Requests
- * - Upcoming
- * - Completed
- * - Rating
- *
- * @param {Array} bookings - Provider booking records.
- */
+// Calculates and updates provider dashboard statistics. Dashboard cards:
 function updateProviderDashboardStats(bookings) {
 
     const safeBookings =
@@ -3918,9 +3725,7 @@ function updateProviderDashboardStats(bookings) {
         }).length;
 
 
-    /*
-     * New booking requests.
-     */
+    // New booking requests.
     const newRequestsElement =
         document.querySelector(
             "#provider-new-requests"
@@ -3935,9 +3740,7 @@ function updateProviderDashboardStats(bookings) {
     }
 
 
-    /*
-     * Upcoming bookings.
-     */
+    // Upcoming bookings.
     const upcomingElement =
         document.querySelector(
             "#provider-upcoming"
@@ -3952,9 +3755,7 @@ function updateProviderDashboardStats(bookings) {
     }
 
 
-    /*
-     * Completed bookings.
-     */
+    // Completed bookings.
     const completedElement =
         document.querySelector(
             "#provider-completed"
@@ -3969,10 +3770,7 @@ function updateProviderDashboardStats(bookings) {
     }
 
 
-    /*
-     * Rating is not calculated from bookings.
-     * Keep the existing dashboard value if available.
-     */
+    // Rating is not calculated from bookings.
     const ratingElement =
         document.querySelector(
             "#provider-rating"
@@ -3992,25 +3790,9 @@ function updateProviderDashboardStats(bookings) {
 }
 
 
-/* ========================================================================
-   RENDER PROVIDER BOOKING REQUESTS
-   ======================================================================== */
+// RENDER PROVIDER BOOKING REQUESTS
 
-/**
- * Renders all pending booking requests.
- *
- * Each request provides:
- * - Service name
- * - Customer name
- * - Address
- * - Booking date
- * - Booking time
- * - Price
- * - Accept button
- * - Reject button
- *
- * @param {Array} bookings - Pending provider bookings.
- */
+// Renders all pending booking requests. Each request provides:
 function renderProviderBookingRequests(bookings) {
 
     const container =
@@ -4178,9 +3960,7 @@ function renderProviderBookingRequests(bookings) {
             .join("");
 
 
-    /*
-     * Attach Accept button handlers.
-     */
+    // Attach Accept button handlers.
     container
         .querySelectorAll(
             ".provider-accept-btn"
@@ -4215,9 +3995,7 @@ function renderProviderBookingRequests(bookings) {
         });
 
 
-    /*
-     * Attach Reject button handlers.
-     */
+    // Attach Reject button handlers.
     container
         .querySelectorAll(
             ".provider-reject-btn"
@@ -4254,18 +4032,9 @@ function renderProviderBookingRequests(bookings) {
 }
 
 
-/* ========================================================================
-   ACCEPT PROVIDER BOOKING
-   ======================================================================== */
+// ACCEPT PROVIDER BOOKING
 
-/**
- * Accepts a pending booking request.
- *
- * Backend changes the booking status to confirmed
- * and assigns the currently logged-in provider.
- *
- * @param {String} bookingId - Booking ID.
- */
+// Accepts a pending booking request. Backend changes the booking status to confirmed
 async function acceptProviderBooking(bookingId) {
 
     try {
@@ -4332,15 +4101,9 @@ async function acceptProviderBooking(bookingId) {
 }
 
 
-/* ========================================================================
-   REJECT PROVIDER BOOKING
-   ======================================================================== */
+// REJECT PROVIDER BOOKING
 
-/**
- * Rejects a pending booking request by cancelling it.
- *
- * @param {String} bookingId - Booking ID.
- */
+// Rejects a pending booking request by cancelling it.
 async function rejectProviderBooking(bookingId) {
 
     const confirmed =
@@ -4426,18 +4189,9 @@ async function rejectProviderBooking(bookingId) {
 }
 
 
-/* ========================================================================
-   RENDER PROVIDER UPCOMING BOOKINGS
-   ======================================================================== */
+// RENDER PROVIDER UPCOMING BOOKINGS
 
-/**
- * Renders confirmed and in-progress bookings.
- *
- * Confirmed bookings display a Start Service button.
- * In-progress bookings display a Complete Service button.
- *
- * @param {Array} bookings - Confirmed/in-progress bookings.
- */
+// Renders confirmed and in-progress bookings. Confirmed bookings display a Start Service button.
 function renderProviderUpcomingBookings(bookings) {
 
     const container =
@@ -4633,9 +4387,7 @@ function renderProviderUpcomingBookings(bookings) {
             .join("");
 
 
-    /*
-     * Start Service buttons.
-     */
+    // Start Service buttons.
     container
         .querySelectorAll(
             ".provider-start-btn"
@@ -4666,9 +4418,7 @@ function renderProviderUpcomingBookings(bookings) {
         });
 
 
-    /*
-     * Complete Service buttons.
-     */
+    // Complete Service buttons.
     container
         .querySelectorAll(
             ".provider-complete-btn"
@@ -4701,20 +4451,9 @@ function renderProviderUpcomingBookings(bookings) {
 }
 
 
-/* ========================================================================
-   UPDATE PROVIDER BOOKING STATUS
-   ======================================================================== */
+// UPDATE PROVIDER BOOKING STATUS
 
-/**
- * Updates the status of an accepted provider booking.
- *
- * Allowed transitions:
- * confirmed -> in-progress
- * in-progress -> completed
- *
- * @param {String} bookingId - Booking ID.
- * @param {String} status - New booking status.
- */
+// Updates the status of an accepted provider booking. Allowed transitions:
 async function updateProviderBookingStatus(
     bookingId,
     status
@@ -4807,16 +4546,9 @@ async function updateProviderBookingStatus(
 }
 
 
-/* ========================================================================
-   FORMAT PROVIDER BOOKING TIME
-   ======================================================================== */
+// FORMAT PROVIDER BOOKING TIME
 
-/**
- * Formats a booking date into a readable time.
- *
- * @param {String|Date} bookingDate - Booking date/time.
- * @returns {String} Formatted time.
- */
+// Formats a booking date into a readable time.
 function formatBookingTime(bookingDate) {
 
     if (!bookingDate) {
@@ -4851,14 +4583,9 @@ function formatBookingTime(bookingDate) {
 }
 
 
-/* ========================================================================
-   PROVIDER DASHBOARD INITIALIZATION
-   ======================================================================== */
+// PROVIDER DASHBOARD INITIALIZATION
 
-/*
- * Detect the provider dashboard using
- * the provider booking request container.
- */
+// Detect the provider dashboard using
 const providerDashboardPage =
     document.querySelector(
         ".provider-dashboard-page"
@@ -4881,14 +4608,9 @@ if (
 }
 
 
-    /* ========================================================================
-    BOOKING STATUS PAGE INITIALIZATION
-    ======================================================================== */
+    // BOOKING STATUS PAGE INITIALIZATION
 
-    /*
-    * Detect the booking status page and load its
-    * booking information when the page is available.
-    */
+    // Detect the booking status page and load its
     const bookingStatusPage =
         document.querySelector(
             ".booking-status-page"
@@ -4902,17 +4624,9 @@ if (
     }
 
 
-    /* ========================================================================
-    LOAD BOOKING STATUS
-    ======================================================================== */
+    // LOAD BOOKING STATUS
 
-    /**
-     * Retrieves the selected booking from the backend
-     * and renders its current status.
-     *
-     * The booking ID is retrieved from localStorage using
-     * CURRENT_BOOKING_KEY.
-     */
+    // Retrieves the selected booking from the backend
     async function loadBookingStatusPage() {
 
         if (!requireLogin()) {
@@ -4926,10 +4640,7 @@ if (
             );
 
 
-        /*
-        * A booking must be selected before this page
-        * can display booking details.
-        */
+        // A booking must be selected before this page
         if (!bookingId) {
 
             alert(
@@ -4958,10 +4669,7 @@ if (
     );
 
 
-            /*
-            * Ensure that the backend returned both a
-            * successful response and an actual booking object.
-            */
+            // Ensure that the backend returned both a
             if (
                 !data?.success ||
                 !data?.booking
@@ -5011,16 +4719,9 @@ if (
     }
 
 
-    /* ========================================================================
-   RENDER BOOKING STATUS
-   ======================================================================== */
+    // RENDER BOOKING STATUS
 
-/**
- * Updates all booking-related UI elements using
- * the booking object returned by the backend.
- *
- * @param {Object} booking - Booking record.
- */
+// Updates all booking-related UI elements using the booking object returned by the backend.
 function renderBookingStatus(booking) {
 
     if (!booking) {
@@ -5046,10 +4747,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update service name everywhere.
-     */
+    // Update service name everywhere.
     document
         .querySelectorAll(
             ".booking-service-name-header, .booking-service-details"
@@ -5065,10 +4763,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update current booking status.
-     */
+    // Update current booking status.
     document
         .querySelectorAll(
             ".booking-current-status"
@@ -5088,10 +4783,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update booking date everywhere.
-     */
+    // Update booking date everywhere.
     document
         .querySelectorAll(
             ".booking-date"
@@ -5108,10 +4800,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update booking time everywhere.
-     */
+    // Update booking time everywhere.
     document
         .querySelectorAll(
             ".booking-time"
@@ -5128,10 +4817,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update service address everywhere.
-     */
+    // Update service address everywhere.
     document
         .querySelectorAll(
             ".booking-address"
@@ -5147,10 +4833,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update customer phone everywhere.
-     */
+    // Update customer phone everywhere.
     document
         .querySelectorAll(
             ".booking-phone"
@@ -5167,10 +4850,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update assigned provider everywhere.
-     */
+    // Update assigned provider everywhere.
     document
         .querySelectorAll(
             ".booking-provider"
@@ -5186,10 +4866,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update booking price everywhere.
-     */
+    // Update booking price everywhere.
     document
         .querySelectorAll(
             ".booking-total"
@@ -5206,10 +4883,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update booking ID everywhere.
-     */
+    // Update booking ID everywhere.
     document
         .querySelectorAll(
             ".booking-id"
@@ -5225,10 +4899,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update booking creation date everywhere.
-     */
+    // Update booking creation date everywhere.
     document
         .querySelectorAll(
             ".booking-created-date"
@@ -5247,10 +4918,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update booking notes everywhere.
-     */
+    // Update booking notes everywhere.
     document
         .querySelectorAll(
             ".booking-notes"
@@ -5266,10 +4934,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update provider location everywhere.
-     */
+    // Update provider location everywhere.
     document
         .querySelectorAll(
             ".booking-provider-location"
@@ -5286,10 +4951,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update provider rating everywhere.
-     */
+    // Update provider rating everywhere.
     document
         .querySelectorAll(
             ".booking-provider-rating"
@@ -5307,10 +4969,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update provider experience everywhere.
-     */
+    // Update provider experience everywhere.
     document
         .querySelectorAll(
             ".booking-provider-experience"
@@ -5327,10 +4986,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Update provider service price everywhere.
-     */
+    // Update provider service price everywhere.
     document
         .querySelectorAll(
             ".booking-provider-price"
@@ -5348,11 +5004,7 @@ function renderBookingStatus(booking) {
         );
 
 
-
-    /*
-     * Synchronize the visual booking timeline
-     * with the current booking status.
-     */
+    // Synchronize the visual booking timeline
     updateBookingTimeline(
         status
     );
@@ -5360,18 +5012,9 @@ function renderBookingStatus(booking) {
 }
 
 
+// UPDATE BOOKING TIMELINE
 
-
-/* ========================================================================
-   UPDATE BOOKING TIMELINE
-   ======================================================================== */
-
-/**
- * Updates the visual booking progress timeline
- * according to the current booking status.
- *
- * @param {String} status - Current booking status.
- */
+// Updates the visual booking progress timeline according to the current booking status.
 function updateBookingTimeline(status) {
 
     const normalizedStatus =
@@ -5384,10 +5027,7 @@ function updateBookingTimeline(status) {
     let currentIndex = -1;
 
 
-    /*
-     * Determine the active timeline step
-     * based on the current booking status.
-     */
+    // Determine the active timeline step
     if (normalizedStatus === "pending") {
 
         currentIndex = 0;
@@ -5416,9 +5056,7 @@ function updateBookingTimeline(status) {
     }
 
 
-    /*
-     * Select all booking timeline items.
-     */
+    // Select all booking timeline items.
     const timelineItems =
         document.querySelectorAll(
             ".booking-timeline-item"
@@ -5428,19 +5066,14 @@ function updateBookingTimeline(status) {
     timelineItems.forEach(
         function (item, index) {
 
-            /*
-             * Reset existing timeline states
-             * before applying the current state.
-             */
+            // Reset existing timeline states
             item.classList.remove(
                 "active",
                 "completed"
             );
 
 
-            /*
-             * Mark all previous steps as completed.
-             */
+            // Mark all previous steps as completed.
             if (
                 currentIndex >= 0 &&
                 index < currentIndex
@@ -5453,9 +5086,7 @@ function updateBookingTimeline(status) {
             }
 
 
-            /*
-             * Mark the current step as active.
-             */
+            // Mark the current step as active.
             if (
                 currentIndex >= 0 &&
                 index === currentIndex
@@ -5473,16 +5104,9 @@ function updateBookingTimeline(status) {
 }
 
 
-    /* ========================================================================
-    SERVICE DETAILS → BOOKING PAGE LINK
-    ======================================================================== */
+    // SERVICE DETAILS → BOOKING PAGE LINK
 
-    /*
-    * Detect the booking link from the service details page.
-    *
-    * If no service has been selected, a fallback service
-    * name is stored so the booking page can still operate.
-    */
+    // Detect the booking link from the service details page.
     const bookingLink =
         document.querySelector(
             'a[href="booking.html"]'
@@ -5516,14 +5140,9 @@ function updateBookingTimeline(status) {
     }
 
 
-    /* ========================================================================
-    BOOKING PAGE INITIALIZATION
-    ======================================================================== */
+    // BOOKING PAGE INITIALIZATION
 
-    /*
-    * Detect the booking form and initialize the booking
-    * page only when the form exists on the current page.
-    */
+    // Detect the booking form and initialize the booking
     const bookingForm =
         document.querySelector(
             ".booking-form"
@@ -5537,19 +5156,9 @@ function updateBookingTimeline(status) {
     }
 
 
-    /* ========================================================================
-    INITIALIZE BOOKING PAGE
-    ======================================================================== */
+    // INITIALIZE BOOKING PAGE
 
-    /**
-     * Initializes the booking form.
-     *
-     * The function:
-     * 1. Verifies user authentication.
-     * 2. Restores the selected service.
-     * 3. Loads active services from the backend.
-     * 4. Registers the booking form submit handler.
-     */
+    // Initializes the booking form.
     async function initializeBookingPage() {
 
         if (!requireLogin()) {
@@ -5593,11 +5202,7 @@ function updateBookingTimeline(status) {
             );
 
 
-            /*
-            * Restore the service selected on the
-            * service details page after the dropdown
-            * options have been loaded.
-            */
+            // Restore the service selected on the
             if (selectedService) {
 
                 const matchingOption =
@@ -5625,10 +5230,7 @@ function updateBookingTimeline(status) {
         }
 
 
-                /*
-        * Update selected service name and price
-        * whenever the customer changes the service.
-        */
+                // Update selected service name and price
         if (serviceSelect) {
 
             function updateBookingServiceSummary() {
@@ -5704,10 +5306,7 @@ function updateBookingTimeline(status) {
         }
 
 
-        /*
-        * Attach the submit handler only after the
-        * booking page has been initialized.
-        */
+        // Attach the submit handler only after the
         bookingForm.addEventListener(
             "submit",
             handleBookingSubmit
@@ -5716,17 +5315,9 @@ function updateBookingTimeline(status) {
     }
 
 
-    /* ========================================================================
-    LOAD SERVICES INTO BOOKING SELECT
-    ======================================================================== */
+    // LOAD SERVICES INTO BOOKING SELECT
 
-    /**
-     * Fetches active services from the backend and populates
-     * the booking form's service dropdown.
-     *
-     * @param {HTMLSelectElement} selectElement
-     *        Service selection dropdown.
-     */
+    // Fetches active services from the backend and populates the booking form's service dropdown.
     async function loadServicesIntoSelect(
         selectElement
     ) {
@@ -5762,10 +5353,7 @@ function updateBookingTimeline(status) {
             }
 
 
-            /*
-            * Preserve the current selection before
-            * rebuilding the dropdown options.
-            */
+            // Preserve the current selection before
             const currentValue =
                 selectElement.value;
 
@@ -5777,10 +5365,7 @@ function updateBookingTimeline(status) {
             `;
 
 
-            /*
-            * Only active services are made available
-            * for new bookings.
-            */
+            // Only active services are made available
             services
                 .filter(function (service) {
 
@@ -5808,10 +5393,7 @@ function updateBookingTimeline(status) {
                         )}`;
 
 
-                    /*
-                    * Store the service price and name
-                    * directly on the option for later use.
-                    */
+                    // Store the service price and name
                     option.dataset.price =
                         String(
                             Number(service.price) || 0
@@ -5830,10 +5412,7 @@ function updateBookingTimeline(status) {
                 });
 
 
-            /*
-            * Restore the previous selection when the
-            * service still exists in the updated list.
-            */
+            // Restore the previous selection when the
             if (currentValue) {
 
                 const matchingOption =
@@ -5873,22 +5452,9 @@ function updateBookingTimeline(status) {
     }
 
 
-    /* ========================================================================
-    CREATE NEW BOOKING
-    ======================================================================== */
+    // CREATE NEW BOOKING
 
-    /**
-     * Validates the booking form and submits a new booking
-     * to the backend.
-     *
-     * Booking data includes:
-     * - Service
-     * - Booking date
-     * - Address
-     * - Phone number
-     * - Additional notes
-     * - Total price
-     */
+    // Validates the booking form and submits a new booking
     async function handleBookingSubmit(event) {
 
         event.preventDefault();
@@ -5904,9 +5470,7 @@ function updateBookingTimeline(status) {
         }
 
 
-        /*
-        * Locate all booking form fields.
-        */
+        // Locate all booking form fields.
         const serviceSelect =
             bookingForm.querySelector(
                 'select[name="service"]'
@@ -5943,9 +5507,7 @@ function updateBookingTimeline(status) {
             );
 
 
-        /*
-        * Read and clean user-provided values.
-        */
+        // Read and clean user-provided values.
         const serviceId =
             serviceSelect
                 ? serviceSelect.value.trim()
@@ -5982,9 +5544,7 @@ function updateBookingTimeline(status) {
                 : "";
 
 
-        /* --------------------------------------------------------------------
-        FORM VALIDATION
-        -------------------------------------------------------------------- */
+        // FORM VALIDATION
 
         if (!serviceId) {
 
@@ -6036,10 +5596,7 @@ function updateBookingTimeline(status) {
         }
 
 
-        /*
-        * Convert the selected date into a Date object
-        * and verify that it represents a valid date.
-        */
+        // Convert the selected date into a Date object
         const selectedDate =
         new Date(
             `${bookingDate}T${bookingTime}:00`
@@ -6060,10 +5617,7 @@ function updateBookingTimeline(status) {
         }
 
 
-        /*
-        * Temporarily disable the submit button to
-        * prevent duplicate booking requests.
-        */
+        // Temporarily disable the submit button to
         const submitButton =
             bookingForm.querySelector(
                 'button[type="submit"]'
@@ -6090,10 +5644,7 @@ function updateBookingTimeline(status) {
 
         try {
 
-            /*
-            * Retrieve the selected service option so that
-            * the service price can be included in the request.
-            */
+            // Retrieve the selected service option so that
             const selectedOption =
                 serviceSelect
                     ? serviceSelect.options[
@@ -6111,9 +5662,7 @@ function updateBookingTimeline(status) {
                     : 0;
 
 
-            /*
-            * Send the booking request to the backend.
-            */
+            // Send the booking request to the backend.
             const data =
                 await apiRequest(
                     "/bookings",
@@ -6148,10 +5697,7 @@ function updateBookingTimeline(status) {
                 );
 
 
-            /*
-            * Verify that the backend successfully
-            * created and returned the booking.
-            */
+            // Verify that the backend successfully
             if (
                 !data?.success ||
                 !data?.booking
@@ -6178,10 +5724,7 @@ function updateBookingTimeline(status) {
             }
 
 
-            /*
-            * Store the newly-created booking ID so
-            * booking-status.html can load its details.
-            */
+            // Store the newly-created booking ID so
             localStorage.setItem(
                 CURRENT_BOOKING_KEY,
                 createdBookingId
@@ -6228,11 +5771,7 @@ function updateBookingTimeline(status) {
 
         finally {
 
-            /*
-            * Always restore the submit button state,
-            * regardless of whether the request succeeded
-            * or failed.
-            */
+            // Always restore the submit button state,
             if (submitButton) {
 
                 submitButton.disabled =
@@ -6249,10 +5788,7 @@ function updateBookingTimeline(status) {
     }
 
 
-    /* ========================================================================
-ADMIN DASHBOARD
-Retrieves dashboard statistics for an authenticated administrator.
-======================================================================== */
+    // ADMIN DASHBOARD
 
 async function loadAdminDashboard() {
 
@@ -6339,10 +5875,7 @@ async function loadAdminDashboard() {
 }
 
 
-/* ========================================================================
-ADMIN DASHBOARD INITIALIZATION
-Loads dashboard statistics and updates the platform overview cards.
-======================================================================== */
+// ADMIN DASHBOARD INITIALIZATION
 
 async function initializeAdminDashboard() {
 
@@ -6390,9 +5923,7 @@ async function initializeAdminDashboard() {
 }
 
 
-/* ========================================================================
-START ADMIN DASHBOARD
-======================================================================== */
+// START ADMIN DASHBOARD
 
 window.addEventListener(
     "load",
@@ -6412,15 +5943,9 @@ window.addEventListener(
 );
 
 
-    /* ========================================================================
-    ADMIN — GET ALL USERS
-    ======================================================================== */
+    // ADMIN: GET ALL USERS
 
-    /**
-     * Retrieves all users from the admin API.
-     *
-     * @returns {Array} Array of users or an empty array on failure.
-     */
+    // Retrieves all users from the admin API.
     async function loadAdminUsers() {
 
         const token =
@@ -6665,11 +6190,7 @@ window.addEventListener(
     }
 
 
-
-
-    /* ========================================================================
-    ADMIN — UPDATE USER STATISTICS
-    ======================================================================== */
+    // ADMIN: UPDATE USER STATISTICS
 
     function updateAdminUserStats(users) {
 
@@ -6779,19 +6300,9 @@ window.addEventListener(
     }
 
 
+    // ADMIN: GET SINGLE USER
 
-
-
-    /* ========================================================================
-    ADMIN — GET SINGLE USER
-    ======================================================================== */
-
-    /**
-     * Retrieves a specific user using their unique user ID.
-     *
-     * @param {string} userId - Unique user identifier.
-     * @returns {Object|null} User object or null when unavailable.
-     */
+    // Retrieves a specific user using their unique user ID.
     async function loadAdminUser(userId) {
 
         if (!userId) {
@@ -6900,17 +6411,9 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — ACTIVATE / DEACTIVATE USER
-    ======================================================================== */
+    // ADMIN: ACTIVATE / DEACTIVATE USER
 
-    /**
-     * Updates the active status of a user.
-     *
-     * @param {string} userId - Unique user identifier.
-     * @param {boolean} isActive - Desired account status.
-     * @returns {Object|null} Updated user object or null on failure.
-     */
+    // Updates the active status of a user.
     async function updateAdminUserStatus(userId, isActive) {
 
         if (!userId) {
@@ -7036,10 +6539,7 @@ window.addEventListener(
     }
 
 
-
-    /* ========================================================================
-    ADMIN — GET ALL BOOKINGS
-    ======================================================================== */
+    // ADMIN: GET ALL BOOKINGS
 
     async function loadAdminBookings() {
 
@@ -7130,17 +6630,9 @@ window.addEventListener(
     }
 
 
+    // ADMIN: GET SINGLE BOOKING
 
-    /* ========================================================================
-    ADMIN — GET SINGLE BOOKING
-    ======================================================================== */
-
-    /**
-     * Retrieves detailed information for a specific booking.
-     *
-     * @param {string} bookingId - Unique booking identifier.
-     * @returns {Object|null} Booking object or null on failure.
-     */
+    // Retrieves detailed information for a specific booking.
     async function loadAdminBooking(
         bookingId
     ) {
@@ -7251,15 +6743,9 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — GET ALL REVIEWS
-    ======================================================================== */
+    // ADMIN: GET ALL REVIEWS
 
-    /**
-     * Retrieves all customer reviews for administrative use.
-     *
-     * @returns {Array} Review collection or an empty array.
-     */
+    // Retrieves all customer reviews for administrative use.
     async function loadAdminReviews() {
 
         const token =
@@ -7358,24 +6844,16 @@ window.addEventListener(
 
     }
 
-    /* ========================================================================
-    ADMIN — GET ALL SERVICES
-    ======================================================================== */
+    // ADMIN: GET ALL SERVICES
 
-    /**
-     * Retrieves all services for administrative management.
-     *
-     * @returns {Array} Service collection or an empty array.
-     */
+    // Retrieves all services for administrative management.
     async function loadAdminServices() {
 
         const token =
             getToken();
 
 
-        /* ========================================================================
-        CHECK ADMIN TOKEN
-        ======================================================================== */
+        // CHECK ADMIN TOKEN
 
         if (!token) {
 
@@ -7388,9 +6866,7 @@ window.addEventListener(
         }
 
 
-        /* ========================================================================
-        GET SERVICES FROM ADMIN API
-        ======================================================================== */
+        // GET SERVICES FROM ADMIN API
 
         try {
 
@@ -7420,9 +6896,7 @@ window.addEventListener(
                 );
 
 
-            /* ====================================================================
-            PARSE API RESPONSE
-            ==================================================================== */
+            // PARSE API RESPONSE
 
             const data =
                 await parseJSONResponse(
@@ -7436,9 +6910,7 @@ window.addEventListener(
             );
 
 
-            /* ====================================================================
-            HANDLE API ERROR
-            ==================================================================== */
+            // HANDLE API ERROR
 
             if (!response.ok) {
 
@@ -7463,9 +6935,7 @@ window.addEventListener(
             }
 
 
-            /* ====================================================================
-            RETURN SERVICES
-            ==================================================================== */
+            // RETURN SERVICES
 
             const services =
                 Array.isArray(
@@ -7500,13 +6970,9 @@ window.addEventListener(
 
     }
 
-    /* ========================================================================
-    ADMIN — LOAD SERVICES BUTTON
-    ======================================================================== */
+    // ADMIN: LOAD SERVICES BUTTON
 
-    /* ========================================================================
-ADMIN — SERVICES PAGE INITIALIZATION
-======================================================================== */
+    // ADMIN: SERVICES PAGE INITIALIZATION
 
 window.addEventListener(
     "load",
@@ -7518,9 +6984,7 @@ window.addEventListener(
 );
 
 
-    /**
-     * Initializes Admin Services page.
-     */
+    // Initializes Admin Services page.
     function initializeAdminServices() {
 
         const loadServicesButton =
@@ -7547,30 +7011,22 @@ window.addEventListener(
         );
 
 
-        /* ====================================================================
-        INITIALIZE SERVICE FILTERS
-        ==================================================================== */
+        // INITIALIZE SERVICE FILTERS
 
         initializeAdminServiceFilters();
 
 
-        /* ====================================================================
-        INITIALIZE CREATE SERVICE FORM
-        ==================================================================== */
+        // INITIALIZE CREATE SERVICE FORM
 
         initializeAdminCreateService();
 
 
-        /* ====================================================================
-        INITIALIZE EDIT SERVICE FORM
-        ==================================================================== */
+        // INITIALIZE EDIT SERVICE FORM
 
         initializeAdminEditServiceForm();
 
 
-        /* ====================================================================
-        LOAD SERVICES
-        ==================================================================== */
+        // LOAD SERVICES
 
         handleLoadAdminServices()
             .then(function () {
@@ -7589,10 +7045,7 @@ window.addEventListener(
                 }
 
 
-                /*
-                 * Wait until the service list and cache
-                 * are populated before opening the edit form.
-                 */
+                // Wait until the service list and cache
 
                 setTimeout(
                     function () {
@@ -7618,13 +7071,9 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — HANDLE LOAD SERVICES
-    ======================================================================== */
+    // ADMIN: HANDLE LOAD SERVICES
 
-    /**
-     * Handles the Refresh Services button.
-     */
+    // Handles the Refresh Services button.
     async function handleLoadAdminServices() {
 
         console.log(
@@ -7775,22 +7224,14 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — DELETE SERVICE
-    ======================================================================== */
+    // ADMIN: DELETE SERVICE
 
-    /**
-     * Deletes a service from the LocalEase platform.
-     *
-     * @param {string} serviceId - MongoDB service ID.
-     */
+    // Deletes a service from the LocalEase platform.
     async function handleDeleteAdminService(
         serviceId
     ) {
 
-        /* ====================================================================
-        VALIDATE SERVICE ID
-        ==================================================================== */
+        // VALIDATE SERVICE ID
 
         if (!serviceId) {
 
@@ -7807,9 +7248,7 @@ window.addEventListener(
         }
 
 
-        /* ====================================================================
-        FIND SERVICE NAME
-        ==================================================================== */
+        // FIND SERVICE NAME
 
         const service =
             adminServicesCache.find(
@@ -7828,9 +7267,7 @@ window.addEventListener(
             "this service";
 
 
-        /* ====================================================================
-        CONFIRM DELETE
-        ==================================================================== */
+        // CONFIRM DELETE
 
         const confirmed =
             confirm(
@@ -7849,9 +7286,7 @@ window.addEventListener(
         }
 
 
-        /* ====================================================================
-        GET ADMIN TOKEN
-        ==================================================================== */
+        // GET ADMIN TOKEN
 
         const token =
             getToken();
@@ -7878,9 +7313,7 @@ window.addEventListener(
             );
 
 
-            /* =================================================================
-            DELETE SERVICE FROM BACKEND
-            ================================================================= */
+            // DELETE SERVICE FROM BACKEND
 
             const response =
                 await fetch(
@@ -7903,9 +7336,7 @@ window.addEventListener(
                 );
 
 
-            /* =================================================================
-            PARSE API RESPONSE
-            ================================================================= */
+            // PARSE API RESPONSE
 
             const data =
                 await parseJSONResponse(
@@ -7919,9 +7350,7 @@ window.addEventListener(
             );
 
 
-            /* =================================================================
-            HANDLE API ERROR
-            ================================================================= */
+            // HANDLE API ERROR
 
             if (!response.ok) {
 
@@ -7953,9 +7382,7 @@ window.addEventListener(
             }
 
 
-            /* =================================================================
-            DELETE SUCCESS
-            ================================================================= */
+            // DELETE SUCCESS
 
             console.log(
                 "Service deleted successfully:",
@@ -7968,9 +7395,7 @@ window.addEventListener(
             );
 
 
-            /* =================================================================
-            REFRESH SERVICES
-            ================================================================= */
+            // REFRESH SERVICES
 
             await handleLoadAdminServices();
 
@@ -7993,9 +7418,7 @@ window.addEventListener(
 
     }
 
-    /* ========================================================================
-    ADMIN — UPDATE SERVICE STATISTICS
-    ======================================================================== */
+    // ADMIN: UPDATE SERVICE STATISTICS
 
     function updateAdminServiceStats(services) {
 
@@ -8093,16 +7516,12 @@ window.addEventListener(
     }
 
 
-        /* ========================================================================
-    ADMIN — SERVICE SEARCH & CATEGORY FILTER
-    ======================================================================== */
+        // ADMIN: SERVICE SEARCH & CATEGORY FILTER
 
     let adminServicesCache = [];
 
 
-    /**
-     * Filters services using search text and category.
-     */
+    // Filters services using search text and category.
     function filterAdminServices() {
 
         const searchInput =
@@ -8185,15 +7604,9 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — DISPLAY SERVICES
-    ======================================================================== */
+    // ADMIN: DISPLAY SERVICES
 
-    /**
-     * Displays services on the Admin Services page.
-     *
-     * @param {Array} services
-     */
+    // Displays services on the Admin Services page.
     function displayAdminServices(services) {
 
         const servicesList =
@@ -8219,9 +7632,7 @@ window.addEventListener(
                 : [];
 
 
-        /* ====================================================================
-        NO SERVICES
-        ==================================================================== */
+        // NO SERVICES
 
         if (!safeServices.length) {
 
@@ -8240,9 +7651,7 @@ window.addEventListener(
         }
 
 
-        /* ====================================================================
-        CREATE SERVICE CARDS
-        ==================================================================== */
+        // CREATE SERVICE CARDS
 
         servicesList.innerHTML =
             safeServices.map(
@@ -8367,13 +7776,9 @@ window.addEventListener(
 
     }
 
-    /* ========================================================================
-    ADMIN — SERVICE BUTTON ACTIONS
-    ======================================================================== */
+    // ADMIN: SERVICE BUTTON ACTIONS
 
-    /**
-     * Handles clicks on Edit and Delete buttons.
-     */
+    // Handles clicks on Edit and Delete buttons.
     function initializeAdminServiceActions() {
 
         const servicesList =
@@ -8387,17 +7792,12 @@ window.addEventListener(
         }
 
 
-        /*
-        * Event delegation is used because service cards
-        * are created dynamically by JavaScript.
-        */
+        // Event delegation is used because service cards
         servicesList.addEventListener(
             "click",
             event => {
 
-                /* ============================================================
-                EDIT SERVICE
-                ============================================================ */
+                // EDIT SERVICE
 
                 const editButton =
                     event.target.closest(
@@ -8420,9 +7820,7 @@ window.addEventListener(
                 }
 
 
-                /* ============================================================
-                DELETE SERVICE
-                ============================================================ */
+                // DELETE SERVICE
 
                 const deleteButton =
                     event.target.closest(
@@ -8450,9 +7848,7 @@ window.addEventListener(
     }
 
 
-/* ========================================================================
-    ADMIN — EDIT SERVICE
-    ======================================================================== */
+// ADMIN: EDIT SERVICE
 
     function handleEditAdminService(serviceId) {
 
@@ -8499,10 +7895,7 @@ window.addEventListener(
         }
 
 
-        /*
-         * Open the edit form directly when the
-         * dedicated Admin Services page is open.
-         */
+        // Open the edit form directly when the
         const editSection =
             document.getElementById(
                 "edit-service-section"
@@ -8591,10 +7984,7 @@ window.addEventListener(
         }
 
 
-        /*
-         * Open the dedicated Admin Services page
-         * when the edit form is not available.
-         */
+        // Open the dedicated Admin Services page
         window.location.href =
             `admin-services.html?edit=${encodeURIComponent(
                 service._id ||
@@ -8605,12 +7995,7 @@ window.addEventListener(
     }
 
 
-
-
-
-    /* ========================================================================
-    ADMIN — UPDATE EDITED SERVICE
-    ======================================================================== */
+    // ADMIN: UPDATE EDITED SERVICE
 
     async function handleUpdateAdminService(event) {
 
@@ -8900,11 +8285,7 @@ window.addEventListener(
     }
 
 
-
-
-    /* ========================================================================
-    ADMIN — EDIT SERVICE FORM INITIALIZATION
-    ======================================================================== */
+    // ADMIN: EDIT SERVICE FORM INITIALIZATION
 
     function initializeAdminEditServiceForm() {
 
@@ -8919,11 +8300,7 @@ window.addEventListener(
         }
 
 
-        /*
-         * Prevent duplicate event listeners when
-         * the Admin Services initialization runs
-         * more than once.
-         */
+        // Prevent duplicate event listeners when
         if (
             editForm.dataset.initialized === "true"
         ) {
@@ -8968,9 +8345,7 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — INITIALIZE EDIT SERVICE FORM
-    ======================================================================== */
+    // ADMIN: INITIALIZE EDIT SERVICE FORM
 
     if (
         document.readyState === "loading"
@@ -8988,9 +8363,7 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    ADMIN — CANCEL EDIT
-    ======================================================================== */
+    // ADMIN: CANCEL EDIT
 
     function cancelAdminServiceEdit() {
 
@@ -9015,18 +8388,12 @@ window.addEventListener(
     }
 
 
-
-
-    /* ========================================================================
-    ADMIN — USER MANAGEMENT
-    ======================================================================== */
+    // ADMIN: USER MANAGEMENT
 
     let adminUsersCache = [];
 
 
-    /* ========================================================================
-    RENDER ADMIN USERS
-    ======================================================================== */
+    // RENDER ADMIN USERS
 
     function displayAdminUsers(users) {
 
@@ -9192,9 +8559,7 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    UPDATE USER STATISTICS
-    ======================================================================== */
+    // UPDATE USER STATISTICS
 
     function updateAdminUserStatistics(users) {
 
@@ -9302,9 +8667,7 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    APPLY USER SEARCH AND ROLE FILTER
-    ======================================================================== */
+    // APPLY USER SEARCH AND ROLE FILTER
 
     function applyAdminUserFilters() {
 
@@ -9386,9 +8749,7 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    VIEW USER DETAILS
-    ======================================================================== */
+    // VIEW USER DETAILS
 
     async function handleViewAdminUser(userId) {
 
@@ -9536,9 +8897,7 @@ window.addEventListener(
     }
 
 
-    /* ========================================================================
-    TOGGLE USER STATUS
-    ======================================================================== */
+    // TOGGLE USER STATUS
 
     async function handleToggleAdminUser(userId) {
         
@@ -9616,9 +8975,7 @@ window.addEventListener(
 
     }
 
-    /* ========================================================================
-    ADMIN USER BUTTON ACTIONS
-    ======================================================================== */
+    // ADMIN USER BUTTON ACTIONS
 
     function initializeAdminUserActions() {
 
@@ -9674,9 +9031,7 @@ window.addEventListener(
 
     }
 
-    /* ========================================================================
-    ADMIN USER SEARCH
-    ======================================================================== */
+    // ADMIN USER SEARCH
 
     function initializeAdminUserSearch() {
 
@@ -9718,11 +9073,7 @@ window.addEventListener(
     }
 
 
-
-
-    /* ========================================================================
-    ADMIN USER DETAILS
-    ======================================================================== */
+    // ADMIN USER DETAILS
 
     function initializeAdminUserDetails() {
 
@@ -9762,9 +9113,7 @@ window.addEventListener(
         }
 
 
-        /* ================================================================
-        VIEW USER
-        ================================================================ */
+        // VIEW USER
 
         usersList.addEventListener(
             "click",
@@ -10056,9 +9405,7 @@ window.addEventListener(
         );
 
 
-        /* ================================================================
-        CLOSE USER DETAILS
-        ================================================================ */
+        // CLOSE USER DETAILS
 
        detailsContainer.addEventListener(
     "click",
@@ -10091,16 +9438,12 @@ closeButton.addEventListener(
 );
 
 
-/* ========================================================================
-END ADMIN USER DETAILS
-======================================================================== */
+// END ADMIN USER DETAILS
 
 }
 
 
-/* ========================================================================
-ADMIN USERS PAGE INITIALIZATION
-======================================================================== */
+// ADMIN USERS PAGE INITIALIZATION
 
 function initializeAdminUsersPage() {
 
@@ -10156,9 +9499,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN USERS PAGE START
-    ======================================================================== */
+    // ADMIN USERS PAGE START
 
     if (
         document.readyState === "loading"
@@ -10176,14 +9517,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN — INITIALIZE CREATE SERVICE FORM
-    ======================================================================== */
+    // ADMIN: INITIALIZE CREATE SERVICE FORM
 
-    /**
-     * Connects the Create Service form with
-     * the Admin Create Service handler.
-     */
+    // Connects the Create Service form with
     function initializeAdminCreateService() {
 
         const createServiceForm =
@@ -10212,21 +9548,15 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN — CREATE SERVICE
-    ======================================================================== */
+    // ADMIN: CREATE SERVICE
 
-    /**
-     * Creates a new service through the Admin Services API.
-     */
+    // Creates a new service through the Admin Services API.
     async function handleCreateAdminService(event) {
 
         event.preventDefault();
 
 
-        /* ====================================================================
-        GET FORM ELEMENTS
-        ==================================================================== */
+        // GET FORM ELEMENTS
 
         const form =
             document.getElementById(
@@ -10250,9 +9580,7 @@ function initializeAdminUsersPage() {
         }
 
 
-        /* ====================================================================
-        GET INPUT VALUES
-        ==================================================================== */
+        // GET INPUT VALUES
 
         const nameInput =
             document.getElementById(
@@ -10300,9 +9628,7 @@ function initializeAdminUsersPage() {
                 : true;
 
 
-        /* ====================================================================
-        VALIDATE INPUT
-        ==================================================================== */
+        // VALIDATE INPUT
 
         if (
             !name ||
@@ -10333,9 +9659,7 @@ function initializeAdminUsersPage() {
         }
 
 
-        /* ====================================================================
-        GET ADMIN TOKEN
-        ==================================================================== */
+        // GET ADMIN TOKEN
 
         const token =
             getToken();
@@ -10354,9 +9678,7 @@ function initializeAdminUsersPage() {
         }
 
 
-        /* ====================================================================
-        PREVENT MULTIPLE SUBMISSIONS
-        ==================================================================== */
+        // PREVENT MULTIPLE SUBMISSIONS
 
         if (createButton) {
 
@@ -10375,9 +9697,7 @@ function initializeAdminUsersPage() {
             );
 
 
-            /* ================================================================
-            CREATE SERVICE API REQUEST
-            ================================================================ */
+            // CREATE SERVICE API REQUEST
 
             const response =
                 await fetch(
@@ -10411,9 +9731,7 @@ function initializeAdminUsersPage() {
                 );
 
 
-            /* ================================================================
-            PARSE RESPONSE
-            ================================================================ */
+            // PARSE RESPONSE
 
             const data =
                 await parseJSONResponse(
@@ -10427,9 +9745,7 @@ function initializeAdminUsersPage() {
             );
 
 
-            /* ================================================================
-            HANDLE API ERROR
-            ================================================================ */
+            // HANDLE API ERROR
 
             if (!response.ok) {
 
@@ -10461,9 +9777,7 @@ function initializeAdminUsersPage() {
             }
 
 
-            /* ================================================================
-            SUCCESS
-            ================================================================ */
+            // SUCCESS
 
             console.log(
                 "Service created successfully:",
@@ -10476,9 +9790,7 @@ function initializeAdminUsersPage() {
             );
 
 
-            /* ================================================================
-            RESET FORM
-            ================================================================ */
+            // RESET FORM
 
             form.reset();
 
@@ -10491,9 +9803,7 @@ function initializeAdminUsersPage() {
             }
 
 
-            /* ================================================================
-            REFRESH SERVICE LIST
-            ================================================================ */
+            // REFRESH SERVICE LIST
 
             await handleLoadAdminServices();
 
@@ -10532,9 +9842,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    INITIALIZE ADMIN SERVICE ACTIONS
-    ======================================================================== */
+    // INITIALIZE ADMIN SERVICE ACTIONS
 
     if (
         document.readyState === "loading"
@@ -10551,14 +9859,9 @@ function initializeAdminUsersPage() {
 
     }
 
-    /* ========================================================================
-    ADMIN — UPDATE CATEGORY FILTER
-    ======================================================================== */
+    // ADMIN: UPDATE CATEGORY FILTER
 
-    /**
-     * Updates the category dropdown dynamically from
-     * the services returned by the backend.
-     */
+    // Updates the category dropdown dynamically from
     function updateAdminServiceCategoryFilter(
         services
     ) {
@@ -10605,9 +9908,7 @@ function initializeAdminUsersPage() {
             );
 
 
-        /* ====================================================================
-        KEEP "ALL CATEGORIES"
-        ==================================================================== */
+        // KEEP "ALL CATEGORIES"
 
         categoryFilter.innerHTML = `
             <option value="all">
@@ -10616,9 +9917,7 @@ function initializeAdminUsersPage() {
         `;
 
 
-        /* ====================================================================
-        ADD REAL DATABASE CATEGORIES
-        ==================================================================== */
+        // ADD REAL DATABASE CATEGORIES
 
         categories.forEach(
             category => {
@@ -10647,9 +9946,7 @@ function initializeAdminUsersPage() {
         );
 
 
-        /* ====================================================================
-        RESTORE PREVIOUS SELECTION
-        ==================================================================== */
+        // RESTORE PREVIOUS SELECTION
 
         const availableValues =
             Array.from(
@@ -10679,13 +9976,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN — INITIALIZE SEARCH & FILTER
-    ======================================================================== */
+    // ADMIN: INITIALIZE SEARCH & FILTER
 
-    /**
-     * Initializes Admin Services search and category filter.
-     */
+    // Initializes Admin Services search and category filter.
     function initializeAdminServiceFilters() {
 
         const searchInput =
@@ -10699,15 +9992,11 @@ function initializeAdminUsersPage() {
             );
 
 
-        /* ====================================================================
-        SEARCH INPUT
-        ==================================================================== */
+        // SEARCH INPUT
 
         if (searchInput) {
 
-            /*
-            * Prevent duplicate event listeners.
-            */
+            // Prevent duplicate event listeners.
             if (searchInput._adminSearchInputHandler) {
 
                 searchInput.removeEventListener(
@@ -10728,9 +10017,7 @@ function initializeAdminUsersPage() {
             }
 
 
-            /*
-            * Filter while typing.
-            */
+            // Filter while typing.
             const searchInputHandler =
                 function () {
 
@@ -10739,9 +10026,7 @@ function initializeAdminUsersPage() {
                 };
 
 
-            /*
-            * Prevent Enter from submitting the page/form.
-            */
+            // Prevent Enter from submitting the page/form.
             const searchKeyHandler =
                 function (event) {
 
@@ -10780,15 +10065,11 @@ function initializeAdminUsersPage() {
         }
 
 
-        /* ====================================================================
-        CATEGORY FILTER
-        ==================================================================== */
+        // CATEGORY FILTER
 
         if (categoryFilter) {
 
-            /*
-            * Prevent duplicate category listeners.
-            */
+            // Prevent duplicate category listeners.
             if (
                 categoryFilter._adminCategoryHandler
             ) {
@@ -10823,15 +10104,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN — UPDATE SERVICES CACHE
-    ======================================================================== */
+    // ADMIN: UPDATE SERVICES CACHE
 
-    /**
-     * Stores the latest services returned by the backend.
-     *
-     * @param {Array} services
-     */
+    // Stores the latest services returned by the backend.
     function setAdminServicesCache(
         services
     ) {
@@ -10850,14 +10125,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN — SERVICES PAGE SEARCH INITIALIZATION
-    ======================================================================== */
+    // ADMIN: SERVICES PAGE SEARCH INITIALIZATION
 
-    /**
-     * Initializes search and category filtering
-     * only when the related Admin Services elements exist.
-     */
+    // Initializes search and category filtering
     function initializeAdminServiceSearch() {
 
         const searchInput =
@@ -10871,10 +10141,7 @@ function initializeAdminUsersPage() {
             );
 
 
-        /*
-        * If neither element exists, this is not
-        * the Admin Services page.
-        */
+        // If neither element exists, this is not
         if (
             !searchInput &&
             !categoryFilter
@@ -10895,9 +10162,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /*
-    * Initialize after DOM is ready.
-    */
+    // Initialize after DOM is ready.
     if (
         document.readyState === "loading"
     ) {
@@ -10917,15 +10182,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    GET LOGGED-IN USER PROFILE
-    ======================================================================== */
+    // GET LOGGED-IN USER PROFILE
 
-    /**
-     * Retrieves the profile of the currently authenticated user.
-     *
-     * @returns {Object|null}
-     */
+    // Retrieves the profile of the currently authenticated user.
     async function loadMyProfile() {
 
         const token =
@@ -11021,18 +10280,9 @@ function initializeAdminUsersPage() {
     }
 
 
+    // UPDATE MY PROFILE
 
-    /* ========================================================================
-    UPDATE MY PROFILE
-    ======================================================================== */
-
-    /**
-     * Updates the authenticated user's name and phone number.
-     *
-     * @param {string} name
-     * @param {string} phone
-     * @returns {Object|null}
-     */
+    // Updates the authenticated user's name and phone number.
     async function updateMyProfile(
         name,
         phone
@@ -11177,17 +10427,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    CHANGE PASSWORD
-    ======================================================================== */
+    // CHANGE PASSWORD
 
-    /**
-     * Changes the authenticated user's password.
-     *
-     * @param {string} currentPassword
-     * @param {string} newPassword
-     * @returns {Object|null}
-     */
+    // Changes the authenticated user's password.
     async function changePassword(
         currentPassword,
         newPassword
@@ -11307,15 +10549,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    AUTHENTICATION STATE CHECK
-    ======================================================================== */
+    // AUTHENTICATION STATE CHECK
 
-    /**
-     * Checks whether an authentication token exists.
-     *
-     * @returns {boolean}
-     */
+    // Checks whether an authentication token exists.
     function isLoggedIn() {
 
         const token =
@@ -11329,15 +10565,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    GET SAVED USER
-    ======================================================================== */
+    // GET SAVED USER
 
-    /**
-     * Retrieves the locally stored user object.
-     *
-     * @returns {Object|null}
-     */
+    // Retrieves the locally stored user object.
     function getSavedUser() {
 
         try {
@@ -11391,15 +10621,9 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    SAVE USER
-    ======================================================================== */
+    // SAVE USER
 
-    /**
-     * Stores authenticated user information.
-     *
-     * @param {Object} user
-     */
+    // Stores authenticated user information.
     function saveUser(user) {
 
         if (
@@ -11434,9 +10658,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    CLEAR AUTHENTICATION DATA
-    ======================================================================== */
+    // CLEAR AUTHENTICATION DATA
 
     function clearAuthData() {
 
@@ -11452,9 +10674,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    LOGOUT
-    ======================================================================== */
+    // LOGOUT
 
     function logout() {
 
@@ -11472,9 +10692,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ROLE CHECK
-    ======================================================================== */
+    // ROLE CHECK
 
     function hasRole(role) {
 
@@ -11506,9 +10724,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN ROLE CHECK
-    ======================================================================== */
+    // ADMIN ROLE CHECK
 
     function isAdmin() {
 
@@ -11519,9 +10735,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    PROVIDER ROLE CHECK
-    ======================================================================== */
+    // PROVIDER ROLE CHECK
 
     function isProvider() {
 
@@ -11532,9 +10746,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    CUSTOMER ROLE CHECK
-    ======================================================================== */
+    // CUSTOMER ROLE CHECK
 
     function isCustomer() {
 
@@ -11545,9 +10757,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    REQUIRE LOGIN
-    ======================================================================== */
+    // REQUIRE LOGIN
 
     function requireLogin() {
 
@@ -11567,9 +10777,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    REQUIRE ADMIN
-    ======================================================================== */
+    // REQUIRE ADMIN
 
     function requireAdmin() {
 
@@ -11605,9 +10813,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    FORMAT PRICE
-    ======================================================================== */
+    // FORMAT PRICE
 
     function formatPrice(price) {
 
@@ -11631,9 +10837,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    FORMAT DATE
-    ======================================================================== */
+    // FORMAT DATE
 
     function formatDate(dateValue) {
 
@@ -11680,9 +10884,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    FORMAT DATE AND TIME
-    ======================================================================== */
+    // FORMAT DATE AND TIME
 
     function formatDateTime(dateValue) {
 
@@ -11735,9 +10937,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    CAPITALIZE TEXT
-    ======================================================================== */
+    // CAPITALIZE TEXT
 
     function capitalizeText(text) {
 
@@ -11764,9 +10964,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    SAFE HTML ESCAPING
-    ======================================================================== */
+    // SAFE HTML ESCAPING
 
     function escapeHTML(value) {
 
@@ -11805,9 +11003,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    SAFE JSON RESPONSE PARSER
-    ======================================================================== */
+    // SAFE JSON RESPONSE PARSER
 
     async function parseJSONResponse(response) {
 
@@ -11865,9 +11061,7 @@ function initializeAdminUsersPage() {
     }
 
 
-    /* ========================================================================
-    ADMIN BOOKINGS PAGE INITIALIZATION
-    ======================================================================== */
+    // ADMIN BOOKINGS PAGE INITIALIZATION
 
     async function initializeAdminBookingsPage() {
 
@@ -11893,10 +11087,7 @@ function initializeAdminUsersPage() {
         );
 
 
-
-            /* ================================================================
-        UPDATE BOOKING STATISTICS
-        ================================================================ */
+            // UPDATE BOOKING STATISTICS
 
         const totalBookings =
             bookings.length;
@@ -11985,9 +11176,7 @@ function initializeAdminUsersPage() {
 
         
 
-        /* ================================================================
-        RENDER BOOKINGS FROM DATABASE
-        ================================================================ */
+        // RENDER BOOKINGS FROM DATABASE
 
         bookingsContainer.innerHTML = "";
 
@@ -12025,9 +11214,7 @@ function initializeAdminUsersPage() {
                     "request-card";
 
 
-                /* ========================================================
-                BOOKING DATA
-                ======================================================== */
+                // BOOKING DATA
 
                 const serviceName =
                     booking.service?.name ||
@@ -12055,9 +11242,7 @@ function initializeAdminUsersPage() {
                     "pending";
 
 
-                /* ========================================================
-                DATE
-                ======================================================== */
+                // DATE
 
                 let bookingDate =
                     "N/A";
@@ -12104,9 +11289,7 @@ function initializeAdminUsersPage() {
                 }
 
 
-                /* ========================================================
-                STATUS DISPLAY
-                ======================================================== */
+                // STATUS DISPLAY
 
                 const formattedStatus =
                     status
@@ -12121,9 +11304,7 @@ function initializeAdminUsersPage() {
                         );
 
 
-                /* ========================================================
-                CARD HTML
-                ======================================================== */
+                // CARD HTML
 
                 card.innerHTML = `
 
@@ -12219,10 +11400,7 @@ function initializeAdminUsersPage() {
     );
 
 
-
-    /* ========================================================================
-   ADMIN BOOKING VIEW HANDLER
-   ======================================================================== */
+    // ADMIN BOOKING VIEW HANDLER
 
 function initializeAdminBookingView() {
 
@@ -12486,9 +11664,7 @@ if (
 
 }
 
-    /* ========================================================================
-   ADMIN BOOKING CANCELLATION
-   ======================================================================== */
+    // ADMIN BOOKING CANCELLATION
 
 async function cancelAdminBooking(bookingId) {
 
@@ -12562,11 +11738,7 @@ async function cancelAdminBooking(bookingId) {
 }
 
 
-
-
-/* ========================================================================
-   ADMIN BOOKING CANCELLATION HANDLER
-   ======================================================================== */
+// ADMIN BOOKING CANCELLATION HANDLER
 
 function initializeAdminBookingCancellation() {
 
@@ -12868,9 +12040,7 @@ async function cancelCustomerBooking(bookingId) {
 }
 
 
-/* ========================================================================
-   CUSTOMER BOOKING CANCELLATION HANDLERS
-   ======================================================================== */
+// CUSTOMER BOOKING CANCELLATION HANDLERS
 
 function initializeCustomerBookingCancellation() {
 
@@ -12919,9 +12089,7 @@ function initializeCustomerBookingCancellation() {
 }
 
 
-/* ========================================================================
-   CUSTOMER BOOKING CANCELLATION INITIALIZATION
-   ======================================================================== */
+// CUSTOMER BOOKING CANCELLATION INITIALIZATION
 
 if (document.readyState === "loading") {
 
@@ -13004,10 +12172,7 @@ if (document.readyState === "loading") {
 }
 
 
-/* ========================================================================
-   ADMIN QUICK ACTIONS
-   Handles navigation from Admin Dashboard and Admin Services page.
-   ======================================================================== */
+// ADMIN QUICK ACTIONS
 
 function scrollToAdminSectionByListId(listId) {
 
@@ -13107,9 +12272,7 @@ function initializeAdminDashboardQuickActions() {
 }
 
 
-/* ========================================================================
-   ADMIN SERVICES PAGE QUICK ACTIONS
-   ======================================================================== */
+// ADMIN SERVICES PAGE QUICK ACTIONS
 
 function initializeAdminServicesQuickActions() {
 
@@ -13134,9 +12297,7 @@ function initializeAdminServicesQuickActions() {
         );
 
 
-    /*
-     * RETURN TO ADMIN DASHBOARD
-     */
+    // RETURN TO ADMIN DASHBOARD
 
     if (dashboardButton) {
 
@@ -13155,9 +12316,7 @@ function initializeAdminServicesQuickActions() {
     }
 
 
-    /*
-     * MANAGE USERS
-     */
+    // MANAGE USERS
 
     if (manageUsersButton) {
 
@@ -13176,9 +12335,7 @@ function initializeAdminServicesQuickActions() {
     }
 
 
-    /*
-     * VIEW BOOKINGS
-     */
+    // VIEW BOOKINGS
 
     if (manageBookingsButton) {
 
@@ -13197,9 +12354,7 @@ function initializeAdminServicesQuickActions() {
     }
 
 
-    /*
-     * VIEW REVIEWS
-     */
+    // VIEW REVIEWS
 
     if (manageReviewsButton) {
 
@@ -13220,9 +12375,7 @@ function initializeAdminServicesQuickActions() {
 }
 
 
-/* ========================================================================
-   INITIALIZE ADMIN QUICK ACTIONS
-   ======================================================================== */
+// INITIALIZE ADMIN QUICK ACTIONS
 
 if (
     document.readyState ===
@@ -13261,10 +12414,7 @@ if (
 }
 
 
-/* ========================================================================
-   ADMIN REVIEWS MANAGEMENT
-   Loads, renders, views, and manages customer reviews on the Admin Reviews page.
-   ======================================================================== */
+// ADMIN REVIEWS MANAGEMENT
 
 function renderAdminReviews(reviews, container) {
 
@@ -13580,10 +12730,7 @@ async function showAdminReviewDetails(review) {
             "admin-review-details-content"
         );
 
-    /*
-     * Create the review details section dynamically when
-     * the Admin Reviews page does not contain it.
-     */
+    // Create the review details section dynamically when
 
     if (!detailsSection || !detailsContent) {
 
@@ -14040,10 +13187,7 @@ if (
 }
 
 
-/* ========================================================================
-   PROVIDER DASHBOARD QUICK ACTIONS
-   Handles navigation for provider dashboard action buttons.
-   ======================================================================== */
+// PROVIDER DASHBOARD QUICK ACTIONS
 
 function initializeProviderQuickActions() {
 
@@ -14062,10 +13206,7 @@ function initializeProviderQuickActions() {
             ".provider-history-btn"
         );
 
-    /* ----------------------------------------------------
-       MANAGE SERVICES
-       Opens the existing services management area.
-    ---------------------------------------------------- */
+    // MANAGE SERVICES
     if (manageServicesButton) {
 
         manageServicesButton.addEventListener(
@@ -14083,10 +13224,7 @@ function initializeProviderQuickActions() {
 
     }
 
-    /* ----------------------------------------------------
-       VIEW PROFILE
-       Opens the provider profile page.
-    ---------------------------------------------------- */
+    // VIEW PROFILE
     if (profileButton) {
 
         profileButton.addEventListener(
@@ -14105,10 +13243,7 @@ function initializeProviderQuickActions() {
 
     }
 
-    /* ----------------------------------------------------
-       BOOKING HISTORY
-       Opens the existing booking history page.
-    ---------------------------------------------------- */
+    // BOOKING HISTORY
     if (historyButton) {
 
         historyButton.addEventListener(
@@ -14129,10 +13264,7 @@ function initializeProviderQuickActions() {
 }
 
 
-/* ========================================================================
-   PROVIDER LOGOUT
-   Clears authentication data before leaving the dashboard.
-   ======================================================================== */
+// PROVIDER LOGOUT
 
 function initializeProviderLogout() {
 
@@ -14157,10 +13289,7 @@ function initializeProviderLogout() {
 }
 
 
-/* ========================================================================
-   PROVIDER DASHBOARD INITIALIZATION
-   Loads provider dashboard data only on the provider dashboard page.
-   ======================================================================== */
+// PROVIDER DASHBOARD INITIALIZATION
 
 function initializeProviderDashboard() {
 
@@ -14792,10 +13921,7 @@ if (
 }
 
 
-/* ================================================================
-   GLOBAL LOCALEASE LOGOUT HANDLER
-   Ensures authentication data is always cleared before logout.
-================================================================ */
+// GLOBAL LOCALEASE LOGOUT HANDLER
 
 (function () {
 
@@ -14810,9 +13936,7 @@ if (
     }
 
 
-    /* ------------------------------------------------------------
-       GLOBAL LOGOUT FUNCTION
-    ------------------------------------------------------------ */
+    // GLOBAL LOGOUT FUNCTION
 
     window.localEaseLogout = function () {
 
@@ -14823,9 +13947,7 @@ if (
     };
 
 
-    /* ------------------------------------------------------------
-       HANDLE ALL LOGOUT LINKS
-    ------------------------------------------------------------ */
+    // HANDLE ALL LOGOUT LINKS
 
     document.addEventListener(
         "click",

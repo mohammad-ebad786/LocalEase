@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =========================================
+         BASIC META INFORMATION
+    ========================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -22,20 +26,31 @@
 
     <title>Dashboard - LocalEase</title>
 
+
+    <!-- =========================================
+         STYLESHEET AND FAVICON
+    ========================================== -->
+
     <link
         rel="stylesheet"
         href="style.css"
     >
 
-    <link rel="icon" type="image/png" href="favicon.png"></head>
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+</head>
 
 
 <body class="dashboard-page">
 
 
-<!-- ======================================
-     HEADER
-====================================== -->
+<!-- =========================================
+     HEADER AND MAIN NAVIGATION
+========================================== -->
 
 <header class="site-header">
 
@@ -56,8 +71,7 @@
         </a>
 
 
-
-        <!-- NAVIGATION -->
+        <!-- MAIN NAVIGATION -->
 
         <nav class="main-navigation">
 
@@ -110,23 +124,23 @@
 
 
 
-<!-- ======================================
+<!-- =========================================
      MAIN CONTENT
-====================================== -->
+========================================== -->
 
 <main>
 
 
-    <!-- ======================================
-         DASHBOARD HERO
-    ====================================== -->
+    <!-- =========================================
+         DASHBOARD HERO SECTION
+    ========================================== -->
 
     <section class="dashboard-hero">
 
         <div class="dashboard-hero-container">
 
 
-            <!-- BREADCRUMB -->
+            <!-- DASHBOARD BREADCRUMB -->
 
             <p class="dashboard-breadcrumb">
 
@@ -145,8 +159,7 @@
             </p>
 
 
-
-            <!-- HERO GRID -->
+            <!-- DASHBOARD HERO GRID -->
 
             <div class="dashboard-hero-grid">
 
@@ -175,6 +188,8 @@
                         from one simple workspace.
                     </p>
 
+
+                    <!-- DASHBOARD TRUST INDICATORS -->
 
                     <div class="dashboard-trust-row">
 
@@ -217,8 +232,7 @@
                 </div>
 
 
-
-                <!-- HERO CARD -->
+                <!-- DASHBOARD HERO CARD -->
 
                 <div class="dashboard-hero-visual">
 
@@ -277,21 +291,23 @@
 
 
 
-    <!-- ======================================
+    <!-- =========================================
          DASHBOARD WORKSPACE
-    ====================================== -->
+    ========================================== -->
 
     <section class="dashboard-workspace">
 
         <div class="dashboard-container">
 
 
-            <!-- ======================================
+            <!-- =========================================
                  QUICK ACTIONS
-            ====================================== -->
+            ========================================== -->
 
             <section class="dashboard-actions-section">
 
+
+                <!-- QUICK ACTIONS HEADER -->
 
                 <div class="dashboard-section-heading">
 
@@ -311,6 +327,7 @@
                 </div>
 
 
+                <!-- QUICK ACTIONS GRID -->
 
                 <div class="dashboard-actions-grid">
 
@@ -354,7 +371,6 @@
                     </a>
 
 
-
                     <!-- BOOK SERVICE -->
 
                     <a
@@ -392,7 +408,6 @@
                         </span>
 
                     </a>
-
 
 
                     <!-- MY BOOKINGS -->
@@ -440,12 +455,14 @@
 
 
 
-            <!-- ======================================
+            <!-- =========================================
                  BOOKING STATISTICS
-            ====================================== -->
+            ========================================== -->
 
             <section class="dashboard-stats-section">
 
+
+                <!-- BOOKING STATISTICS HEADER -->
 
                 <div class="dashboard-section-heading">
 
@@ -463,6 +480,8 @@
                     </div>
 
 
+                    <!-- VIEW ALL BOOKINGS -->
+
                     <a
                         href="my-bookings.html"
                         class="dashboard-view-all-link"
@@ -476,11 +495,12 @@
                 </div>
 
 
+                <!-- BOOKING STATISTICS GRID -->
 
                 <div class="dashboard-stats-grid">
 
 
-                    <!-- TOTAL -->
+                    <!-- TOTAL BOOKINGS -->
 
                     <article class="dashboard-stat-card dashboard-stat-total">
 
@@ -513,8 +533,7 @@
                     </article>
 
 
-
-                    <!-- PENDING -->
+                    <!-- PENDING BOOKINGS -->
 
                     <article class="dashboard-stat-card dashboard-stat-pending">
 
@@ -547,8 +566,7 @@
                     </article>
 
 
-
-                    <!-- CONFIRMED -->
+                    <!-- CONFIRMED BOOKINGS -->
 
                     <article class="dashboard-stat-card dashboard-stat-confirmed">
 
@@ -581,8 +599,7 @@
                     </article>
 
 
-
-                    <!-- COMPLETED -->
+                    <!-- COMPLETED BOOKINGS -->
 
                     <article class="dashboard-stat-card dashboard-stat-completed">
 
@@ -621,12 +638,14 @@
 
 
 
-            <!-- ======================================
+            <!-- =========================================
                  RECENT BOOKINGS
-            ====================================== -->
+            ========================================== -->
 
             <section class="dashboard-content-section">
 
+
+                <!-- RECENT BOOKINGS HEADER -->
 
                 <div class="dashboard-section-heading">
 
@@ -650,6 +669,8 @@
                     </div>
 
 
+                    <!-- VIEW ALL BOOKINGS -->
+
                     <a
                         href="my-bookings.html"
                         class="dashboard-view-all-link"
@@ -663,6 +684,7 @@
                 </div>
 
 
+                <!-- RECENT BOOKINGS LIST -->
 
                 <div
                     id="recentBookings"
@@ -698,12 +720,14 @@
 
 
 
-            <!-- ======================================
+            <!-- =========================================
                  CUSTOMER PROFILE
-            ====================================== -->
+            ========================================== -->
 
             <section class="dashboard-content-section dashboard-profile-section">
 
+
+                <!-- CUSTOMER PROFILE HEADER -->
 
                 <div class="dashboard-section-heading">
 
@@ -726,6 +750,8 @@
                     </div>
 
 
+                    <!-- EDIT PROFILE LINK -->
+
                     <a
                         href="profile.html"
                         class="dashboard-view-all-link"
@@ -739,9 +765,12 @@
                 </div>
 
 
+                <!-- CUSTOMER PROFILE CARD -->
 
                 <div class="dashboard-profile-card">
 
+
+                    <!-- CUSTOMER PROFILE INTRODUCTION -->
 
                     <div class="dashboard-profile-intro">
 
@@ -766,11 +795,12 @@
                     </div>
 
 
+                    <!-- CUSTOMER PROFILE DETAILS -->
 
                     <div class="profile-details-grid">
 
 
-                        <!-- NAME -->
+                        <!-- CUSTOMER NAME -->
 
                         <div class="profile-detail">
 
@@ -786,8 +816,7 @@
                         </div>
 
 
-
-                        <!-- EMAIL -->
+                        <!-- CUSTOMER EMAIL -->
 
                         <div class="profile-detail">
 
@@ -803,8 +832,7 @@
                         </div>
 
 
-
-                        <!-- LOCATION -->
+                        <!-- CUSTOMER LOCATION -->
 
                         <div class="profile-detail">
 
@@ -835,14 +863,16 @@
 
 
 
-    <!-- ======================================
+    <!-- =========================================
          EXPLORE SERVICES CTA
-    ====================================== -->
+    ========================================== -->
 
     <section class="dashboard-explore-section">
 
         <div class="dashboard-explore-container">
 
+
+            <!-- EXPLORE SERVICES CONTENT -->
 
             <div class="dashboard-explore-content">
 
@@ -865,6 +895,8 @@
                 </p>
 
 
+                <!-- BROWSE SERVICES BUTTON -->
+
                 <a
                     href="services.html"
                     class="dashboard-explore-btn"
@@ -880,6 +912,7 @@
             </div>
 
 
+            <!-- EXPLORE SERVICES VISUAL -->
 
             <div class="dashboard-explore-visual">
 
@@ -905,9 +938,9 @@
 
 
 
-    <!-- ======================================
+    <!-- =========================================
          BACK TO HOME
-    ====================================== -->
+    ========================================== -->
 
     <section class="dashboard-back-section">
 
@@ -922,16 +955,16 @@
 
 
 
-<!-- ======================================
+<!-- =========================================
      FOOTER
-====================================== -->
+========================================== -->
 
 <footer class="site-footer">
 
     <div class="footer-container">
 
 
-        <!-- BRAND -->
+        <!-- FOOTER BRAND INFORMATION -->
 
         <div class="footer-brand">
 
@@ -955,8 +988,7 @@
         </div>
 
 
-
-        <!-- EXPLORE -->
+        <!-- FOOTER EXPLORE LINKS -->
 
         <div class="footer-column">
 
@@ -982,8 +1014,7 @@
         </div>
 
 
-
-        <!-- ACCOUNT -->
+        <!-- FOOTER ACCOUNT LINKS -->
 
         <div class="footer-column">
 
@@ -1009,8 +1040,7 @@
         </div>
 
 
-
-        <!-- LOCALEASE -->
+        <!-- FOOTER LOCALEASE LINKS -->
 
         <div class="footer-column">
 
@@ -1039,6 +1069,7 @@
     </div>
 
 
+    <!-- FOOTER COPYRIGHT -->
 
     <div class="footer-bottom">
 
@@ -1052,17 +1083,11 @@
 
 
 
-<!-- ======================================
-     EXISTING JAVASCRIPT
-     
-     IMPORTANT:
-     Dashboard functionality is handled by
-     script.js and the existing dashboard
-     initialization below.
-====================================== -->
+<!-- =========================================
+     MAIN JAVASCRIPT
+========================================== -->
 
 <script src="script.js"></script>
-
 
 
 <script>
@@ -1074,16 +1099,14 @@
         "http://localhost:5000/api/bookings";
 
 
-
     /* =========================================================
-       PAGE INITIALIZATION
+       DASHBOARD PAGE INITIALIZATION
     ========================================================= */
 
     document.addEventListener(
         "DOMContentLoaded",
         initializeDashboard
     );
-
 
 
     async function initializeDashboard() {
@@ -1098,7 +1121,6 @@
         }
 
 
-
         setupLogout();
 
         await loadCustomerInformation();
@@ -1106,7 +1128,6 @@
         await loadCustomerBookings();
 
     }
-
 
 
     /* =========================================================
@@ -1126,7 +1147,6 @@
             );
 
 
-
         if (!token || !userData) {
 
             window.location.href =
@@ -1137,12 +1157,10 @@
         }
 
 
-
         try {
 
             const user =
                 JSON.parse(userData);
-
 
 
             if (user.role === "provider") {
@@ -1155,7 +1173,6 @@
             }
 
 
-
             if (user.role === "admin") {
 
                 window.location.href =
@@ -1164,7 +1181,6 @@
                 return false;
 
             }
-
 
 
             if (user.role !== "customer") {
@@ -1177,7 +1193,6 @@
             }
 
 
-
             return true;
 
         } catch (error) {
@@ -1186,7 +1201,6 @@
                 "Login data error:",
                 error
             );
-
 
 
             clearLocalEaseSession();
@@ -1201,7 +1215,6 @@
     }
 
 
-
     /* =========================================================
        LOAD CUSTOMER INFORMATION
     ========================================================= */
@@ -1214,13 +1227,11 @@
             );
 
 
-
         if (!token) {
 
             return;
 
         }
-
 
 
         try {
@@ -1243,10 +1254,8 @@
                 );
 
 
-
             const data =
                 await response.json();
-
 
 
             if (
@@ -1263,17 +1272,14 @@
             }
 
 
-
             const user =
                 data.user;
-
 
 
             localStorage.setItem(
                 "localeaseUser",
                 JSON.stringify(user)
             );
-
 
 
             const customerName =
@@ -1290,7 +1296,6 @@
             }
 
 
-
             const welcomeName =
                 document.getElementById(
                     "welcomeName"
@@ -1305,7 +1310,6 @@
             }
 
 
-
             const customerEmail =
                 document.getElementById(
                     "customerEmail"
@@ -1318,7 +1322,6 @@
                     "Not available";
 
             }
-
 
 
             const customerLocation =
@@ -1342,7 +1345,6 @@
             );
 
 
-
             if (
                 error.message &&
                 error.message.toLowerCase().includes(
@@ -1362,7 +1364,6 @@
     }
 
 
-
     /* =========================================================
        LOAD CUSTOMER BOOKINGS
     ========================================================= */
@@ -1375,13 +1376,11 @@
             );
 
 
-
         if (!token) {
 
             return;
 
         }
-
 
 
         try {
@@ -1405,10 +1404,8 @@
                 );
 
 
-
             const data =
                 await response.json();
-
 
 
             if (
@@ -1424,7 +1421,6 @@
             }
 
 
-
             const bookings =
                 Array.isArray(
                     data.bookings
@@ -1433,17 +1429,14 @@
                     : [];
 
 
-
             updateBookingStatistics(
                 bookings
             );
 
 
-
             renderRecentBookings(
                 bookings
             );
-
 
 
         } catch (error) {
@@ -1454,13 +1447,11 @@
             );
 
 
-
             showBookingError();
 
         }
 
     }
-
 
 
     /* =========================================================
@@ -1478,7 +1469,6 @@
         let completed = 0;
 
 
-
         bookings.forEach(
             function (booking) {
 
@@ -1487,7 +1477,6 @@
                         booking.status ||
                         ""
                     ).toLowerCase();
-
 
 
                 if (
@@ -1499,7 +1488,6 @@
                 }
 
 
-
                 if (
                     status === "confirmed"
                 ) {
@@ -1507,7 +1495,6 @@
                     confirmed++;
 
                 }
-
 
 
                 if (
@@ -1522,12 +1509,10 @@
         );
 
 
-
         document.getElementById(
             "totalBookings"
         ).textContent =
             bookings.length;
-
 
 
         document.getElementById(
@@ -1536,12 +1521,10 @@
             pending;
 
 
-
         document.getElementById(
             "confirmedBookings"
         ).textContent =
             confirmed;
-
 
 
         document.getElementById(
@@ -1550,7 +1533,6 @@
             completed;
 
     }
-
 
 
     /* =========================================================
@@ -1567,13 +1549,11 @@
             );
 
 
-
         if (!container) {
 
             return;
 
         }
-
 
 
         if (!bookings.length) {
@@ -1607,7 +1587,6 @@
         }
 
 
-
         const sortedBookings =
             [...bookings].sort(
                 function (a, b) {
@@ -1632,7 +1611,6 @@
             );
 
 
-
         const recentBookings =
             sortedBookings.slice(
                 0,
@@ -1640,9 +1618,7 @@
             );
 
 
-
         container.innerHTML = "";
-
 
 
         recentBookings.forEach(
@@ -1652,10 +1628,8 @@
                     booking.service || {};
 
 
-
                 const provider =
                     booking.provider || {};
-
 
 
                 const serviceName =
@@ -1668,7 +1642,6 @@
                         : "Local Service";
 
 
-
                 const providerName =
                     typeof provider === "object"
                         ? (
@@ -1678,12 +1651,10 @@
                         : "Not assigned";
 
 
-
                 const bookingDate =
                     formatBookingDate(
                         booking.bookingDate
                     );
-
 
 
                 const status =
@@ -1693,12 +1664,10 @@
                     ).toLowerCase();
 
 
-
                 const statusText =
                     formatBookingStatus(
                         status
                     );
-
 
 
                 const recentBooking =
@@ -1707,10 +1676,8 @@
                     );
 
 
-
                 recentBooking.className =
                     "recent-booking";
-
 
 
                 const bookingIcon =
@@ -1719,15 +1686,12 @@
                     );
 
 
-
                 bookingIcon.className =
                     "recent-booking-icon";
 
 
-
                 bookingIcon.textContent =
                     "📋";
-
 
 
                 const information =
@@ -1736,10 +1700,8 @@
                     );
 
 
-
                 information.className =
                     "recent-booking-content";
-
 
 
                 const heading =
@@ -1748,10 +1710,8 @@
                     );
 
 
-
                 heading.textContent =
                     serviceName;
-
 
 
                 const providerText =
@@ -1760,11 +1720,9 @@
                     );
 
 
-
                 providerText.textContent =
                     "Provider: " +
                     providerName;
-
 
 
                 const dateText =
@@ -1773,18 +1731,15 @@
                     );
 
 
-
                 dateText.textContent =
                     "📅 " +
                     bookingDate;
-
 
 
                 const addressText =
                     document.createElement(
                         "p"
                     );
-
 
 
                 addressText.textContent =
@@ -1795,22 +1750,18 @@
                     );
 
 
-
                 const statusElement =
                     document.createElement(
                         "span"
                     );
 
 
-
                 statusElement.className =
                     "booking-status";
 
 
-
                 statusElement.textContent =
                     statusText;
-
 
 
                 information.appendChild(
@@ -1818,11 +1769,9 @@
                 );
 
 
-
                 information.appendChild(
                     providerText
                 );
-
 
 
                 information.appendChild(
@@ -1830,11 +1779,9 @@
                 );
 
 
-
                 information.appendChild(
                     addressText
                 );
-
 
 
                 recentBooking.appendChild(
@@ -1842,17 +1789,14 @@
                 );
 
 
-
                 recentBooking.appendChild(
                     information
                 );
 
 
-
                 recentBooking.appendChild(
                     statusElement
                 );
-
 
 
                 container.appendChild(
@@ -1863,7 +1807,6 @@
         );
 
     }
-
 
 
     /* =========================================================
@@ -1881,10 +1824,8 @@
         }
 
 
-
         const date =
             new Date(dateValue);
-
 
 
         if (
@@ -1898,7 +1839,6 @@
         }
 
 
-
         return date.toLocaleDateString(
             "en-IN",
             {
@@ -1909,7 +1849,6 @@
         );
 
     }
-
 
 
     /* =========================================================
@@ -1929,7 +1868,6 @@
         }
 
 
-
         if (
             status === "confirmed"
         ) {
@@ -1937,7 +1875,6 @@
             return "Confirmed";
 
         }
-
 
 
         if (
@@ -1949,7 +1886,6 @@
         }
 
 
-
         if (
             status === "completed"
         ) {
@@ -1957,7 +1893,6 @@
             return "Completed";
 
         }
-
 
 
         if (
@@ -1969,15 +1904,13 @@
         }
 
 
-
         return "Pending";
 
     }
 
 
-
     /* =========================================================
-       BOOKING ERROR
+       DISPLAY BOOKING ERROR
     ========================================================= */
 
     function showBookingError() {
@@ -1988,13 +1921,11 @@
             );
 
 
-
         if (!container) {
 
             return;
 
         }
-
 
 
         container.innerHTML = `
@@ -2024,7 +1955,6 @@
     }
 
 
-
     /* =========================================================
        LOGOUT
     ========================================================= */
@@ -2037,13 +1967,11 @@
             );
 
 
-
         if (!logoutLink) {
 
             return;
 
         }
-
 
 
         logoutLink.addEventListener(
@@ -2053,12 +1981,10 @@
                 event.preventDefault();
 
 
-
                 const confirmLogout =
                     confirm(
                         "Are you sure you want to logout?"
                     );
-
 
 
                 if (!confirmLogout) {
@@ -2068,9 +1994,7 @@
                 }
 
 
-
                 clearLocalEaseSession();
-
 
 
                 window.location.href =
@@ -2080,7 +2004,6 @@
         );
 
     }
-
 
 
     /* =========================================================
@@ -2094,11 +2017,9 @@
         );
 
 
-
         localStorage.removeItem(
             "localeaseUser"
         );
-
 
 
         localStorage.removeItem(
@@ -2106,11 +2027,9 @@
         );
 
 
-
         localStorage.removeItem(
             "localeaseSelectedService"
         );
-
 
 
         localStorage.removeItem(
@@ -2125,6 +2044,3 @@
 </body>
 
 </html>
-
-
-

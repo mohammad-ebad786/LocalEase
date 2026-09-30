@@ -1,39 +1,24 @@
 const mongoose = require("mongoose");
 
-
-// ==================================================
 // REVIEW SCHEMA
-// ==================================================
-
 const reviewSchema = new mongoose.Schema(
     {
-        // ------------------------------------------
-        // CUSTOMER
-        // ------------------------------------------
-
+        // Customer who submitted the review
         customer: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User",
             required: true
         },
 
-
-        // ------------------------------------------
-        // SERVICE
-        // ------------------------------------------
-
+        // Reviewed service
         service: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Service",
             required: true
         },
 
-
-        // ------------------------------------------
-        // BOOKING
+        // Booking associated with the review
         // One booking = One review
-        // ------------------------------------------
-
         booking: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Booking",
@@ -41,12 +26,7 @@ const reviewSchema = new mongoose.Schema(
             unique: true
         },
 
-
-        // ------------------------------------------
-        // RATING
-        // 1 to 5
-        // ------------------------------------------
-
+        // Rating from 1 to 5
         rating: {
             type: Number,
             required: true,
@@ -54,11 +34,7 @@ const reviewSchema = new mongoose.Schema(
             max: 5
         },
 
-
-        // ------------------------------------------
-        // COMMENT
-        // ------------------------------------------
-
+        // Review comment
         comment: {
             type: String,
             trim: true,
@@ -66,22 +42,12 @@ const reviewSchema = new mongoose.Schema(
             default: ""
         }
     },
-
-
-    // ------------------------------------------
-    // TIMESTAMPS
-    // ------------------------------------------
-
     {
         timestamps: true
     }
 );
 
-
-// ==================================================
 // EXPORT REVIEW MODEL
-// ==================================================
-
 module.exports = mongoose.model(
     "Review",
     reviewSchema

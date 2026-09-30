@@ -1,20 +1,17 @@
 const express = require("express");
 const Service = require("../models/Service");
 
-// JWT Authentication Middleware
+// Authentication middleware
 const { protect } = require("../middleware/authMiddleware");
 
-// Role-Based Authorization Middleware
+// Role-based authorization middleware
 const authorizeRoles = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
 
-// ==================================================
 // CREATE SERVICE
 // Provider + Admin only
-// ==================================================
-
 router.post(
     "/",
     protect,
@@ -31,7 +28,7 @@ router.post(
             } = req.body;
 
 
-            // Check required fields
+            // Validate required fields
             if (
                 !name ||
                 !description ||
@@ -83,11 +80,8 @@ router.post(
 );
 
 
-// ==================================================
 // GET ALL SERVICES
 // Public API
-// ==================================================
-
 router.get(
     "/",
     async (req, res) => {
@@ -126,11 +120,8 @@ router.get(
 );
 
 
-// ==================================================
 // GET PROVIDER SERVICES
 // Provider only
-// ==================================================
-
 router.get(
     "/provider/my-services",
     protect,
@@ -167,11 +158,8 @@ router.get(
 );
 
 
-// ==================================================
 // GET SINGLE SERVICE
 // Public API
-// ==================================================
-
 router.get(
     "/:id",
     async (req, res) => {
@@ -216,11 +204,8 @@ router.get(
 );
 
 
-// ==================================================
 // UPDATE SERVICE
 // Provider + Admin only
-// ==================================================
-
 router.put(
     "/:id",
     protect,
@@ -270,7 +255,6 @@ router.put(
 
 
             // Update only provided fields
-
             if (name !== undefined) {
                 service.name = name.trim();
             }
@@ -324,12 +308,9 @@ router.put(
 );
 
 
-// ==================================================
 // DELETE SERVICE
 // Provider + Admin only
-// Soft Delete
-// ==================================================
-
+// Soft delete
 router.delete(
     "/:id",
     protect,
@@ -395,8 +376,5 @@ router.delete(
 );
 
 
-// ==================================================
 // EXPORT ROUTER
-// ==================================================
-
 module.exports = router;

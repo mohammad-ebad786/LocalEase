@@ -3,6 +3,10 @@
 
 <head>
 
+    <!-- =========================================
+         BASIC META INFORMATION
+    ========================================== -->
+
     <meta charset="UTF-8">
 
     <meta
@@ -22,17 +26,27 @@
 
     <title>My Bookings - LocalEase</title>
 
+
+    <!-- =========================================
+         STYLESHEET AND FAVICON
+    ========================================== -->
+
     <link
         rel="stylesheet"
         href="style.css"
     >
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
-    <!-- ======================================
-         AUTH GUARD
+
+    <!-- =========================================
+         AUTHENTICATION GUARD
          Prevent access when logged out
-    ====================================== -->
+    ========================================== -->
 
     <script>
         (function () {
@@ -52,9 +66,9 @@
 <body class="my-bookings-page">
 
 
-<!-- ======================================
-     HEADER
-====================================== -->
+<!-- =========================================
+     HEADER AND MAIN NAVIGATION
+========================================== -->
 
 <header class="site-header">
 
@@ -75,8 +89,7 @@
         </a>
 
 
-
-        <!-- NAVIGATION -->
+        <!-- MAIN NAVIGATION -->
 
         <nav class="main-navigation">
 
@@ -129,23 +142,23 @@
 
 
 
-<!-- ======================================
+<!-- =========================================
      MAIN CONTENT
-====================================== -->
+========================================== -->
 
 <main>
 
 
-    <!-- ======================================
-         HERO
-    ====================================== -->
+    <!-- =========================================
+         MY BOOKINGS HERO SECTION
+    ========================================== -->
 
     <section class="my-bookings-hero">
 
         <div class="my-bookings-hero-container">
 
 
-            <!-- BREADCRUMB -->
+            <!-- BOOKING PAGE BREADCRUMB -->
 
             <p class="my-bookings-breadcrumb">
 
@@ -164,8 +177,7 @@
             </p>
 
 
-
-            <!-- HERO GRID -->
+            <!-- MY BOOKINGS HERO GRID -->
 
             <div class="my-bookings-hero-grid">
 
@@ -193,6 +205,8 @@
                         from one simple place.
                     </p>
 
+
+                    <!-- BOOKING TRUST INDICATORS -->
 
                     <div class="my-bookings-trust-row">
 
@@ -235,8 +249,7 @@
                 </div>
 
 
-
-                <!-- HERO CARD -->
+                <!-- HERO VISUAL CARD -->
 
                 <div class="my-bookings-hero-visual">
 
@@ -295,18 +308,18 @@
 
 
 
-    <!-- ======================================
+    <!-- =========================================
          BOOKINGS WORKSPACE
-    ====================================== -->
+    ========================================== -->
 
     <section class="my-bookings-workspace">
 
         <div class="my-bookings-container">
 
 
-            <!-- ======================================
+            <!-- =========================================
                  BOOKING FILTERS
-            ====================================== -->
+            ========================================== -->
 
             <div class="booking-filters-wrapper">
 
@@ -326,6 +339,8 @@
 
                 </div>
 
+
+                <!-- BOOKING STATUS FILTERS -->
 
                 <div class="booking-filters">
 
@@ -388,12 +403,14 @@
 
 
 
-            <!-- ======================================
+            <!-- =========================================
                  BOOKINGS SECTION
-            ====================================== -->
+            ========================================== -->
 
             <section class="my-bookings-section">
 
+
+                <!-- BOOKINGS SECTION HEADER -->
 
                 <div class="my-bookings-section-heading">
 
@@ -417,6 +434,8 @@
                     </div>
 
 
+                    <!-- BROWSE SERVICES LINK -->
+
                     <a
                         href="services.html"
                         class="my-bookings-browse-link"
@@ -434,6 +453,8 @@
                 <!-- DYNAMIC BOOKING LIST -->
 
                 <div class="bookings-list">
+
+                    <!-- BOOKINGS LOADING STATE -->
 
                     <div class="bookings-loading">
 
@@ -469,14 +490,16 @@
 
 
 
-    <!-- ======================================
-         EXPLORE LOCALEASE
-    ====================================== -->
+    <!-- =========================================
+         EXPLORE LOCALEASE SECTION
+    ========================================== -->
 
     <section class="explore-localEase">
 
         <div class="explore-localEase-container">
 
+
+            <!-- EXPLORE LOCALEASE CONTENT -->
 
             <div class="explore-localEase-content">
 
@@ -499,6 +522,8 @@
                 </p>
 
 
+                <!-- BROWSE SERVICES BUTTON -->
+
                 <a
                     href="services.html"
                     class="explore-localEase-btn"
@@ -514,6 +539,7 @@
             </div>
 
 
+            <!-- EXPLORE LOCALEASE VISUAL -->
 
             <div class="explore-localEase-visual">
 
@@ -539,9 +565,9 @@
 
 
 
-    <!-- ======================================
+    <!-- =========================================
          BACK TO PROFILE
-    ====================================== -->
+    ========================================== -->
 
     <section class="back-section">
 
@@ -556,16 +582,16 @@
 
 
 
-<!-- ======================================
+<!-- =========================================
      FOOTER
-====================================== -->
+========================================== -->
 
 <footer class="site-footer">
 
     <div class="footer-container">
 
 
-        <!-- FOOTER BRAND -->
+        <!-- FOOTER BRAND INFORMATION -->
 
         <div class="footer-brand">
 
@@ -589,8 +615,7 @@
         </div>
 
 
-
-        <!-- EXPLORE -->
+        <!-- FOOTER EXPLORE LINKS -->
 
         <div class="footer-column">
 
@@ -616,8 +641,7 @@
         </div>
 
 
-
-        <!-- ACCOUNT -->
+        <!-- FOOTER ACCOUNT LINKS -->
 
         <div class="footer-column">
 
@@ -643,8 +667,7 @@
         </div>
 
 
-
-        <!-- LOCALEASE -->
+        <!-- FOOTER LOCALEASE LINKS -->
 
         <div class="footer-column">
 
@@ -673,7 +696,6 @@
     </div>
 
 
-
     <!-- FOOTER BOTTOM -->
 
     <div class="footer-bottom">
@@ -688,13 +710,18 @@
 
 
 
-<!-- ======================================
+<!-- =========================================
      JAVASCRIPT
-====================================== -->
+========================================== -->
 
 <script src="script.js"></script>
 
+
 <script>
+
+    // =========================================
+    // LOGOUT BUTTON HANDLER
+    // =========================================
 
     document.addEventListener("DOMContentLoaded", function () {
 
@@ -710,7 +737,7 @@
                 localStorage.removeItem("localeaseToken");
                 localStorage.removeItem("localeaseUser");
 
-                // Redirect to login
+                // Redirect to login page
                 window.location.replace("login.html");
 
             });

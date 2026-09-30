@@ -1,945 +1,882 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <!-- ==========================================
-         BASIC META
-    ========================================== -->
+<!-- ==================== BASIC META ==================== -->
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <meta
-        name="description"
-        content="View your previous LocalEase service bookings as a provider."
-    >
+<meta
+    name="description"
+    content="View your previous LocalEase service bookings as a provider."
+>
 
-    <meta
-        name="author"
-        content="LocalEase"
-    >
+<meta
+    name="author"
+    content="LocalEase"
+>
 
-    <title>Booking History - LocalEase</title>
+<title>Booking History - LocalEase</title>
 
 
-    <!-- ==========================================
-         STYLESHEET
-    ========================================== -->
+<!-- ==================== STYLESHEET ==================== -->
 
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
+<link
+    rel="stylesheet"
+    href="style.css"
+>
 
-    <link rel="icon" type="image/png" href="favicon.png"></head>
+<link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+>
 
+</head>
 
 <body class="provider-booking-history-page">
 
+<!-- ==================== HEADER ==================== -->
 
-    <!-- ==========================================
-         HEADER
-    ========================================== -->
+<header class="site-header">
 
-    <header class="site-header">
+    <div class="header-container">
 
-        <div class="header-container">
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="LocalEase Home"
+        >
+
+            <span class="brand-text">
+                LocalEase
+            </span>
+
+        </a>
 
 
-            <!-- BRAND -->
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
+        >
 
             <a
                 href="index.html"
-                class="brand"
-                aria-label="LocalEase Home"
+                class="nav-link"
             >
-
-                <span class="brand-text">
-                    LocalEase
-                </span>
-
+                Home
             </a>
 
 
-
-            <!-- NAVIGATION -->
-
-            <nav
-                class="main-navigation"
-                aria-label="Main Navigation"
+            <a
+                href="services.html"
+                class="nav-link"
             >
-
-                <a
-                    href="index.html"
-                    class="nav-link"
-                >
-                    Home
-                </a>
+                Services
+            </a>
 
 
-                <a
-                    href="services.html"
-                    class="nav-link"
-                >
-                    Services
-                </a>
+            <a
+                href="provider-dashboard.html"
+                class="nav-link provider-history-active-link"
+                aria-current="page"
+            >
+                Dashboard
+            </a>
 
 
-                <a
-                    href="provider-dashboard.html"
-                    class="nav-link provider-history-active-link"
-                    aria-current="page"
-                >
-                    Dashboard
-                </a>
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
 
 
-                <a
-                    href="profile.html"
-                    class="nav-link"
-                >
-                    Profile
-                </a>
+            <a
+                href="login.html"
+                class="nav-login-btn"
+            >
+                Logout
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
 
 
-                <a
-                    href="login.html"
-                    class="nav-login-btn"
-                >
-                    Logout
-                </a>
+<!-- ==================== MAIN CONTENT ==================== -->
 
-            </nav>
+<main>
+
+
+    <!-- ==================== HERO ==================== -->
+
+    <section class="provider-history-hero">
+
+        <div class="provider-history-hero-container">
+
+            <div class="provider-history-hero-grid">
+
+
+                <div class="provider-history-hero-content">
+
+                    <p class="provider-history-breadcrumb">
+
+                        <a href="provider-dashboard.html">
+                            Provider Dashboard
+                        </a>
+
+                        <span>/</span>
+
+                        Booking History
+
+                    </p>
+
+
+                    <p class="provider-history-eyebrow">
+                        PROVIDER ACTIVITY
+                    </p>
+
+
+                    <h1>
+                        Your Booking
+                        <span>History.</span>
+                    </h1>
+
+
+                    <p class="provider-history-hero-description">
+
+                        Review your previous service bookings,
+                        customer details, completed work and
+                        booking earnings from one place.
+
+                    </p>
+
+
+                    <div class="provider-history-trust-row">
+
+                        <div class="provider-history-trust-item">
+
+                            <span class="provider-history-trust-icon">
+                                ✓
+                            </span>
+
+                            <span>
+                                Previous bookings
+                            </span>
+
+                        </div>
+
+
+                        <div class="provider-history-trust-item">
+
+                            <span class="provider-history-trust-icon">
+                                ₹
+                            </span>
+
+                            <span>
+                                Earnings overview
+                            </span>
+
+                        </div>
+
+
+                        <div class="provider-history-trust-item">
+
+                            <span class="provider-history-trust-icon">
+                                •
+                            </span>
+
+                            <span>
+                                Customer details
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="provider-history-hero-visual">
+
+                    <div class="provider-history-hero-glow"></div>
+
+
+                    <div class="provider-history-hero-card">
+
+                        <div class="provider-history-hero-card-header">
+
+                            <div class="provider-history-hero-card-icon">
+                                ↺
+                            </div>
+
+                            <span>
+                                Booking Records
+                            </span>
+
+                        </div>
+
+
+                        <h2>
+                            Track Your
+                            <span>Work.</span>
+                        </h2>
+
+
+                        <div class="provider-history-hero-divider"></div>
+
+
+                        <div class="provider-history-mini-list">
+
+                            <div class="provider-history-mini-item">
+
+                                <div class="provider-history-mini-icon">
+                                    ✓
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Completed Services
+                                    </strong>
+
+                                    <span>
+                                        Keep track of previous work.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="provider-history-mini-item">
+
+                                <div class="provider-history-mini-icon">
+                                    ₹
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Booking Earnings
+                                    </strong>
+
+                                    <span>
+                                        Review service amounts easily.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="provider-history-mini-item">
+
+                                <div class="provider-history-mini-icon">
+                                    #
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Booking Records
+                                    </strong>
+
+                                    <span>
+                                        Access important booking details.
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
-    </header>
+    </section>
 
 
+    <!-- ==================== BOOKING HISTORY WORKSPACE ==================== -->
 
-    <!-- ==========================================
-         MAIN CONTENT
-    ========================================== -->
+    <section class="provider-history-workspace">
 
-    <main>
+        <div class="provider-history-container">
 
 
-        <!-- ==========================================
-             HERO
-        ========================================== -->
+            <div class="provider-history-section-heading">
 
-        <section class="provider-history-hero">
+                <p class="provider-history-section-eyebrow">
+                    YOUR RECORDS
+                </p>
 
-            <div class="provider-history-hero-container">
 
-                <div class="provider-history-hero-grid">
+                <h2>
+                    Previous Bookings
+                </h2>
 
-
-                    <!-- HERO CONTENT -->
-
-                    <div class="provider-history-hero-content">
-
-
-                        <p class="provider-history-breadcrumb">
-
-                            <a href="provider-dashboard.html">
-                                Provider Dashboard
-                            </a>
-
-                            <span>/</span>
-
-                            Booking History
-
-                        </p>
-
-
-                        <p class="provider-history-eyebrow">
-                            PROVIDER ACTIVITY
-                        </p>
-
-
-                        <h1>
-                            Your Booking
-                            <span>History.</span>
-                        </h1>
-
-
-                        <p class="provider-history-hero-description">
-
-                            Review your previous service bookings,
-                            customer details, completed work and
-                            booking earnings from one place.
-
-                        </p>
-
-
-                        <div class="provider-history-trust-row">
-
-
-                            <div class="provider-history-trust-item">
-
-                                <span class="provider-history-trust-icon">
-                                    ✓
-                                </span>
-
-                                <span>
-                                    Previous bookings
-                                </span>
-
-                            </div>
-
-
-                            <div class="provider-history-trust-item">
-
-                                <span class="provider-history-trust-icon">
-                                    ₹
-                                </span>
-
-                                <span>
-                                    Earnings overview
-                                </span>
-
-                            </div>
-
-
-                            <div class="provider-history-trust-item">
-
-                                <span class="provider-history-trust-icon">
-                                    •
-                                </span>
-
-                                <span>
-                                    Customer details
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- HERO VISUAL -->
-
-                    <div class="provider-history-hero-visual">
-
-
-                        <div class="provider-history-hero-glow"></div>
-
-
-                        <div class="provider-history-hero-card">
-
-
-                            <div class="provider-history-hero-card-header">
-
-                                <div class="provider-history-hero-card-icon">
-                                    ↺
-                                </div>
-
-                                <span>
-                                    Booking Records
-                                </span>
-
-                            </div>
-
-
-                            <h2>
-                                Track Your
-                                <span>Work.</span>
-                            </h2>
-
-
-                            <div class="provider-history-hero-divider"></div>
-
-
-                            <div class="provider-history-mini-list">
-
-
-                                <div class="provider-history-mini-item">
-
-                                    <div class="provider-history-mini-icon">
-                                        ✓
-                                    </div>
-
-                                    <div>
-
-                                        <strong>
-                                            Completed Services
-                                        </strong>
-
-                                        <span>
-                                            Keep track of previous work.
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="provider-history-mini-item">
-
-                                    <div class="provider-history-mini-icon">
-                                        ₹
-                                    </div>
-
-                                    <div>
-
-                                        <strong>
-                                            Booking Earnings
-                                        </strong>
-
-                                        <span>
-                                            Review service amounts easily.
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-
-                                <div class="provider-history-mini-item">
-
-                                    <div class="provider-history-mini-icon">
-                                        #
-                                    </div>
-
-                                    <div>
-
-                                        <strong>
-                                            Booking Records
-                                        </strong>
-
-                                        <span>
-                                            Access important booking details.
-                                        </span>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==========================================
-             BOOKING HISTORY WORKSPACE
-        ========================================== -->
-
-        <section class="provider-history-workspace">
-
-            <div class="provider-history-container">
-
-
-                <!-- SECTION HEADING -->
-
-                <div class="provider-history-section-heading">
-
-                    <p class="provider-history-section-eyebrow">
-                        YOUR RECORDS
-                    </p>
-
-
-                    <h2>
-                        Previous Bookings
-                    </h2>
-
-
-                    <p>
-                        Review the services you have handled
-                        for LocalEase customers.
-                    </p>
-
-                </div>
-
-
-
-                <!-- ==========================================
-                     BOOKING HISTORY
-                ========================================== -->
-
-                <section class="provider-history-section">
-
-
-                    <div
-                        id="provider-history-message"
-                        class="provider-history-message"
-                        role="status"
-                        aria-live="polite"
-                    >
-                        Loading booking history...
-                    </div>
-
-
-                    <div
-                        id="provider-history-list"
-                        class="provider-history-list"
-                    ></div>
-
-                </section>
-
-
-
-                <!-- ==========================================
-                     CTA
-                ========================================== -->
-
-                <section class="provider-history-cta-section">
-
-                    <div class="provider-history-cta-card">
-
-
-                        <div class="provider-history-cta-content">
-
-                            <p class="provider-history-cta-eyebrow">
-                                KEEP GROWING
-                            </p>
-
-
-                            <h2>
-                                Ready For Your
-                                <span>Next Booking?</span>
-                            </h2>
-
-
-                            <p>
-                                Manage your services and stay ready
-                                for new customer requests.
-                            </p>
-
-
-                            <a
-                                href="provider-dashboard.html"
-                                class="provider-history-cta-btn"
-                            >
-                                Go To Dashboard
-                            </a>
-
-                        </div>
-
-
-                        <div class="provider-history-cta-visual">
-
-                            <div class="provider-history-cta-circle">
-                                ✓
-                            </div>
-
-                            <div class="provider-history-cta-small-circle">
-                                +
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- ==========================================
-                     BACK TO DASHBOARD
-                ========================================== -->
-
-                <section class="provider-history-back-section">
-
-                    <a href="provider-dashboard.html">
-                        ← Back to Dashboard
-                    </a>
-
-                </section>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- ==========================================
-         FOOTER
-    ========================================== -->
-
-    <footer class="site-footer">
-
-        <div class="footer-container">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
-
-                <h3>
-                    LocalEase
-                </h3>
 
                 <p>
-                    Connecting Customers with Trusted
-                    Local Service Providers.
+                    Review the services you have handled
+                    for LocalEase customers.
                 </p>
 
             </div>
 
 
+            <!-- ==================== BOOKING HISTORY ==================== -->
 
-            <!-- PLATFORM -->
+            <section class="provider-history-section">
 
-            <div class="footer-column">
+                <div
+                    id="provider-history-message"
+                    class="provider-history-message"
+                    role="status"
+                    aria-live="polite"
+                >
+                    Loading booking history...
+                </div>
 
-                <h4>
-                    Platform
-                </h4>
 
-                <a href="index.html">
-                    Home
-                </a>
+                <div
+                    id="provider-history-list"
+                    class="provider-history-list"
+                ></div>
 
-                <a href="services.html">
-                    Services
-                </a>
+            </section>
+
+
+            <!-- ==================== PROVIDER CTA ==================== -->
+
+            <section class="provider-history-cta-section">
+
+                <div class="provider-history-cta-card">
+
+                    <div class="provider-history-cta-content">
+
+                        <p class="provider-history-cta-eyebrow">
+                            KEEP GROWING
+                        </p>
+
+
+                        <h2>
+                            Ready For Your
+                            <span>Next Booking?</span>
+                        </h2>
+
+
+                        <p>
+                            Manage your services and stay ready
+                            for new customer requests.
+                        </p>
+
+
+                        <a
+                            href="provider-dashboard.html"
+                            class="provider-history-cta-btn"
+                        >
+                            Go To Dashboard
+                        </a>
+
+                    </div>
+
+
+                    <div class="provider-history-cta-visual">
+
+                        <div class="provider-history-cta-circle">
+                            ✓
+                        </div>
+
+                        <div class="provider-history-cta-small-circle">
+                            +
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== BACK TO DASHBOARD ==================== -->
+
+            <section class="provider-history-back-section">
 
                 <a href="provider-dashboard.html">
-                    Dashboard
+                    ← Back to Dashboard
                 </a>
 
-            </div>
-
-
-
-            <!-- ACCOUNT -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Account
-                </h4>
-
-                <a href="profile.html">
-                    Profile
-                </a>
-
-                <a href="provider-booking-history.html">
-                    Booking History
-                </a>
-
-                <a href="login.html">
-                    Logout
-                </a>
-
-            </div>
-
-
-
-            <!-- SUPPORT -->
-
-            <div class="footer-column">
-
-                <h4>
-                    Support
-                </h4>
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-            </div>
+            </section>
 
         </div>
 
+    </section>
+
+</main>
 
 
-        <div class="footer-bottom">
+<!-- ==================== FOOTER ==================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                LocalEase
+            </h3>
 
             <p>
-                © 2026 LocalEase. All Rights Reserved.
+                Connecting Customers with Trusted
+                Local Service Providers.
             </p>
 
         </div>
 
-    </footer>
+
+        <div class="footer-column">
+
+            <h4>
+                Platform
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="provider-dashboard.html">
+                Dashboard
+            </a>
+
+        </div>
 
 
+        <div class="footer-column">
 
-    <!-- ==========================================
-         JAVASCRIPT
-    ========================================== -->
+            <h4>
+                Account
+            </h4>
 
-    <script src="script.js"></script>
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a href="provider-booking-history.html">
+                Booking History
+            </a>
+
+            <a href="login.html">
+                Logout
+            </a>
+
+        </div>
 
 
-    <script>
+        <div class="footer-column">
 
-        /* ==================================================
-           PROVIDER BOOKING HISTORY
-           Loads bookings belonging to the logged-in provider.
-           ================================================== */
+            <h4>
+                Support
+            </h4>
 
-        async function loadProviderBookingHistory() {
+            <a href="about.html">
+                About
+            </a>
 
-            const messageElement =
-                document.getElementById(
-                    "provider-history-message"
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ==================== JAVASCRIPT ==================== -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+    // ==================== PROVIDER BOOKING HISTORY ====================
+
+    async function loadProviderBookingHistory() {
+
+        const messageElement =
+            document.getElementById(
+                "provider-history-message"
+            );
+
+        const historyList =
+            document.getElementById(
+                "provider-history-list"
+            );
+
+
+        if (!getToken()) {
+
+            messageElement.textContent =
+                "Please login as a provider to view booking history.";
+
+            return;
+
+        }
+
+
+        try {
+
+            messageElement.textContent =
+                "Loading booking history...";
+
+
+            const data =
+                await apiRequest(
+                    "/bookings/provider/my-bookings",
+                    {
+                        method: "GET"
+                    }
                 );
 
-            const historyList =
-                document.getElementById(
-                    "provider-history-list"
+
+            if (!data || !data.success) {
+
+                throw new Error(
+                    data && data.message
+                        ? data.message
+                        : "Unable to load booking history."
                 );
 
+            }
 
-            if (!getToken()) {
+
+            const bookings =
+                Array.isArray(data.bookings)
+                    ? data.bookings
+                    : [];
+
+
+            if (bookings.length === 0) {
 
                 messageElement.textContent =
-                    "Please login as a provider to view booking history.";
+                    "You have no booking history yet.";
+
+                historyList.innerHTML =
+                    `
+                    <div class="provider-history-empty-state">
+
+                        <div class="provider-history-empty-icon">
+                            ↺
+                        </div>
+
+                        <h3>
+                            No Booking History
+                        </h3>
+
+                        <p>
+                            Completed and previous bookings
+                            will appear here.
+                        </p>
+
+                    </div>
+                    `;
 
                 return;
 
             }
 
 
-            try {
-
-                messageElement.textContent =
-                    "Loading booking history...";
+            messageElement.textContent =
+                `${bookings.length} booking${bookings.length > 1 ? "s" : ""} found.`;
 
 
-                const data =
-                    await apiRequest(
-                        "/bookings/provider/my-bookings",
-                        {
-                            method: "GET"
-                        }
-                    );
+            let html = "";
 
 
-                if (!data || !data.success) {
+            bookings.forEach(
+                function (booking) {
 
-                    throw new Error(
-                        data && data.message
-                            ? data.message
-                            : "Unable to load booking history."
-                    );
+                    const service =
+                        booking.service || {};
 
-                }
-
-
-                const bookings =
-                    Array.isArray(data.bookings)
-                        ? data.bookings
-                        : [];
+                    const customer =
+                        booking.customer ||
+                        booking.user ||
+                        {};
 
 
-                if (bookings.length === 0) {
-
-                    messageElement.textContent =
-                        "You have no booking history yet.";
-
-                    historyList.innerHTML =
-                        `
-                        <div class="provider-history-empty-state">
-
-                            <div class="provider-history-empty-icon">
-                                ↺
-                            </div>
-
-                            <h3>
-                                No Booking History
-                            </h3>
-
-                            <p>
-                                Completed and previous bookings
-                                will appear here.
-                            </p>
-
-                        </div>
-                        `;
-
-                    return;
-
-                }
+                    const status =
+                        typeof normalizeBookingStatus === "function"
+                            ? normalizeBookingStatus(
+                                booking.status
+                            )
+                            : (
+                                booking.status ||
+                                "unknown"
+                            );
 
 
-                messageElement.textContent =
-                    `${bookings.length} booking${bookings.length > 1 ? "s" : ""} found.`;
+                    const serviceName =
+                        service.name ||
+                        booking.serviceName ||
+                        "Service";
 
 
-                let html = "";
+                    const customerName =
+                        customer.name ||
+                        customer.fullName ||
+                        "Customer";
 
 
-                bookings.forEach(
-                    function (booking) {
-
-                        const service =
-                            booking.service || {};
-
-                        const customer =
-                            booking.customer ||
-                            booking.user ||
-                            {};
-
-
-                        const status =
-                            typeof normalizeBookingStatus === "function"
-                                ? normalizeBookingStatus(
-                                    booking.status
-                                )
-                                : (
-                                    booking.status ||
-                                    "unknown"
-                                );
+                    const bookingDate =
+                        typeof formatDate === "function"
+                            ? formatDate(
+                                booking.bookingDate
+                            )
+                            : (
+                                booking.bookingDate ||
+                                "Not available"
+                            );
 
 
-                        const serviceName =
-                            service.name ||
-                            booking.serviceName ||
-                            "Service";
+                    const price =
+                        typeof formatPrice === "function"
+                            ? formatPrice(
+                                booking.totalPrice
+                            )
+                            : `₹${booking.totalPrice || 0}`;
 
 
-                        const customerName =
-                            customer.name ||
-                            customer.fullName ||
-                            "Customer";
+                    html +=
 
+                        "<article class=\"provider-history-booking-card\">" +
 
-                        const bookingDate =
-                            typeof formatDate === "function"
-                                ? formatDate(
-                                    booking.bookingDate
-                                )
-                                : (
-                                    booking.bookingDate ||
-                                    "Not available"
-                                );
+                            "<div class=\"provider-history-booking-header\">" +
 
+                                "<div class=\"provider-history-booking-title-wrap\">" +
 
-                        const price =
-                            typeof formatPrice === "function"
-                                ? formatPrice(
-                                    booking.totalPrice
-                                )
-                                : `₹${booking.totalPrice || 0}`;
+                                    "<div class=\"provider-history-booking-icon\">" +
+                                        "✓" +
+                                    "</div>" +
 
+                                    "<div>" +
 
-                        html +=
+                                        "<p class=\"provider-history-card-eyebrow\">" +
+                                            "SERVICE BOOKING" +
+                                        "</p>" +
 
-                            "<article class=\"provider-history-booking-card\">" +
-
-                                "<div class=\"provider-history-booking-header\">" +
-
-                                    "<div class=\"provider-history-booking-title-wrap\">" +
-
-                                        "<div class=\"provider-history-booking-icon\">" +
-                                            "✓" +
-                                        "</div>" +
-
-                                        "<div>" +
-
-                                            "<p class=\"provider-history-card-eyebrow\">" +
-                                                "SERVICE BOOKING" +
-                                            "</p>" +
-
-                                            "<h3>" +
-                                                escapeHtml(
-                                                    serviceName
-                                                ) +
-                                            "</h3>" +
-
-                                        "</div>" +
+                                        "<h3>" +
+                                            escapeHtml(
+                                                serviceName
+                                            ) +
+                                        "</h3>" +
 
                                     "</div>" +
 
+                                "</div>" +
 
-                                    "<span class=\"provider-history-booking-status booking-status " +
-                                        escapeHtml(status) +
-                                    "\">" +
 
-                                        (
-                                            typeof formatBookingStatus === "function"
-                                                ? escapeHtml(
-                                                    formatBookingStatus(status)
-                                                )
-                                                : escapeHtml(status)
-                                        ) +
+                                "<span class=\"provider-history-booking-status booking-status " +
+                                    escapeHtml(status) +
+                                "\">" +
 
+                                    (
+                                        typeof formatBookingStatus === "function"
+                                            ? escapeHtml(
+                                                formatBookingStatus(status)
+                                            )
+                                            : escapeHtml(status)
+                                    ) +
+
+                                "</span>" +
+
+                            "</div>" +
+
+
+                            "<div class=\"provider-history-booking-details\">" +
+
+                                "<div class=\"provider-history-detail-item\">" +
+
+                                    "<span class=\"provider-history-detail-label\">" +
+                                        "Booking ID" +
                                     "</span>" +
 
-                                "</div>" +
-
-
-                                "<div class=\"provider-history-booking-details\">" +
-
-                                    "<div class=\"provider-history-detail-item\">" +
-
-                                        "<span class=\"provider-history-detail-label\">" +
-                                            "Booking ID" +
-                                        "</span>" +
-
-                                        "<strong>" +
-                                            "#" +
-                                            escapeHtml(
-                                                booking._id ||
-                                                "N/A"
-                                            ) +
-                                        "</strong>" +
-
-                                    "</div>" +
-
-
-                                    "<div class=\"provider-history-detail-item\">" +
-
-                                        "<span class=\"provider-history-detail-label\">" +
-                                            "Customer" +
-                                        "</span>" +
-
-                                        "<strong>" +
-                                            escapeHtml(
-                                                customerName
-                                            ) +
-                                        "</strong>" +
-
-                                    "</div>" +
-
-
-                                    "<div class=\"provider-history-detail-item\">" +
-
-                                        "<span class=\"provider-history-detail-label\">" +
-                                            "Booking Date" +
-                                        "</span>" +
-
-                                        "<strong>" +
-                                            escapeHtml(
-                                                bookingDate
-                                            ) +
-                                        "</strong>" +
-
-                                    "</div>" +
-
-
-                                    "<div class=\"provider-history-detail-item\">" +
-
-                                        "<span class=\"provider-history-detail-label\">" +
-                                            "Time" +
-                                        "</span>" +
-
-                                        "<strong>" +
-                                            escapeHtml(
-                                                typeof formatBookingTime === "function"
-                                                    ? formatBookingTime(
-                                                        booking.bookingDate
-                                                    )
-                                                    : "Not available"
-                                            ) +
-                                        "</strong>" +
-
-                                    "</div>" +
-
-
-                                    "<div class=\"provider-history-detail-item provider-history-address-item\">" +
-
-                                        "<span class=\"provider-history-detail-label\">" +
-                                            "Address" +
-                                        "</span>" +
-
-                                        "<strong>" +
-                                            escapeHtml(
-                                                booking.address ||
-                                                "Not available"
-                                            ) +
-                                        "</strong>" +
-
-                                    "</div>" +
-
-
-                                    "<div class=\"provider-history-detail-item provider-history-price-item\">" +
-
-                                        "<span class=\"provider-history-detail-label\">" +
-                                            "Total Price" +
-                                        "</span>" +
-
-                                        "<strong>" +
-                                            escapeHtml(
-                                                price
-                                            ) +
-                                        "</strong>" +
-
-                                    "</div>" +
+                                    "<strong>" +
+                                        "#" +
+                                        escapeHtml(
+                                            booking._id ||
+                                            "N/A"
+                                        ) +
+                                    "</strong>" +
 
                                 "</div>" +
 
-                            "</article>";
 
-                    }
-                );
+                                "<div class=\"provider-history-detail-item\">" +
 
+                                    "<span class=\"provider-history-detail-label\">" +
+                                        "Customer" +
+                                    "</span>" +
 
-                historyList.innerHTML =
-                    html;
+                                    "<strong>" +
+                                        escapeHtml(
+                                            customerName
+                                        ) +
+                                    "</strong>" +
 
-
-            } catch (error) {
-
-                console.error(
-                    "Provider booking history error:",
-                    error
-                );
+                                "</div>" +
 
 
-                if (
-                    error &&
-                    error.status === 401 &&
-                    typeof handleUnauthorized === "function"
-                ) {
+                                "<div class=\"provider-history-detail-item\">" +
 
-                    handleUnauthorized();
+                                    "<span class=\"provider-history-detail-label\">" +
+                                        "Booking Date" +
+                                    "</span>" +
 
-                    return;
+                                    "<strong>" +
+                                        escapeHtml(
+                                            bookingDate
+                                        ) +
+                                    "</strong>" +
+
+                                "</div>" +
+
+
+                                "<div class=\"provider-history-detail-item\">" +
+
+                                    "<span class=\"provider-history-detail-label\">" +
+                                        "Time" +
+                                    "</span>" +
+
+                                    "<strong>" +
+                                        escapeHtml(
+                                            typeof formatBookingTime === "function"
+                                                ? formatBookingTime(
+                                                    booking.bookingDate
+                                                )
+                                                : "Not available"
+                                        ) +
+                                    "</strong>" +
+
+                                "</div>" +
+
+
+                                "<div class=\"provider-history-detail-item provider-history-address-item\">" +
+
+                                    "<span class=\"provider-history-detail-label\">" +
+                                        "Address" +
+                                    "</span>" +
+
+                                    "<strong>" +
+                                        escapeHtml(
+                                            booking.address ||
+                                            "Not available"
+                                        ) +
+                                    "</strong>" +
+
+                                "</div>" +
+
+
+                                "<div class=\"provider-history-detail-item provider-history-price-item\">" +
+
+                                    "<span class=\"provider-history-detail-label\">" +
+                                        "Total Price" +
+                                    "</span>" +
+
+                                    "<strong>" +
+                                        escapeHtml(
+                                            price
+                                        ) +
+                                    "</strong>" +
+
+                                "</div>" +
+
+                            "</div>" +
+
+                        "</article>";
 
                 }
+            );
 
 
-                messageElement.textContent =
-                    error && error.message
-                        ? error.message
-                        : "Unable to load booking history.";
+            historyList.innerHTML =
+                html;
 
 
-                historyList.innerHTML = "";
+        } catch (error) {
+
+            console.error(
+                "Provider booking history error:",
+                error
+            );
+
+
+            if (
+                error &&
+                error.status === 401 &&
+                typeof handleUnauthorized === "function"
+            ) {
+
+                handleUnauthorized();
+
+                return;
 
             }
 
+
+            messageElement.textContent =
+                error && error.message
+                    ? error.message
+                    : "Unable to load booking history.";
+
+
+            historyList.innerHTML = "";
+
         }
 
+    }
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            loadProviderBookingHistory
-        );
 
-    </script>
+    document.addEventListener(
+        "DOMContentLoaded",
+        loadProviderBookingHistory
+    );
 
+</script>
 
 </body>
 
 </html>
-
-
-

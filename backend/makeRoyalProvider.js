@@ -4,13 +4,14 @@ require("dotenv").config();
 const User = require("./models/User");
 const ProviderApplication = require("./models/ProviderApplication");
 
+// MAKE ROYAL USER A PROVIDER
 async function makeRoyalProvider() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
 
         console.log("MongoDB connected ✅");
 
-        // Find existing royal123 account
+        // Find existing Royal account
         const user = await User.findOne({
             email: "royal123@gmail.com"
         });
@@ -20,7 +21,7 @@ async function makeRoyalProvider() {
             return;
         }
 
-        // Change existing account role to provider
+        // Update account role and status
         user.role = "provider";
         user.isActive = true;
 
@@ -28,13 +29,13 @@ async function makeRoyalProvider() {
 
         console.log("Royal provider account updated successfully ✅");
 
-        // Find the approved provider application
+        // Find approved provider application
         const application = await ProviderApplication.findOne({
             email: "royal123@gmail.com",
             status: "approved"
         });
 
-        // Link provider application with user account
+        // Link application with provider account
         if (application) {
             application.user = user._id;
 
@@ -47,7 +48,7 @@ async function makeRoyalProvider() {
             );
         }
 
-        // Final confirmation
+        // Display final account details
         console.log("\n===== ROYAL PROVIDER =====");
 
         console.log({
@@ -58,6 +59,7 @@ async function makeRoyalProvider() {
             userId: user._id
         });
 
+        // Display provider application details
         if (application) {
             console.log("\n===== PROVIDER APPLICATION =====");
 
@@ -72,16 +74,15 @@ async function makeRoyalProvider() {
         console.log("\n============================");
 
     } catch (error) {
-
         console.error("Error ❌");
         console.error(error.message);
 
     } finally {
-
         await mongoose.disconnect();
 
         console.log("\nMongoDB disconnected 🔌");
     }
 }
 
+// RUN SCRIPT
 makeRoyalProvider();

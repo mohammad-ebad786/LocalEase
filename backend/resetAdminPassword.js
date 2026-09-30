@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const User = require("./models/User");
 
+// RESET ADMIN PASSWORD
 async function resetAdminPassword() {
     try {
         await mongoose.connect(process.env.MONGODB_URI);
@@ -12,8 +13,10 @@ async function resetAdminPassword() {
 
         const newPassword = "LocalEase@2026";
 
+        // Hash the new password
         const hashedPassword = await bcrypt.hash(newPassword, 10);
 
+        // Find admin account and update password
         const admin = await User.findOneAndUpdate(
             { email: "admin@localease.com", role: "admin" },
             {
@@ -39,6 +42,7 @@ async function resetAdminPassword() {
             isActive: admin.isActive
         });
 
+        // Display login credentials
         console.log("\nLogin credentials:");
         console.log("Email: admin@localease.com");
         console.log("Password: LocalEase@2026");
@@ -52,4 +56,5 @@ async function resetAdminPassword() {
     }
 }
 
+// RUN SCRIPT
 resetAdminPassword();
