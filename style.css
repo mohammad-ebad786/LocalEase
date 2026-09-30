@@ -8141,53 +8141,132 @@ body.services-page {
 }
 
 
-/* ==========================================
-   8. STATUS BADGES
-   ========================================== */
+/* =========================================================
+   STATUS BADGE
+========================================================= */
 
-.booking-current-status {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+.admin-dashboard-page
+.booking-status {
 
-    min-height: 30px;
+    display:
+        inline-flex;
 
-    padding: 0 11px;
+    align-items:
+        center;
 
-    border-radius: 999px;
+    width:
+        fit-content;
 
-    font-size: 11px;
-    font-weight: 750;
+    max-width:
+        100%;
 
-    text-transform: capitalize;
+    margin-left:
+        5px;
+
+    padding:
+        5px 10px;
+
+    border:
+        1px solid transparent;
+
+    border-radius:
+        999px;
+
+    font-size:
+        12px;
+
+    line-height:
+        1.2;
+
+    font-weight:
+        800;
+
+    text-transform:
+        capitalize;
+
+    white-space:
+        nowrap;
+
 }
 
 
-.booking-current-status.pending {
-    background: #fff7ed;
-    color: #c2410c;
+/* =========================================================
+   BOOKING STATUS COLOURS
+========================================================= */
+
+.admin-dashboard-page
+.booking-status.pending {
+
+    background:
+        #fefce8;
+
+    color:
+        #a16207;
+
+    border-color:
+        #fde68a;
+
 }
 
 
-.booking-current-status.confirmed,
-.booking-current-status.accepted {
-    background: #ecfdf5;
-    color: #15803d;
+.admin-dashboard-page
+.booking-status.confirmed {
+
+    background:
+        #eff6ff;
+
+    color:
+        #1d4ed8;
+
+    border-color:
+        #bfdbfe;
+
 }
 
 
-.booking-current-status.completed {
-    background: #eef2ff;
-    color: #4338ca;
+.admin-dashboard-page
+.booking-status.in-progress {
+
+    background:
+        #eef2ff;
+
+    color:
+        #4338ca;
+
+    border-color:
+        #c7d2fe;
+
 }
 
 
-.booking-current-status.cancelled,
-.booking-current-status.rejected {
-    background: #fef2f2;
-    color: #dc2626;
+.admin-dashboard-page
+.booking-status.completed {
+
+    background:
+        #f0fdf4;
+
+    color:
+        #15803d;
+
+    border-color:
+        #bbf7d0;
+
 }
 
+
+.admin-dashboard-page
+.booking-status.cancelled {
+
+    background:
+        #fef2f2;
+
+    color:
+        #b91c1c;
+
+    border-color:
+        #fecaca;
+
+}
 
 /* ==========================================
    9. WORKSPACE
@@ -19041,16 +19120,29 @@ body.services-page {
 
 }
 
+.provider-dashboard-page .request-card .request-card-content {
+
+    flex:
+        1 1 auto;
+
+    min-width:
+        0;
+
+}
+
 .provider-dashboard-page .request-card .request-actions {
 
     display:
         flex;
 
     flex-wrap:
-        wrap;
+        nowrap;
 
     align-items:
         center;
+
+    flex-shrink:
+        0;
 
     gap:
         10px;
@@ -19066,7 +19158,6 @@ body.services-page {
         var(--provider-border);
 
 }
-
 
 .provider-dashboard-page .request-card .request-actions button {
 
@@ -34453,6 +34544,18 @@ body.services-page {
 
     min-height: 48px;
 
+    display:
+    inline-flex;
+
+align-items:
+    center;
+
+justify-content:
+    center;
+
+line-height:
+    1;
+
     padding:
         0 22px;
 
@@ -34511,7 +34614,24 @@ body.services-page {
 
 .reviews-page .cancel-edit-btn {
 
+    display: block;
+
     min-height: 48px;
+
+    display:
+    inline-flex;
+
+align-items:
+    center;
+
+justify-content:
+    center;
+
+line-height:
+    1;
+
+    margin:
+    0;
 
     padding:
         0 19px;
@@ -34535,7 +34655,21 @@ body.services-page {
 
     transition:
         background 0.2s ease,
-        border-color 0.2s ease;
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+.reviews-page .cancel-edit-btn:hover {
+
+    background:
+        #f8fafc;
+
+    border-color:
+        #cbd5e1;
+
+    transform:
+        translateY(-1px);
 
 }
 
@@ -42502,6 +42636,73 @@ body.services-page {
 
     border-color:
         var(--color-danger);
+
+    transform:
+        translateY(-1px);
+
+}
+
+/* =========================================================
+   USER DETAILS CANCEL BUTTON
+========================================================= */
+
+.admin-dashboard-page
+#dynamic-close-user-details-btn {
+
+    min-height:
+        42px;
+
+    padding:
+        10px 18px;
+
+    border:
+        1px solid
+        var(--color-border);
+
+    border-radius:
+        10px;
+
+    background:
+        var(--color-white);
+
+    color:
+        var(--color-text);
+
+    font-family:
+        inherit;
+
+    font-size:
+        13px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.2;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.admin-dashboard-page
+#dynamic-close-user-details-btn:hover {
+
+    background:
+        var(--color-navy);
+
+    color:
+        var(--color-white);
+
+    border-color:
+        var(--color-navy);
 
     transform:
         translateY(-1px);

@@ -30,7 +30,87 @@
 
 <link rel="icon" type="image/png" href="favicon.png">
 
+<style>
+
+/* =========================================================
+   PREVIOUS REVIEW EMPTY STATE
+========================================================= */
+
+.reviews-page .previous-reviews-list .review-empty{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:210px;
+    padding:35px 24px;
+    text-align:center;
+}
+
+.reviews-page .previous-reviews-list .review-empty .review-state-icon{
+    margin-bottom:4px;
+}
+
+.reviews-page .previous-reviews-list .review-empty h3{
+    margin:0 0 4px;
+}
+
+.reviews-page .previous-reviews-list .review-empty p{
+    margin:0;
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   RATING STAR SELECTION
+========================================================= */
+
+.reviews-page .rating-stars{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.reviews-page .rating-stars label{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:32px;
+    line-height:1;
+    color:#cbd5e1;
+    transition:
+        color 0.18s ease,
+        transform 0.18s ease;
+}
+
+.reviews-page .rating-stars label:hover{
+    transform:translateY(-2px);
+}
+
+.reviews-page .rating-stars label input{
+    position:absolute;
+    opacity:0;
+    width:1px;
+    height:1px;
+    pointer-events:none;
+}
+
+.reviews-page .rating-stars label.selected{
+    color:#f59e0b;
+}
+
+.reviews-page .rating-stars label:focus-within{
+    outline:2px solid rgba(245,158,11,0.35);
+    outline-offset:4px;
+    border-radius:6px;
+}
+
+</style>
+
 </head>
+
 
 <body class="reviews-page">
 
@@ -65,12 +145,14 @@
                 Home
             </a>
 
+
             <a
                 href="services.html"
                 class="nav-link"
             >
                 Services
             </a>
+
 
             <a
                 href="provider.html"
@@ -79,6 +161,7 @@
                 Become a Provider
             </a>
 
+
             <a
                 href="profile.html"
                 class="nav-link"
@@ -86,8 +169,10 @@
                 Profile
             </a>
 
+
             <a
                 href="login.html"
+                id="auth-nav-btn"
                 class="nav-login-btn"
             >
                 Login
@@ -141,6 +226,7 @@
                     <h1>
 
                         Reviews That
+
                         <span>
                             Build Trust.
                         </span>
@@ -232,6 +318,7 @@
                         <h2>
 
                             Your Voice
+
                             <span>
                                 Matters.
                             </span>
@@ -830,17 +917,22 @@
 
 
                         <h2>
+
                             Need Another
+
                             <span>
                                 Service?
                             </span>
+
                         </h2>
 
 
                         <p>
+
                             Explore LocalEase and find trusted
                             local service providers for your
                             everyday needs.
+
                         </p>
 
 
@@ -1005,24 +1097,11 @@
 
 <!-- ==========================================
      REVIEWS PAGE JAVASCRIPT
-
-     IMPORTANT:
-     This block loads completed bookings and
-     the customer's previous reviews.
-     
-     The existing HTML IDs and CSS classes
-     have been preserved.
 ========================================== -->
 
 <script>
 
-/* ============================================================
-   CUSTOMER REVIEWS PAGE
-   STEP 1 — LOAD COMPLETED BOOKINGS
-   STEP 2 — LOAD PREVIOUS REVIEWS
-============================================================ */
-
-(function initializeCustomerReviewsPage() {
+(function initializeCustomerReviewsPage(){
 
     const serviceSelect =
         document.getElementById("service");
@@ -1045,22 +1124,320 @@
     const previousReviews =
         document.getElementById("previousReviews");
 
+    const reviewForm =
+        document.getElementById("reviewForm");
 
-    if (!serviceSelect) {
+    const reviewFormTitle =
+        document.getElementById("reviewFormTitle");
+
+    const reviewSubmitBtn =
+        document.getElementById("reviewSubmitBtn");
+
+    const cancelEditBtn =
+        document.getElementById("cancelEditBtn");
+
+    const reviewMessage =
+        document.getElementById("reviewMessage");
+
+    const reviewInput =
+        document.getElementById("review");
+
+
+    let editingReviewId = null;
+
+
+
+    /* ========================================================
+       BASIC HELPERS
+    ======================================================== */
+
+    if(!serviceSelect){
         return;
     }
 
 
+    function idOf(value){
+
+        if(!value){
+            return "";
+        }
+
+        if(typeof value === "string"){
+            return value;
+        }
+
+        return value._id || value.id || "";
+
+    }
+
+
+
+    function message(text,type=""){
+
+        if(!reviewMessage){
+            return;
+        }
+
+        reviewMessage.textContent =
+            text || "";
+
+        reviewMessage.className =
+            type
+                ? `review-message ${type}`
+                : "review-message";
+
+    }
+
+
+
     /* ========================================================
-       LOAD COMPLETED BOOKINGS
+       RATING UI
+       
+       IMPORTANT:
+       Only ONE radio remains checked.
+       All stars up to the selected rating
+       receive the selected class.
     ======================================================== */
 
-    async function loadCompletedServices() {
+    function updateStars(selectedRating){
+
+        const rating =
+            Number(selectedRating) || 0;
+
+
+        document
+            .querySelectorAll(
+                '.rating-stars label'
+            )
+            .forEach(function(label){
+
+                const radio =
+                    label.querySelector(
+                        'input[name="rating"]'
+                    );
+
+                const value =
+                    radio
+                        ? Number(radio.value)
+                        : 0;
+
+
+                label.classList.toggle(
+                    "selected",
+                    value <= rating
+                );
+
+            });
+
+    }
+
+
+
+    function resetStars(){
+
+        document
+            .querySelectorAll(
+                'input[name="rating"]'
+            )
+            .forEach(function(input){
+
+                input.checked = false;
+
+            });
+
+
+        updateStars(0);
+
+    }
+
+
+
+    function setRating(rating){
+
+        const selectedRating =
+            Number(rating) || 0;
+
+
+        document
+            .querySelectorAll(
+                'input[name="rating"]'
+            )
+            .forEach(function(input){
+
+                input.checked =
+                    Number(input.value) === selectedRating;
+
+            });
+
+
+        updateStars(selectedRating);
+
+    }
+
+
+
+    /* ========================================================
+       RESET EDIT MODE
+    ======================================================== */
+
+    function resetEditMode(clearMessage=true){
+
+        editingReviewId = null;
+
+
+        if(reviewFormTitle){
+
+            reviewFormTitle.textContent =
+                "Write a Review";
+
+        }
+
+
+        if(reviewSubmitBtn){
+
+            reviewSubmitBtn.textContent =
+                "Submit Review";
+
+            reviewSubmitBtn.disabled =
+                false;
+
+        }
+
+
+        if(cancelEditBtn){
+
+            cancelEditBtn.style.display =
+                "none";
+
+        }
+
+
+        serviceSelect.disabled =
+            false;
+
+
+        if(reviewForm){
+
+            reviewForm.reset();
+
+        }
+
+
+        resetStars();
+
+
+        if(bookingInfo){
+
+            bookingInfo.style.display =
+                "none";
+
+        }
+
+
+        if(providerInput){
+
+            providerInput.value =
+                "";
+
+        }
+
+
+        if(clearMessage){
+
+            message();
+
+        }
+
+    }
+
+
+
+    /* ========================================================
+       SHOW SELECTED BOOKING
+    ======================================================== */
+
+    function showSelectedBooking(booking){
+
+        if(!booking){
+            return;
+        }
+
+
+        const provider =
+            booking.provider || {};
+
+
+        if(providerInput){
+
+            providerInput.value =
+                provider.name ||
+                booking.providerName ||
+                "Not assigned";
+
+        }
+
+
+        if(bookingDate){
+
+            bookingDate.textContent =
+                typeof formatDate === "function"
+                    ? formatDate(booking.bookingDate)
+                    : (
+                        booking.bookingDate
+                            ? new Date(
+                                booking.bookingDate
+                              ).toLocaleDateString()
+                            : "Not provided"
+                    );
+
+        }
+
+
+        if(bookingPrice){
+
+            bookingPrice.textContent =
+                typeof formatPrice === "function"
+                    ? formatPrice(booking.totalPrice)
+                    : `₹${booking.totalPrice || 0}`;
+
+        }
+
+
+        if(bookingStatus){
+
+            bookingStatus.textContent =
+                typeof formatBookingStatus === "function"
+                    ? formatBookingStatus(booking.status)
+                    : String(
+                        booking.status ||
+                        "Completed"
+                    );
+
+        }
+
+
+        if(bookingInfo){
+
+            bookingInfo.style.display =
+                "grid";
+
+        }
+
+    }
+
+
+
+    /* ========================================================
+       LOAD COMPLETED SERVICES
+    ======================================================== */
+
+    async function loadCompletedServices(){
 
         serviceSelect.innerHTML =
-            "<option value=\"\">Loading completed services...</option>";
+            '<option value="">Loading completed services...</option>';
 
-        try {
+
+        try{
 
             const data =
                 await apiRequest(
@@ -1071,112 +1448,103 @@
                 );
 
 
-            const allBookings =
+            const all =
                 Array.isArray(data?.bookings)
                     ? data.bookings
                     : [];
 
 
-            const completedBookings =
-                allBookings.filter(
-                    function (booking) {
+            const completed =
+                all.filter(function(booking){
 
-                        const status =
-                            typeof normalizeBookingStatus === "function"
-                                ? normalizeBookingStatus(
-                                    booking.status
-                                )
-                                : String(
-                                    booking.status || ""
-                                )
-                                    .trim()
-                                    .toLowerCase();
+                    const status =
+                        typeof normalizeBookingStatus === "function"
+                            ? normalizeBookingStatus(
+                                booking.status
+                              )
+                            : String(
+                                booking.status || ""
+                              )
+                                .trim()
+                                .toLowerCase();
 
-                        return status === "completed";
 
-                    }
-                );
+                    return status === "completed";
+
+                });
 
 
             serviceSelect.innerHTML =
-                "<option value=\"\">Select a completed service</option>";
+                '<option value="">Select a completed service</option>';
 
 
-            if (completedBookings.length === 0) {
+            if(!completed.length){
 
                 serviceSelect.innerHTML =
-                    "<option value=\"\">No completed services available</option>";
+                    '<option value="">No completed services available</option>';
 
-                if (providerInput) {
-                    providerInput.value = "";
+
+                if(providerInput){
+
+                    providerInput.value =
+                        "";
+
                 }
 
-                if (bookingInfo) {
-                    bookingInfo.style.display = "none";
+
+                if(bookingInfo){
+
+                    bookingInfo.style.display =
+                        "none";
+
                 }
+
 
                 return;
+
             }
 
 
-            completedBookings.forEach(
-                function (booking) {
+            completed.forEach(function(booking){
 
-                    const service =
-                        booking.service || {};
-
-                    const serviceName =
-                        service.name ||
-                        booking.serviceName ||
-                        "Service";
+                const option =
+                    document.createElement("option");
 
 
-                    const option =
-                        document.createElement("option");
-
-                    option.value =
-                        booking._id || "";
-
-                    option.textContent =
-                        serviceName;
+                option.value =
+                    booking._id || "";
 
 
-                    serviceSelect.appendChild(
-                        option
-                    );
+                option.textContent =
+                    booking.service?.name ||
+                    booking.serviceName ||
+                    "Service";
 
-                }
-            );
+
+                serviceSelect.appendChild(
+                    option
+                );
+
+            });
 
 
             serviceSelect._completedBookings =
-                completedBookings;
+                completed;
 
 
-            const firstBooking =
-                completedBookings[0];
-
-
-            if (firstBooking) {
+            if(!editingReviewId){
 
                 serviceSelect.value =
-                    firstBooking._id || "";
+                    completed[0]._id || "";
+
 
                 showSelectedBooking(
-                    firstBooking
+                    completed[0]
                 );
 
             }
 
-
-            console.log(
-                "Completed bookings loaded:",
-                completedBookings
-            );
-
-        }
-
-        catch (error) {
+        }catch(error){
 
             console.error(
                 "Unable to load completed services:",
@@ -1185,149 +1553,56 @@
 
 
             serviceSelect.innerHTML =
-                "<option value=\"\">Unable to load completed services</option>";
+                '<option value="">Unable to load completed services</option>';
 
         }
 
     }
 
 
-    /* ========================================================
-       SHOW SELECTED BOOKING
-    ======================================================== */
-
-    function showSelectedBooking(booking) {
-
-        if (!booking) {
-            return;
-        }
-
-
-        const provider =
-            booking.provider || {};
-
-
-        if (providerInput) {
-
-            providerInput.value =
-                provider.name ||
-                booking.providerName ||
-                "Not assigned";
-
-        }
-
-
-        if (bookingDate) {
-
-            bookingDate.textContent =
-                typeof formatDate === "function"
-                    ? formatDate(
-                        booking.bookingDate
-                    )
-                    : (
-                        booking.bookingDate
-                            ? new Date(
-                                booking.bookingDate
-                            ).toLocaleDateString()
-                            : "Not provided"
-                    );
-
-        }
-
-
-        if (bookingPrice) {
-
-            bookingPrice.textContent =
-                typeof formatPrice === "function"
-                    ? formatPrice(
-                        booking.totalPrice
-                    )
-                    : `₹${booking.totalPrice || 0}`;
-
-        }
-
-
-        if (bookingStatus) {
-
-            bookingStatus.textContent =
-                typeof formatBookingStatus === "function"
-                    ? formatBookingStatus(
-                        booking.status
-                    )
-                    : String(
-                        booking.status || "Completed"
-                    );
-
-        }
-
-
-        if (bookingInfo) {
-
-            bookingInfo.style.display =
-                "grid";
-
-        }
-
-
-        console.log(
-            "Selected completed booking:",
-            booking
-        );
-
-    }
-
 
     /* ========================================================
-       SERVICE DROPDOWN CHANGE
+       SERVICE CHANGE
     ======================================================== */
 
     serviceSelect.addEventListener(
         "change",
-        function () {
+        function(){
 
-            const bookingId =
-                serviceSelect.value;
+            const booking =
+                (
+                    serviceSelect._completedBookings ||
+                    []
+                ).find(function(item){
 
+                    return String(item._id) ===
+                        String(serviceSelect.value);
 
-            const bookings =
-                serviceSelect._completedBookings || [];
-
-
-            const selectedBooking =
-                bookings.find(
-                    function (booking) {
-
-                        return String(
-                            booking._id
-                        ) === String(
-                            bookingId
-                        );
-
-                    }
-                );
+                });
 
 
             showSelectedBooking(
-                selectedBooking
+                booking
             );
 
         }
     );
 
 
+
     /* ========================================================
-       LOAD PREVIOUS CUSTOMER REVIEWS
+       LOAD PREVIOUS REVIEWS
     ======================================================== */
 
-    async function loadPreviousReviews() {
+    async function loadPreviousReviews(){
 
-        if (!previousReviews) {
+        if(!previousReviews){
             return;
         }
 
 
-        previousReviews.innerHTML =
-            `
+        previousReviews.innerHTML = `
+
             <div class="review-loading">
 
                 <div class="review-state-icon">
@@ -1343,10 +1618,11 @@
                 </p>
 
             </div>
-            `;
+
+        `;
 
 
-        try {
+        try{
 
             const data =
                 await apiRequest(
@@ -1363,16 +1639,14 @@
                     : [];
 
 
-            console.log(
-                "Previous customer reviews loaded:",
-                reviews
-            );
+            previousReviews._reviews =
+                reviews;
 
 
-            if (reviews.length === 0) {
+            if(!reviews.length){
 
-                previousReviews.innerHTML =
-                    `
+                previousReviews.innerHTML = `
+
                     <div class="review-empty">
 
                         <div class="review-state-icon">
@@ -1388,42 +1662,42 @@
                         </p>
 
                     </div>
-                    `;
+
+                `;
 
                 return;
+
             }
 
 
-            let html = "";
-
-
-            reviews.forEach(
-                function (review) {
+            previousReviews.innerHTML =
+                reviews.map(function(review){
 
                     const service =
                         review.service || {};
 
+
                     const booking =
                         review.booking || {};
-
-
-                    const serviceName =
-                        service.name ||
-                        "Service";
-
-
-                    const category =
-                        service.category ||
-                        "";
 
 
                     const rating =
                         Number(review.rating) || 0;
 
 
-                    const comment =
-                        review.comment ||
-                        "";
+                    const stars =
+                        "★".repeat(
+                            Math.max(
+                                0,
+                                Math.min(5,rating)
+                            )
+                        ) +
+                        "☆".repeat(
+                            Math.max(
+                                0,
+                                5 - Math.min(5,rating)
+                            )
+                        );
 
 
                     const reviewDate =
@@ -1432,36 +1706,23 @@
                                 typeof formatDate === "function"
                                     ? formatDate(
                                         review.createdAt
-                                    )
+                                      )
                                     : new Date(
                                         review.createdAt
-                                    ).toLocaleDateString()
+                                      ).toLocaleDateString()
                             )
                             : "Date not available";
 
 
-                    let stars = "";
+                    const reviewId =
+                        idOf(review);
 
 
-                    for (
-                        let i = 1;
-                        i <= 5;
-                        i++
-                    ) {
+                    return `
 
-                        stars +=
-                            i <= rating
-                                ? "★"
-                                : "☆";
-
-                    }
-
-
-                    html +=
-                        `
                         <article
                             class="previous-review-card"
-                            data-review-id="${escapeHtml(review._id || "")}"
+                            data-review-id="${escapeHtml(reviewId)}"
                         >
 
                             <div class="previous-review-header">
@@ -1469,15 +1730,20 @@
                                 <div>
 
                                     <h3>
-                                        ${escapeHtml(serviceName)}
+                                        ${escapeHtml(
+                                            service.name ||
+                                            "Service"
+                                        )}
                                     </h3>
 
                                     ${
-                                        category
+                                        service.category
                                             ? `
-                                            <span class="previous-review-category">
-                                                ${escapeHtml(category)}
-                                            </span>
+                                                <span class="previous-review-category">
+                                                    ${escapeHtml(
+                                                        service.category
+                                                    )}
+                                                </span>
                                             `
                                             : ""
                                     }
@@ -1507,24 +1773,21 @@
                                     ${escapeHtml(reviewDate)}
                                 </span>
 
-
                                 ${
                                     booking.bookingDate
                                         ? `
-                                        <span>
-                                            Booking date:
-                                            ${
-                                                escapeHtml(
+                                            <span>
+                                                Booking date:
+                                                ${escapeHtml(
                                                     typeof formatDate === "function"
                                                         ? formatDate(
                                                             booking.bookingDate
-                                                        )
+                                                          )
                                                         : new Date(
                                                             booking.bookingDate
-                                                        ).toLocaleDateString()
-                                                )
-                                            }
-                                        </span>
+                                                          ).toLocaleDateString()
+                                                )}
+                                            </span>
                                         `
                                         : ""
                                 }
@@ -1536,7 +1799,8 @@
 
                                 <p>
                                     ${escapeHtml(
-                                        comment || "No comment provided."
+                                        review.comment ||
+                                        "No comment provided."
                                     )}
                                 </p>
 
@@ -1548,7 +1812,7 @@
                                 <button
                                     type="button"
                                     class="edit-review-btn"
-                                    data-review-id="${escapeHtml(review._id || "")}"
+                                    data-review-id="${escapeHtml(reviewId)}"
                                 >
                                     Edit Review
                                 </button>
@@ -1557,27 +1821,22 @@
                                 <button
                                     type="button"
                                     class="delete-review-btn"
-                                    data-review-id="${escapeHtml(review._id || "")}"
+                                    data-review-id="${escapeHtml(reviewId)}"
                                 >
                                     Delete Review
                                 </button>
 
                             </div>
 
+
                         </article>
-                        `;
 
-                }
-            );
+                    `;
 
-
-            previousReviews.innerHTML =
-                html;
+                }).join("");
 
 
-        }
-
-        catch (error) {
+        }catch(error){
 
             console.error(
                 "Unable to load previous reviews:",
@@ -1585,8 +1844,8 @@
             );
 
 
-            previousReviews.innerHTML =
-                `
+            previousReviews.innerHTML = `
+
                 <div class="review-error">
 
                     <div class="review-state-icon">
@@ -1602,16 +1861,773 @@
                     </p>
 
                 </div>
-                `;
+
+            `;
 
         }
 
     }
 
 
+
     /* ========================================================
-       START PAGE LOAD
+       ENTER EDIT MODE
     ======================================================== */
+
+    function enterEditMode(review){
+
+        const reviewId =
+            idOf(review);
+
+
+        if(!reviewId){
+
+            message(
+                "Unable to edit this review.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        editingReviewId =
+            reviewId;
+
+
+        if(reviewFormTitle){
+
+            reviewFormTitle.textContent =
+                "Edit Your Review";
+
+        }
+
+
+        if(reviewSubmitBtn){
+
+            reviewSubmitBtn.textContent =
+                "Update Review";
+
+        }
+
+
+        if(cancelEditBtn){
+
+            cancelEditBtn.style.display =
+                "inline-flex";
+
+        }
+
+
+        const bookingId =
+            idOf(review.booking);
+
+
+        if(bookingId){
+
+            serviceSelect.value =
+                String(bookingId);
+
+
+            const booking =
+                (
+                    serviceSelect._completedBookings ||
+                    []
+                ).find(function(item){
+
+                    return String(item._id) ===
+                        String(bookingId);
+
+                });
+
+
+            showSelectedBooking(
+                booking
+            );
+
+        }
+
+
+        serviceSelect.disabled =
+            true;
+
+
+        /* IMPORTANT:
+           Set ONE radio as checked,
+           then visually fill all stars
+           up to that rating.
+        */
+
+        setRating(
+            review.rating
+        );
+
+
+        if(reviewInput){
+
+            reviewInput.value =
+                review.comment || "";
+
+        }
+
+
+        message();
+
+
+        if(reviewForm){
+
+            reviewForm.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+    }
+
+
+
+    /* ========================================================
+       EDIT + DELETE REVIEW ACTIONS
+    ======================================================== */
+
+    if(previousReviews){
+
+        previousReviews.addEventListener(
+            "click",
+            async function(event){
+
+                const editButton =
+                    event.target.closest(
+                        ".edit-review-btn"
+                    );
+
+
+                const deleteButton =
+                    event.target.closest(
+                        ".delete-review-btn"
+                    );
+
+
+                /* ------------------------------
+                   EDIT
+                ------------------------------ */
+
+                if(editButton){
+
+                    const review =
+                        (
+                            previousReviews._reviews ||
+                            []
+                        ).find(function(item){
+
+                            return String(
+                                idOf(item)
+                            ) === String(
+                                editButton.dataset.reviewId
+                            );
+
+                        });
+
+
+                    if(review){
+
+                        enterEditMode(
+                            review
+                        );
+
+                    }
+
+
+                    return;
+
+                }
+
+
+
+                /* ------------------------------
+                   DELETE
+                ------------------------------ */
+
+                if(deleteButton){
+
+                    const reviewId =
+                        deleteButton.dataset.reviewId;
+
+
+                    if(!reviewId){
+
+                        return;
+
+                    }
+
+
+                    if(
+                        !window.confirm(
+                            "Are you sure you want to delete this review?"
+                        )
+                    ){
+
+                        return;
+
+                    }
+
+
+                    deleteButton.disabled =
+                        true;
+
+
+                    deleteButton.textContent =
+                        "Deleting...";
+
+
+                    try{
+
+                        const data =
+                            await apiRequest(
+                                `/reviews/${encodeURIComponent(
+                                    reviewId
+                                )}`,
+                                {
+                                    method: "DELETE"
+                                }
+                            );
+
+
+                        if(!data?.success){
+
+                            throw new Error(
+                                data?.message ||
+                                "Unable to delete review."
+                            );
+
+                        }
+
+
+                        if(
+                            String(editingReviewId) ===
+                            String(reviewId)
+                        ){
+
+                            resetEditMode();
+
+                        }
+
+
+                        await loadPreviousReviews();
+
+
+                        message(
+                            "Review deleted successfully.",
+                            "success"
+                        );
+
+
+                    }catch(error){
+
+                        console.error(
+                            "Delete review error:",
+                            error
+                        );
+
+
+                        message(
+                            error?.message ||
+                            "Unable to delete review.",
+                            "error"
+                        );
+
+
+                    }finally{
+
+                        deleteButton.disabled =
+                            false;
+
+
+                        deleteButton.textContent =
+                            "Delete Review";
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* ========================================================
+       REVIEW FORM SUBMIT
+    ======================================================== */
+
+    if(reviewForm){
+
+        reviewForm.addEventListener(
+            "submit",
+            async function(event){
+
+                event.preventDefault();
+
+
+                const bookingId =
+                    serviceSelect.value;
+
+
+                const selectedRating =
+                    document.querySelector(
+                        'input[name="rating"]:checked'
+                    );
+
+
+                const rating =
+                    selectedRating
+                        ? Number(
+                            selectedRating.value
+                          )
+                        : 0;
+
+
+                const comment =
+                    reviewInput
+                        ? reviewInput.value.trim()
+                        : "";
+
+
+                if(
+                    !editingReviewId &&
+                    !bookingId
+                ){
+
+                    message(
+                        "Please select a completed service.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if(
+                    !rating ||
+                    rating < 1 ||
+                    rating > 5
+                ){
+
+                    message(
+                        "Please select a rating.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if(!comment){
+
+                    message(
+                        "Please write your review.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                if(comment.length > 500){
+
+                    message(
+                        "Review cannot exceed 500 characters.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                const oldText =
+                    reviewSubmitBtn?.textContent ||
+                    "Submit Review";
+
+
+                if(reviewSubmitBtn){
+
+                    reviewSubmitBtn.disabled =
+                        true;
+
+
+                    reviewSubmitBtn.textContent =
+                        editingReviewId
+                            ? "Updating..."
+                            : "Submitting...";
+
+                }
+
+
+                try{
+
+                    let data;
+
+
+                    /* ------------------------------
+                       UPDATE EXISTING REVIEW
+                    ------------------------------ */
+
+                    if(editingReviewId){
+
+                        data =
+                            await apiRequest(
+                                `/reviews/${encodeURIComponent(
+                                    editingReviewId
+                                )}`,
+                                {
+                                    method: "PUT",
+
+                                    body: JSON.stringify({
+                                        rating,
+                                        comment
+                                    })
+                                }
+                            );
+
+                    }
+
+
+                    /* ------------------------------
+                       CREATE NEW REVIEW
+                    ------------------------------ */
+
+                    else{
+
+                        const booking =
+                            (
+                                serviceSelect._completedBookings ||
+                                []
+                            ).find(function(item){
+
+                                return String(item._id) ===
+                                    String(bookingId);
+
+                            });
+
+
+                        const serviceId =
+                            idOf(
+                                booking?.service
+                            );
+
+
+                        if(!serviceId){
+
+                            throw new Error(
+                                "Service information is missing for the selected booking."
+                            );
+
+                        }
+
+
+                        data=await apiRequest("/reviews",{
+                            method:"POST",
+                            body:JSON.stringify({
+                                bookingId: bookingId,
+                                rating: rating,
+                                comment: comment
+                            })
+                        });
+
+                    }
+
+
+                    if(!data?.success){
+
+                        throw new Error(
+                            data?.message ||
+                            (
+                                editingReviewId
+                                    ? "Unable to update review."
+                                    : "Unable to submit review."
+                            )
+                        );
+
+                    }
+
+
+                    const wasEditing =
+                        Boolean(
+                            editingReviewId
+                        );
+
+
+                    resetEditMode(false);
+
+
+                    await loadPreviousReviews();
+
+
+                    await loadCompletedServices();
+
+
+                    message(
+                        wasEditing
+                            ? "Review updated successfully."
+                            : "Review submitted successfully.",
+                        "success"
+                    );
+
+
+                }catch(error){
+
+                    console.error(
+                        "Review submit/update error:",
+                        error
+                    );
+
+
+                    message(
+                        error?.message ||
+                        "Unable to save review.",
+                        "error"
+                    );
+
+
+                }finally{
+
+                    if(reviewSubmitBtn){
+
+                        reviewSubmitBtn.disabled =
+                            false;
+
+
+                        reviewSubmitBtn.textContent =
+                            "Submit Review";
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* ========================================================
+       CANCEL EDIT
+    ======================================================== */
+
+    if(cancelEditBtn){
+
+        cancelEditBtn.addEventListener(
+            "click",
+            function(){
+
+                resetEditMode();
+
+
+                loadCompletedServices();
+
+            }
+        );
+
+    }
+
+
+
+    /* ========================================================
+       RATING CLICK / CHANGE
+       
+       This is the important fix.
+
+       Example:
+       Click 4th star
+       → radio value = 4
+       → stars 1,2,3,4 get selected
+       → only radio 4 is checked
+    ======================================================== */
+
+    document
+        .querySelectorAll(
+            '.rating-stars input[name="rating"]'
+        )
+        .forEach(function(input){
+
+            input.addEventListener(
+                "change",
+                function(){
+
+                    const selectedRating =
+                        Number(input.value);
+
+
+                    updateStars(
+                        selectedRating
+                    );
+
+                }
+            );
+
+        });
+
+
+
+    /* ========================================================
+       AUTH NAVIGATION
+    ======================================================== */
+
+    function initializeAuthNavigation(){
+
+        const authButton =
+            document.getElementById(
+                "auth-nav-btn"
+            );
+
+
+        if(!authButton){
+
+            return;
+
+        }
+
+
+        let user = null;
+
+
+        try{
+
+            user =
+                JSON.parse(
+                    localStorage.getItem(
+                        "localeaseUser"
+                    )
+                );
+
+        }catch(error){
+
+            user = null;
+
+        }
+
+
+        const token =
+            localStorage.getItem(
+                "localeaseToken"
+            );
+
+
+        if(user && token){
+
+            authButton.textContent =
+                "Logout";
+
+            authButton.href =
+                "login.html";
+
+            authButton.id =
+                "logout-btn";
+
+
+            authButton.addEventListener(
+                "click",
+                function(event){
+
+                    event.preventDefault();
+
+
+                    try{
+
+                        if(
+                            typeof clearAllLocalEaseAuth ===
+                            "function"
+                        ){
+
+                            clearAllLocalEaseAuth();
+
+                        }
+
+                        else if(
+                            typeof clearAuthData ===
+                            "function"
+                        ){
+
+                            clearAuthData();
+
+                        }
+
+                        else{
+
+                            localStorage.removeItem(
+                                "localeaseToken"
+                            );
+
+                            localStorage.removeItem(
+                                "localeaseUser"
+                            );
+
+                            sessionStorage.removeItem(
+                                "localeaseToken"
+                            );
+
+                            sessionStorage.removeItem(
+                                "localeaseUser"
+                            );
+
+                        }
+
+                    }catch(error){
+
+                        console.error(
+                            "Logout cleanup error:",
+                            error
+                        );
+
+
+                        localStorage.removeItem(
+                            "localeaseToken"
+                        );
+
+                        localStorage.removeItem(
+                            "localeaseUser"
+                        );
+
+                    }
+
+
+                    window.location.replace(
+                        "login.html"
+                    );
+
+                },
+                true
+            );
+
+        }
+
+        else{
+
+            authButton.textContent =
+                "Login";
+
+            authButton.href =
+                "login.html";
+
+        }
+
+    }
+
+
+
+    /* ========================================================
+       INITIAL PAGE LOAD
+    ======================================================== */
+
+    initializeAuthNavigation();
 
     loadCompletedServices();
 

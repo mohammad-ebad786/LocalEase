@@ -3493,23 +3493,19 @@ async function loadProviderReviews() {
             "";
 
 
-        const endpoints = [
-            "/reviews/provider/my-reviews"
-        ];
+        const endpoints = [];
 
+if (providerId) {
+    endpoints.push(
+        `/reviews/provider/${encodeURIComponent(
+            providerId
+        )}`
+    );
+}
 
-        if (providerId) {
-            endpoints.push(
-                `/reviews/provider/${encodeURIComponent(
-                    providerId
-                )}`
-            );
-        }
-
-
-        endpoints.push(
-            "/admin/reviews"
-        );
+endpoints.push(
+    "/admin/reviews"
+);
 
 
         let reviews = null;
@@ -5596,6 +5592,36 @@ function updateBookingTimeline(status) {
                 serviceSelect
             );
 
+
+            /*
+            * Restore the service selected on the
+            * service details page after the dropdown
+            * options have been loaded.
+            */
+            if (selectedService) {
+
+                const matchingOption =
+                    Array.from(
+                        serviceSelect.options
+                    ).find(function (option) {
+
+                        return (
+                            option.dataset.name ===
+                            selectedService
+                        );
+
+                    });
+
+
+                if (matchingOption) {
+
+                    serviceSelect.value =
+                        matchingOption.value;
+
+                }
+
+            }
+
         }
 
 
@@ -6368,12 +6394,22 @@ async function initializeAdminDashboard() {
 START ADMIN DASHBOARD
 ======================================================================== */
 
-if (
-    document.getElementById("admin-total-bookings")
-) {
+window.addEventListener(
+    "load",
+    function () {
 
-    initializeAdminDashboard();
-}
+        if (
+            document.getElementById(
+                "admin-total-bookings"
+            )
+        ) {
+
+            initializeAdminDashboard();
+
+        }
+
+    }
+);
 
 
     /* ========================================================================
@@ -7469,23 +7505,17 @@ if (
     ======================================================================== */
 
     /* ========================================================================
-    ADMIN — SERVICES PAGE INITIALIZATION
-    ======================================================================== */
+ADMIN — SERVICES PAGE INITIALIZATION
+======================================================================== */
 
-    if (
-        document.readyState === "loading"
-    ) {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            initializeAdminServices
-        );
-
-    } else {
+window.addEventListener(
+    "load",
+    function () {
 
         initializeAdminServices();
 
     }
+);
 
 
     /**
@@ -9938,51 +9968,63 @@ if (
 
                     detailsContainer.innerHTML = `
 
-                        <div class="request-card admin-user-details-card">
+    <div class="request-card admin-user-details-card">
 
-                            <h3>
-                                ${user.name || "Unknown User"}
-                            </h3>
+        <h3>
+            ${user.name || "Unknown User"}
+        </h3>
 
-                            <p>
-                                <strong>Email:</strong>
-                                ${user.email || "Not provided"}
-                            </p>
+        <p>
+            <strong>Email:</strong>
+            ${user.email || "Not provided"}
+        </p>
 
-                            <p>
-                                <strong>Phone:</strong>
-                                ${user.phone || "Not provided"}
-                            </p>
+        <p>
+            <strong>Phone:</strong>
+            ${user.phone || "Not provided"}
+        </p>
 
-                            <p>
-                                <strong>Role:</strong>
-                                ${roleLabel}
-                            </p>
+        <p>
+            <strong>Role:</strong>
+            ${roleLabel}
+        </p>
 
-                            <p>
-                                <strong>Status:</strong>
-                                ${statusLabel}
-                            </p>
+        <p>
+            <strong>Status:</strong>
+            ${statusLabel}
+        </p>
 
-                            <p>
-                                <strong>User ID:</strong>
-                                ${user._id || user.id || "Not available"}
-                            </p>
+        <p>
+            <strong>User ID:</strong>
+            ${user._id || user.id || "Not available"}
+        </p>
 
-                            <p>
-                                <strong>Registered:</strong>
-                                ${createdDate}
-                            </p>
+        <p>
+            <strong>Registered:</strong>
+            ${createdDate}
+        </p>
 
-                            <p>
-                                <strong>Last Updated:</strong>
-                                ${updatedDate}
-                            </p>
+        <p>
+            <strong>Last Updated:</strong>
+            ${updatedDate}
+        </p>
 
-                        </div>
 
-                    `;
+        <div class="request-actions">
 
+            <button
+                type="button"
+                id="dynamic-close-user-details-btn"
+                class="cancel-btn"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+`;
 
                     console.log(
                         "Admin user details loaded:",
@@ -10018,24 +10060,49 @@ if (
         CLOSE USER DETAILS
         ================================================================ */
 
-        closeButton.addEventListener(
-            "click",
-            function () {
+       detailsContainer.addEventListener(
+    "click",
+    function (event) {
 
-                detailsSection.hidden =
-                    true;
+        const dynamicCloseButton =
+            event.target.closest(
+                "#dynamic-close-user-details-btn"
+            );
 
-            }
-        );
+        if (!dynamicCloseButton) {
+            return;
+        }
+
+        detailsSection.hidden =
+            true;
 
     }
+);
 
 
-    /* ========================================================================
-    ADMIN USERS PAGE INITIALIZATION
-    ======================================================================== */
+closeButton.addEventListener(
+    "click",
+    function () {
 
-    function initializeAdminUsersPage() {
+        detailsSection.hidden =
+            true;
+
+    }
+);
+
+
+/* ========================================================================
+END ADMIN USER DETAILS
+======================================================================== */
+
+}
+
+
+/* ========================================================================
+ADMIN USERS PAGE INITIALIZATION
+======================================================================== */
+
+function initializeAdminUsersPage() {
 
         const usersList =
             document.getElementById(
@@ -12152,6 +12219,411 @@ if (
     );
 
 
+
+    /* ========================================================================
+   ADMIN BOOKING VIEW HANDLER
+   ======================================================================== */
+
+function initializeAdminBookingView() {
+
+    const bookingsContainer =
+        document.querySelector(
+            "#admin-bookings-list"
+        );
+
+    if (!bookingsContainer) {
+        return;
+    }
+
+    bookingsContainer.addEventListener(
+        "click",
+        async function (event) {
+
+            const button =
+                event.target.closest(
+                    ".view-booking-btn"
+                );
+
+            if (!button) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const bookingId =
+                button.getAttribute(
+                    "data-booking-id"
+                );
+
+            if (!bookingId) {
+                console.warn(
+                    "Booking ID not found."
+                );
+                return;
+            }
+
+            console.log(
+                "Admin View booking clicked:",
+                bookingId
+            );
+
+            let detailsSection =
+                document.getElementById(
+                    "admin-booking-details"
+                );
+
+            if (!detailsSection) {
+
+                detailsSection =
+                    document.createElement(
+                        "section"
+                    );
+
+                detailsSection.id =
+                    "admin-booking-details";
+
+                detailsSection.className =
+                    "admin-section";
+
+                bookingsContainer.parentElement.appendChild(
+                    detailsSection
+                );
+            }
+
+            detailsSection.innerHTML = `
+                <h2>Booking Details</h2>
+                <p>Loading booking details...</p>
+            `;
+
+            detailsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+            try {
+
+                const booking =
+                    await loadAdminBooking(
+                        bookingId
+                    );
+
+                if (!booking) {
+
+                    detailsSection.innerHTML = `
+                        <h2>Booking Details</h2>
+                        <p>
+                            Booking details could not be loaded.
+                        </p>
+                    `;
+
+                    return;
+                }
+
+                const serviceName =
+                    booking.service?.name ||
+                    booking.service?.title ||
+                    "Not provided";
+
+                const customerName =
+                    booking.customer?.name ||
+                    "Not provided";
+
+                const customerEmail =
+                    booking.customer?.email ||
+                    "Not provided";
+
+                const providerName =
+                    booking.provider?.name ||
+                    "Not assigned";
+
+                const status =
+                    booking.status ||
+                    "Not provided";
+
+                const amount =
+                    booking.totalPrice ??
+                    0;
+
+                const address =
+                    booking.address ||
+                    "Not provided";
+
+                const phone =
+                    booking.phone ||
+                    booking.customer?.phone ||
+                    "Not provided";
+
+                const bookingDate =
+                    booking.bookingDate
+                        ? formatDateTime(
+                            booking.bookingDate
+                        )
+                        : "Not provided";
+
+                detailsSection.innerHTML = `
+                    <h2>Booking Details</h2>
+
+                    <article class="admin-card">
+
+                        <p>
+                            <strong>Booking ID:</strong>
+                            ${escapeHtml(
+                                String(
+                                    booking._id ||
+                                    bookingId
+                                )
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Service:</strong>
+                            ${escapeHtml(
+                                serviceName
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Customer:</strong>
+                            ${escapeHtml(
+                                customerName
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            ${escapeHtml(
+                                customerEmail
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Phone:</strong>
+                            ${escapeHtml(
+                                phone
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Provider:</strong>
+                            ${escapeHtml(
+                                providerName
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Date & Time:</strong>
+                            ${escapeHtml(
+                                bookingDate
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Address:</strong>
+                            ${escapeHtml(
+                                address
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Amount:</strong>
+                            ₹${escapeHtml(
+                                String(amount)
+                            )}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            ${escapeHtml(
+                                String(status)
+                            )}
+                        </p>
+
+                    </article>
+                `;
+
+                detailsSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+                console.log(
+                    "Admin booking details displayed:",
+                    booking
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Admin booking view error:",
+                    error
+                );
+
+                detailsSection.innerHTML = `
+                    <h2>Booking Details</h2>
+                    <p>
+                        Unable to load booking details.
+                    </p>
+                `;
+            }
+        }
+    );
+}
+
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeAdminBookingView
+    );
+
+} else {
+
+    initializeAdminBookingView();
+
+}
+
+    /* ========================================================================
+   ADMIN BOOKING CANCELLATION
+   ======================================================================== */
+
+async function cancelAdminBooking(bookingId) {
+
+    if (!bookingId) {
+        return;
+    }
+
+    const confirmed =
+        window.confirm(
+            "Are you sure you want to cancel this booking?"
+        );
+
+    if (!confirmed) {
+        return;
+    }
+
+    try {
+
+        const data =
+            await apiRequest(
+                `/bookings/admin/${encodeURIComponent(
+                    bookingId
+                )}/cancel`,
+                {
+                    method: "PUT",
+
+                    body:
+                        JSON.stringify({
+                            reason:
+                                "Booking cancelled by admin."
+                        })
+                }
+            );
+
+        if (
+            !data ||
+            data.success === false
+        ) {
+            throw new Error(
+                data?.message ||
+                "Unable to cancel booking."
+            );
+        }
+
+        alert(
+            "Booking cancelled successfully."
+        );
+
+        await initializeAdminBookingsPage();
+
+    } catch (error) {
+
+        console.error(
+            "Admin booking cancellation error:",
+            error
+        );
+
+        if (
+            error &&
+            error.status === 401
+        ) {
+            handleUnauthorized();
+            return;
+        }
+
+        alert(
+            error?.message ||
+            "Unable to cancel booking."
+        );
+    }
+}
+
+
+
+
+/* ========================================================================
+   ADMIN BOOKING CANCELLATION HANDLER
+   ======================================================================== */
+
+function initializeAdminBookingCancellation() {
+
+    const bookingsContainer =
+        document.querySelector(
+            "#admin-bookings-list"
+        );
+
+    if (!bookingsContainer) {
+        return;
+    }
+
+    bookingsContainer.addEventListener(
+        "click",
+        function (event) {
+
+            const button =
+                event.target.closest(
+                    ".cancel-booking-btn"
+                );
+
+            if (!button) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const bookingId =
+                button.getAttribute(
+                    "data-booking-id"
+                );
+
+            cancelAdminBooking(
+                bookingId
+            );
+        }
+    );
+}
+
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeAdminBookingCancellation
+    );
+
+} else {
+
+    initializeAdminBookingCancellation();
+
+}
+
+
     async function loadMyBookingsPage() {
     const bookingsContainer = document.querySelector(".bookings-list");
 
@@ -12308,27 +12780,6 @@ function renderMyBookings(bookings, bookingsContainer) {
 
     bookingsContainer.innerHTML = html;
 
-    const viewButtons =
-        bookingsContainer.querySelectorAll(".view-booking-btn");
-
-    viewButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-            const bookingId =
-                button.getAttribute("data-booking-id");
-
-            if (!bookingId) {
-                console.warn("Booking ID not found.");
-                return;
-            }
-
-            localStorage.setItem(
-                CURRENT_BOOKING_KEY,
-                bookingId
-            );
-
-            window.location.href = "booking-status.html";
-        });
-    });
 }
 
 async function cancelCustomerBooking(bookingId) {
@@ -12554,59 +13005,37 @@ if (document.readyState === "loading") {
 
 
 /* ========================================================================
-   ADMIN DASHBOARD QUICK ACTIONS
-   Provides navigation from the administrator dashboard to management pages.
+   ADMIN QUICK ACTIONS
+   Handles navigation from Admin Dashboard and Admin Services page.
    ======================================================================== */
 
-function getAdminSectionByHeading(headingText) {
+function scrollToAdminSectionByListId(listId) {
 
-    const sections =
-        document.querySelectorAll(
-            "main > .admin-section, main > section, main section"
+    const listElement =
+        document.getElementById(
+            listId
         );
 
-    const targetText =
-        String(headingText || "")
-            .trim()
-            .toLowerCase();
+    if (!listElement) {
 
+        console.warn(
+            "Admin list not found:",
+            listId
+        );
 
-    for (const section of sections) {
-
-        const heading =
-            section.querySelector("h2");
-
-
-        if (
-            heading &&
-            heading.textContent
-                .trim()
-                .toLowerCase()
-                .includes(targetText)
-        ) {
-
-            return section;
-
-        }
-
+        return;
     }
 
-
-    return null;
-}
-
-function scrollToAdminSectionByHeading(headingText) {
-
     const section =
-        getAdminSectionByHeading(
-            headingText
+        listElement.closest(
+            ".admin-section"
         );
 
     if (!section) {
 
         console.warn(
-            "Admin section not found:",
-            headingText
+            "Admin section not found for list:",
+            listId
         );
 
         return;
@@ -12616,67 +13045,218 @@ function scrollToAdminSectionByHeading(headingText) {
         behavior: "smooth",
         block: "start"
     });
+
 }
+
 
 function initializeAdminDashboardQuickActions() {
 
     const actions = [
+
         {
             id: "manage-users-btn",
-            heading: "User Management"
+            listId: "admin-users-list"
         },
+
         {
             id: "manage-bookings-btn",
-            heading: "Booking Management"
+            listId: "admin-bookings-list"
         },
+
         {
             id: "manage-services-btn",
-            heading: "Service Management"
+            listId: "admin-services-list"
         },
+
         {
             id: "manage-reviews-btn",
-            heading: "Review Management"
+            listId: "admin-reviews-list"
         }
+
     ];
 
-    actions.forEach(function (action) {
 
-        const button =
-            document.getElementById(
-                action.id
+    actions.forEach(
+        function (action) {
+
+            const button =
+                document.getElementById(
+                    action.id
+                );
+
+            if (!button) {
+                return;
+            }
+
+            button.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    scrollToAdminSectionByListId(
+                        action.listId
+                    );
+
+                }
             );
 
-        if (!button) {
-            return;
         }
+    );
 
-        button.addEventListener(
+}
+
+
+/* ========================================================================
+   ADMIN SERVICES PAGE QUICK ACTIONS
+   ======================================================================== */
+
+function initializeAdminServicesQuickActions() {
+
+    const dashboardButton =
+        document.getElementById(
+            "admin-dashboard-btn"
+        );
+
+    const manageUsersButton =
+        document.getElementById(
+            "manage-users-btn"
+        );
+
+    const manageBookingsButton =
+        document.getElementById(
+            "manage-bookings-btn"
+        );
+
+    const manageReviewsButton =
+        document.getElementById(
+            "manage-reviews-btn"
+        );
+
+
+    /*
+     * RETURN TO ADMIN DASHBOARD
+     */
+
+    if (dashboardButton) {
+
+        dashboardButton.addEventListener(
             "click",
             function (event) {
 
                 event.preventDefault();
-                event.stopPropagation();
 
-                scrollToAdminSectionByHeading(
-                    action.heading
-                );
+                window.location.href =
+                    "admin-dashboard.html";
 
             }
         );
-    });
+
+    }
+
+
+    /*
+     * MANAGE USERS
+     */
+
+    if (manageUsersButton) {
+
+        manageUsersButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "admin-dashboard.html#admin-users-list";
+
+            }
+        );
+
+    }
+
+
+    /*
+     * VIEW BOOKINGS
+     */
+
+    if (manageBookingsButton) {
+
+        manageBookingsButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "admin-dashboard.html#admin-bookings-list";
+
+            }
+        );
+
+    }
+
+
+    /*
+     * VIEW REVIEWS
+     */
+
+    if (manageReviewsButton) {
+
+        manageReviewsButton.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                window.location.href =
+                    "admin-dashboard.html#admin-reviews-list";
+
+            }
+        );
+
+    }
 
 }
 
-if (document.readyState === "loading") {
+
+/* ========================================================================
+   INITIALIZE ADMIN QUICK ACTIONS
+   ======================================================================== */
+
+if (
+    document.readyState ===
+    "loading"
+) {
 
     document.addEventListener(
         "DOMContentLoaded",
-        initializeAdminDashboardQuickActions
+        function () {
+
+            if (
+                window.location.pathname.endsWith(
+                    "admin-dashboard.html"
+                )
+            ) {
+
+                initializeAdminDashboardQuickActions();
+
+            }
+
+        }
     );
 
 } else {
 
-    initializeAdminDashboardQuickActions();
+    if (
+        window.location.pathname.endsWith(
+            "admin-dashboard.html"
+        )
+    ) {
+
+        initializeAdminDashboardQuickActions();
+
+    }
 
 }
 
@@ -14026,11 +14606,12 @@ await loadProviderServices();
                     cancelButton.style.display =
                         "inline-block";
 
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
+                        document
+                        .querySelector(".provider-service-form-section")
+                        .scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
 
 
                 } catch (error) {
