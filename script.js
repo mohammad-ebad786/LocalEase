@@ -3,7 +3,7 @@
 
 // GLOBAL API CONFIGURATION
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "https://localease-backend-jivb.onrender.com/api";
 
 const TOKEN_KEY = "localeaseToken";
 const USER_KEY = "localeaseUser";
