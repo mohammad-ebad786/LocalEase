@@ -14275,7 +14275,7 @@ function initializeProviderServicesPage() {
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/services/provider/my-services",
+                    "https://localease-backend-jivb.onrender.com/api/services/provider/my-services",
                     {
                         headers: {
                             Authorization:
@@ -14440,8 +14440,8 @@ function initializeProviderServicesPage() {
 
                 const response = await fetch(
                     serviceId
-        ? `http://localhost:5000/api/services/${serviceId}`
-        : "http://localhost:5000/api/services",
+        ? `https://localease-backend-jivb.onrender.com/api/services/${serviceId}`
+        : "https://localease-backend-jivb.onrender.com/api/services",
     {
         method: serviceId ? "PUT" : "POST",
         headers: {
@@ -14540,7 +14540,7 @@ await loadProviderServices();
 
                     const response =
                         await fetch(
-                            `http://localhost:5000/api/services/${serviceId}`,
+                            `https://localease-backend-jivb.onrender.com/api/services/${serviceId}`,
                             {
                                 headers: {
                                     Authorization:
@@ -14656,7 +14656,7 @@ await loadProviderServices();
 
                     const response =
                         await fetch(
-                            `http://localhost:5000/api/services/${serviceId}`,
+                            `https://localease-backend-jivb.onrender.com/api/services/${serviceId}`,
                             {
                                 method: "DELETE",
 
