@@ -447,16 +447,15 @@ function redirectAfterLogin(user) {
     ) {
 
         window.location.href =
-            "provider-dashboard.html";
+            "profile.html";
 
         return;
     }
 
 
     window.location.href =
-        "dashboard.html";
+        "providers.html";
 }
-
 
 // LOGIN PAGE
 
@@ -758,12 +757,12 @@ if (signupForm) {
 
             const phone =
             phoneElement.value.trim();
-            
+
             const location =
             locationInput
             ? locationInput.value.trim()
             : "";
-            
+
             const password =
             passwordElement.value;
 
@@ -1406,7 +1405,426 @@ async function loadMyProfile() {
 }
 
 
-// RENDER PROFILE DATA
+// PROVIDER PHOTO UPLOAD
+// Handles provider profile photo selection and Cloudinary upload.
+
+function initializeProviderPhotoUpload() {
+
+    const photoInput =
+        document.getElementById(
+            "provider-photo-input"
+        );
+
+    const selectButton =
+        document.getElementById(
+            "provider-photo-select-btn"
+        );
+
+    const uploadButton =
+        document.getElementById(
+            "provider-photo-upload-btn"
+        );
+
+    const photoPreview =
+        document.getElementById(
+            "provider-photo-preview"
+        );
+
+    const photoStatus =
+        document.getElementById(
+            "provider-photo-status"
+        );
+
+    if (
+        !photoInput ||
+        !selectButton ||
+        !uploadButton ||
+        !photoPreview
+    ) {
+        return;
+    }
+
+
+    let selectedPhoto =
+        null;
+
+
+    // ==================== SELECT PHOTO ====================
+
+    selectButton.addEventListener(
+        "click",
+        function () {
+
+            photoInput.click();
+
+        }
+    );
+
+
+    // ==================== PHOTO CHANGE ====================
+
+    photoInput.addEventListener(
+        "change",
+        function () {
+
+            const file =
+                photoInput.files &&
+                photoInput.files[0]
+                    ? photoInput.files[0]
+                    : null;
+
+
+            if (!file) {
+                return;
+            }
+
+
+            // IMAGE TYPE VALIDATION
+
+            if (
+                !file.type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                alert(
+                    "Please select a valid image file."
+                );
+
+                photoInput.value = "";
+
+                return;
+            }
+
+
+            // FILE SIZE VALIDATION
+            // Maximum 5 MB.
+
+            if (
+                file.size >
+                5 * 1024 * 1024
+            ) {
+
+                alert(
+                    "Photo size must be 5 MB or less."
+                );
+
+                photoInput.value = "";
+
+                return;
+            }
+
+
+            selectedPhoto =
+                file;
+
+
+            // PREVIEW SELECTED PHOTO
+
+            const previewUrl =
+                URL.createObjectURL(
+                    file
+                );
+
+
+            photoPreview.innerHTML = `
+                <img
+                    src="${previewUrl}"
+                    alt="Provider Photo Preview"
+                >
+            `;
+
+
+            if (photoStatus) {
+
+                photoStatus.textContent =
+                    "Photo selected. Click Upload Photo to save it.";
+
+            }
+
+        }
+    );
+
+
+    // ==================== UPLOAD PHOTO ====================
+
+    uploadButton.addEventListener(
+        "click",
+        async function () {
+
+            if (!selectedPhoto) {
+
+                alert(
+                    "Please choose a photo first."
+                );
+
+                return;
+            }
+
+
+            const token =
+                typeof getToken === "function"
+                    ? getToken()
+                    : localStorage.getItem(
+                        "localeaseToken"
+                    );
+
+
+            if (!token) {
+
+                alert(
+                    "Please login as a provider first."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            uploadButton.disabled =
+                true;
+
+            selectButton.disabled =
+                true;
+
+            const originalUploadText =
+                uploadButton.innerHTML;
+
+            uploadButton.textContent =
+                "Uploading...";
+
+
+            try {
+
+                // ==================== CLOUDINARY UPLOAD ====================
+
+                const cloudinaryFormData =
+                    new FormData();
+
+
+                cloudinaryFormData.append(
+                    "file",
+                    selectedPhoto
+                );
+
+
+                cloudinaryFormData.append(
+                    "upload_preset",
+                    "localease_provider_photos"
+                );
+
+
+                const cloudinaryResponse =
+                    await fetch(
+                        "https://api.cloudinary.com/v1_1/k5midonn/image/upload",
+                        {
+                            method: "POST",
+
+                            body:
+                                cloudinaryFormData
+                        }
+                    );
+
+
+                const cloudinaryData =
+                    await cloudinaryResponse.json();
+
+
+                if (
+                    !cloudinaryResponse.ok ||
+                    !cloudinaryData.secure_url
+                ) {
+
+                    throw new Error(
+                        cloudinaryData?.error?.message ||
+                        "Unable to upload photo to Cloudinary."
+                    );
+
+                }
+
+
+                const photoUrl =
+                    cloudinaryData.secure_url;
+
+
+                // ==================== SAVE PHOTO URL ====================
+
+                const currentUser =
+                    typeof getStoredUser === "function"
+                        ? getStoredUser()
+                        : null;
+
+
+                const providerName =
+                    currentUser?.name ||
+                    "Provider";
+
+
+                const providerPhone =
+                    currentUser?.phone ||
+                    "";
+
+
+                const response =
+                    await apiRequest(
+                        "/auth/me",
+                        {
+                            method: "PUT",
+
+                            body:
+                                JSON.stringify({
+                                    name:
+                                        providerName,
+
+                                    phone:
+                                        providerPhone,
+
+                                    photo:
+                                        photoUrl
+                                })
+                        }
+                    );
+
+
+                if (
+                    !response ||
+                    !response.success
+                ) {
+
+                    throw new Error(
+                        response?.message ||
+                        "Photo URL could not be saved."
+                    );
+
+                }
+
+
+                // ==================== UPDATE LOCAL USER ====================
+
+                if (
+                    response.user
+                ) {
+
+                    localStorage.setItem(
+                        USER_KEY,
+                        JSON.stringify(
+                            response.user
+                        )
+                    );
+
+                }
+
+
+                // ==================== UPDATE PREVIEW ====================
+
+                photoPreview.innerHTML = `
+                    <img
+                        src="${photoUrl}"
+                        alt="Provider Profile Photo"
+                    >
+                `;
+
+
+                selectedPhoto =
+                    null;
+
+                photoInput.value =
+                    "";
+
+
+                if (photoStatus) {
+
+                    photoStatus.textContent =
+                        "Provider photo uploaded successfully.";
+
+                }
+
+
+                alert(
+                    "Provider photo uploaded successfully! ✅"
+                );
+
+
+                // REFRESH PROFILE DISPLAY
+
+                if (
+                    typeof loadMyProfile ===
+                    "function"
+                ) {
+
+                    const updatedUser =
+                        await loadMyProfile();
+
+
+                    if (updatedUser) {
+
+                        renderProfile(
+                            updatedUser
+                        );
+
+                    }
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Provider photo upload error:",
+                    error
+                );
+
+
+                alert(
+                    error?.message ||
+                    "Unable to upload provider photo."
+                );
+
+            }
+
+            finally {
+
+                uploadButton.disabled =
+                    false;
+
+                selectButton.disabled =
+                    false;
+
+                uploadButton.innerHTML =
+                    originalUploadText;
+
+            }
+
+        }
+    );
+
+}
+
+
+// ==================== INITIALIZE PROVIDER PHOTO UPLOAD ====================
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeProviderPhotoUpload,
+        {
+            once: true
+        }
+    );
+
+} else {
+
+    initializeProviderPhotoUpload();
+
+}
+
 
 function renderProfile(user) {
 
@@ -1418,13 +1836,16 @@ function renderProfile(user) {
         safeUser.name ||
         "Not provided";
 
+
     const email =
         safeUser.email ||
         "Not provided";
 
+
     const phone =
         safeUser.phone ||
         "Not provided";
+
 
     const location =
         safeUser.location ||
@@ -1432,10 +1853,12 @@ function renderProfile(user) {
         safeUser.serviceLocation ||
         "Not provided";
 
+
     const role =
         String(
             safeUser.role || "customer"
         ).toLowerCase();
+
 
     const accountType =
         role === "provider"
@@ -1444,11 +1867,13 @@ function renderProfile(user) {
                 ? "Administrator"
                 : "Customer";
 
+
     const memberSinceValue =
         safeUser.createdAt ||
         safeUser.created_at ||
         safeUser.joinedAt ||
         safeUser.dateCreated;
+
 
     const memberSince =
         memberSinceValue
@@ -1462,6 +1887,23 @@ function renderProfile(user) {
             )
             : "Not available";
 
+
+    const initials =
+        String(
+            safeUser.name || "User"
+        )
+            .split(" ")
+            .filter(Boolean)
+            .map(
+                word =>
+                    word.charAt(0)
+            )
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+
+
+                // UPDATE PERSONAL PROFILE DETAILS
 
     const nameElement =
         document.getElementById(
@@ -1494,90 +1936,257 @@ function renderProfile(user) {
         );
 
 
-    if (nameElement && !nameElement.matches("input")) {
-        nameElement.textContent = name;
+    if (nameElement) {
+        nameElement.textContent =
+            name;
     }
 
-    if (emailElement && !emailElement.matches("input")) {
-        emailElement.textContent = email;
+    if (emailElement) {
+        emailElement.textContent =
+            email;
     }
 
-    if (phoneElement && !phoneElement.matches("input")) {
-        phoneElement.textContent = phone;
+    if (phoneElement) {
+        phoneElement.textContent =
+            phone;
     }
 
-    if (locationElement && !locationElement.matches("input")) {
-        locationElement.textContent = location;
+    if (locationElement) {
+        locationElement.textContent =
+            location;
     }
 
-    if (roleElement && !roleElement.matches("input")) {
-        roleElement.textContent = accountType;
+    if (roleElement) {
+        roleElement.textContent =
+            accountType;
     }
 
-    if (memberSinceElement && !memberSinceElement.matches("input")) {
-        memberSinceElement.textContent = memberSince;
+    if (memberSinceElement) {
+        memberSinceElement.textContent =
+            memberSince;
     }
 
+    // UPDATE PROFILE PAGE HEADER
 
-    const profileTitle =
-        document.querySelector(
-            ".profile-title h2"
+    const profileHeroTitle =
+        document.getElementById(
+            "profile-hero-title"
         );
 
 
-    if (profileTitle) {
-
-        profileTitle.textContent =
-            safeUser.name ||
-            "LocalEase User";
-    }
-
-
-    const profileSubtitle =
-        document.querySelector(
-            ".profile-title p"
+    const profileHeroRole =
+        document.getElementById(
+            "profile-hero-role"
         );
 
 
-    if (profileSubtitle) {
+    const profileAccountName =
+        document.getElementById(
+            "profile-account-name"
+        );
 
-        profileSubtitle.textContent =
+
+    const profileAccountTypeLabel =
+        document.getElementById(
+            "profile-account-type-label"
+        );
+
+
+    if (profileHeroTitle) {
+        profileHeroTitle.textContent =
             role === "provider"
-                ? "LocalEase Service Provider"
-                : role === "admin"
-                    ? "LocalEase Administrator"
-                    : "LocalEase Customer";
+                ? name
+                : "My Profile";
     }
 
 
-    const avatar =
-        document.querySelector(
-            ".profile-avatar"
+    if (profileHeroRole) {
+        profileHeroRole.textContent =
+            accountType;
+    }
+
+
+    if (profileAccountName) {
+        profileAccountName.textContent =
+            name;
+    }
+
+
+    if (profileAccountTypeLabel) {
+        profileAccountTypeLabel.textContent =
+            role === "provider"
+                ? "Professional Provider Account"
+                : "Account Information";
+    }
+
+
+    // RENDER PROVIDER PROFESSIONAL PROFILE
+
+    const providerProfileSection =
+        document.getElementById(
+            "provider-professional-profile"
         );
 
 
-    if (avatar) {
-
-        const initials =
-            String(
-                safeUser.name || "User"
-            )
-                .split(" ")
-                .filter(Boolean)
-                .map(
-                    word =>
-                        word.charAt(0)
-                )
-                .join("")
-                .substring(0, 2)
-                .toUpperCase();
+    if (!providerProfileSection) {
+        return;
+    }
 
 
-        avatar.textContent =
+    if (role !== "provider") {
+        providerProfileSection.hidden = true;
+        return;
+    }
+
+
+    providerProfileSection.hidden = false;
+
+
+    const providerProfile =
+        safeUser.providerProfile ||
+        {};
+
+
+            // PROVIDER SAVED PHOTO
+
+    const providerPhoto =
+        typeof providerProfile.photo === "string"
+            ? providerProfile.photo.trim()
+            : "";
+
+
+    const providerPhotoPreview =
+        document.getElementById(
+            "provider-photo-preview"
+        );
+
+
+    if (
+        providerPhotoPreview &&
+        providerPhoto
+    ) {
+
+        providerPhotoPreview.innerHTML = `
+            <img
+                src="${providerPhoto}"
+                alt="Provider Profile Photo"
+            >
+        `;
+
+    }
+
+
+    const providerService =
+        providerProfile.serviceCategory ||
+        "Not provided";
+
+    const providerExperience =
+        providerProfile.experience !== undefined &&
+        providerProfile.experience !== null &&
+        String(providerProfile.experience).trim() !== ""
+            ? `${providerProfile.experience}+ Years`
+            : "Not provided";
+
+    const providerLocation =
+        providerProfile.location ||
+        location ||
+        "Not provided";
+
+    const providerPrice =
+        providerProfile.price !== undefined &&
+        providerProfile.price !== null &&
+        String(providerProfile.price).trim() !== ""
+            ? `₹${providerProfile.price}`
+            : "Not provided";
+
+    const providerDescription =
+        providerProfile.description ||
+        "No professional description provided.";
+
+
+    const providerNameElement =
+        document.getElementById(
+            "provider-profile-name"
+        );
+
+    const providerServiceLabelElement =
+        document.getElementById(
+            "provider-profile-service-label"
+        );
+
+    const providerServiceElement =
+        document.getElementById(
+            "provider-service-category"
+        );
+
+    const providerExperienceElement =
+        document.getElementById(
+            "provider-experience"
+        );
+
+    const providerLocationElement =
+        document.getElementById(
+            "provider-location"
+        );
+
+    const providerPriceElement =
+        document.getElementById(
+            "provider-price"
+        );
+
+    const providerDescriptionElement =
+        document.getElementById(
+            "provider-description"
+        );
+
+    const providerAvatarElement =
+        document.getElementById(
+            "provider-profile-avatar"
+        );
+
+
+    if (providerNameElement) {
+        providerNameElement.textContent =
+            name;
+    }
+
+    if (providerServiceLabelElement) {
+        providerServiceLabelElement.textContent =
+            `${providerService} Professional`;
+    }
+
+    if (providerServiceElement) {
+        providerServiceElement.textContent =
+            providerService;
+    }
+
+    if (providerExperienceElement) {
+        providerExperienceElement.textContent =
+            providerExperience;
+    }
+
+    if (providerLocationElement) {
+        providerLocationElement.textContent =
+            providerLocation;
+    }
+
+    if (providerPriceElement) {
+        providerPriceElement.textContent =
+            providerPrice;
+    }
+
+    if (providerDescriptionElement) {
+        providerDescriptionElement.textContent =
+            providerDescription;
+    }
+
+    if (providerAvatarElement) {
+        providerAvatarElement.textContent =
             initials ||
             "U";
     }
 }
+
 
 
 // LOAD PROFILE ACTIVITY
@@ -4103,7 +4712,7 @@ async function acceptProviderBooking(bookingId) {
 
 // REJECT PROVIDER BOOKING
 
-// Rejects a pending booking request by cancelling it.
+// Rejects a pending booking request.
 async function rejectProviderBooking(bookingId) {
 
     const confirmed =
@@ -4123,7 +4732,7 @@ async function rejectProviderBooking(bookingId) {
             await apiRequest(
                 `/bookings/${encodeURIComponent(
                     bookingId
-                )}/cancel`,
+                )}/reject`,
                 {
                     method: "PUT",
                     headers: {
@@ -4187,7 +4796,6 @@ async function rejectProviderBooking(bookingId) {
     }
 
 }
-
 
 // RENDER PROVIDER UPCOMING BOOKINGS
 
@@ -5106,39 +5714,38 @@ function updateBookingTimeline(status) {
 
     // SERVICE DETAILS → BOOKING PAGE LINK
 
-    // Detect the booking link from the service details page.
-    const bookingLink =
-        document.querySelector(
-            'a[href="booking.html"]'
-        );
+// Detect the booking link from the service details page.
+const bookingLink =
+    document.querySelector(
+        'a[href="booking.html"]'
+    );
 
 
-    if (bookingLink) {
+if (bookingLink) {
 
-        bookingLink.addEventListener(
-            "click",
-            function () {
+    bookingLink.addEventListener(
+        "click",
+        function () {
 
-                const selectedService =
-                    localStorage.getItem(
-                        SELECTED_SERVICE_KEY
-                    );
+            const selectedService =
+                localStorage.getItem(
+                    SELECTED_SERVICE_KEY
+                );
 
 
-                if (!selectedService) {
+            if (!selectedService) {
 
-                    localStorage.setItem(
-                        SELECTED_SERVICE_KEY,
-                        "Service"
-                    );
-
-                }
+                localStorage.setItem(
+                    SELECTED_SERVICE_KEY,
+                    "Service"
+                );
 
             }
-        );
 
-    }
+        }
+    );
 
+}
 
     // BOOKING PAGE INITIALIZATION
 
@@ -5171,6 +5778,132 @@ function updateBookingTimeline(status) {
                 SELECTED_SERVICE_KEY
             );
 
+            const bookingUrlParameters =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const selectedProviderId =
+    bookingUrlParameters.get(
+        "provider"
+    );
+
+
+const selectedProviderCard =
+    document.getElementById(
+        "booking-selected-provider-card"
+    );
+
+
+const bookingProviderNameElement =
+    document.getElementById(
+        "booking-provider-name"
+    );
+
+
+const bookingProviderServiceElement =
+    document.getElementById(
+        "booking-provider-service"
+    );
+
+
+let selectedProvider =
+    null;
+
+
+if (selectedProviderId) {
+
+    try {
+
+        const providerData =
+            await apiRequest(
+                "/provider/providers",
+                {
+                    method: "GET"
+                }
+            );
+
+
+        const providers =
+            Array.isArray(
+                providerData?.providers
+            )
+                ? providerData.providers
+                : [];
+
+
+        selectedProvider =
+            providers.find(
+                function (provider) {
+
+                    const currentProviderId =
+                        provider?.id ||
+                        provider?._id ||
+                        "";
+
+
+                    return (
+                        String(
+                            currentProviderId
+                        ) ===
+                        String(
+                            selectedProviderId
+                        )
+                    );
+
+                }
+            );
+
+
+        if (selectedProvider) {
+
+            if (
+                selectedProviderCard
+            ) {
+
+                selectedProviderCard.hidden =
+                    false;
+
+            }
+
+
+            if (
+                bookingProviderNameElement
+            ) {
+
+                bookingProviderNameElement.textContent =
+                    selectedProvider.name ||
+                    "Service Provider";
+
+            }
+
+
+            if (
+                bookingProviderServiceElement
+            ) {
+
+                bookingProviderServiceElement.textContent =
+                    selectedProvider.serviceCategory
+                        ? `${selectedProvider.serviceCategory} Professional`
+                        : "Service Provider";
+
+            }
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unable to load selected provider:",
+            error
+        );
+
+    }
+
+}
+
 
         const serviceNameElement =
             document.querySelector(
@@ -5200,6 +5933,51 @@ function updateBookingTimeline(status) {
             await loadServicesIntoSelect(
                 serviceSelect
             );
+
+            if (
+    selectedProvider &&
+    selectedProvider.serviceCategory
+) {
+
+    const providerCategory =
+        String(
+            selectedProvider.serviceCategory
+        )
+            .trim()
+            .toLowerCase();
+
+
+    const providerServiceOption =
+        Array.from(
+            serviceSelect.options
+        ).find(
+            function (option) {
+
+                const optionCategory =
+                    String(
+                        option.dataset.category ||
+                        ""
+                    )
+                        .trim()
+                        .toLowerCase();
+
+                return (
+                    optionCategory ===
+                    providerCategory
+                );
+
+            }
+        );
+
+
+    if (providerServiceOption) {
+
+        serviceSelect.value =
+            providerServiceOption.value;
+
+    }
+
+}
 
 
             // Restore the service selected on the
@@ -5404,6 +6182,10 @@ function updateBookingTimeline(status) {
                         service.name ||
                         "Service";
 
+                        option.dataset.category =
+                        service.category ||
+                        "";
+
 
                     selectElement.appendChild(
                         option
@@ -5455,6 +6237,7 @@ function updateBookingTimeline(status) {
     // CREATE NEW BOOKING
 
     // Validates the booking form and submits a new booking
+
     async function handleBookingSubmit(event) {
 
         event.preventDefault();
@@ -5507,6 +6290,7 @@ function updateBookingTimeline(status) {
             );
 
 
+
         // Read and clean user-provided values.
         const serviceId =
             serviceSelect
@@ -5543,6 +6327,14 @@ function updateBookingTimeline(status) {
                 ? notesInput.value.trim()
                 : "";
 
+                const bookingUrlParameters =
+                new URLSearchParams(
+                window.location.search
+            );
+
+        const selectedProviderId =
+            bookingUrlParameters.get("provider");
+
 
         // FORM VALIDATION
 
@@ -5567,11 +6359,11 @@ function updateBookingTimeline(status) {
 
 
         if (!bookingTime) {
-            
+
             alert(
                 "Please select a preferred time."
             );
-            
+
             return;
         }
 
@@ -5671,27 +6463,30 @@ function updateBookingTimeline(status) {
                         method: "POST",
 
                         body:
-                            JSON.stringify({
+    JSON.stringify({
 
-                                service:
-                                    serviceId,
+        service:
+            serviceId,
 
-                                bookingDate:
-                                    selectedDate.toISOString(),
+        provider:
+            selectedProviderId || null,
 
-                                address:
-                                    address,
+        bookingDate:
+            selectedDate.toISOString(),
 
-                                phone:
-                                    phone,
+        address:
+            address,
 
-                                notes:
-                                    notes,
+        phone:
+            phone,
 
-                                totalPrice:
-                                    price
+        notes:
+            notes,
 
-                            })
+        totalPrice:
+            price
+
+    })
 
                     }
                 );
@@ -6025,7 +6820,7 @@ window.addEventListener(
             ? data.users
             : [];
 
-            
+
             updateAdminUserStats(data?.users);
 
             const usersList =
@@ -7756,7 +8551,7 @@ window.addEventListener(
                             <span class="service-action-icon">✎</span>
                             Edit
                             </button>
-                            
+
                             <button
                             type="button"
                             class="delete-service-btn"
@@ -8900,7 +9695,7 @@ window.addEventListener(
     // TOGGLE USER STATUS
 
     async function handleToggleAdminUser(userId) {
-        
+
     console.log(
         "🔥 TOGGLE BUTTON CLICKED:",
         userId
@@ -11174,7 +11969,7 @@ function initializeAdminUsersPage() {
             }
         );
 
-        
+
 
         // RENDER BOOKINGS FROM DATABASE
 
@@ -12157,6 +12952,36 @@ function initializeMyBookingsPage() {
     }
 
     console.log("My Bookings page initialized");
+
+    bookingsContainer.addEventListener("click", function (event) {
+
+    const button = event.target.closest(
+        "button.view-booking-btn"
+    );
+
+    if (!button) {
+        return;
+    }
+
+    const bookingId = button.getAttribute(
+        "data-booking-id"
+    );
+
+    if (!bookingId) {
+        console.warn(
+            "Booking ID not found for View Details."
+        );
+        return;
+    }
+
+    localStorage.setItem(
+        CURRENT_BOOKING_KEY,
+        bookingId
+    );
+
+    window.location.href = "booking-status.html";
+
+});
 
     loadMyBookingsPage();
     initializeBookingFilters();
@@ -13289,6 +14114,50 @@ function initializeProviderLogout() {
 }
 
 
+// UPDATE NAVIGATION AUTH STATE
+
+function updateNavigationAuthState() {
+
+    const token = getToken();
+    const user = getStoredUser();
+
+    const isLoggedIn = Boolean(token && user);
+
+    const loginLinks = document.querySelectorAll(
+        '.nav-login-btn, a[href="login.html"]'
+    );
+
+    loginLinks.forEach(function (link) {
+
+        const label = link.textContent.trim();
+
+        const isStandardLoginLink =
+            link.classList.contains("nav-login-btn") ||
+            label === "Login" ||
+            label === "Logout";
+
+        // Keep links such as "Provider Login" unchanged.
+        if (!isStandardLoginLink) {
+            return;
+        }
+
+        link.textContent = isLoggedIn
+            ? "Logout"
+            : "Login";
+
+        link.href = "login.html";
+
+        if (isLoggedIn) {
+            link.classList.add("logout-btn");
+        } else {
+            link.classList.remove("logout-btn");
+        }
+
+    });
+
+}
+updateNavigationAuthState();
+
 // PROVIDER DASHBOARD INITIALIZATION
 
 function initializeProviderDashboard() {
@@ -13550,17 +14419,17 @@ function initializeProviderServicesPage() {
 
                 const serviceId =
                 document.getElementById("provider-service-id").value;
-                
+
                 const serviceData = {
                     name:
                     document.getElementById("service-name").value.trim(),
-                    
+
                     category:
                     document.getElementById("service-category").value.trim(),
-                    
+
                     description:
                     document.getElementById("service-description").value.trim(),
-                    
+
                     price:
                     Number(document.getElementById("service-price").value),
 
@@ -13568,7 +14437,7 @@ function initializeProviderServicesPage() {
                     document.getElementById("service-image").value.trim()
 
                 };
-                
+
                 const response = await fetch(
                     serviceId
         ? `http://localhost:5000/api/services/${serviceId}`
@@ -13995,3 +14864,1026 @@ if (
     );
 
 })();
+
+
+// ==================================================
+// PROVIDER DIRECTORY
+// ==================================================
+
+function initializeProviderDirectory() {
+
+    const featuredProvidersList =
+        document.getElementById(
+            "featured-providers-list"
+        );
+
+    const allProvidersList =
+        document.getElementById(
+            "all-providers-list"
+        );
+
+    if (!featuredProvidersList && !allProvidersList) {
+        return;
+    }
+
+
+    let allProviders = [];
+    let selectedCategory = "all";
+    let searchTerm = "";
+
+
+    const providersCountElement =
+        document.getElementById(
+            "providers-count"
+        );
+
+    const categoryFiltersContainer =
+        document.getElementById(
+            "provider-category-filters"
+        );
+
+    const searchInput =
+        document.getElementById(
+            "provider-search"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "providers-empty-state"
+        );
+
+    const resetFiltersButton =
+        document.getElementById(
+            "reset-provider-filters"
+        );
+
+
+    function normalizeCategory(category) {
+
+        const normalized =
+            String(category || "")
+                .trim()
+                .toLowerCase();
+
+        const aliases = {
+            plumber: "plumbing",
+            electrician: "electrician",
+            carpenter: "carpenter",
+            cleaner: "cleaning",
+            cleaner_service: "cleaning",
+            painting: "painting",
+            painter: "painting"
+        };
+
+        return aliases[normalized] || normalized;
+    }
+
+
+    function formatCategory(category) {
+
+        const normalized =
+            normalizeCategory(category);
+
+        const labels = {
+            plumbing: "Plumber",
+            electrician: "Electrician",
+            carpenter: "Carpenter",
+            cleaning: "Cleaner",
+            painting: "Painter"
+        };
+
+        if (labels[normalized]) {
+            return labels[normalized];
+        }
+
+        return String(category || "Service")
+            .trim()
+            .replace(/[-_]+/g, " ")
+            .replace(/\s+/g, " ")
+            .replace(
+                /\b\w/g,
+                function (character) {
+                    return character.toUpperCase();
+                }
+            );
+    }
+
+
+    function getProviderId(provider) {
+
+        return String(
+            provider?.id ||
+            provider?._id ||
+            provider?.userId ||
+            ""
+        );
+    }
+
+
+    function getProviderName(provider) {
+
+        return provider?.name ||
+            "LocalEase Provider";
+    }
+
+
+    function renderProviderCard(provider) {
+
+        const providerId =
+            getProviderId(provider);
+
+        const name =
+            escapeHtml(
+                getProviderName(provider)
+            );
+
+        const category =
+            escapeHtml(
+                formatCategory(
+                    provider?.serviceCategory
+                )
+            );
+
+        const experienceValue =
+            provider?.experience !== undefined &&
+            provider?.experience !== null &&
+            String(provider.experience).trim() !== ""
+                ? `${provider.experience}+ Years`
+                : "Not provided";
+
+        const experience =
+            escapeHtml(experienceValue);
+
+        const location =
+            escapeHtml(
+                provider?.location ||
+                "Location not provided"
+            );
+
+        const priceValue =
+            provider?.price !== undefined &&
+            provider?.price !== null &&
+            String(provider.price).trim() !== ""
+                ? `₹${provider.price}`
+                : "Not provided";
+
+        const price =
+            escapeHtml(priceValue);
+
+        const description =
+            escapeHtml(
+                provider?.description ||
+                "Professional local service provider."
+            );
+
+        const safeProviderId =
+            escapeHtml(providerId);
+
+
+        return `
+            <article
+                class="provider-card"
+                data-provider-id="${safeProviderId}"
+                data-provider-category="${escapeHtml(
+                    normalizeCategory(
+                        provider?.serviceCategory
+                    )
+                )}"
+            >
+
+                <div class="provider-card-image">
+
+    ${
+        provider?.photo &&
+        /^https:\/\/res\.cloudinary\.com\/k5midonn\//i.test(
+            provider.photo
+        )
+            ? `
+                <div class="provider-card-avatar provider-card-photo">
+                    <img
+                        src="${escapeHtml(provider.photo)}"
+                        alt="${escapeHtml(
+                            getProviderName(provider)
+                        )} Profile Photo"
+                        style="
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            object-position: center;
+                            display: block;
+                        "
+                    >
+                </div>
+            `
+            : `
+                <div class="provider-card-avatar">
+                    👤
+                </div>
+            `
+    }
+
+</div>
+
+
+                <div class="provider-card-content">
+
+                    <p class="provider-card-category">
+                        ${category}
+                    </p>
+
+                    <h3>
+                        ${name}
+                    </h3>
+
+                    <div class="provider-card-meta">
+
+                        <span>
+                            ⭐ Professional
+                        </span>
+
+                        <span>
+                            ${experience}
+                        </span>
+
+                    </div>
+
+                    <p class="provider-card-location">
+                        📍 ${location}
+                    </p>
+
+                    <p class="provider-card-price">
+                        From <strong>${price}</strong>
+                    </p>
+
+                    <p class="provider-card-description">
+                        ${description}
+                    </p>
+
+                    <a
+                        href="provider-details.html?id=${encodeURIComponent(
+                            providerId
+                        )}"
+                        class="provider-view-profile-btn"
+                    >
+                        View Profile
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </article>
+        `;
+    }
+
+
+    function getFilteredProviders() {
+
+        return allProviders.filter(
+            function (provider) {
+
+                const providerCategory =
+                    normalizeCategory(
+                        provider?.serviceCategory
+                    );
+
+                const categoryMatches =
+                    selectedCategory === "all" ||
+                    providerCategory === selectedCategory;
+
+                const providerName =
+                    String(
+                        provider?.name || ""
+                    ).toLowerCase();
+
+                const providerService =
+                    String(
+                        provider?.serviceCategory || ""
+                    ).toLowerCase();
+
+                const matchesSearch =
+                    !searchTerm ||
+                    providerName.includes(searchTerm) ||
+                    providerService.includes(searchTerm);
+
+                return (
+                    categoryMatches &&
+                    matchesSearch
+                );
+            }
+        );
+    }
+
+
+    function updateProviderCount(count) {
+
+        if (!providersCountElement) {
+            return;
+        }
+
+        providersCountElement.textContent =
+            count;
+    }
+
+
+    function renderCategoryFilters() {
+
+        if (!categoryFiltersContainer) {
+            return;
+        }
+
+        const categories = [
+            ...new Set(
+                allProviders
+                    .map(function (provider) {
+                        return normalizeCategory(
+                            provider?.serviceCategory
+                        );
+                    })
+                    .filter(Boolean)
+            )
+        ];
+
+
+        categoryFiltersContainer.innerHTML = `
+            <button
+                type="button"
+                class="provider-category-btn active"
+                data-category="all"
+            >
+                All
+            </button>
+        `;
+
+
+        categories.forEach(
+            function (category) {
+
+                const button =
+                    document.createElement(
+                        "button"
+                    );
+
+                button.type = "button";
+                button.className =
+                    "provider-category-btn";
+                button.dataset.category =
+                    category;
+                button.textContent =
+                    formatCategory(category);
+
+                categoryFiltersContainer.appendChild(
+                    button
+                );
+            }
+        );
+    }
+
+
+    function renderProviders() {
+
+        const filteredProviders =
+            getFilteredProviders();
+
+        updateProviderCount(
+            filteredProviders.length
+        );
+
+
+        if (featuredProvidersList) {
+
+            const featuredProviders =
+                allProviders.slice(0, 5);
+
+            featuredProvidersList.innerHTML =
+                featuredProviders.length > 0
+                    ? featuredProviders
+                        .map(renderProviderCard)
+                        .join("")
+                    : `
+                        <div class="provider-loading-card">
+                            <p>
+                                No providers available.
+                            </p>
+                        </div>
+                    `;
+        }
+
+
+        if (allProvidersList) {
+
+            if (filteredProviders.length === 0) {
+
+                allProvidersList.innerHTML = "";
+
+                if (emptyState) {
+                    emptyState.hidden = false;
+                }
+
+            } else {
+
+                allProvidersList.innerHTML =
+                    filteredProviders
+                        .map(renderProviderCard)
+                        .join("");
+
+                if (emptyState) {
+                    emptyState.hidden = true;
+                }
+            }
+        }
+    }
+
+
+    function setActiveCategoryButton() {
+
+        if (!categoryFiltersContainer) {
+            return;
+        }
+
+        categoryFiltersContainer
+            .querySelectorAll(
+                ".provider-category-btn"
+            )
+            .forEach(
+                function (button) {
+
+                    const buttonCategory =
+                        normalizeCategory(
+                            button.dataset.category
+                        );
+
+                    button.classList.toggle(
+                        "active",
+                        buttonCategory ===
+                            selectedCategory
+                    );
+                }
+            );
+    }
+
+
+    async function loadProviders() {
+
+        try {
+
+            const data =
+                await apiRequest(
+                    "/provider/providers",
+                    {
+                        method: "GET"
+                    }
+                );
+
+
+            allProviders =
+                Array.isArray(data?.providers)
+                    ? data.providers
+                    : [];
+
+
+            console.log(
+                "Providers loaded:",
+                allProviders
+            );
+
+
+            renderCategoryFilters();
+            renderProviders();
+
+        } catch (error) {
+
+            console.error(
+                "Provider directory error:",
+                error
+            );
+
+            if (featuredProvidersList) {
+                featuredProvidersList.innerHTML = `
+                    <div class="error-state">
+                        <p>
+                            Unable to load providers.
+                            Please try again.
+                        </p>
+                    </div>
+                `;
+            }
+
+            if (allProvidersList) {
+                allProvidersList.innerHTML = `
+                    <div class="error-state">
+                        <p>
+                            Unable to load providers.
+                            Please try again.
+                        </p>
+                    </div>
+                `;
+            }
+
+            updateProviderCount(0);
+        }
+    }
+
+
+    if (categoryFiltersContainer) {
+
+        categoryFiltersContainer.addEventListener(
+            "click",
+            function (event) {
+
+                const button =
+                    event.target.closest(
+                        ".provider-category-btn"
+                    );
+
+                if (!button) {
+                    return;
+                }
+
+                selectedCategory =
+                    normalizeCategory(
+                        button.dataset.category
+                    );
+
+                setActiveCategoryButton();
+                renderProviders();
+            }
+        );
+    }
+
+
+    if (searchInput) {
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                searchTerm =
+                    searchInput.value
+                        .trim()
+                        .toLowerCase();
+
+                renderProviders();
+            }
+        );
+    }
+
+
+    if (resetFiltersButton) {
+
+        resetFiltersButton.addEventListener(
+            "click",
+            function () {
+
+                selectedCategory = "all";
+                searchTerm = "";
+
+                if (searchInput) {
+                    searchInput.value = "";
+                }
+
+                setActiveCategoryButton();
+                renderProviders();
+            }
+        );
+    }
+
+
+    loadProviders();
+}
+
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeProviderDirectory,
+        { once: true }
+    );
+
+} else {
+
+    initializeProviderDirectory();
+}
+
+
+// PROVIDER PHOTO UPLOAD
+// Handles provider profile photo selection and Cloudinary upload.
+
+function initializeProviderPhotoUpload() {
+
+    const photoInput =
+        document.getElementById(
+            "provider-photo-input"
+        );
+
+    const selectButton =
+        document.getElementById(
+            "provider-photo-select-btn"
+        );
+
+    const uploadButton =
+        document.getElementById(
+            "provider-photo-upload-btn"
+        );
+
+    const photoPreview =
+        document.getElementById(
+            "provider-photo-preview"
+        );
+
+    const photoStatus =
+        document.getElementById(
+            "provider-photo-status"
+        );
+
+    if (
+        !photoInput ||
+        !selectButton ||
+        !uploadButton ||
+        !photoPreview
+    ) {
+        return;
+    }
+
+
+    let selectedPhoto =
+        null;
+
+
+    // ==================== SELECT PHOTO ====================
+
+    selectButton.addEventListener(
+        "click",
+        function () {
+
+            photoInput.click();
+
+        }
+    );
+
+
+    // ==================== PHOTO CHANGE ====================
+
+    photoInput.addEventListener(
+        "change",
+        function () {
+
+            const file =
+                photoInput.files &&
+                photoInput.files[0]
+                    ? photoInput.files[0]
+                    : null;
+
+
+            if (!file) {
+                return;
+            }
+
+
+            // IMAGE TYPE VALIDATION
+
+            if (
+                !file.type.startsWith(
+                    "image/"
+                )
+            ) {
+
+                alert(
+                    "Please select a valid image file."
+                );
+
+                photoInput.value = "";
+
+                return;
+            }
+
+
+            // FILE SIZE VALIDATION
+            // Maximum 5 MB.
+
+            if (
+                file.size >
+                5 * 1024 * 1024
+            ) {
+
+                alert(
+                    "Photo size must be 5 MB or less."
+                );
+
+                photoInput.value = "";
+
+                return;
+            }
+
+
+            selectedPhoto =
+                file;
+
+
+            // PREVIEW SELECTED PHOTO
+
+            const previewUrl =
+                URL.createObjectURL(
+                    file
+                );
+
+
+            photoPreview.innerHTML = `
+                <img
+                    src="${previewUrl}"
+                    alt="Provider Photo Preview"
+                >
+            `;
+
+
+            if (photoStatus) {
+
+                photoStatus.textContent =
+                    "Photo selected. Click Upload Photo to save it.";
+
+            }
+
+        }
+    );
+
+
+    // ==================== UPLOAD PHOTO ====================
+
+    uploadButton.addEventListener(
+        "click",
+        async function () {
+
+            if (!selectedPhoto) {
+
+                alert(
+                    "Please choose a photo first."
+                );
+
+                return;
+            }
+
+
+            const token =
+                typeof getToken === "function"
+                    ? getToken()
+                    : localStorage.getItem(
+                        "localeaseToken"
+                    );
+
+
+            if (!token) {
+
+                alert(
+                    "Please login as a provider first."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            uploadButton.disabled =
+                true;
+
+            selectButton.disabled =
+                true;
+
+            const originalUploadText =
+                uploadButton.innerHTML;
+
+            uploadButton.textContent =
+                "Uploading...";
+
+
+            try {
+
+                // ==================== CLOUDINARY UPLOAD ====================
+
+                const cloudinaryFormData =
+                    new FormData();
+
+
+                cloudinaryFormData.append(
+                    "file",
+                    selectedPhoto
+                );
+
+
+                cloudinaryFormData.append(
+                    "upload_preset",
+                    "localease_provider_photos"
+                );
+
+
+                const cloudinaryResponse =
+                    await fetch(
+                        "https://api.cloudinary.com/v1_1/k5midonn/image/upload",
+                        {
+                            method: "POST",
+
+                            body:
+                                cloudinaryFormData
+                        }
+                    );
+
+
+                const cloudinaryData =
+                    await cloudinaryResponse.json();
+
+
+                if (
+                    !cloudinaryResponse.ok ||
+                    !cloudinaryData.secure_url
+                ) {
+
+                    throw new Error(
+                        cloudinaryData?.error?.message ||
+                        "Unable to upload photo to Cloudinary."
+                    );
+
+                }
+
+
+                const photoUrl =
+                    cloudinaryData.secure_url;
+
+
+                // ==================== SAVE PHOTO URL ====================
+
+                const currentUser =
+                    typeof getStoredUser === "function"
+                        ? getStoredUser()
+                        : null;
+
+
+                const providerName =
+                    currentUser?.name ||
+                    "Provider";
+
+
+                const providerPhone =
+                    currentUser?.phone ||
+                    "";
+
+
+                const response =
+                    await apiRequest(
+                        "/auth/me",
+                        {
+                            method: "PUT",
+
+                            body:
+                                JSON.stringify({
+                                    name:
+                                        providerName,
+
+                                    phone:
+                                        providerPhone,
+
+                                    photo:
+                                        photoUrl
+                                })
+                        }
+                    );
+
+
+                if (
+                    !response ||
+                    !response.success
+                ) {
+
+                    throw new Error(
+                        response?.message ||
+                        "Photo URL could not be saved."
+                    );
+
+                }
+
+
+                // ==================== UPDATE LOCAL USER ====================
+
+                if (
+                    response.user
+                ) {
+
+                    localStorage.setItem(
+                        USER_KEY,
+                        JSON.stringify(
+                            response.user
+                        )
+                    );
+
+                }
+
+
+                // ==================== UPDATE PREVIEW ====================
+
+                photoPreview.innerHTML = `
+                    <img
+                        src="${photoUrl}"
+                        alt="Provider Profile Photo"
+                    >
+                `;
+
+
+                selectedPhoto =
+                    null;
+
+                photoInput.value =
+                    "";
+
+
+                if (photoStatus) {
+
+                    photoStatus.textContent =
+                        "Provider photo uploaded successfully.";
+
+                }
+
+
+                alert(
+                    "Provider photo uploaded successfully! ✅"
+                );
+
+
+                // REFRESH PROFILE DISPLAY
+
+                if (
+                    typeof loadMyProfile ===
+                    "function"
+                ) {
+
+                    const updatedUser =
+                        await loadMyProfile();
+
+
+                    if (updatedUser) {
+
+                        renderProfile(
+                            updatedUser
+                        );
+
+                    }
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    "Provider photo upload error:",
+                    error
+                );
+
+
+                alert(
+                    error?.message ||
+                    "Unable to upload provider photo."
+                );
+
+            }
+
+            finally {
+
+                uploadButton.disabled =
+                    false;
+
+                selectButton.disabled =
+                    false;
+
+                uploadButton.innerHTML =
+                    originalUploadText;
+
+            }
+
+        }
+    );
+
+}
+
+
+// ==================== INITIALIZE PROVIDER PHOTO UPLOAD ====================
+
+if (
+    document.readyState ===
+    "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeProviderPhotoUpload,
+        {
+            once: true
+        }
+    );
+
+} else {
+
+    initializeProviderPhotoUpload();
+
+}

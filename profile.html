@@ -206,22 +206,25 @@
                 <div class="profile-hero-card">
 
 
-                    <div class="profile-hero-avatar">
+                    <div
+                        class="profile-hero-avatar profile-avatar"
+                        id="profile-hero-avatar"
+                    >
                         👤
                     </div>
 
 
                     <div class="profile-hero-card-content">
 
-                        <p>
+                        <p id="profile-hero-label">
                             MY ACCOUNT
                         </p>
 
-                        <h2>
+                        <h2 id="profile-hero-title">
                             My Profile
                         </h2>
 
-                        <span>
+                        <span id="profile-hero-role">
                             Customer Account
                         </span>
 
@@ -304,7 +307,10 @@
 
                     <div class="profile-information-header">
 
-                        <div class="profile-large-avatar">
+                        <div
+                            class="profile-large-avatar profile-avatar"
+                            id="profile-large-avatar"
+                        >
                             👤
                         </div>
 
@@ -315,11 +321,11 @@
                                 ACCOUNT HOLDER
                             </p>
 
-                            <h3>
+                            <h3 id="profile-account-name">
                                 My LocalEase Account
                             </h3>
 
-                            <span>
+                            <span id="profile-account-type-label">
                                 Account Information
                             </span>
 
@@ -538,6 +544,309 @@
 
                         </button>
 
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================================
+                 PROVIDER PROFESSIONAL PROFILE
+            ========================================== -->
+
+            <section
+                class="profile-information-section"
+                id="provider-professional-profile"
+                hidden
+            >
+
+
+                <!-- PROVIDER PROFILE HEADER -->
+
+                <div class="profile-section-heading">
+
+                    <div>
+
+                        <p class="profile-section-eyebrow">
+                            PROFESSIONAL DETAILS
+                        </p>
+
+                        <h2>
+                            Provider Profile
+                        </h2>
+
+                        <p>
+                            This professional information helps
+                            customers understand your services
+                            before making a booking.
+                        </p>
+
+                    </div>
+
+
+                    <div class="profile-heading-icon">
+                        🛠️
+                    </div>
+
+                </div>
+
+
+                <!-- PROVIDER PROFILE CARD -->
+
+                <div class="profile-information-card">
+
+
+                    <!-- PROVIDER PROFILE HEADER -->
+
+                    <div class="profile-information-header">
+
+                        <div
+                            class="profile-large-avatar"
+                            id="provider-profile-avatar"
+                        >
+                            👤
+                        </div>
+
+
+                        <div>
+
+                            <p class="profile-card-label">
+                                SERVICE PROVIDER
+                            </p>
+
+                            <h3 id="provider-profile-name">
+                                Loading...
+                            </h3>
+
+                            <span id="provider-profile-service-label">
+                                Professional Service Provider
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PROVIDER PHOTO UPLOAD -->
+
+                    <div class="provider-photo-upload-section">
+
+
+                        <div class="provider-photo-upload-header">
+
+                            <div>
+
+                                <p class="profile-card-label">
+                                    PROVIDER PHOTO
+                                </p>
+
+                                <h3>
+                                    Profile Photo
+                                </h3>
+
+                                <p>
+                                    Add a professional photo so
+                                    customers can recognize you.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- PHOTO PREVIEW -->
+
+                        <div
+                            class="provider-photo-preview"
+                            id="provider-photo-preview"
+                        >
+                            <span id="provider-photo-preview-placeholder">
+                                👤
+                            </span>
+                        </div>
+
+
+                        <!-- PHOTO INPUT -->
+
+                        <input
+                            type="file"
+                            id="provider-photo-input"
+                            accept="image/*"
+                            hidden
+                        >
+
+
+                        <!-- PHOTO ACTIONS -->
+
+                        <div class="provider-photo-actions">
+
+                            <button
+                                type="button"
+                                class="provider-photo-select-btn"
+                                id="provider-photo-select-btn"
+                            >
+                                <span>
+                                    📷
+                                </span>
+
+                                Choose Photo
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                class="provider-photo-upload-btn"
+                                id="provider-photo-upload-btn"
+                            >
+                                <span>
+                                    ⬆️
+                                </span>
+
+                                Upload Photo
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- PHOTO STATUS -->
+
+                        <p
+                            class="provider-photo-status"
+                            id="provider-photo-status"
+                        >
+                            JPG, JPEG, PNG or WEBP image recommended.
+                        </p>
+
+
+                    </div>
+
+
+                    <!-- PROVIDER DETAILS GRID -->
+
+                    <div class="profile-details-grid">
+
+
+                        <!-- SERVICE CATEGORY -->
+
+                        <div class="profile-detail">
+
+                            <div class="profile-detail-icon">
+                                🛠️
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Service
+                                </span>
+
+                                <strong id="provider-service-category">
+                                    Loading...
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- EXPERIENCE -->
+
+                        <div class="profile-detail">
+
+                            <div class="profile-detail-icon">
+                                ⭐
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Experience
+                                </span>
+
+                                <strong id="provider-experience">
+                                    Loading...
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LOCATION -->
+
+                        <div class="profile-detail">
+
+                            <div class="profile-detail-icon">
+                                📍
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Service Location
+                                </span>
+
+                                <strong id="provider-location">
+                                    Loading...
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- STARTING PRICE -->
+
+                        <div class="profile-detail">
+
+                            <div class="profile-detail-icon">
+                                💰
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    Starting Price
+                                </span>
+
+                                <strong id="provider-price">
+                                    Loading...
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- PROVIDER DESCRIPTION -->
+
+                    <div class="profile-detail">
+
+                        <div class="profile-detail-icon">
+                            📝
+                        </div>
+
+                        <div>
+
+                            <span>
+                                About the Provider
+                            </span>
+
+                            <strong id="provider-description">
+                                Loading...
+                            </strong>
+
+                        </div>
 
                     </div>
 
@@ -1016,6 +1325,73 @@
 ========================================== -->
 
 <script src="script.js"></script>
+
+<script>
+    // UPDATE BOOKING LINKS BASED ON USER ROLE
+
+    (function () {
+
+        function updateProfileBookingLinks() {
+
+            let currentUser = null;
+
+            try {
+
+                currentUser = JSON.parse(
+                    localStorage.getItem(
+                        "localeaseUser"
+                    ) || "null"
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to read current user:",
+                    error
+                );
+
+            }
+
+
+            if (
+                currentUser &&
+                currentUser.role === "provider"
+            ) {
+
+                document
+                    .querySelectorAll(
+                        'a[href="my-bookings.html"]'
+                    )
+                    .forEach(function (link) {
+
+                        link.href =
+                            "provider-booking-history.html";
+
+                    });
+
+            }
+
+        }
+
+
+        if (
+            document.readyState === "loading"
+        ) {
+
+            document.addEventListener(
+                "DOMContentLoaded",
+                updateProfileBookingLinks,
+                { once: true }
+            );
+
+        } else {
+
+            updateProfileBookingLinks();
+
+        }
+
+    })();
+</script>
 
 
 </body>

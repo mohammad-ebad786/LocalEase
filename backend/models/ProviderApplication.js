@@ -60,6 +60,12 @@ const providerApplicationSchema = new mongoose.Schema(
             trim: true
         },
 
+        // Provider profile photo
+        photo: {
+            type: String,
+            default: ""
+        },
+
         // Application status
         // pending / approved / rejected
         status: {

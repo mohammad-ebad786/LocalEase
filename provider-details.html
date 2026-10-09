@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================
+         BASIC META INFORMATION
+    ========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="View detailed information about a LocalEase service provider."
+    >
+
+    <meta
+        name="author"
+        content="LocalEase"
+    >
+
+    <title>Provider Profile - LocalEase</title>
+
+
+    <!-- =========================================
+         STYLESHEET AND FAVICON
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+
+    <!-- =========================================
+         PROVIDER DETAILS PAGE STYLES
+    ========================================== -->
+
+    <style>
+
+        .provider-details-page {
+            background: #f7f8fa;
+        }
+
+
+        .provider-details-main {
+            padding: 50px 20px 80px;
+        }
+
+
+        .provider-details-container {
+            width: min(1100px, 100%);
+            margin: 0 auto;
+        }
+
+
+        .provider-details-back {
+            margin-bottom: 24px;
+        }
+
+
+        .provider-details-back a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        .provider-details-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 34px;
+            box-shadow:
+                0 15px 45px rgba(0, 0, 0, 0.08);
+        }
+
+
+        .provider-details-top {
+            display: grid;
+            grid-template-columns:
+                minmax(220px, 280px)
+                1fr;
+
+            gap: 36px;
+
+            align-items: center;
+        }
+
+
+        .provider-details-photo {
+            width: 240px;
+            height: 240px;
+
+            margin: 0 auto;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #f1f3f5;
+
+            border: 1px solid #e1e4e8;
+        }
+
+
+        .provider-details-photo img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+
+        .provider-details-avatar {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 72px;
+        }
+
+
+        .provider-details-eyebrow {
+            margin: 0 0 8px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+
+        .provider-details-name {
+            margin: 0 0 8px;
+
+            font-size: 38px;
+            line-height: 1.15;
+        }
+
+
+        .provider-details-service {
+            margin: 0 0 18px;
+
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+
+        .provider-details-trust-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .provider-details-trust-item {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 8px 12px;
+
+            border-radius: 999px;
+
+            background: #f3f5f7;
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .provider-details-price {
+            margin: 0 0 22px;
+
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+
+        .provider-details-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+
+        .provider-details-book-btn,
+        .provider-details-back-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            min-height: 46px;
+
+            padding: 0 20px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            border: none;
+        }
+
+
+        .provider-details-book-btn {
+            background: #111827;
+            color: #ffffff;
+        }
+
+
+        .provider-details-back-btn {
+            background: #eef1f4;
+            color: #222222;
+        }
+
+
+        .provider-details-information {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 16px;
+
+            margin-top: 34px;
+        }
+
+
+        .provider-details-info-box {
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: #f7f8fa;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .provider-details-info-label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.04em;
+        }
+
+
+        .provider-details-info-value {
+            margin: 0;
+
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+
+        .provider-details-about {
+            margin-top: 34px;
+
+            padding-top: 30px;
+
+            border-top: 1px solid #e5e7eb;
+        }
+
+
+        .provider-details-about h2,
+        .provider-details-reviews h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+
+        .provider-details-about p {
+            margin: 0;
+
+            line-height: 1.7;
+        }
+
+
+        .provider-details-reviews {
+            margin-top: 34px;
+
+            padding-top: 30px;
+
+            border-top: 1px solid #e5e7eb;
+        }
+
+
+        .provider-details-reviews-list {
+            display: grid;
+
+            gap: 14px;
+
+            margin-top: 18px;
+        }
+
+
+        .provider-details-review-card {
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: #f7f8fa;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .provider-details-review-header {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 16px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .provider-details-review-name {
+            font-weight: 700;
+        }
+
+
+        .provider-details-review-rating {
+            font-weight: 700;
+        }
+
+
+        .provider-details-review-comment {
+            margin: 0 0 8px;
+
+            line-height: 1.6;
+        }
+
+
+        .provider-details-review-date {
+            margin: 0;
+
+            font-size: 13px;
+        }
+
+
+        .provider-details-loading,
+        .provider-details-error,
+        .provider-details-empty {
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background: #ffffff;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.06);
+        }
+
+
+        .provider-details-loading p,
+        .provider-details-error p,
+        .provider-details-empty p {
+            margin: 0;
+        }
+
+
+        @media (max-width: 850px) {
+
+            .provider-details-top {
+                grid-template-columns: 1fr;
+            }
+
+
+            .provider-details-information {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .provider-details-main {
+                padding: 30px 15px 60px;
+            }
+
+
+            .provider-details-card {
+                padding: 22px;
+            }
+
+
+            .provider-details-photo {
+                width: 190px;
+                height: 190px;
+            }
+
+
+            .provider-details-name {
+                font-size: 30px;
+            }
+
+
+            .provider-details-information {
+                grid-template-columns: 1fr;
+            }
+
+
+            .provider-details-actions {
+                flex-direction: column;
+            }
+
+
+            .provider-details-book-btn,
+            .provider-details-back-btn {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="providers-page provider-details-page">
+
+
+<!-- =========================================
+     HEADER
+========================================== -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="LocalEase Home"
+        >
+
+            <span class="brand-text">
+                LocalEase
+            </span>
+
+        </a>
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="services.html"
+                class="nav-link"
+            >
+                Services
+            </a>
+
+
+            <a
+                href="providers.html"
+                class="nav-link active"
+                aria-current="page"
+            >
+                Providers
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-login-btn"
+            >
+                Logout
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================== -->
+
+<main class="provider-details-main">
+
+    <div class="provider-details-container">
+
+
+        <!-- BACK -->
+
+        <div class="provider-details-back">
+
+            <a href="providers.html">
+                ← Back to Providers
+            </a>
+
+        </div>
+
+
+
+        <!-- LOADING -->
+
+        <div
+            id="provider-details-loading"
+            class="provider-details-loading"
+        >
+
+            <p>
+                Loading provider profile...
+            </p>
+
+        </div>
+
+
+
+        <!-- ERROR -->
+
+        <div
+            id="provider-details-error"
+            class="provider-details-error"
+            hidden
+        >
+
+            <p>
+                Unable to load provider profile.
+            </p>
+
+        </div>
+
+
+
+        <!-- EMPTY -->
+
+        <div
+            id="provider-details-empty"
+            class="provider-details-empty"
+            hidden
+        >
+
+            <p>
+                Provider not found.
+            </p>
+
+        </div>
+
+
+
+        <!-- PROVIDER DETAILS -->
+
+        <article
+            id="provider-details-card"
+            class="provider-details-card"
+            hidden
+        >
+
+
+            <!-- TOP -->
+
+            <div class="provider-details-top">
+
+
+                <!-- PHOTO -->
+
+                <div
+                    id="provider-details-photo"
+                    class="provider-details-photo"
+                >
+
+                    <div class="provider-details-avatar">
+                        👤
+                    </div>
+
+                </div>
+
+
+
+                <!-- MAIN INFO -->
+
+                <div>
+
+                    <p class="provider-details-eyebrow">
+                        LOCALEASE PROFESSIONAL
+                    </p>
+
+
+                    <h1
+                        id="provider-details-name"
+                        class="provider-details-name"
+                    >
+                        Provider
+                    </h1>
+
+
+                    <p
+                        id="provider-details-service"
+                        class="provider-details-service"
+                    >
+                        Service Provider
+                    </p>
+
+
+                    <div
+                        class="provider-details-trust-row"
+                    >
+
+                        <span class="provider-details-trust-item">
+                            ✓ Verified Provider
+                        </span>
+
+                        <span
+                            id="provider-details-rating-badge"
+                            class="provider-details-trust-item"
+                        >
+                            ★ No ratings yet
+                        </span>
+
+                    </div>
+
+
+                    <p
+                        id="provider-details-price"
+                        class="provider-details-price"
+                    >
+                        Starting From ₹0
+                    </p>
+
+
+                    <div class="provider-details-actions">
+
+                        <a
+                            href="#"
+                            id="provider-details-book-btn"
+                            class="provider-details-book-btn"
+                        >
+                            Book This Provider
+                        </a>
+
+
+                        <a
+                            href="providers.html"
+                            class="provider-details-back-btn"
+                        >
+                            Back to Providers
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INFORMATION -->
+
+            <div class="provider-details-information">
+
+
+                <div class="provider-details-info-box">
+
+                    <span class="provider-details-info-label">
+                        Experience
+                    </span>
+
+                    <p
+                        id="provider-details-experience"
+                        class="provider-details-info-value"
+                    >
+                        Not provided
+                    </p>
+
+                </div>
+
+
+
+                <div class="provider-details-info-box">
+
+                    <span class="provider-details-info-label">
+                        Location
+                    </span>
+
+                    <p
+                        id="provider-details-location"
+                        class="provider-details-info-value"
+                    >
+                        Not provided
+                    </p>
+
+                </div>
+
+
+
+                <div class="provider-details-info-box">
+
+                    <span class="provider-details-info-label">
+                        Service
+                    </span>
+
+                    <p
+                        id="provider-details-service-box"
+                        class="provider-details-info-value"
+                    >
+                        Not provided
+                    </p>
+
+                </div>
+
+
+
+                <div class="provider-details-info-box">
+
+                    <span class="provider-details-info-label">
+                        Member Since
+                    </span>
+
+                    <p
+                        id="provider-details-member-since"
+                        class="provider-details-info-value"
+                    >
+                        Not available
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ABOUT -->
+
+            <section class="provider-details-about">
+
+                <h2>
+                    About the Provider
+                </h2>
+
+
+                <p
+                    id="provider-details-description"
+                >
+                    Professional local service provider.
+                </p>
+
+            </section>
+
+
+
+            <!-- REVIEWS -->
+
+            <section class="provider-details-reviews">
+
+                <h2>
+                    Customer Reviews
+                </h2>
+
+
+                <p
+                    id="provider-details-reviews-message"
+                >
+                    Loading customer reviews...
+                </p>
+
+
+                <div
+                    id="provider-details-reviews-list"
+                    class="provider-details-reviews-list"
+                ></div>
+
+            </section>
+
+
+        </article>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <!-- FOOTER BRAND -->
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
+            </a>
+
+
+            <p>
+                Connecting Customers with Trusted
+                Local Service Providers.
+            </p>
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="providers.html">
+                Providers
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </div>
+
+
+
+        <!-- ACCOUNT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+
+            <a href="my-bookings.html">
+                My Bookings
+            </a>
+
+
+            <a href="notifications.html">
+                Notifications
+            </a>
+
+        </div>
+
+
+
+        <!-- SUPPORT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Support
+            </h3>
+
+
+            <a href="about.html">
+                About LocalEase
+            </a>
+
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="script.js"></script>
+
+
+<script>
+
+
+// ==================================================
+// PROVIDER DETAILS PAGE
+// ==================================================
+
+(function initializeProviderDetailsPage() {
+
+    const loadingElement =
+        document.getElementById(
+            "provider-details-loading"
+        );
+
+
+    const errorElement =
+        document.getElementById(
+            "provider-details-error"
+        );
+
+
+    const emptyElement =
+        document.getElementById(
+            "provider-details-empty"
+        );
+
+
+    const detailsCard =
+        document.getElementById(
+            "provider-details-card"
+        );
+
+
+    const providerDetailsPhoto =
+        document.getElementById(
+            "provider-details-photo"
+        );
+
+
+    const providerNameElement =
+        document.getElementById(
+            "provider-details-name"
+        );
+
+
+    const providerServiceElement =
+        document.getElementById(
+            "provider-details-service"
+        );
+
+
+    const providerRatingBadge =
+        document.getElementById(
+            "provider-details-rating-badge"
+        );
+
+
+    const providerPriceElement =
+        document.getElementById(
+            "provider-details-price"
+        );
+
+
+    const providerExperienceElement =
+        document.getElementById(
+            "provider-details-experience"
+        );
+
+
+    const providerLocationElement =
+        document.getElementById(
+            "provider-details-location"
+        );
+
+
+    const providerServiceBoxElement =
+        document.getElementById(
+            "provider-details-service-box"
+        );
+
+
+    const providerMemberSinceElement =
+        document.getElementById(
+            "provider-details-member-since"
+        );
+
+
+    const providerDescriptionElement =
+        document.getElementById(
+            "provider-details-description"
+        );
+
+
+    const providerReviewsMessage =
+        document.getElementById(
+            "provider-details-reviews-message"
+        );
+
+
+    const providerReviewsList =
+        document.getElementById(
+            "provider-details-reviews-list"
+        );
+
+
+    const bookProviderButton =
+        document.getElementById(
+            "provider-details-book-btn"
+        );
+
+
+    const urlParameters =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const providerId =
+        urlParameters.get("id");
+
+
+    if (!providerId) {
+
+        if (loadingElement) {
+            loadingElement.hidden = true;
+        }
+
+        if (emptyElement) {
+            emptyElement.hidden = false;
+        }
+
+        return;
+    }
+
+
+    // ==================================================
+    // LOAD PROVIDER
+    // ==================================================
+
+    async function loadProvider() {
+
+        try {
+
+            if (loadingElement) {
+                loadingElement.hidden = false;
+            }
+
+            if (errorElement) {
+                errorElement.hidden = true;
+            }
+
+            if (emptyElement) {
+                emptyElement.hidden = true;
+            }
+
+            if (detailsCard) {
+                detailsCard.hidden = true;
+            }
+
+
+            const data =
+                await apiRequest(
+                    "/provider/providers",
+                    {
+                        method: "GET"
+                    }
+                );
+
+
+            const providers =
+                Array.isArray(
+                    data?.providers
+                )
+                    ? data.providers
+                    : [];
+
+
+            const provider =
+                providers.find(
+                    function (item) {
+
+                        const currentId =
+                            item?.id ||
+                            item?._id ||
+                            "";
+
+                        return (
+                            String(currentId) ===
+                            String(providerId)
+                        );
+
+                    }
+                );
+
+
+            if (!provider) {
+
+                if (loadingElement) {
+                    loadingElement.hidden = true;
+                }
+
+                if (emptyElement) {
+                    emptyElement.hidden = false;
+                }
+
+                return;
+            }
+
+
+            renderProviderDetails(
+                provider
+            );
+
+
+            await loadProviderReviews(
+                providerId
+            );
+
+
+            if (loadingElement) {
+                loadingElement.hidden = true;
+            }
+
+            if (detailsCard) {
+                detailsCard.hidden = false;
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Provider details error:",
+                error
+            );
+
+
+            if (loadingElement) {
+                loadingElement.hidden = true;
+            }
+
+            if (detailsCard) {
+                detailsCard.hidden = true;
+            }
+
+            if (errorElement) {
+                errorElement.hidden = false;
+            }
+
+        }
+
+    }
+
+
+    // ==================================================
+    // RENDER PROVIDER DETAILS
+    // ==================================================
+
+    function renderProviderDetails(
+        provider
+    ) {
+
+        const name =
+            provider?.name ||
+            "Service Provider";
+
+
+        const service =
+            provider?.serviceCategory ||
+            "Service Provider";
+
+
+        const experience =
+            provider?.experience !== undefined &&
+            provider?.experience !== null &&
+            String(
+                provider.experience
+            ).trim() !== ""
+                ? `${provider.experience}+ Years`
+                : "Not provided";
+
+
+        const location =
+            provider?.location ||
+            "Not provided";
+
+
+        const price =
+            provider?.price !== undefined &&
+            provider?.price !== null &&
+            String(
+                provider.price
+            ).trim() !== ""
+                ? `₹${provider.price}`
+                : "Not provided";
+
+
+        const description =
+            provider?.description ||
+            "Professional local service provider.";
+
+
+        const memberSince =
+            provider?.memberSince
+                ? new Date(
+                    provider.memberSince
+                ).toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    }
+                )
+                : "Not available";
+
+
+        if (providerNameElement) {
+            providerNameElement.textContent =
+                name;
+        }
+
+
+        if (providerServiceElement) {
+            providerServiceElement.textContent =
+                `${service} Professional`;
+        }
+
+
+        if (providerPriceElement) {
+            providerPriceElement.textContent =
+                `Starting From ${price}`;
+        }
+
+
+        if (providerExperienceElement) {
+            providerExperienceElement.textContent =
+                experience;
+        }
+
+
+        if (providerLocationElement) {
+            providerLocationElement.textContent =
+                location;
+        }
+
+
+        if (providerServiceBoxElement) {
+            providerServiceBoxElement.textContent =
+                service;
+        }
+
+
+        if (providerMemberSinceElement) {
+            providerMemberSinceElement.textContent =
+                memberSince;
+        }
+
+
+        if (providerDescriptionElement) {
+            providerDescriptionElement.textContent =
+                description;
+        }
+
+
+        // PROVIDER PHOTO
+
+        const photo =
+            typeof provider?.photo === "string"
+                ? provider.photo.trim()
+                : "";
+
+
+        const validPhoto =
+            /^https:\/\/res\.cloudinary\.com\/k5midonn\//i.test(
+                photo
+            );
+
+
+        if (providerDetailsPhoto) {
+
+            if (validPhoto) {
+
+                providerDetailsPhoto.innerHTML = `
+                    <img
+                        src="${escapeHtml(photo)}"
+                        alt="${escapeHtml(name)} Profile Photo"
+                    >
+                `;
+
+            } else {
+
+                providerDetailsPhoto.innerHTML = `
+                    <div class="provider-details-avatar">
+                        👤
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+        // BOOK BUTTON
+
+        if (bookProviderButton) {
+
+            bookProviderButton.href =
+            `booking.html?provider=${encodeURIComponent(
+                providerId
+            )}`;
+        }
+
+
+        document.title =
+            `${name} - Provider Profile - LocalEase`;
+
+    }
+
+
+    // ==================================================
+    // LOAD PROVIDER REVIEWS
+    // ==================================================
+
+    async function loadProviderReviews(
+        currentProviderId
+    ) {
+
+        if (
+            !providerReviewsList ||
+            !providerReviewsMessage
+        ) {
+            return;
+        }
+
+
+        providerReviewsMessage.textContent =
+            "Loading customer reviews...";
+
+
+        try {
+
+            const data =
+                await apiRequest(
+                    `/reviews/provider/${encodeURIComponent(
+                        currentProviderId
+                    )}`,
+                    {
+                        method: "GET"
+                    }
+                );
+
+
+            const reviews =
+                Array.isArray(
+                    data?.reviews
+                )
+                    ? data.reviews
+                    : [];
+
+
+            if (
+                reviews.length === 0
+            ) {
+
+                providerReviewsMessage.textContent =
+                    "No customer reviews yet.";
+
+                if (providerRatingBadge) {
+                    providerRatingBadge.textContent =
+                        "★ No ratings yet";
+                }
+
+                return;
+            }
+
+
+            renderProviderReviews(
+                reviews
+            );
+
+        } catch (error) {
+
+            console.warn(
+                "Provider reviews unavailable:",
+                error
+            );
+
+
+            providerReviewsMessage.textContent =
+                "No customer reviews available.";
+
+
+            if (providerRatingBadge) {
+                providerRatingBadge.textContent =
+                    "★ No ratings yet";
+            }
+
+        }
+
+    }
+
+
+    // ==================================================
+    // RENDER REVIEWS
+    // ==================================================
+
+    function renderProviderReviews(
+        reviews
+    ) {
+
+        const safeReviews =
+            Array.isArray(reviews)
+                ? reviews
+                : [];
+
+
+        const ratings =
+            safeReviews
+                .map(
+                    function (review) {
+                        return Number(
+                            review?.rating
+                        );
+                    }
+                )
+                .filter(
+                    function (rating) {
+                        return (
+                            Number.isFinite(
+                                rating
+                            ) &&
+                            rating > 0
+                        );
+                    }
+                );
+
+
+        const totalRating =
+            ratings.reduce(
+                function (
+                    sum,
+                    rating
+                ) {
+                    return sum + rating;
+                },
+                0
+            );
+
+
+        const averageRating =
+            ratings.length > 0
+                ? (
+                    totalRating /
+                    ratings.length
+                ).toFixed(1)
+                : "0.0";
+
+
+        if (providerRatingBadge) {
+
+            providerRatingBadge.textContent =
+                ratings.length > 0
+                    ? `★ ${averageRating} / 5`
+                    : "★ No ratings yet";
+
+        }
+
+
+        if (
+            providerReviewsMessage
+        ) {
+
+            providerReviewsMessage.textContent =
+                `${safeReviews.length} customer review${
+                    safeReviews.length === 1
+                        ? ""
+                        : "s"
+                }`;
+
+        }
+
+
+        providerReviewsList.innerHTML =
+            safeReviews
+                .map(
+                    function (review) {
+
+                        const customerName =
+                            review?.customer?.name ||
+                            review?.customerName ||
+                            "Customer";
+
+
+                        const rating =
+                            Number(
+                                review?.rating
+                            ) || 0;
+
+
+                        const comment =
+                            review?.comment ||
+                            "No comment provided.";
+
+
+                        const reviewDate =
+                            review?.createdAt ||
+                            review?.updatedAt ||
+                            review?.date;
+
+
+                        const stars =
+                            "★".repeat(
+                                Math.max(
+                                    0,
+                                    Math.min(
+                                        5,
+                                        rating
+                                    )
+                                )
+                            ) +
+                            "☆".repeat(
+                                Math.max(
+                                    0,
+                                    5 -
+                                    Math.min(
+                                        5,
+                                        rating
+                                    )
+                                )
+                            );
+
+
+                        return `
+                            <article class="provider-details-review-card">
+
+                                <div class="provider-details-review-header">
+
+                                    <span class="provider-details-review-name">
+                                        ${escapeHtml(customerName)}
+                                    </span>
+
+                                    <span class="provider-details-review-rating">
+                                        ${stars}
+                                    </span>
+
+                                </div>
+
+
+                                <p class="provider-details-review-comment">
+                                    ${escapeHtml(comment)}
+                                </p>
+
+
+                                <p class="provider-details-review-date">
+                                    ${reviewDate
+                                        ? escapeHtml(
+                                            formatDate(
+                                                reviewDate
+                                            )
+                                        )
+                                        : "Date not available"
+                                    }
+                                </p>
+
+                            </article>
+                        `;
+
+                    }
+                )
+                .join("");
+
+    }
+
+
+    // ==================================================
+    // INITIALIZE
+    // ==================================================
+
+    loadProvider();
+
+})();
+
+</script>
+
+
+</body>
+
+</html>

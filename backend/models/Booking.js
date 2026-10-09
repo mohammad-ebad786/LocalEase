@@ -21,6 +21,13 @@ const bookingSchema = new mongoose.Schema(
             default: null
         },
 
+        eligibleProviders: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ],
+
         bookingDate: {
             type: Date,
             required: true

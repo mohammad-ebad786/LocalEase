@@ -1,724 +1,1768 @@
 const express = require("express");
+
 const mongoose = require("mongoose");
-
-const Booking = require("../models/Booking");
-const Service = require("../models/Service");
-const Notification = require("../models/Notification");
-
-const { protect } = require("../middleware/authMiddleware");
-const authorizeRoles = require("../middleware/roleMiddleware");
 
 const router = express.Router();
 
+const Booking = require("../models/Booking");
+const Service = require("../models/Service");
+const ProviderApplication = require(
+    "../models/ProviderApplication"
+);
+const Notification = require(
+    "../models/Notification"
+);
 
+const {
+    protect
+} = require("../middleware/authMiddleware");
+
+const authorizeRoles =
+    require("../middleware/roleMiddleware");
+
+
+// ==================================================
 // CREATE BOOKING
+// ==================================================
+
 router.post(
     "/",
     protect,
     authorizeRoles("customer"),
     async (req, res) => {
+
         try {
+
             const {
                 service,
+                provider,
                 bookingDate,
                 address,
                 phone,
                 notes
             } = req.body;
 
-            if (!service || !bookingDate || !address || !phone) {
+
+            // ==================================================
+            // BASIC VALIDATION
+            // ==================================================
+
+            if (
+                !service ||
+                !bookingDate ||
+                !address ||
+                !phone
+            ) {
+
                 return res.status(400).json({
                     success: false,
                     message:
-                        "Service, booking date, address and phone are required"
+                        "Service, booking date, address and phone are required."
                 });
+
             }
 
-            if (!mongoose.Types.ObjectId.isValid(service)) {
+
+            // ==================================================
+            // VALIDATE SERVICE ID
+            // ==================================================
+
+            if (
+                !mongoose.Types.ObjectId.isValid(
+                    service
+                )
+            ) {
+
                 return res.status(400).json({
                     success: false,
-                    message: "Invalid service ID"
+                    message:
+                        "Invalid service ID."
                 });
+
             }
 
-            const serviceData = await Service.findOne({
-                _id: service,
-                isActive: true
-            });
+
+            // ==================================================
+            // FIND ACTIVE SERVICE
+            // ==================================================
+
+            const serviceData =
+                await Service.findOne({
+                    _id: service,
+                    isActive: true
+                });
+
 
             if (!serviceData) {
+
                 return res.status(404).json({
                     success: false,
-                    message: "Service not found or inactive"
+                    message:
+                        "Service not found or inactive."
                 });
+
             }
 
-            const booking = await Booking.create({
-                customer: req.user.userId,
-                service: serviceData._id,
-                bookingDate,
-                address,
-                phone,
-                notes: notes || "",
-                totalPrice: serviceData.price,
-                status: "pending"
+
+            // ==================================================
+            // FIND ELIGIBLE PROVIDERS
+            // ==================================================
+
+            let eligibleProviders = [];
+
+
+            // ==================================================
+            // SELECTED PROVIDER BOOKING
+            // ==================================================
+
+            if (provider) {
+
+                if (
+                    !mongoose.Types.ObjectId.isValid(
+                        provider
+                    )
+                ) {
+
+                    return res.status(400).json({
+                        success: false,
+                        message:
+                            "Invalid provider ID."
+                    });
+
+                }
+
+
+                const selectedProviderApplication =
+                    await ProviderApplication.findOne({
+                        user: provider,
+                        serviceCategory:
+                            serviceData.category,
+                        status: "approved"
+                    }).select("user");
+
+
+                if (
+                    !selectedProviderApplication
+                ) {
+
+                    return res.status(400).json({
+                        success: false,
+                        message:
+                            "Selected provider is not approved for this service."
+                    });
+
+                }
+
+
+                eligibleProviders = [
+                    selectedProviderApplication.user.toString()
+                ];
+
+            }
+
+
+            // ==================================================
+            // NORMAL SERVICE BOOKING
+            // ==================================================
+
+            else {
+
+                const approvedProviderApplications =
+                    await ProviderApplication.find({
+                        serviceCategory:
+                            serviceData.category,
+                        status: "approved",
+                        user: {
+                            $ne: null
+                        }
+                    }).select("user");
+
+
+                eligibleProviders = [
+                    ...new Set(
+                        approvedProviderApplications
+                            .map(
+                                function (
+                                    application
+                                ) {
+
+                                    return application
+                                        .user
+                                        ?.toString();
+
+                                }
+                            )
+                            .filter(Boolean)
+                    )
+                ];
+
+            }
+
+
+            // ==================================================
+            // CREATE BOOKING
+            // ==================================================
+
+            const booking =
+                await Booking.create({
+
+                    customer:
+                        req.user.userId,
+
+                    service:
+                        serviceData._id,
+
+                    bookingDate,
+
+                    address,
+
+                    phone,
+
+                    notes:
+                        notes || "",
+
+                    totalPrice:
+                        serviceData.price,
+
+                    eligibleProviders,
+
+                    status:
+                        "pending"
+
+                });
+
+
+            // ==================================================
+            // SEND NEW BOOKING NOTIFICATION
+            // ==================================================
+
+            if (
+                eligibleProviders.length >
+                0
+            ) {
+
+                await Notification.insertMany(
+                    eligibleProviders.map(
+                        function (
+                            providerId
+                        ) {
+
+                            return {
+                                user:
+                                    providerId,
+
+                                title:
+                                    "New Booking Request",
+
+                                message:
+                                    `A new ${serviceData.name} booking request is available.`,
+
+                                type:
+                                    "booking",
+
+                                isRead:
+                                    false
+                            };
+
+                        }
+                    )
+                );
+
+            }
+
+
+            // ==================================================
+            // RESPONSE
+            // ==================================================
+
+            return res.status(201).json({
+
+                success: true,
+
+                message:
+                    "Booking created successfully",
+
+                booking
+
             });
 
-            res.status(201).json({
-                success: true,
-                message: "Booking created successfully",
-                booking
-            });
 
         } catch (error) {
-            console.error("Create booking error:", error);
 
-            res.status(500).json({
+            console.error(
+                "Create booking error:",
+                error
+            );
+
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to create booking."
+
             });
+
         }
+
     }
 );
 
 
-// CUSTOMER - MY BOOKINGS
+// ==================================================
+// GET CUSTOMER BOOKINGS
+// ==================================================
+
 router.get(
     "/my-bookings",
     protect,
     authorizeRoles("customer"),
     async (req, res) => {
-        try {
-            const bookings = await Booking.find({
-                customer: req.user.userId
-            })
-                .populate("service", "name category price image")
-                .populate("provider", "name email phone")
-                .sort({ createdAt: -1 });
 
-            res.status(200).json({
+        try {
+
+            const bookings =
+                await Booking.find({
+                    customer:
+                        req.user.userId
+                })
+                    .populate(
+                        "service",
+                        "name category price image"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    )
+                    .sort({
+                        createdAt: -1
+                    });
+
+
+            return res.json({
+
                 success: true,
-                count: bookings.length,
+
                 bookings
+
             });
+
 
         } catch (error) {
-            console.error("Get customer bookings error:", error);
 
-            res.status(500).json({
+            console.error(
+                "Customer bookings error:",
+                error
+            );
+
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to load bookings."
+
             });
+
         }
+
     }
 );
 
 
-// PROVIDER - MY BOOKINGS
+// ==================================================
+// GET PROVIDER BOOKINGS
+// ==================================================
+
 router.get(
     "/provider/my-bookings",
     protect,
     authorizeRoles("provider"),
     async (req, res) => {
-        try {
-            const bookings = await Booking.find({
-                $or: [
-                    {
-                        status: "pending",
-                        provider: null
-                    },
-                    {
-                        provider: req.user.userId
-                    }
-                ]
-            })
-                .populate("customer", "name email phone")
-                .populate("service", "name category price image")
-                .populate("provider", "name email phone")
-                .sort({ createdAt: -1 });
 
-            res.status(200).json({
+        try {
+
+            const bookings =
+                await Booking.find({
+
+                    $or: [
+
+                        {
+                            status:
+                                "pending",
+
+                            provider:
+                                null,
+
+                            eligibleProviders:
+                                req.user.userId
+                        },
+
+                        {
+                            provider:
+                                req.user.userId
+                        }
+
+                    ]
+
+                })
+                    .populate(
+                        "customer",
+                        "name email phone location"
+                    )
+                    .populate(
+                        "service",
+                        "name category price image"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    )
+                    .sort({
+                        createdAt: -1
+                    });
+
+
+            return res.json({
+
                 success: true,
-                count: bookings.length,
+
                 bookings
+
             });
+
 
         } catch (error) {
-            console.error("Get provider bookings error:", error);
 
-            res.status(500).json({
+            console.error(
+                "Provider bookings error:",
+                error
+            );
+
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to load provider bookings."
+
             });
+
         }
+
     }
 );
 
 
-// PROVIDER / ADMIN - ALL BOOKINGS
+// ==================================================
+// GET ALL PROVIDER BOOKINGS
+// ==================================================
+
 router.get(
     "/provider/all",
     protect,
-    authorizeRoles("provider", "admin"),
+    authorizeRoles(
+        "provider",
+        "admin"
+    ),
     async (req, res) => {
-        try {
-            const bookings = await Booking.find()
-                .populate("customer", "name email phone")
-                .populate("service", "name category price")
-                .populate("provider", "name email phone")
-                .sort({ createdAt: -1 });
 
-            res.status(200).json({
+        try {
+
+            let query = {};
+
+
+            // ==================================================
+            // PROVIDER CAN SEE OWN ASSIGNED BOOKINGS
+            // ==================================================
+
+            if (
+                req.user.role ===
+                "provider"
+            ) {
+
+                query = {
+                    provider:
+                        req.user.userId
+                };
+
+            }
+
+
+            const bookings =
+                await Booking.find(
+                    query
+                )
+                    .populate(
+                        "customer",
+                        "name email phone location"
+                    )
+                    .populate(
+                        "service",
+                        "name category price image"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    )
+                    .sort({
+                        createdAt: -1
+                    });
+
+
+            return res.json({
+
                 success: true,
-                count: bookings.length,
+
                 bookings
+
             });
+
 
         } catch (error) {
-            console.error("Provider bookings error:", error);
 
-            res.status(500).json({
+            console.error(
+                "Provider all bookings error:",
+                error
+            );
+
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to load bookings."
+
             });
+
         }
+
     }
 );
 
 
-// PROVIDER - SINGLE BOOKING DETAILS
+// ==================================================
+// GET SINGLE PROVIDER BOOKING
+// ==================================================
+
 router.get(
     "/provider/:id",
     protect,
     authorizeRoles("provider"),
     async (req, res) => {
+
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Invalid booking ID"
-                });
-            }
-
-            const booking = await Booking.findById(req.params.id)
-                .populate("customer", "name email phone")
-                .populate("service", "name category price image")
-                .populate("provider", "name email phone");
-
-            if (!booking) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Booking not found"
-                });
-            }
-
-            console.log("BOOKING PROVIDER:", booking.provider?._id?.toString());
-            console.log("LOGGED IN USER:", String(req.user.userId));
 
             if (
-                !booking.provider ||
-                booking.provider._id.toString() !== req.user.userId
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
             ) {
-                return res.status(403).json({
+
+                return res.status(400).json({
+
                     success: false,
-                    message: "You are not assigned to this booking"
+
+                    message:
+                        "Invalid booking ID."
+
                 });
+
             }
 
-            res.status(200).json({
+
+            const booking =
+                await Booking.findOne({
+
+                    _id:
+                        req.params.id,
+
+                    provider:
+                        req.user.userId
+
+                })
+                    .populate(
+                        "customer",
+                        "name email phone location"
+                    )
+                    .populate(
+                        "service",
+                        "name category price image"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    );
+
+
+            if (!booking) {
+
+                return res.status(404).json({
+
+                    success: false,
+
+                    message:
+                        "Booking not found."
+
+                });
+
+            }
+
+
+            return res.json({
+
                 success: true,
+
                 booking
+
             });
 
+
         } catch (error) {
+
             console.error(
-                "Get provider booking details error:",
+                "Single provider booking error:",
                 error
             );
 
-            res.status(500).json({
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to load booking."
+
             });
+
         }
+
     }
 );
 
 
-// CUSTOMER - SINGLE BOOKING DETAILS
+// ==================================================
+// GET SINGLE CUSTOMER BOOKING
+// ==================================================
+
 router.get(
     "/:id",
     protect,
     authorizeRoles("customer"),
     async (req, res) => {
+
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+
+            if (
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
+            ) {
+
                 return res.status(400).json({
+
                     success: false,
-                    message: "Invalid booking ID"
+
+                    message:
+                        "Invalid booking ID."
+
                 });
+
             }
 
-            const booking = await Booking.findOne({
-                _id: req.params.id,
-                customer: req.user.userId
-            })
-                .populate("service", "name category price image")
-                .populate("provider", "name email phone");
+
+            const booking =
+                await Booking.findOne({
+
+                    _id:
+                        req.params.id,
+
+                    customer:
+                        req.user.userId
+
+                })
+                    .populate(
+                        "customer",
+                        "name email phone location"
+                    )
+                    .populate(
+                        "service",
+                        "name category price image"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    );
+
 
             if (!booking) {
+
                 return res.status(404).json({
+
                     success: false,
-                    message: "Booking not found"
+
+                    message:
+                        "Booking not found."
+
                 });
+
             }
 
-            res.status(200).json({
+
+            return res.json({
+
                 success: true,
+
                 booking
+
             });
+
 
         } catch (error) {
-            console.error("Get single booking error:", error);
 
-            res.status(500).json({
+            console.error(
+                "Single customer booking error:",
+                error
+            );
+
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to load booking."
+
             });
+
         }
+
     }
 );
 
 
-// PROVIDER - ACCEPT BOOKING
+// ==================================================
+// PROVIDER ACCEPT BOOKING
+// ==================================================
+
 router.put(
     "/:id/accept",
     protect,
     authorizeRoles("provider"),
     async (req, res) => {
+
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+
+            if (
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
+            ) {
+
                 return res.status(400).json({
+
                     success: false,
-                    message: "Invalid booking ID"
+
+                    message:
+                        "Invalid booking ID."
+
                 });
+
             }
 
-            const booking = await Booking.findById(req.params.id);
+
+            // ==================================================
+            // ATOMIC ACCEPTANCE
+            // ==================================================
+
+            const booking =
+                await Booking.findOneAndUpdate(
+
+                    {
+                        _id:
+                            req.params.id,
+
+                        status:
+                            "pending",
+
+                        provider:
+                            null,
+
+                        eligibleProviders:
+                            req.user.userId
+                    },
+
+                    {
+                        $set: {
+
+                            provider:
+                                req.user.userId,
+
+                            status:
+                                "confirmed"
+
+                        }
+                    },
+
+                    {
+                        new: true
+                    }
+
+                )
+                    .populate(
+                        "customer",
+                        "name email phone"
+                    )
+                    .populate(
+                        "service",
+                        "name category price"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    );
+
 
             if (!booking) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Booking not found"
-                });
-            }
 
-            if (booking.status !== "pending") {
-                return res.status(400).json({
-                    success: false,
-                    message: "Booking cannot be accepted"
-                });
-            }
+                const existingBooking =
+                    await Booking.findById(
+                        req.params.id
+                    );
 
-            if (booking.provider) {
+
+                if (!existingBooking) {
+
+                    return res.status(404).json({
+
+                        success: false,
+
+                        message:
+                            "Booking not found."
+
+                    });
+
+                }
+
+
+                if (
+                    existingBooking.status !==
+                    "pending"
+                ) {
+
+                    return res.status(400).json({
+
+                        success: false,
+
+                        message:
+                            "Booking is no longer available."
+
+                    });
+
+                }
+
+
+                if (
+                    existingBooking.provider
+                ) {
+
+                    return res.status(400).json({
+
+                        success: false,
+
+                        message:
+                            "Booking has already been accepted by another provider."
+
+                    });
+
+                }
+
+
+                const isEligible =
+                    Array.isArray(
+                        existingBooking.eligibleProviders
+                    ) &&
+                    existingBooking.eligibleProviders.some(
+                        function (
+                            providerId
+                        ) {
+
+                            return (
+                                String(
+                                    providerId
+                                ) ===
+                                String(
+                                    req.user.userId
+                                )
+                            );
+
+                        }
+                    );
+
+
+                if (!isEligible) {
+
+                    return res.status(403).json({
+
+                        success: false,
+
+                        message:
+                            "You are not eligible to accept this booking."
+
+                    });
+
+                }
+
+
                 return res.status(400).json({
+
                     success: false,
+
                     message:
-                        "Booking is already assigned to a provider"
+                        "Booking cannot be accepted."
+
                 });
+
             }
 
-            booking.provider = req.user.userId;
-            booking.status = "confirmed";
 
-            await booking.save();
+            // ==================================================
+            // CUSTOMER NOTIFICATION
+            // ==================================================
 
             await Notification.create({
-                user: booking.customer,
-                title: "Booking Confirmed",
+
+                user:
+                    booking.customer._id,
+
+                title:
+                    "Booking Confirmed",
+
                 message:
                     "Your booking has been accepted by the service provider.",
-                type: "booking",
-                isRead: false
+
+                type:
+                    "booking",
+
+                isRead:
+                    false
+
             });
 
-            res.status(200).json({
+
+            return res.json({
+
                 success: true,
-                message: "Booking accepted successfully",
+
+                message:
+                    "Booking accepted successfully.",
+
                 booking
+
             });
+
 
         } catch (error) {
-            console.error("Accept booking error:", error);
 
-            res.status(500).json({
+            console.error(
+                "Accept booking error:",
+                error
+            );
+
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to accept booking."
+
             });
+
         }
+
     }
 );
 
 
-// PROVIDER - UPDATE BOOKING STATUS
+// ==================================================
+// PROVIDER REJECT BOOKING
+// ==================================================
+
+router.put(
+    "/:id/reject",
+    protect,
+    authorizeRoles("provider"),
+    async (req, res) => {
+
+        try {
+
+            if (
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
+            ) {
+
+                return res.status(400).json({
+
+                    success: false,
+
+                    message:
+                        "Invalid booking ID."
+
+                });
+
+            }
+
+
+            // ==================================================
+            // ATOMIC REJECTION
+            // ==================================================
+
+            const booking =
+                await Booking.findOneAndUpdate(
+
+                    {
+                        _id:
+                            req.params.id,
+
+                        status:
+                            "pending",
+
+                        provider:
+                            null,
+
+                        eligibleProviders:
+                            req.user.userId
+                    },
+
+                    {
+                        $set: {
+
+                            status:
+                                "rejected"
+
+                        }
+                    },
+
+                    {
+                        new: true
+                    }
+
+                );
+
+
+            if (!booking) {
+
+                return res.status(404).json({
+
+                    success: false,
+
+                    message:
+                        "Booking not found or no longer available."
+
+                });
+
+            }
+
+
+            // ==================================================
+            // CUSTOMER NOTIFICATION
+            // ==================================================
+
+            await Notification.create({
+
+                user:
+                    booking.customer,
+
+                title:
+                    "Booking Rejected",
+
+                message:
+                    "Your booking request was rejected by a service provider.",
+
+                type:
+                    "booking",
+
+                isRead:
+                    false
+
+            });
+
+
+            return res.json({
+
+                success: true,
+
+                message:
+                    "Booking rejected successfully.",
+
+                booking
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Reject booking error:",
+                error
+            );
+
+            return res.status(500).json({
+
+                success: false,
+
+                message:
+                    "Unable to reject booking."
+
+            });
+
+        }
+
+    }
+);
+
+
+// ==================================================
+// UPDATE BOOKING STATUS
+// ==================================================
+
 router.put(
     "/:id/status",
     protect,
     authorizeRoles("provider"),
     async (req, res) => {
+
         try {
-            const { status } = req.body;
+
+            const {
+                status
+            } = req.body;
+
+
+            // ==================================================
+            // VALIDATE BOOKING ID
+            // ==================================================
+
+            if (
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
+            ) {
+
+                return res.status(400).json({
+
+                    success: false,
+
+                    message:
+                        "Invalid booking ID."
+
+                });
+
+            }
+
+
+            // ==================================================
+            // VALIDATE STATUS
+            // ==================================================
 
             const allowedStatuses = [
-                "confirmed",
                 "in-progress",
                 "completed"
             ];
 
-            if (!status || !allowedStatuses.includes(status)) {
+
+            if (
+                !allowedStatuses.includes(
+                    status
+                )
+            ) {
+
                 return res.status(400).json({
+
                     success: false,
-                    message: "Invalid booking status"
+
+                    message:
+                        "Invalid booking status."
+
                 });
+
             }
 
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Invalid booking ID"
-                });
-            }
 
-            const booking = await Booking.findById(req.params.id);
+            // ==================================================
+            // FIND PROVIDER BOOKING
+            // ==================================================
+
+            const booking =
+                await Booking.findOne({
+
+                    _id:
+                        req.params.id,
+
+                    provider:
+                        req.user.userId
+
+                });
+
 
             if (!booking) {
+
                 return res.status(404).json({
+
                     success: false,
-                    message: "Booking not found"
+
+                    message:
+                        "Booking not found."
+
                 });
+
             }
+
+
+            // ==================================================
+            // VALIDATE STATUS TRANSITION
+            // ==================================================
 
             if (
-                !booking.provider ||
-                booking.provider.toString() !== req.user.userId
+                status ===
+                "in-progress"
             ) {
-                return res.status(403).json({
-                    success: false,
-                    message:
-                        "You are not assigned to this booking"
-                });
+
+                if (
+                    booking.status !==
+                    "confirmed"
+                ) {
+
+                    return res.status(400).json({
+
+                        success: false,
+
+                        message:
+                            "Only confirmed bookings can be started."
+
+                    });
+
+                }
+
             }
+
 
             if (
-                booking.status === "pending" &&
-                status !== "confirmed"
+                status ===
+                "completed"
             ) {
-                return res.status(400).json({
-                    success: false,
-                    message:
-                        "Pending booking must be confirmed first"
-                });
+
+                if (
+                    booking.status !==
+                    "in-progress"
+                ) {
+
+                    return res.status(400).json({
+
+                        success: false,
+
+                        message:
+                            "Only in-progress bookings can be completed."
+
+                    });
+
+                }
+
             }
 
-            if (
-                booking.status === "confirmed" &&
-                status !== "in-progress"
-            ) {
-                return res.status(400).json({
-                    success: false,
-                    message:
-                        "Confirmed booking can only move to in-progress"
-                });
-            }
 
-            if (
-                booking.status === "in-progress" &&
-                status !== "completed"
-            ) {
-                return res.status(400).json({
-                    success: false,
-                    message:
-                        "In-progress booking can only move to completed"
-                });
-            }
+            booking.status =
+                status;
 
-            if (booking.status === "completed") {
-                return res.status(400).json({
-                    success: false,
-                    message:
-                        "Completed booking cannot be updated"
-                });
-            }
-
-            booking.status = status;
 
             await booking.save();
 
-            if (status === "in-progress") {
+
+            // ==================================================
+            // CUSTOMER NOTIFICATION
+            // ==================================================
+
+            if (
+                status ===
+                "in-progress"
+            ) {
+
                 await Notification.create({
-                    user: booking.customer,
-                    title: "Service Started",
+
+                    user:
+                        booking.customer,
+
+                    title:
+                        "Booking Started",
+
                     message:
-                        "Your service booking is now in progress.",
-                    type: "booking",
-                    isRead: false
+                        "Your service provider has started your booking.",
+
+                    type:
+                        "booking",
+
+                    isRead:
+                        false
+
                 });
+
             }
 
-            if (status === "completed") {
+
+            if (
+                status ===
+                "completed"
+            ) {
+
                 await Notification.create({
-                    user: booking.customer,
-                    title: "Booking Completed",
+
+                    user:
+                        booking.customer,
+
+                    title:
+                        "Booking Completed",
+
                     message:
                         "Your service booking has been completed successfully.",
-                    type: "booking",
-                    isRead: false
+
+                    type:
+                        "booking",
+
+                    isRead:
+                        false
+
                 });
+
             }
 
-            res.status(200).json({
+
+            const updatedBooking =
+                await Booking.findById(
+                    booking._id
+                )
+                    .populate(
+                        "customer",
+                        "name email phone location"
+                    )
+                    .populate(
+                        "service",
+                        "name category price"
+                    )
+                    .populate(
+                        "provider",
+                        "name email phone location"
+                    );
+
+
+            return res.json({
+
                 success: true,
+
                 message:
-                    "Booking status updated successfully",
-                booking
+                    "Booking status updated successfully.",
+
+                booking:
+                    updatedBooking
+
             });
 
+
         } catch (error) {
+
             console.error(
                 "Update booking status error:",
                 error
             );
 
-            res.status(500).json({
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to update booking status."
+
             });
+
         }
+
     }
 );
 
 
-// CUSTOMER / PROVIDER - CANCEL BOOKING
+// ==================================================
+// CANCEL BOOKING
+// ==================================================
+
 router.put(
     "/:id/cancel",
     protect,
-    authorizeRoles("customer", "provider"),
+    authorizeRoles(
+        "customer",
+        "provider"
+    ),
     async (req, res) => {
+
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Invalid booking ID"
-                });
-            }
-
-            const booking = await Booking.findById(req.params.id);
-
-            if (!booking) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Booking not found"
-                });
-            }
-
-            if (req.user.role === "customer") {
-                if (
-                    booking.customer.toString() !==
-                    req.user.userId
-                ) {
-                    return res.status(403).json({
-                        success: false,
-                        message:
-                            "You can only cancel your own booking"
-                    });
-                }
-            }
-
-            if (req.user.role === "provider") {
-                if (
-                    booking.status === "pending" &&
-                    !booking.provider
-                ) {
-                    booking.status = "cancelled";
-
-                    await booking.save();
-
-                    await Notification.create({
-                        user: booking.customer,
-                        title: "Booking Rejected",
-                        message:
-                            "Your booking request was rejected by a service provider.",
-                        type: "booking",
-                        isRead: false
-                    });
-
-                    return res.status(200).json({
-                        success: true,
-                        message:
-                            "Booking rejected successfully",
-                        booking
-                    });
-                }
-
-                if (
-                    !booking.provider ||
-                    booking.provider.toString() !==
-                        req.user.userId
-                ) {
-                    return res.status(403).json({
-                        success: false,
-                        message:
-                            "You are not assigned to this booking"
-                    });
-                }
-            }
 
             if (
-                booking.status === "in-progress" ||
-                booking.status === "completed"
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
             ) {
+
                 return res.status(400).json({
+
                     success: false,
+
                     message:
-                        "This booking cannot be cancelled"
+                        "Invalid booking ID."
+
                 });
+
             }
 
-            if (booking.status === "cancelled") {
-                return res.status(400).json({
-                    success: false,
-                    message:
-                        "Booking is already cancelled"
-                });
+
+            let booking;
+
+
+            // ==================================================
+            // CUSTOMER CANCELLATION
+            // ==================================================
+
+            if (
+                req.user.role ===
+                "customer"
+            ) {
+
+                booking =
+                    await Booking.findOne({
+
+                        _id:
+                            req.params.id,
+
+                        customer:
+                            req.user.userId
+
+                    });
+
             }
 
-            const cancelledBy = req.user.role;
 
-            booking.status = "cancelled";
+            // ==================================================
+            // PROVIDER CANCELLATION
+            // ==================================================
+
+            if (
+                req.user.role ===
+                "provider"
+            ) {
+
+                booking =
+                    await Booking.findOne({
+
+                        _id:
+                            req.params.id,
+
+                        provider:
+                            req.user.userId
+
+                    });
+
+            }
+
+
+            if (!booking) {
+
+                return res.status(404).json({
+
+                    success: false,
+
+                    message:
+                        "Booking not found."
+
+                });
+
+            }
+
+
+            // ==================================================
+            // PREVENT CANCELLING COMPLETED BOOKING
+            // ==================================================
+
+            if (
+                booking.status ===
+                "completed"
+            ) {
+
+                return res.status(400).json({
+
+                    success: false,
+
+                    message:
+                        "Completed bookings cannot be cancelled."
+
+                });
+
+            }
+
+
+            booking.status =
+                "cancelled";
+
 
             await booking.save();
 
-            if (cancelledBy === "customer") {
-                if (booking.provider) {
-                    await Notification.create({
-                        user: booking.provider,
-                        title: "Booking Cancelled",
-                        message:
-                            "A customer has cancelled the booking.",
-                        type: "booking",
-                        isRead: false
-                    });
-                }
-            }
 
-            if (cancelledBy === "provider") {
+            // ==================================================
+            // SEND NOTIFICATION
+            // ==================================================
+
+            if (
+                req.user.role ===
+                "customer" &&
+                booking.provider
+            ) {
+
                 await Notification.create({
-                    user: booking.customer,
-                    title: "Booking Cancelled",
+
+                    user:
+                        booking.provider,
+
+                    title:
+                        "Booking Cancelled",
+
                     message:
-                        "Your booking has been cancelled by the service provider.",
-                    type: "booking",
-                    isRead: false
+                        "A customer has cancelled the booking.",
+
+                    type:
+                        "booking",
+
+                    isRead:
+                        false
+
                 });
+
             }
 
-            res.status(200).json({
+
+            if (
+                req.user.role ===
+                "provider"
+            ) {
+
+                await Notification.create({
+
+                    user:
+                        booking.customer,
+
+                    title:
+                        "Booking Cancelled",
+
+                    message:
+                        "Your service provider has cancelled the booking.",
+
+                    type:
+                        "booking",
+
+                    isRead:
+                        false
+
+                });
+
+            }
+
+
+            return res.json({
+
                 success: true,
+
                 message:
-                    "Booking cancelled successfully",
+                    "Booking cancelled successfully.",
+
                 booking
+
             });
 
+
         } catch (error) {
+
             console.error(
                 "Cancel booking error:",
                 error
             );
 
-            res.status(500).json({
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to cancel booking."
+
             });
+
         }
+
     }
 );
 
 
-// ADMIN - CANCEL BOOKING
+// ==================================================
+// ADMIN CANCEL BOOKING
+// ==================================================
+
 router.put(
     "/admin/:id/cancel",
     protect,
     authorizeRoles("admin"),
     async (req, res) => {
+
         try {
-            if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-                return res.status(400).json({
-                    success: false,
-                    message: "Invalid booking ID"
-                });
-            }
-
-            const booking = await Booking.findById(
-                req.params.id
-            );
-
-            if (!booking) {
-                return res.status(404).json({
-                    success: false,
-                    message: "Booking not found"
-                });
-            }
 
             if (
-                booking.status === "in-progress" ||
-                booking.status === "completed"
+                !mongoose.Types.ObjectId.isValid(
+                    req.params.id
+                )
             ) {
+
                 return res.status(400).json({
+
                     success: false,
+
                     message:
-                        "This booking cannot be cancelled"
+                        "Invalid booking ID."
+
                 });
+
             }
 
-            if (booking.status === "cancelled") {
-                return res.status(400).json({
+
+            const booking =
+                await Booking.findById(
+                    req.params.id
+                );
+
+
+            if (!booking) {
+
+                return res.status(404).json({
+
                     success: false,
+
                     message:
-                        "Booking is already cancelled"
+                        "Booking not found."
+
                 });
+
             }
 
-            booking.status = "cancelled";
+
+            if (
+                booking.status ===
+                "completed"
+            ) {
+
+                return res.status(400).json({
+
+                    success: false,
+
+                    message:
+                        "Completed bookings cannot be cancelled."
+
+                });
+
+            }
+
+
+            booking.status =
+                "cancelled";
+
 
             await booking.save();
 
+
+            // ==================================================
+            // CUSTOMER NOTIFICATION
+            // ==================================================
+
             await Notification.create({
-                user: booking.customer,
-                title: "Booking Cancelled",
+
+                user:
+                    booking.customer,
+
+                title:
+                    "Booking Cancelled",
+
                 message:
                     "Your booking has been cancelled by the administrator.",
-                type: "booking",
-                isRead: false
+
+                type:
+                    "booking",
+
+                isRead:
+                    false
+
             });
 
-            res.status(200).json({
+
+            // ==================================================
+            // PROVIDER NOTIFICATION
+            // ==================================================
+
+            if (
+                booking.provider
+            ) {
+
+                await Notification.create({
+
+                    user:
+                        booking.provider,
+
+                    title:
+                        "Booking Cancelled",
+
+                    message:
+                        "A booking assigned to you has been cancelled by the administrator.",
+
+                    type:
+                        "booking",
+
+                    isRead:
+                        false
+
+                });
+
+            }
+
+
+            return res.json({
+
                 success: true,
+
                 message:
-                    "Booking cancelled successfully by admin",
+                    "Booking cancelled successfully.",
+
                 booking
+
             });
+
 
         } catch (error) {
+
             console.error(
                 "Admin cancel booking error:",
                 error
             );
 
-            res.status(500).json({
+            return res.status(500).json({
+
                 success: false,
-                message: "Server error"
+
+                message:
+                    "Unable to cancel booking."
+
             });
+
         }
+
     }
 );
 

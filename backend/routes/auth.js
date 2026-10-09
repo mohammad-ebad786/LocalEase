@@ -410,11 +410,59 @@ router.get(
             }
 
 
+            // ==================== PROVIDER PROFILE DATA ====================
+
+            let providerProfile = null;
+
+            if (user.role === "provider") {
+
+                const providerApplication =
+                    await ProviderApplication.findOne({
+                        user: user._id,
+                        status: "approved"
+                    }).select(
+                        "serviceCategory experience price description location photo"
+                    );
+
+                if (providerApplication) {
+
+                    providerProfile = {
+                        serviceCategory:
+                            providerApplication.serviceCategory,
+
+                        experience:
+                            providerApplication.experience,
+
+                        price:
+                            providerApplication.price,
+
+                        description:
+                            providerApplication.description,
+
+                        location:
+                            providerApplication.location ||
+                            user.location,
+
+                        photo:
+                            providerApplication.photo ||
+                            ""
+                    };
+
+                }
+
+            }
+
+
             // ==================== RESPONSE ====================
 
             res.status(200).json({
                 success: true,
-                user
+
+                user: {
+                    ...user.toObject(),
+
+                    providerProfile
+                }
             });
 
         } catch (error) {
@@ -445,7 +493,8 @@ router.put(
 
             const {
                 name,
-                phone
+                phone,
+                photo
             } = req.body;
 
 
@@ -499,10 +548,66 @@ router.put(
             await user.save();
 
 
+            // ==================== PROVIDER PROFILE DATA ====================
+
+            let providerProfile = null;
+
+            if (user.role === "provider") {
+
+                const providerApplication =
+                    await ProviderApplication.findOne({
+                        user: user._id,
+                        status: "approved"
+                    });
+
+                if (providerApplication) {
+
+                    // ==================== UPDATE PROVIDER PHOTO ====================
+
+                    if (
+                        typeof photo === "string"
+                    ) {
+
+                        providerApplication.photo =
+                            photo.trim();
+
+                        await providerApplication.save();
+
+                    }
+
+
+                    providerProfile = {
+                        serviceCategory:
+                            providerApplication.serviceCategory,
+
+                        experience:
+                            providerApplication.experience,
+
+                        price:
+                            providerApplication.price,
+
+                        description:
+                            providerApplication.description,
+
+                        location:
+                            providerApplication.location ||
+                            user.location,
+
+                        photo:
+                            providerApplication.photo ||
+                            ""
+                    };
+
+                }
+
+            }
+
+
             // ==================== RESPONSE ====================
 
             res.status(200).json({
                 success: true,
+
                 message:
                     "Profile updated successfully",
 
@@ -514,7 +619,9 @@ router.put(
                     location: user.location,
                     role: user.role,
                     isActive: user.isActive,
-                    createdAt: user.createdAt
+                    createdAt: user.createdAt,
+
+                    providerProfile
                 }
             });
 

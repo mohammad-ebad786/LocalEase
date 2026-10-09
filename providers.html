@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =========================================
+         BASIC META INFORMATION
+    ========================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Find trusted local service providers near you on LocalEase."
+    >
+
+    <meta
+        name="author"
+        content="LocalEase"
+    >
+
+    <title>Find Providers - LocalEase</title>
+
+
+    <!-- =========================================
+         STYLESHEET AND FAVICON
+    ========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+</head>
+
+
+<body class="providers-page">
+
+
+<!-- =========================================
+     HEADER AND MAIN NAVIGATION
+========================================== -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+
+        <!-- BRAND -->
+
+        <a
+            href="index.html"
+            class="brand"
+            aria-label="LocalEase Home"
+        >
+
+            <span class="brand-text">
+                LocalEase
+            </span>
+
+        </a>
+
+
+        <!-- MAIN NAVIGATION -->
+
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
+        >
+
+            <a
+                href="index.html"
+                class="nav-link"
+            >
+                Home
+            </a>
+
+
+            <a
+                href="services.html"
+                class="nav-link"
+            >
+                Services
+            </a>
+
+
+            <a
+                href="providers.html"
+                class="nav-link active"
+                aria-current="page"
+            >
+                Providers
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                Dashboard
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+                Profile
+            </a>
+
+
+            <a
+                href="login.html"
+                class="nav-login-btn"
+            >
+                Logout
+            </a>
+
+        </nav>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================== -->
+
+<main>
+
+
+    <!-- =========================================
+         PROVIDERS HERO SECTION
+    ========================================== -->
+
+    <section class="providers-hero">
+
+        <div class="providers-container">
+
+
+            <div class="providers-hero-content">
+
+                <p class="providers-eyebrow">
+                    TRUSTED LOCAL PROFESSIONALS
+                </p>
+
+
+                <h1>
+                    Find the Right
+                    <span>Service Provider.</span>
+                </h1>
+
+
+                <p class="providers-hero-description">
+                    Discover trusted professionals near you,
+                    compare their experience, ratings and pricing,
+                    and choose the right person for your service.
+                </p>
+
+
+                <div class="providers-trust-row">
+
+                    <span>
+                        ✓ Verified Professionals
+                    </span>
+
+                    <span>
+                        ★ Customer Ratings
+                    </span>
+
+                    <span>
+                        📍 Local Providers
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         PROVIDER DIRECTORY
+    ========================================== -->
+
+    <section class="providers-directory">
+
+        <div class="providers-container">
+
+
+            <!-- =========================================
+                 DIRECTORY HEADER
+            ========================================== -->
+
+            <div class="providers-section-heading">
+
+                <div>
+
+                    <p class="providers-section-eyebrow">
+                        LOCAL PROFESSIONALS
+                    </p>
+
+                    <h2>
+                        Available Providers
+                    </h2>
+
+                    <p>
+                        Choose a trusted professional for
+                        the service you need.
+                    </p>
+
+                </div>
+
+
+                <div class="providers-count">
+
+                    <strong id="providers-count">
+                        0
+                    </strong>
+
+                    <span>
+                        Providers
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 CATEGORY FILTERS
+            ========================================== -->
+
+            <div class="providers-filter-section">
+
+                <div class="providers-filter-heading">
+
+                    <h3>
+                        Browse by Category
+                    </h3>
+
+                    <p>
+                        Filter providers according to
+                        the service you need.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="provider-category-filters"
+                    class="provider-category-filters"
+                >
+
+                    <button
+                        type="button"
+                        class="provider-category-btn active"
+                        data-category="all"
+                    >
+                        All
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="provider-category-btn"
+                        data-category="Electrician"
+                    >
+                        Electrician
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="provider-category-btn"
+                        data-category="Plumbing"
+                    >
+                        Plumber
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="provider-category-btn"
+                        data-category="Carpenter"
+                    >
+                        Carpenter
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="provider-category-btn"
+                        data-category="Cleaning"
+                    >
+                        Cleaner
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="provider-category-btn"
+                        data-category="Painting"
+                    >
+                        Painter
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 FEATURED PROVIDERS
+            ========================================== -->
+
+            <section class="featured-providers-section">
+
+
+                <div class="providers-section-heading">
+
+                    <div>
+
+                        <p class="providers-section-eyebrow">
+                            FEATURED
+                        </p>
+
+                        <h2>
+                            Recommended Providers
+                        </h2>
+
+                        <p>
+                            A few trusted professionals to
+                            help you get started.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="#all-providers"
+                        class="providers-view-all-btn"
+                    >
+                        View All Providers
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+
+
+                <!-- FEATURED PROVIDER CARDS -->
+
+                <div
+                    id="featured-providers-list"
+                    class="providers-grid"
+                >
+
+                    <div class="provider-loading-card">
+
+                        <div class="provider-loading-icon">
+                            👤
+                        </div>
+
+                        <p>
+                            Loading providers...
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================================
+                 ALL PROVIDERS
+            ========================================== -->
+
+            <section
+                id="all-providers"
+                class="all-providers-section"
+            >
+
+
+                <div class="providers-section-heading">
+
+                    <div>
+
+                        <p class="providers-section-eyebrow">
+                            ALL PROFESSIONALS
+                        </p>
+
+                        <h2>
+                            All Providers
+                        </h2>
+
+                        <p>
+                            Explore all approved LocalEase
+                            service providers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SEARCH -->
+
+                <div class="providers-search-wrapper">
+
+                    <label
+                        for="provider-search"
+                        class="providers-search-label"
+                    >
+                        Search Providers
+                    </label>
+
+
+                    <input
+                        type="search"
+                        id="provider-search"
+                        class="provider-search-input"
+                        placeholder="Search by provider name or service..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+
+                <!-- ALL PROVIDER CARDS -->
+
+                <div
+                    id="all-providers-list"
+                    class="providers-grid"
+                >
+
+                    <div class="provider-loading-card">
+
+                        <div class="provider-loading-icon">
+                            👤
+                        </div>
+
+                        <p>
+                            Loading all providers...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =========================================
+                 EMPTY STATE
+            ========================================== -->
+
+            <section
+                id="providers-empty-state"
+                class="providers-empty-state"
+                hidden
+            >
+
+                <div class="providers-empty-icon">
+                    🔍
+                </div>
+
+
+                <h2>
+                    No Providers Found
+                </h2>
+
+
+                <p>
+                    No service providers match your current
+                    search or category filter.
+                </p>
+
+
+                <button
+                    type="button"
+                    id="reset-provider-filters"
+                    class="providers-reset-btn"
+                >
+                    Reset Filters
+                </button>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 HOW IT WORKS
+            ========================================== -->
+
+            <section class="providers-how-it-works">
+
+
+                <div class="providers-section-heading">
+
+                    <div>
+
+                        <p class="providers-section-eyebrow">
+                            SIMPLE PROCESS
+                        </p>
+
+                        <h2>
+                            How It Works
+                        </h2>
+
+                        <p>
+                            Finding the right professional
+                            takes only a few simple steps.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="providers-steps-grid">
+
+
+                    <!-- STEP 1 -->
+
+                    <article class="provider-step-card">
+
+                        <div class="provider-step-number">
+                            01
+                        </div>
+
+                        <div class="provider-step-icon">
+                            🔎
+                        </div>
+
+                        <h3>
+                            Find a Provider
+                        </h3>
+
+                        <p>
+                            Browse trusted professionals
+                            according to the service you need.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- STEP 2 -->
+
+                    <article class="provider-step-card">
+
+                        <div class="provider-step-number">
+                            02
+                        </div>
+
+                        <div class="provider-step-icon">
+                            👤
+                        </div>
+
+                        <h3>
+                            Check Their Profile
+                        </h3>
+
+                        <p>
+                            Compare experience, location,
+                            pricing and customer ratings.
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- STEP 3 -->
+
+                    <article class="provider-step-card">
+
+                        <div class="provider-step-number">
+                            03
+                        </div>
+
+                        <div class="provider-step-icon">
+                            📅
+                        </div>
+
+                        <h3>
+                            Book the Service
+                        </h3>
+
+                        <p>
+                            Choose your preferred provider
+                            and send a booking request.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 BACK TO HOME
+            ========================================== -->
+
+            <section class="back-section">
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <!-- FOOTER BRAND -->
+
+        <div class="footer-brand">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <span class="brand-text">
+                    LocalEase
+                </span>
+
+            </a>
+
+
+            <p>
+                Connecting Customers with Trusted
+                Local Service Providers.
+            </p>
+
+        </div>
+
+
+
+        <!-- QUICK LINKS -->
+
+        <div class="footer-column">
+
+            <h3>
+                Quick Links
+            </h3>
+
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="services.html">
+                Services
+            </a>
+
+
+            <a href="providers.html">
+                Providers
+            </a>
+
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </div>
+
+
+
+        <!-- ACCOUNT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Account
+            </h3>
+
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+
+            <a href="my-bookings.html">
+                My Bookings
+            </a>
+
+
+            <a href="notifications.html">
+                Notifications
+            </a>
+
+        </div>
+
+
+
+        <!-- SUPPORT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Support
+            </h3>
+
+
+            <a href="about.html">
+                About LocalEase
+            </a>
+
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+
+            <a href="provider.html">
+                Become a Provider
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 LocalEase. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
