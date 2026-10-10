@@ -91,7 +91,10 @@ app.use("/api/auth", authRoutes);
 
 // ==================== PROTECTED TEST ROUTES ====================
 
-app.use("/api/test", testRoutes);
+// Keep test endpoints available outside production only.
+if (process.env.NODE_ENV !== "production") {
+    app.use("/api/test", testRoutes);
+}
 
 // ==================== SERVICE ROUTES ====================
 
