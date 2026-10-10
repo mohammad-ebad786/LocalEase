@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
 // JWT AUTHENTICATION MIDDLEWARE
-const protect = (req, res, next) => {
+const protect = async (req, res, next) => {
     try {
         // Get authorization header
         const authHeader = req.headers.authorization;
@@ -46,8 +47,45 @@ const protect = (req, res, next) => {
             process.env.JWT_SECRET
         );
 
-        // Attach user data to request
-        req.user = decoded;
+        if (
+            !decoded ||
+            typeof decoded !== "object" ||
+            !decoded.userId
+        ) {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid or expired token"
+            });
+        }
+
+        // Fetch current user status and role from database
+        const user = await User.findById(
+            decoded.userId
+        ).select("_id role isActive");
+
+        // Reject deleted accounts
+        if (!user) {
+            return res.status(401).json({
+                success: false,
+                message: "Account not found. Please log in again."
+            });
+        }
+
+        // Reject deactivated accounts
+        if (user.isActive === false) {
+            return res.status(403).json({
+                success: false,
+                message:
+                    "Your account has been deactivated. Please contact the administrator."
+            });
+        }
+
+        // Attach current database user data to request
+        req.user = {
+            ...decoded,
+            userId: user._id.toString(),
+            role: user.role
+        };
 
         console.log(
             "✅ JWT verified:",
@@ -58,18 +96,36 @@ const protect = (req, res, next) => {
         );
 
         // Continue to next middleware
-        next();
+        return next();
 
     } catch (error) {
+        // Handle invalid or expired JWTs
+        if (
+            error.name === "JsonWebTokenError" ||
+            error.name === "TokenExpiredError" ||
+            error.name === "NotBeforeError" ||
+            error.name === "CastError"
+        ) {
+            console.error(
+                "❌ JWT verification error:",
+                error.message
+            );
+
+            return res.status(401).json({
+                success: false,
+                message: "Invalid or expired token"
+            });
+        }
+
+        // Handle database or unexpected errors
         console.error(
-            "❌ JWT verification error:",
+            "❌ Authentication middleware error:",
             error.message
         );
 
-        // Handle invalid or expired token
-        return res.status(401).json({
+        return res.status(500).json({
             success: false,
-            message: "Invalid or expired token"
+            message: "Authentication service error"
         });
     }
 };
