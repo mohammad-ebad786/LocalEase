@@ -805,6 +805,64 @@ router.put(
                 });
             }
 
+            // Find the user linked to this application
+            let linkedUser = null;
+
+            if (application.user) {
+                linkedUser =
+                    await User.findById(
+                        application.user
+                    );
+
+                // Do not approve an application linked
+                // to a user account that no longer exists
+                if (!linkedUser) {
+                    return res.status(404).json({
+                        success: false,
+                        message:
+                            "The user linked to this application was not found"
+                    });
+                }
+
+                // Do not approve applications linked
+                // to deactivated accounts
+                if (
+                    linkedUser.isActive === false
+                ) {
+                    return res.status(403).json({
+                        success: false,
+                        message:
+                            "The linked user account is deactivated. Activate the account before approving this application."
+                    });
+                }
+
+                // Only customer accounts can be promoted
+                // Existing provider accounts remain providers
+                if (
+                    linkedUser.role !== "customer" &&
+                    linkedUser.role !== "provider"
+                ) {
+                    return res.status(400).json({
+                        success: false,
+                        message:
+                            "The linked user account has an invalid role for provider approval"
+                    });
+                }
+            }
+
+            // Promote the linked customer account
+            // to provider when the application is approved
+            if (
+                linkedUser &&
+                linkedUser.role === "customer"
+            ) {
+                linkedUser.role =
+                    "provider";
+
+                await linkedUser.save();
+            }
+
+            // Approve the provider application
             application.status =
                 "approved";
 

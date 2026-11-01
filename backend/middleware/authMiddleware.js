@@ -130,6 +130,19 @@ const protect = async (req, res, next) => {
     }
 };
 
+// OPTIONAL JWT AUTHENTICATION
+// Allows guest requests while validating supplied tokens
+
+const optionalProtect = (req, res, next) => {
+    // Allow requests without an authorization header
+    if (!req.headers.authorization) {
+        return next();
+    }
+
+    // Validate the token whenever one is provided
+    return protect(req, res, next);
+};
+
 // ROLE-BASED AUTHORIZATION
 // Most application routes currently use
 // middleware/roleMiddleware.js.
@@ -169,5 +182,6 @@ const authorize = (...allowedRoles) => {
 // EXPORT MIDDLEWARES
 module.exports = {
     protect,
+    optionalProtect,
     authorize
 };

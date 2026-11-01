@@ -895,8 +895,12 @@
         // PROVIDER APPLICATION API
         // ==================================================
 
-        const LOCALEASE_PROVIDER_APPLICATION_API =
-            "https://localease-backend-jivb.onrender.com/api/provider/apply";
+        const LOCALEASE_PROVIDER_APPLICATION_API = (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+)
+    ? "http://localhost:5000/api/provider/apply"
+    : "https://localease-backend-jivb.onrender.com/api/provider/apply";
 
         // ==================================================
         // PROVIDER APPLICATION FORM ELEMENTS
@@ -1106,16 +1110,25 @@
                     // SEND PROVIDER APPLICATION TO BACKEND
                     // ======================================
 
+                    const localeaseProviderToken =
+                        localStorage.getItem("localeaseToken");
+
+                    const localeaseProviderHeaders = {
+                        "Content-Type": "application/json"
+                    };
+
+                    if (localeaseProviderToken) {
+                        localeaseProviderHeaders.Authorization =
+                            `Bearer ${localeaseProviderToken}`;
+                    }
+
                     const localeaseProviderResponse =
                         await fetch(
                             LOCALEASE_PROVIDER_APPLICATION_API,
                             {
                                 method: "POST",
 
-                                headers: {
-                                    "Content-Type":
-                                        "application/json"
-                                },
+                                headers: localeaseProviderHeaders,
 
                                 body: JSON.stringify({
 

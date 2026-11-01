@@ -2,6 +2,7 @@ const express = require("express");
 
 const ProviderApplication = require("../models/ProviderApplication");
 const User = require("../models/User");
+const { optionalProtect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
@@ -10,6 +11,7 @@ const router = express.Router();
 // Public route
 router.post(
     "/apply",
+    optionalProtect,
     async (req, res) => {
         try {
             const {
@@ -25,14 +27,20 @@ router.post(
 
             // Validate required fields
             if (
-                !name ||
-                !phone ||
-                !email ||
-                !location ||
-                !serviceCategory ||
+                typeof name !== "string" ||
+                !name.trim() ||
+                typeof phone !== "string" ||
+                !phone.trim() ||
+                typeof email !== "string" ||
+                !email.trim() ||
+                typeof location !== "string" ||
+                !location.trim() ||
+                typeof serviceCategory !== "string" ||
+                !serviceCategory.trim() ||
                 experience === undefined ||
                 price === undefined ||
-                !description
+                typeof description !== "string" ||
+                !description.trim()
             ) {
                 return res.status(400).json({
                     success: false,
@@ -44,6 +52,7 @@ router.post(
             // Validate experience
             if (
                 typeof experience !== "number" ||
+                !Number.isFinite(experience) ||
                 experience < 0
             ) {
                 return res.status(400).json({
@@ -56,6 +65,7 @@ router.post(
             // Validate price
             if (
                 typeof price !== "number" ||
+                !Number.isFinite(price) ||
                 price < 0
             ) {
                 return res.status(400).json({
@@ -65,14 +75,131 @@ router.post(
                 });
             }
 
+            // Clean email address
+            const cleanEmail =
+                email.trim().toLowerCase();
+
+            // Get authenticated user, if available
+            let authenticatedUser = null;
+
+            if (req.user) {
+                authenticatedUser =
+                    await User.findById(
+                        req.user.userId
+                    ).select(
+                        "email role isActive"
+                    );
+
+                if (!authenticatedUser) {
+                    return res.status(401).json({
+                        success: false,
+                        message:
+                            "Account not found. Please log in again."
+                    });
+                }
+
+                // Check account status
+                if (
+                    authenticatedUser.isActive === false
+                ) {
+                    return res.status(403).json({
+                        success: false,
+                        message:
+                            "Your account has been deactivated"
+                    });
+                }
+
+                // Ensure application email matches account email
+                if (
+                    authenticatedUser.email
+                        .trim()
+                        .toLowerCase() !== cleanEmail
+                ) {
+                    return res.status(403).json({
+                        success: false,
+                        message:
+                            "The application email must match your logged-in account."
+                    });
+                }
+
+                // Only customer accounts can apply
+                if (
+                    authenticatedUser.role !== "customer"
+                ) {
+                    return res.status(403).json({
+                        success: false,
+                        message:
+                            "Only customer accounts can submit a provider application."
+                    });
+                }
+            }
+
+            // Check existing approved application
+            const approvedApplication =
+                await ProviderApplication.findOne({
+                    email: cleanEmail,
+                    status: "approved"
+                });
+
+            if (approvedApplication) {
+                return res.status(409).json({
+                    success: false,
+                    message:
+                        "An approved provider application already exists with this email"
+                });
+            }
+
             // Check existing pending application
             const existingApplication =
                 await ProviderApplication.findOne({
-                    email: email.toLowerCase().trim(),
+                    email: cleanEmail,
                     status: "pending"
                 });
 
             if (existingApplication) {
+
+                // Guest applicants cannot submit duplicate applications
+                if (!authenticatedUser) {
+                    return res.status(409).json({
+                        success: false,
+                        message:
+                            "A provider application with this email is already pending"
+                    });
+                }
+
+                // Prevent linking an application to another account
+                if (
+                    existingApplication.user &&
+                    existingApplication.user.toString() !==
+                        authenticatedUser._id.toString()
+                ) {
+                    return res.status(409).json({
+                        success: false,
+                        message:
+                            "This application is already linked to another account."
+                    });
+                }
+
+                // Link an existing guest application to the authenticated account
+                if (!existingApplication.user) {
+                    existingApplication.user =
+                        authenticatedUser._id;
+
+                    await existingApplication.save();
+
+                    return res.status(200).json({
+                        success: true,
+                        message:
+                            "Your existing pending application has been linked to your account.",
+                        application: {
+                            id: existingApplication._id,
+                            name: existingApplication.name,
+                            email: existingApplication.email,
+                            status: existingApplication.status
+                        }
+                    });
+                }
+
                 return res.status(409).json({
                     success: false,
                     message:
@@ -87,9 +214,7 @@ router.post(
 
                     phone: phone.trim(),
 
-                    email: email
-                        .toLowerCase()
-                        .trim(),
+                    email: cleanEmail,
 
                     location: location.trim(),
 
@@ -103,11 +228,15 @@ router.post(
                     description:
                         description.trim(),
 
-                    status: "pending"
+                    status: "pending",
+
+                    user: authenticatedUser
+                        ? authenticatedUser._id
+                        : null
                 });
 
             // Success response
-            res.status(201).json({
+            return res.status(201).json({
                 success: true,
 
                 message:

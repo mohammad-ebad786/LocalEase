@@ -161,40 +161,72 @@ router.post(
             }
 
 
-            // ==================================================
+                        // ==================================================
             // NORMAL SERVICE BOOKING
             // ==================================================
 
             else {
 
-                const approvedProviderApplications =
-                    await ProviderApplication.find({
-                        serviceCategory:
-                            serviceData.category,
-                        status: "approved",
-                        user: {
-                            $ne: null
-                        }
-                    }).select("user");
+                // Find the actual service owner
+                const serviceOwnerId =
+                    serviceData.provider;
 
 
-                eligibleProviders = [
-                    ...new Set(
-                        approvedProviderApplications
-                            .map(
-                                function (
-                                    application
-                                ) {
+                if (serviceOwnerId) {
 
-                                    return application
-                                        .user
-                                        ?.toString();
+                    // Verify that the service owner is approved
+                    const approvedServiceOwner =
+                        await ProviderApplication.findOne({
+                            user: serviceOwnerId,
+                            status: "approved"
+                        }).select("user");
 
-                                }
-                            )
-                            .filter(Boolean)
-                    )
-                ];
+
+                    if (!approvedServiceOwner) {
+
+                        return res.status(400).json({
+                            success: false,
+                            message:
+                                "Service provider is not approved to receive bookings."
+                        });
+
+                    }
+
+
+                    // Make the service owner eligible
+                    eligibleProviders = [
+                        approvedServiceOwner.user.toString()
+                    ];
+
+                }
+
+                else {
+
+                    // Fallback for services without an assigned owner
+                    const approvedProviderApplications =
+                        await ProviderApplication.find({
+                            serviceCategory:
+                                serviceData.category,
+                            status: "approved",
+                            user: {
+                                $ne: null
+                            }
+                        }).select("user");
+
+
+                    eligibleProviders = [
+                        ...new Set(
+                            approvedProviderApplications
+                                .map(function (application) {
+
+                                    return application.user?.toString();
+
+                                })
+                                .filter(Boolean)
+                        )
+                    ];
+
+                }
 
             }
 

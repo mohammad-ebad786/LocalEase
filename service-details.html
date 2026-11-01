@@ -1082,8 +1082,22 @@
         // SERVICE API CONFIGURATION
         // ==========================================
 
-        const SERVICE_API = "https://localease-backend-jivb.onrender.com/api/services";
-        const REVIEW_API = "https://localease-backend-jivb.onrender.com/api/reviews";
+        // ==========================================
+// SERVICE API CONFIGURATION
+// ==========================================
+
+const SERVICE_DETAILS_API_BASE_URL = (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+)
+    ? "http://localhost:5000/api"
+    : "https://localease-backend-jivb.onrender.com/api";
+
+const SERVICE_API =
+    `${SERVICE_DETAILS_API_BASE_URL}/services`;
+
+const REVIEW_API =
+    `${SERVICE_DETAILS_API_BASE_URL}/reviews`;
 
         let selectedServiceId = null;
         let currentService = null;

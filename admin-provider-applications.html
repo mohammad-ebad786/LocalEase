@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ==================== BASIC DOCUMENT CONFIGURATION ==================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Manage LocalEase provider applications."
+    >
+
+    <meta
+        name="author"
+        content="LocalEase"
+    >
+
+    <title>Provider Applications - LocalEase</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <!-- ==================== PAGE-SPECIFIC STYLING ==================== -->
+
+    <style>
+        .provider-applications-container {
+            width: min(1180px, 92%);
+            margin: 36px auto;
+        }
+
+        .provider-applications-heading {
+            margin-bottom: 25px;
+        }
+
+        .provider-applications-heading h1 {
+            margin-bottom: 10px;
+        }
+
+        .provider-applications-heading p {
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .provider-application-stats {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+            margin: 25px 0;
+        }
+
+        .provider-application-stat {
+            background: var(--card-bg, #ffffff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .provider-application-stat span {
+            display: block;
+            font-size: 14px;
+            opacity: 0.75;
+            margin-bottom: 10px;
+        }
+
+        .provider-application-stat strong {
+            display: block;
+            font-size: 28px;
+        }
+
+        .provider-applications-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin: 28px 0 20px;
+        }
+
+        .provider-applications-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .provider-applications-filters input,
+        .provider-applications-filters select {
+            min-height: 44px;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color, #d1d5db);
+            border-radius: 8px;
+            font: inherit;
+            background: var(--card-bg, #ffffff);
+            color: inherit;
+        }
+
+        .provider-applications-filters input {
+            width: min(320px, 100%);
+        }
+
+        .provider-applications-refresh {
+            min-height: 44px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary-color, #2563eb);
+            color: #ffffff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .provider-applications-refresh:disabled,
+        .provider-application-action:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .provider-application-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        .provider-application-card {
+            background: var(--card-bg, #ffffff);
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            overflow-wrap: anywhere;
+        }
+
+        .provider-application-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .provider-application-card-header h2 {
+            margin: 0 0 7px;
+            font-size: 21px;
+        }
+
+        .provider-application-email {
+            opacity: 0.75;
+            overflow-wrap: anywhere;
+        }
+
+        .provider-application-status {
+            display: inline-block;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .provider-application-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .provider-application-status.approved {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .provider-application-status.rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .provider-application-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .provider-application-detail {
+            padding: 13px;
+            background: var(--surface-bg, #f8fafc);
+            border-radius: 8px;
+        }
+
+        .provider-application-detail span {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            opacity: 0.7;
+            margin-bottom: 6px;
+        }
+
+        .provider-application-detail strong {
+            display: block;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .provider-application-description {
+            margin: 15px 0;
+            line-height: 1.7;
+            white-space: pre-wrap;
+        }
+
+        .provider-application-account {
+            padding: 13px;
+            margin-top: 15px;
+            border: 1px solid var(--border-color, #e5e7eb);
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .provider-application-card-footer {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color, #e5e7eb);
+        }
+
+        .provider-application-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .provider-application-action {
+            border: none;
+            border-radius: 8px;
+            padding: 11px 16px;
+            font: inherit;
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .provider-application-action.approve {
+            background: #15803d;
+        }
+
+        .provider-application-action.reject {
+            background: #b91c1c;
+        }
+
+        .provider-application-message {
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .provider-application-message.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .provider-application-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .provider-application-message.info {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .provider-application-empty {
+            text-align: center;
+            padding: 35px 20px;
+            border: 1px dashed var(--border-color, #cbd5e1);
+            border-radius: 12px;
+            line-height: 1.7;
+        }
+
+        .provider-applications-note {
+            margin-top: 22px;
+            font-size: 13px;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 760px) {
+            .provider-application-stats {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .provider-application-details {
+                grid-template-columns: 1fr;
+            }
+
+            .provider-application-card {
+                padding: 16px;
+            }
+
+            .provider-applications-toolbar {
+                align-items: stretch;
+            }
+
+            .provider-applications-refresh {
+                width: 100%;
+            }
+
+            .provider-applications-filters {
+                flex-direction: column;
+            }
+
+            .provider-applications-filters input,
+            .provider-applications-filters select {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body class="admin-dashboard-page admin-provider-applications-page">
+
+    <!-- ==================== HEADER ==================== -->
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+                <span class="brand-text">
+                    LocalEase
+                </span>
+            </a>
+
+            <div class="admin-header-label">
+
+                <span class="admin-header-dot"></span>
+
+                <span>
+                    Admin Panel
+                </span>
+
+            </div>
+
+            <nav class="main-navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="services.html"
+                    class="nav-link"
+                >
+                    Services
+                </a>
+
+                <a
+                    href="admin-dashboard.html"
+                    class="nav-link"
+                >
+                    Dashboard
+                </a>
+
+                <a
+                    href="admin-provider-applications.html"
+                    class="nav-link active"
+                    aria-current="page"
+                >
+                    Applications
+                </a>
+
+                <a
+                    href="profile.html"
+                    class="nav-link"
+                >
+                    Profile
+                </a>
+
+                <a
+                    href="login.html"
+                    class="nav-login-btn"
+                    onclick="logoutUser(); return false;"
+                >
+                    Logout
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+
+    <main>
+
+        <section class="provider-applications-container">
+
+            <div class="provider-applications-heading">
+
+                <h1>
+                    Provider Applications
+                </h1>
+
+                <p>
+                    Review provider applications, verify submitted details,
+                    and manage approval decisions for LocalEase.
+                </p>
+
+            </div>
+
+
+            <!-- ==================== APPLICATION STATISTICS ==================== -->
+
+            <div class="provider-application-stats">
+
+                <div class="provider-application-stat">
+                    <span>Total Applications</span>
+                    <strong id="applications-total">0</strong>
+                </div>
+
+                <div class="provider-application-stat">
+                    <span>Pending</span>
+                    <strong id="applications-pending">0</strong>
+                </div>
+
+                <div class="provider-application-stat">
+                    <span>Approved</span>
+                    <strong id="applications-approved">0</strong>
+                </div>
+
+                <div class="provider-application-stat">
+                    <span>Rejected</span>
+                    <strong id="applications-rejected">0</strong>
+                </div>
+
+            </div>
+
+
+            <!-- ==================== STATUS MESSAGES ==================== -->
+
+            <div
+                id="applications-message"
+                class="provider-application-message"
+                role="status"
+                aria-live="polite"
+                hidden
+            ></div>
+
+
+            <!-- ==================== APPLICATION FILTERS ==================== -->
+
+            <div class="provider-applications-toolbar">
+
+                <div class="provider-applications-filters">
+
+                    <input
+                        type="search"
+                        id="application-search"
+                        placeholder="Search name, email, service..."
+                        aria-label="Search provider applications"
+                    >
+
+                    <select
+                        id="application-status-filter"
+                        aria-label="Filter applications by status"
+                    >
+                        <option value="all">All Applications</option>
+                        <option value="pending">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="refresh-applications"
+                    class="provider-applications-refresh"
+                >
+                    Refresh Applications
+                </button>
+
+            </div>
+
+
+            <!-- ==================== APPLICATION LIST ==================== -->
+
+            <div
+                id="provider-application-list"
+                class="provider-application-list"
+                aria-live="polite"
+            >
+                <div class="provider-application-empty">
+                    Loading provider applications...
+                </div>
+            </div>
+
+
+            <p class="provider-applications-note">
+                Review each application carefully before making a decision.
+                Approving or rejecting an application changes its status.
+                Approval may also change the role of a linked customer account.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== FOOTER ==================== -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <h3>
+                LocalEase
+            </h3>
+
+            <p>
+                Connecting Customers with Trusted
+                Local Service Providers.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Platform
+            </h4>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="about.html">
+                About
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Admin
+            </h4>
+
+            <a href="admin-dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="admin-bookings.html">
+                Bookings
+            </a>
+
+            <a href="admin-services.html">
+                Services
+            </a>
+
+            <a href="admin-provider-applications.html">
+                Provider Applications
+            </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h4>
+                Account
+            </h4>
+
+            <a href="profile.html">
+                Profile
+            </a>
+
+            <a
+                href="login.html"
+                onclick="logoutUser(); return false;"
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <div class="footer-container">
+
+            <p>
+                © 2026 LocalEase. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="script.js"></script>
+
+    <script>
+        // ==================== PROVIDER APPLICATION MANAGEMENT ====================
+
+        const applicationsList =
+            document.getElementById("provider-application-list");
+
+        const applicationsMessage =
+            document.getElementById("applications-message");
+
+        const applicationsSearch =
+            document.getElementById("application-search");
+
+        const applicationsStatusFilter =
+            document.getElementById("application-status-filter");
+
+        const refreshApplicationsButton =
+            document.getElementById("refresh-applications");
+
+        let providerApplications = [];
+
+        const busyApplicationIds = new Set();
+
+
+        // ESCAPE HTML TO SAFELY DISPLAY USER-SUBMITTED CONTENT
+
+        function escapeApplicationHtml(value) {
+
+            return String(value ?? "").replace(
+                /[&<>"']/g,
+                function (character) {
+                    return {
+                        "&": "&amp;",
+                        "<": "&lt;",
+                        ">": "&gt;",
+                        '"': "&quot;",
+                        "'": "&#39;"
+                    }[character];
+                }
+            );
+
+        }
+
+
+        // AUTHORIZATION HEADERS
+
+        function getApplicationAuthHeaders() {
+
+            if (
+                typeof getAuthHeaders === "function"
+            ) {
+                return getAuthHeaders();
+            }
+
+            const token =
+                localStorage.getItem("localeaseToken");
+
+            const headers = {
+                "Content-Type": "application/json"
+            };
+
+            if (token) {
+                headers.Authorization =
+                    `Bearer ${token}`;
+            }
+
+            return headers;
+
+        }
+
+
+        // DISPLAY STATUS MESSAGE
+
+        function showApplicationsMessage(
+            message,
+            type = "info"
+        ) {
+
+            applicationsMessage.textContent =
+                message;
+
+            applicationsMessage.className =
+                `provider-application-message ${type}`;
+
+            applicationsMessage.hidden =
+                !message;
+
+        }
+
+
+        // FORMAT DATE
+
+        function formatApplicationDate(value) {
+
+            if (!value) {
+                return "Not available";
+            }
+
+            const date = new Date(value);
+
+            if (Number.isNaN(date.getTime())) {
+                return "Not available";
+            }
+
+            return date.toLocaleString("en-IN", {
+                dateStyle: "medium",
+                timeStyle: "short"
+            });
+
+        }
+
+
+        // UPDATE APPLICATION STATISTICS
+
+        function updateApplicationStatistics() {
+
+            const total =
+                providerApplications.length;
+
+            const pending =
+                providerApplications.filter(
+                    application =>
+                        application.status === "pending"
+                ).length;
+
+            const approved =
+                providerApplications.filter(
+                    application =>
+                        application.status === "approved"
+                ).length;
+
+            const rejected =
+                providerApplications.filter(
+                    application =>
+                        application.status === "rejected"
+                ).length;
+
+            document.getElementById(
+                "applications-total"
+            ).textContent = total;
+
+            document.getElementById(
+                "applications-pending"
+            ).textContent = pending;
+
+            document.getElementById(
+                "applications-approved"
+            ).textContent = approved;
+
+            document.getElementById(
+                "applications-rejected"
+            ).textContent = rejected;
+
+        }
+
+
+        // RENDER APPLICATIONS
+
+        function renderProviderApplications() {
+
+            const searchTerm =
+                applicationsSearch.value
+                    .trim()
+                    .toLowerCase();
+
+            const selectedStatus =
+                applicationsStatusFilter.value;
+
+            const filteredApplications =
+                providerApplications.filter(
+                    application => {
+
+                        const linkedUser =
+                            application.user &&
+                            typeof application.user === "object"
+                                ? application.user
+                                : null;
+
+                        const searchableText = [
+                            application.name,
+                            application.email,
+                            application.phone,
+                            application.location,
+                            application.serviceCategory,
+                            application.description,
+                            linkedUser?.name,
+                            linkedUser?.email
+                        ]
+                            .filter(Boolean)
+                            .join(" ")
+                            .toLowerCase();
+
+                        const matchesSearch =
+                            searchableText.includes(searchTerm);
+
+                        const matchesStatus =
+                            selectedStatus === "all" ||
+                            application.status === selectedStatus;
+
+                        return matchesSearch && matchesStatus;
+
+                    }
+                );
+
+            if (!filteredApplications.length) {
+
+                applicationsList.innerHTML = `
+                    <div class="provider-application-empty">
+                        <h3>No applications found</h3>
+                        <p>
+                            No applications match the selected filter
+                            or search term.
+                        </p>
+                    </div>
+                `;
+
+                return;
+
+            }
+
+            applicationsList.innerHTML =
+                filteredApplications.map(
+                    application => {
+
+                        const id =
+                            String(application._id || "");
+
+                        const status =
+                            String(application.status || "pending")
+                                .toLowerCase();
+
+                        const safeStatus =
+                            ["pending", "approved", "rejected"]
+                                .includes(status)
+                                    ? status
+                                    : "pending";
+
+                        const linkedUser =
+                            application.user &&
+                            typeof application.user === "object"
+                                ? application.user
+                                : null;
+
+                        const accountDescription =
+                            linkedUser
+                                ? `
+                                    <strong>Linked account</strong><br>
+                                    Name: ${
+                                        escapeApplicationHtml(
+                                            linkedUser.name || "Not available"
+                                        )
+                                    }<br>
+                                    Email: ${
+                                        escapeApplicationHtml(
+                                            linkedUser.email || "Not available"
+                                        )
+                                    }<br>
+                                    Role: ${
+                                        escapeApplicationHtml(
+                                            linkedUser.role || "Not available"
+                                        )
+                                    }<br>
+                                    Account status: ${
+                                        linkedUser.isActive === false
+                                            ? "Inactive"
+                                            : "Active"
+                                    }
+                                `
+                                : application.user
+                                    ? `
+                                        <strong>Account</strong><br>
+                                        A linked account ID exists, but
+                                        its details are unavailable.
+                                    `
+                                    : `
+                                        <strong>Guest application</strong><br>
+                                        No user account is linked to
+                                        this application yet.
+                                    `;
+
+                        const experience =
+                            application.experience !== undefined &&
+                            application.experience !== null
+                                ? `${escapeApplicationHtml(
+                                    application.experience
+                                )} years`
+                                : "Not provided";
+
+                        const price =
+                            application.price !== undefined &&
+                            application.price !== null &&
+                            application.price !== ""
+                                ? `₹${escapeApplicationHtml(
+                                    application.price
+                                )}`
+                                : "Not provided";
+
+                        const isBusy =
+                            busyApplicationIds.has(id);
+
+                        const actions =
+                            safeStatus === "pending"
+                                ? `
+                                    <div class="provider-application-actions">
+
+                                        <button
+                                            type="button"
+                                            class="provider-application-action approve"
+                                            data-application-action="approve"
+                                            data-application-id="${escapeApplicationHtml(id)}"
+                                            ${isBusy ? "disabled" : ""}
+                                        >
+                                            ${
+                                                isBusy
+                                                    ? "Processing..."
+                                                    : "Approve"
+                                            }
+                                        </button>
+
+                                        <button
+                                            type="button"
+                                            class="provider-application-action reject"
+                                            data-application-action="reject"
+                                            data-application-id="${escapeApplicationHtml(id)}"
+                                            ${isBusy ? "disabled" : ""}
+                                        >
+                                            ${
+                                                isBusy
+                                                    ? "Processing..."
+                                                    : "Reject"
+                                            }
+                                        </button>
+
+                                    </div>
+                                `
+                                : `
+                                    <span>
+                                        No further action available
+                                    </span>
+                                `;
+
+                        return `
+                            <article class="provider-application-card">
+
+                                <div class="provider-application-card-header">
+
+                                    <div>
+                                        <h2>
+                                            ${escapeApplicationHtml(
+                                                application.name ||
+                                                "Unnamed Applicant"
+                                            )}
+                                        </h2>
+
+                                        <div class="provider-application-email">
+                                            ${escapeApplicationHtml(
+                                                application.email ||
+                                                "No email provided"
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <span
+                                        class="provider-application-status ${safeStatus}"
+                                    >
+                                        ${escapeApplicationHtml(safeStatus)}
+                                    </span>
+
+                                </div>
+
+
+                                <div class="provider-application-details">
+
+                                    <div class="provider-application-detail">
+                                        <span>Phone</span>
+                                        <strong>
+                                            ${escapeApplicationHtml(
+                                                application.phone ||
+                                                "Not provided"
+                                            )}
+                                        </strong>
+                                    </div>
+
+                                    <div class="provider-application-detail">
+                                        <span>Service Category</span>
+                                        <strong>
+                                            ${escapeApplicationHtml(
+                                                application.serviceCategory ||
+                                                "Not provided"
+                                            )}
+                                        </strong>
+                                    </div>
+
+                                    <div class="provider-application-detail">
+                                        <span>Location</span>
+                                        <strong>
+                                            ${escapeApplicationHtml(
+                                                application.location ||
+                                                "Not provided"
+                                            )}
+                                        </strong>
+                                    </div>
+
+                                    <div class="provider-application-detail">
+                                        <span>Experience</span>
+                                        <strong>${experience}</strong>
+                                    </div>
+
+                                    <div class="provider-application-detail">
+                                        <span>Expected Price</span>
+                                        <strong>${price}</strong>
+                                    </div>
+
+                                    <div class="provider-application-detail">
+                                        <span>Submitted On</span>
+                                        <strong>
+                                            ${escapeApplicationHtml(
+                                                formatApplicationDate(
+                                                    application.createdAt
+                                                )
+                                            )}
+                                        </strong>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="provider-application-description">
+                                    <strong>Application Description</strong>
+                                    <p>
+                                        ${escapeApplicationHtml(
+                                            application.description ||
+                                            "No description provided."
+                                        )}
+                                    </p>
+                                </div>
+
+
+                                <div class="provider-application-account">
+                                    ${accountDescription}
+                                </div>
+
+
+                                <div class="provider-application-card-footer">
+
+                                    <span>
+                                        Application ID:
+                                        ${escapeApplicationHtml(id)}
+                                    </span>
+
+                                    ${actions}
+
+                                </div>
+
+                            </article>
+                        `;
+
+                    }
+                ).join("");
+
+        }
+
+
+        // LOAD PROVIDER APPLICATIONS
+
+        async function loadProviderApplications() {
+
+            refreshApplicationsButton.disabled = true;
+
+            applicationsList.innerHTML = `
+                <div class="provider-application-empty">
+                    Loading provider applications...
+                </div>
+            `;
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE_URL}/admin/provider-applications`,
+                        {
+                            method: "GET",
+
+                            headers:
+                                getApplicationAuthHeaders()
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok || !data.success) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to load provider applications."
+                    );
+
+                }
+
+                providerApplications =
+                    Array.isArray(data.applications)
+                        ? data.applications
+                        : [];
+
+                updateApplicationStatistics();
+
+                renderProviderApplications();
+
+            } catch (error) {
+
+                console.error(
+                    "Load provider applications error:",
+                    error
+                );
+
+                applicationsList.innerHTML = `
+                    <div class="provider-application-empty">
+                        <h3>Unable to load applications</h3>
+                        <p>
+                            ${escapeApplicationHtml(
+                                error.message ||
+                                "Please try again."
+                            )}
+                        </p>
+                    </div>
+                `;
+
+            } finally {
+
+                refreshApplicationsButton.disabled =
+                    false;
+
+            }
+
+        }
+
+
+        // APPROVE OR REJECT APPLICATION
+
+        async function updateProviderApplication(
+            applicationId,
+            action
+        ) {
+
+            const application =
+                providerApplications.find(
+                    item =>
+                        String(item._id) ===
+                        String(applicationId)
+                );
+
+            if (!application) {
+                showApplicationsMessage(
+                    "Application not found. Refresh and try again.",
+                    "error"
+                );
+                return;
+            }
+
+            if (
+                application.status !== "pending"
+            ) {
+                showApplicationsMessage(
+                    "Only pending applications can be updated.",
+                    "error"
+                );
+                return;
+            }
+
+            const actionLabel =
+                action === "approve"
+                    ? "approve"
+                    : "reject";
+
+            const confirmationMessage =
+                action === "approve"
+                    ? `Approve the application from ${application.name}? If linked to a customer account, approval may change that account's role to provider.`
+                    : `Reject the application from ${application.name}?`;
+
+            if (!window.confirm(confirmationMessage)) {
+                return;
+            }
+
+            busyApplicationIds.add(
+                String(applicationId)
+            );
+
+            renderProviderApplications();
+
+            showApplicationsMessage(
+                `Processing application: ${actionLabel}...`,
+                "info"
+            );
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_BASE_URL}/admin/provider-applications/${encodeURIComponent(
+                            applicationId
+                        )}/${action}`,
+                        {
+                            method: "PUT",
+
+                            headers:
+                                getApplicationAuthHeaders()
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok || !data.success) {
+
+                    throw new Error(
+                        data.message ||
+                        `Unable to ${actionLabel} application.`
+                    );
+
+                }
+
+                await loadProviderApplications();
+
+                showApplicationsMessage(
+                    data.message ||
+                    `Application ${action === "approve" ? "approved" : "rejected"} successfully.`,
+                    "success"
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Update provider application error:",
+                    error
+                );
+
+                showApplicationsMessage(
+                    error.message ||
+                    `Unable to ${actionLabel} application.`,
+                    "error"
+                );
+
+            } finally {
+
+                busyApplicationIds.delete(
+                    String(applicationId)
+                );
+
+                renderProviderApplications();
+
+            }
+
+        }
+
+
+        // APPLICATION ACTION BUTTON EVENTS
+
+        applicationsList.addEventListener(
+            "click",
+            function (event) {
+
+                const button =
+                    event.target.closest(
+                        "[data-application-action]"
+                    );
+
+                if (!button) {
+                    return;
+                }
+
+                if (button.disabled) {
+                    return;
+                }
+
+                const applicationId =
+                    button.dataset.applicationId;
+
+                const action =
+                    button.dataset.applicationAction;
+
+                if (
+                    action !== "approve" &&
+                    action !== "reject"
+                ) {
+                    return;
+                }
+
+                updateProviderApplication(
+                    applicationId,
+                    action
+                );
+
+            }
+        );
+
+
+        // FILTER AND REFRESH EVENTS
+
+        applicationsSearch.addEventListener(
+            "input",
+            renderProviderApplications
+        );
+
+        applicationsStatusFilter.addEventListener(
+            "change",
+            renderProviderApplications
+        );
+
+        refreshApplicationsButton.addEventListener(
+            "click",
+            loadProviderApplications
+        );
+
+
+        // INITIAL PAGE LOAD
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            loadProviderApplications
+        );
+
+    </script>
+
+</body>
+
+</html>

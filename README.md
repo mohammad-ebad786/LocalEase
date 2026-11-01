@@ -392,7 +392,7 @@ http://localhost:5000
 API endpoints are accessed under:
 
 ```text
-http://localhost:5000/api/
+https://localease-backend-jivb.onrender.com/api/
 ```
 
 ---

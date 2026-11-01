@@ -3,7 +3,12 @@
 
 // GLOBAL API CONFIGURATION
 
-const API_BASE_URL = "https://localease-backend-jivb.onrender.com/api";
+const API_BASE_URL = (
+    window.location.hostname === "localhost" ||
+    window.location.hostname === "127.0.0.1"
+)
+    ? "http://localhost:5000/api"
+    : "https://localease-backend-jivb.onrender.com/api";
 
 const TOKEN_KEY = "localeaseToken";
 const USER_KEY = "localeaseUser";
@@ -173,12 +178,13 @@ function clearAuthData() {
     }
 
     const adminPages = new Set([
-        "admin-dashboard.html",
-        "admin-users.html",
-        "admin-bookings.html",
-        "admin-services.html",
-        "admin-reviews.html"
-    ]);
+    "admin-dashboard.html",
+    "admin-users.html",
+    "admin-bookings.html",
+    "admin-services.html",
+    "admin-reviews.html",
+    "admin-provider-applications.html"
+]);
 
     const providerPages = new Set([
         "provider-dashboard.html",
@@ -14275,7 +14281,7 @@ function initializeProviderServicesPage() {
 
             const response =
                 await fetch(
-                    "https://localease-backend-jivb.onrender.com/api/services/provider/my-services",
+                    `${API_BASE_URL}/services/provider/my-services`,
                     {
                         headers: {
                             Authorization:
@@ -14440,8 +14446,8 @@ function initializeProviderServicesPage() {
 
                 const response = await fetch(
                     serviceId
-        ? `https://localease-backend-jivb.onrender.com/api/services/${serviceId}`
-        : "https://localease-backend-jivb.onrender.com/api/services",
+    ? `${API_BASE_URL}/services/${serviceId}`
+    : `${API_BASE_URL}/services`,
     {
         method: serviceId ? "PUT" : "POST",
         headers: {
@@ -14540,7 +14546,7 @@ await loadProviderServices();
 
                     const response =
                         await fetch(
-                            `https://localease-backend-jivb.onrender.com/api/services/${serviceId}`,
+                            `${API_BASE_URL}/services/${serviceId}`,
                             {
                                 headers: {
                                     Authorization:
@@ -14656,7 +14662,7 @@ await loadProviderServices();
 
                     const response =
                         await fetch(
-                            `https://localease-backend-jivb.onrender.com/api/services/${serviceId}`,
+                            `${API_BASE_URL}/services/${serviceId}`,
                             {
                                 method: "DELETE",
 
