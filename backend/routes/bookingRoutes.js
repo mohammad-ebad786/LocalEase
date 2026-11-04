@@ -108,6 +108,14 @@ router.post(
             // FIND ELIGIBLE PROVIDERS
             // ==================================================
 
+            const escapeRegex = (value) =>
+                value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+            const categoryRegex = new RegExp(
+                `^${escapeRegex(serviceData.category.trim())}$`,
+                "i"
+            );
+
             let eligibleProviders = [];
 
 
@@ -136,7 +144,7 @@ router.post(
                     await ProviderApplication.findOne({
                         user: provider,
                         serviceCategory:
-                            serviceData.category,
+                            categoryRegex,
                         status: "approved"
                     }).select("user");
 
@@ -206,7 +214,7 @@ router.post(
                     const approvedProviderApplications =
                         await ProviderApplication.find({
                             serviceCategory:
-                                serviceData.category,
+                                categoryRegex,
                             status: "approved",
                             user: {
                                 $ne: null
