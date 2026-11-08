@@ -648,348 +648,300 @@ if (loginForm) {
 }
 
 
-// FORGOT PASSWORD
+// FORGOT PASSWORD - PHONE OTP VERIFICATION
 
-const forgotPasswordLink =
-    document.querySelector(
-        '.login-options a[href="#"]'
-    );
+const forgotPasswordLink = document.getElementById("forgot-password-link");
+const forgotPasswordPanel = document.getElementById("forgot-password-panel");
+const loginFormElement = document.querySelector(".login-form");
 
+if (forgotPasswordLink && forgotPasswordPanel && loginFormElement) {
+    const resetEmailInput = document.getElementById("reset-email");
+    const resetOtpInput = document.getElementById("reset-otp");
+    const resetPasswordInput = document.getElementById("reset-new-password");
+    const resetConfirmInput = document.getElementById("reset-confirm-password");
+    const resetMessage = document.getElementById("password-reset-message");
+    const verifyFields = document.getElementById("password-reset-verify-fields");
+    const sendResetOtpButton = document.getElementById("send-reset-otp");
+    const verifyResetOtpButton = document.getElementById("verify-reset-otp");
+    const resendResetOtpButton = document.getElementById("resend-reset-otp");
+    const backToLoginButton = document.getElementById("back-to-login");
+    let resetOtpSent = false;
 
-if (forgotPasswordLink) {
+    function showResetMessage(message, isError = false) {
+        resetMessage.textContent = message;
+        resetMessage.style.color = isError ? "#b91c1c" : "";
+    }
 
-    forgotPasswordLink.addEventListener(
-        "click",
-        function (event) {
-
-            event.preventDefault();
-
-
-            alert(
-                "Password reset through email verification is not configured yet.\n\n" +
-                "For security, your password cannot be reset using email alone."
-            );
-
+    async function requestPasswordResetOtp() {
+        const email = resetEmailInput.value.trim().toLowerCase();
+        if (!email) {
+            showResetMessage("Please enter your registered email address.", true);
+            resetEmailInput.focus();
+            return;
         }
-    );
+        const button = sendResetOtpButton;
+        const previousText = button.textContent;
+        button.disabled = true;
+        button.textContent = "Sending...";
+        try {
+            const response = await fetch(`${API_BASE_URL}/auth/password-reset/send-otp`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email })
+            });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(data.message || "Unable to send OTP. Please try again.");
+            resetOtpSent = true;
+            verifyFields.hidden = false;
+            showResetMessage(data.message || "If an account exists, an OTP has been sent to its registered phone number.");
+            resetOtpInput.focus();
+        } catch (error) {
+            showResetMessage(error.message || "Unable to send OTP. Please try again.", true);
+        } finally {
+            button.disabled = false;
+            button.textContent = previousText;
+        }
+    }
+
+    forgotPasswordLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        const loginEmail = document.getElementById("email");
+        if (loginEmail && loginEmail.value.trim()) resetEmailInput.value = loginEmail.value.trim();
+        loginFormElement.hidden = true;
+        forgotPasswordPanel.hidden = false;
+        showResetMessage("Enter your registered email. We will send an OTP to the phone number linked to your account.");
+        resetEmailInput.focus();
+    });
+
+    sendResetOtpButton.addEventListener("click", requestPasswordResetOtp);
+    resendResetOtpButton.addEventListener("click", requestPasswordResetOtp);
+
+    verifyResetOtpButton.addEventListener("click", async function () {
+        const email = resetEmailInput.value.trim().toLowerCase();
+        const otp = resetOtpInput.value.trim();
+        const newPassword = resetPasswordInput.value;
+        const confirmPassword = resetConfirmInput.value;
+        if (!resetOtpSent) return showResetMessage("Please request an OTP first.", true);
+        if (!/^\d{6}$/.test(otp)) return showResetMessage("Please enter the 6-digit OTP.", true);
+        if (newPassword.length < 6) return showResetMessage("Password must be at least 6 characters.", true);
+        if (newPassword !== confirmPassword) return showResetMessage("Passwords do not match.", true);
+
+        verifyResetOtpButton.disabled = true;
+        verifyResetOtpButton.textContent = "Verifying...";
+        try {
+            const response = await fetch(`${API_BASE_URL}/auth/password-reset/verify-otp`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email, otp, newPassword })
+            });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok) throw new Error(data.message || "Password reset failed.");
+            showResetMessage(data.message || "Password reset successfully. Please log in.");
+            verifyFields.hidden = true;
+            sendResetOtpButton.hidden = true;
+            resetEmailInput.disabled = true;
+            resetOtpSent = false;
+            backToLoginButton.textContent = "Go to Login";
+        } catch (error) {
+            showResetMessage(error.message || "Password reset failed. Please try again.", true);
+        } finally {
+            verifyResetOtpButton.disabled = false;
+            verifyResetOtpButton.textContent = "Verify OTP & Reset Password";
+        }
+    });
+
+    backToLoginButton.addEventListener("click", function () {
+        forgotPasswordPanel.hidden = true;
+        loginFormElement.hidden = false;
+        verifyFields.hidden = true;
+        sendResetOtpButton.hidden = false;
+        resetEmailInput.disabled = false;
+        resetEmailInput.value = "";
+        resetOtpInput.value = "";
+        resetPasswordInput.value = "";
+        resetConfirmInput.value = "";
+        resetOtpSent = false;
+        backToLoginButton.textContent = "Back to Login";
+    });
 }
 
 
-// SIGNUP PAGE
+// SIGNUP PAGE WITH PHONE OTP VERIFICATION
 
-const signupForm =
-    document.querySelector(
-        ".signup-form"
-    );
-
+const signupForm = document.querySelector(".signup-form");
 
 if (signupForm) {
+    const otpPanel = document.getElementById("signup-otp-panel");
+    const otpInput = document.getElementById("signup-otp");
+    const otpMessage = document.getElementById("signup-otp-message");
+    const verifyOtpButton = document.getElementById("verify-signup-otp");
+    const resendOtpButton = document.getElementById("resend-signup-otp");
+    const changeDetailsButton = document.getElementById("change-signup-details");
+    const signupButton = signupForm.querySelector('button[type="submit"]');
+    const originalButtonText = signupButton ? signupButton.textContent : "Create Account";
+    const formSections = Array.from(signupForm.querySelectorAll(".form-group, .terms-group"));
+    let pendingSignupPayload = null;
+    let otpRequestInProgress = false;
 
-    signupForm.addEventListener(
-        "submit",
-        async function (event) {
+    function showOtpPanel(message) {
+        formSections.forEach((section) => { section.hidden = true; });
+        if (signupButton) signupButton.hidden = true;
+        if (otpPanel) otpPanel.hidden = false;
+        if (otpMessage) otpMessage.textContent = message;
+        if (otpInput) otpInput.focus();
+    }
 
-            event.preventDefault();
+    function restoreSignupForm() {
+        formSections.forEach((section) => { section.hidden = false; });
+        if (signupButton) {
+            signupButton.hidden = false;
+            signupButton.disabled = false;
+            signupButton.textContent = originalButtonText;
+        }
+        if (otpPanel) otpPanel.hidden = true;
+        if (otpInput) otpInput.value = "";
+        pendingSignupPayload = null;
+    }
 
+    async function requestSignupOtp(isResend = false) {
+        if (!pendingSignupPayload || otpRequestInProgress) return;
+        otpRequestInProgress = true;
+        if (resendOtpButton) {
+            resendOtpButton.disabled = true;
+            resendOtpButton.textContent = "Sending...";
+        }
+        if (otpMessage) otpMessage.textContent = "Sending verification code...";
 
-            const nameElement =
-                document.getElementById(
-                    "name"
-                );
+        try {
+            const response = await fetch(API_BASE_URL + "/auth/signup/send-otp", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(pendingSignupPayload)
+            });
+            const data = await getApiResponse(response);
+            if (!data.success) throw new Error(data.message || "Unable to send OTP.");
+            showOtpPanel(isResend
+                ? "A new OTP request has been accepted. Check your phone."
+                : "OTP request accepted. Check your phone and enter the 6-digit code.");
+        } catch (error) {
+            if (otpMessage) otpMessage.textContent = error.message || "Unable to send OTP.";
+            if (!isResend) restoreSignupForm();
+        } finally {
+            otpRequestInProgress = false;
+            if (resendOtpButton) {
+                resendOtpButton.disabled = false;
+                resendOtpButton.textContent = "Resend OTP";
+            }
+            if (signupButton && !pendingSignupPayload) signupButton.textContent = originalButtonText;
+        }
+    }
 
+    signupForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        if (pendingSignupPayload) return;
 
-            const emailElement =
-                document.getElementById(
-                    "email"
-                );
+        const nameElement = document.getElementById("name");
+        const emailElement = document.getElementById("email");
+        const phoneElement = document.getElementById("phone");
+        const locationInput = document.getElementById("location");
+        const passwordElement = document.getElementById("password");
+        const confirmPasswordElement = document.getElementById("confirm-password");
+        const accountTypeElement = document.getElementById("account-type");
 
+        if (!nameElement || !emailElement || !phoneElement || !passwordElement || !confirmPasswordElement || !accountTypeElement) {
+            alert("Signup form fields are missing.");
+            return;
+        }
 
-            const phoneElement =
-                document.getElementById(
-                    "phone"
-                );
+        const name = nameElement.value.trim();
+        const email = emailElement.value.trim().toLowerCase();
+        const phone = phoneElement.value.trim();
+        const location = locationInput ? locationInput.value.trim() : "";
+        const password = passwordElement.value;
+        const confirmPassword = confirmPasswordElement.value;
+        const termsCheckbox = document.querySelector('input[name="terms"]');
 
+        if (!name || !email || !phone || !password || !confirmPassword || !accountTypeElement.value) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+        if (locationInput && !location) {
+            alert("Please enter your location.");
+            locationInput.focus();
+            return;
+        }
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters.");
+            return;
+        }
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+        if (termsCheckbox && !termsCheckbox.checked) {
+            alert("Please agree to the Terms & Conditions.");
+            return;
+        }
+        const normalizedPhoneInput = phone.replace(/[\s()\-]/g, "");
+        if (!/^(?:\+91)?[6-9]\d{9}$/.test(normalizedPhoneInput)) {
+            alert("Please enter a valid 10-digit Indian mobile number, optionally with +91.");
+            phoneElement.focus();
+            return;
+        }
 
-            const locationInput =
-                document.getElementById(
-                    "location"
-                );
+        pendingSignupPayload = { name, email, phone, location, password };
+        if (signupButton) {
+            signupButton.disabled = true;
+            signupButton.textContent = "Sending OTP...";
+        }
+        await requestSignupOtp(false);
+    });
 
-
-            const passwordElement =
-                document.getElementById(
-                    "password"
-                );
-
-
-            const confirmPasswordElement =
-                document.getElementById(
-                    "confirm-password"
-                );
-
-
-            const accountTypeElement =
-                document.getElementById(
-                    "account-type"
-                );
-
-
-            if (
-                !nameElement ||
-                !emailElement ||
-                !phoneElement ||
-                !passwordElement ||
-                !confirmPasswordElement ||
-                !accountTypeElement
-            ) {
-
-                alert(
-                    "Signup form fields are missing."
-                );
-
+    if (verifyOtpButton) {
+        verifyOtpButton.addEventListener("click", async function () {
+            if (!pendingSignupPayload) return;
+            const otp = otpInput ? otpInput.value.trim() : "";
+            if (!/^\d{6}$/.test(otp)) {
+                if (otpMessage) otpMessage.textContent = "Please enter the 6-digit OTP.";
+                if (otpInput) otpInput.focus();
                 return;
             }
-
-
-            const name =
-                nameElement.value.trim();
-
-
-            const email =
-                emailElement.value
-                    .trim()
-                    .toLowerCase();
-
-
-            const phone =
-            phoneElement.value.trim();
-
-            const location =
-            locationInput
-            ? locationInput.value.trim()
-            : "";
-
-            const password =
-            passwordElement.value;
-
-
-            const confirmPassword =
-                confirmPasswordElement.value;
-
-
-            const accountType =
-                accountTypeElement.value;
-
-
-            const termsCheckbox =
-                document.querySelector(
-                    'input[name="terms"]'
-                );
-
-
-            // BASIC FORM VALIDATION
-
-            if (
-                !name ||
-                !email ||
-                !phone ||
-                !password ||
-                !confirmPassword ||
-                !accountType
-            ) {
-
-                alert(
-                    "Please fill in all required fields."
-                );
-
-                return;
-            }
-
-
-            // LOCATION VALIDATION
-
-            if (
-                locationInput &&
-                !locationInput.value.trim()
-            ) {
-
-                alert(
-                    "Please enter your location."
-                );
-
-                locationInput.focus();
-
-                return;
-            }
-
-
-            // PASSWORD VALIDATION
-
-            if (
-                password.length < 6
-            ) {
-
-                alert(
-                    "Password must be at least 6 characters."
-                );
-
-                return;
-            }
-
-
-            if (
-                password !==
-                confirmPassword
-            ) {
-
-                alert(
-                    "Passwords do not match!"
-                );
-
-                return;
-            }
-
-
-            // TERMS AND CONDITIONS VALIDATION
-
-            if (
-                termsCheckbox &&
-                !termsCheckbox.checked
-            ) {
-
-                alert(
-                    "Please agree to the Terms & Conditions."
-                );
-
-                return;
-            }
-
-
-            // PHONE NUMBER VALIDATION
-
-            const phonePattern =
-                /^[0-9+\-\s()]{10,15}$/;
-
-
-            if (
-                !phonePattern.test(
-                    phone
-                )
-            ) {
-
-                alert(
-                    "Please enter a valid phone number."
-                );
-
-                return;
-            }
-
-
-            // SUBMIT BUTTON STATE
-
-            const signupButton =
-                signupForm.querySelector(
-                    'button[type="submit"]'
-                );
-
-
-            const originalButtonText =
-                signupButton
-                    ? signupButton.textContent
-                    : "Create Account";
-
-
-            if (signupButton) {
-
-                signupButton.disabled =
-                    true;
-
-                signupButton.textContent =
-                    "Creating Account...";
-            }
-
-
+            verifyOtpButton.disabled = true;
+            verifyOtpButton.textContent = "Verifying...";
             try {
-
-                // The current signup endpoint creates
-
-                const response =
-    await fetch(
-        API_BASE_URL +
-        "/auth/signup",
-        {
-            method: "POST",
-
-            headers: {
-                "Content-Type":
-                    "application/json"
-            },
-
-            body:
-                JSON.stringify({
-                    name,
-                    email,
-                    phone,
-                    location,
-                    password
-                })
-        }
-    );
-
-
-                const data =
-                    await getApiResponse(
-                        response
-                    );
-
-
-                if (!data.success) {
-
-                    throw new Error(
-                        data.message ||
-                        "Account creation failed."
-                    );
-                }
-
-
-                alert(
-                    "Account created successfully!\n\n" +
-                    "Welcome to LocalEase, " +
-                    name +
-                    "!"
-                );
-
-
-                window.location.href =
-                    "login.html";
-
+                const response = await fetch(API_BASE_URL + "/auth/signup/verify-otp", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: pendingSignupPayload.email,
+                        phone: pendingSignupPayload.phone,
+                        otp
+                    })
+                });
+                const data = await getApiResponse(response);
+                if (!data.success) throw new Error(data.message || "OTP verification failed.");
+                alert("Phone verified and account created successfully!\n\nWelcome to LocalEase, " + pendingSignupPayload.name + "!");
+                window.location.href = "login.html";
             } catch (error) {
-
-                console.error(
-                    "Signup error:",
-                    error
-                );
-
-
-                alert(
-                    error.message ||
-                    "Unable to create account. Please try again."
-                );
-
+                if (otpMessage) otpMessage.textContent = error.message || "OTP verification failed.";
             } finally {
-
-                if (signupButton) {
-
-                    signupButton.disabled =
-                        false;
-
-                    signupButton.textContent =
-                        originalButtonText;
-                }
+                verifyOtpButton.disabled = false;
+                verifyOtpButton.textContent = "Verify & Create Account";
             }
+        });
+    }
 
-        }
-    );
+    if (resendOtpButton) {
+        resendOtpButton.addEventListener("click", () => requestSignupOtp(true));
+    }
+    if (changeDetailsButton) {
+        changeDetailsButton.addEventListener("click", restoreSignupForm);
+    }
+    if (otpInput) {
+        otpInput.addEventListener("input", () => {
+            otpInput.value = otpInput.value.replace(/\D/g, "").slice(0, 6);
+        });
+    }
 }
 
 

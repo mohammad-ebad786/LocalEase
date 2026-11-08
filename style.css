@@ -55451,3 +55451,139 @@ span:last-child {
     color: #991B1B;
     border: 1px solid #F87171;
 }
+
+/* PASSWORD RESET OTP PANEL */
+.login-page .forgot-password-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 18px;
+}
+.login-page .forgot-password-panel[hidden],
+.login-page #password-reset-verify-fields[hidden] {
+    display: none;
+}
+.login-page .forgot-password-panel h3 {
+    margin: 0;
+    color: var(--login-text);
+    font-size: 20px;
+}
+.login-page .forgot-password-panel p {
+    margin: 0;
+    color: var(--login-text-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+.login-page .forgot-password-panel .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.login-page .forgot-password-panel .form-group label {
+    color: var(--login-text);
+    font-size: 12px;
+    font-weight: 750;
+}
+.login-page .forgot-password-panel .form-group input {
+    width: 100%;
+    min-height: 49px;
+    padding: 0 14px;
+    color: var(--login-text);
+    background: #ffffff;
+    border: 1px solid var(--login-border);
+    border-radius: 12px;
+    outline: none;
+    font-size: 13px;
+}
+.login-page .reset-secondary-btn {
+    min-height: 40px;
+    padding: 8px 12px;
+    color: var(--login-primary);
+    background: transparent;
+    border: 1px solid var(--login-border);
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.login-page .reset-secondary-btn:disabled,
+.login-page .forgot-password-panel .login-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+
+/* SIGNUP PHONE OTP VERIFICATION */
+.signup-page .signup-otp-panel {
+    display: grid;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 20px;
+    border: 1px solid var(--signup-border);
+    border-radius: 14px;
+    background: #f8fafc;
+}
+
+.signup-page .signup-otp-panel[hidden] {
+    display: none;
+}
+
+.signup-page .signup-otp-panel h3 {
+    margin: 0;
+    color: var(--signup-text);
+    font-size: 18px;
+}
+
+.signup-page .signup-otp-panel p {
+    margin: 0;
+    color: var(--signup-text-muted);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.signup-page .signup-otp-panel label {
+    color: var(--signup-text);
+    font-size: 11px;
+    font-weight: 750;
+}
+
+.signup-page .signup-otp-panel input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--signup-border);
+    border-radius: 11px;
+    background: #fff;
+    color: var(--signup-text);
+    font-size: 18px;
+    letter-spacing: 7px;
+    text-align: center;
+}
+
+.signup-page .signup-otp-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.signup-page .signup-otp-actions button {
+    border: 0;
+    background: transparent;
+    color: var(--signup-primary);
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.signup-page .signup-otp-actions button:disabled,
+.signup-page .signup-otp-panel .signup-btn:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+@media (max-width: 560px) {
+    .signup-page .signup-otp-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
